@@ -30,18 +30,19 @@ namespace Caro_Nhom8
         private void btn_Login_Click_1(object sender, EventArgs e)
         {
             OpenInfo();
-            lb_Welcome.Text = "Welcome " + txt_Name.TextButton;
+            lb_Welcome.Text = "Welcome " + txt_Login_ID.TextButton;
         }
-
-        private void btn_SignUp_Click(object sender, EventArgs e)
+        private void btn_Open_SignUp_Click(object sender, EventArgs e)
         {
             OpenSignUp();
 
         }
-        private void lb_ForgetPassword_Click(object sender, EventArgs e)
+        private void lb_Open_ForgetPW_Click(object sender, EventArgs e)
         {
             OpenForgetPassword();
+
         }
+        
         #endregion
     }
 }

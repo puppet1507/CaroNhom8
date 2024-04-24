@@ -27,7 +27,7 @@ namespace Caro_Nhom8
         {
             this.Invoke((MethodInvoker)delegate
             {
-                client = new SimpleTcpClient(txt_IPClient.TextButton,int.Parse(txt_PortClient.TextButton));
+                client = new SimpleTcpClient(txt_ClientInfo_IP.TextButton,int.Parse(txt_ClientInfo_Port.TextButton));
                 client.Events.Connected += Client_Events_Connected;
                 client.Events.Disconnected += Client_Events_Disconnected;
                 client.Events.DataSent += Client_Events_DataSent;
