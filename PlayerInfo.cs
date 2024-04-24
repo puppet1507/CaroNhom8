@@ -21,7 +21,8 @@ namespace Caro_Nhom8
             grb_Info.Visible = true;
             grb_Waiting.Visible = false;
             grb_ClientInfo.Visible = false;
-            grb_BattleInfo.Visible = false;
+            grb_ComputerInfo.Visible = false;
+            grb_ServerInfo.Visible = false;
             grb_ForgetPassword.Visible = false;
             grb_ChangePassword.Visible = false;
             panel_PlayArea.Dock = DockStyle.None;
@@ -29,11 +30,8 @@ namespace Caro_Nhom8
         }
         private void btn_PlayWithAI_Click(object sender, EventArgs e)
         {
-            grs!.Clear(fpanel_Board.BackColor);
-            caroChess!.StartPvC(grs!);
-            tmCoolDown.Start();
-            prcbCoolDown.Value = 0;
-            OpenPlayArea();
+            OpenComputerInfo();
+            
         }
         private void btn_CreateRoom_Click(object sender, EventArgs e)
         {

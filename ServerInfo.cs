@@ -13,15 +13,16 @@ namespace Caro_Nhom8
         void OpenServerInfo()
         {
             this.Size = new Size(755, 658);
-            grb_BattleInfo.Size = new Size(726, 601);
-            grb_BattleInfo.Location = new Point(6, 6);
+            grb_ServerInfo.Size = new Size(726, 601);
+            grb_ServerInfo.Location = new Point(6, 6);
             lb_BattleInfo_Notify.Visible = false;
             grb_Login.Visible = false;
             grb_SignUp.Visible = false;
             grb_Info.Visible = false;
             grb_Waiting.Visible = false;
             grb_ClientInfo.Visible = false;
-            grb_BattleInfo.Visible = true;
+            grb_ComputerInfo.Visible = false;
+            grb_ServerInfo.Visible = true;
             grb_ForgetPassword.Visible = false;
             grb_ChangePassword.Visible = false;
             panel_PlayArea.Dock = DockStyle.None;
@@ -32,7 +33,7 @@ namespace Caro_Nhom8
             this.Invoke((MethodInvoker)delegate
             {
                 OPenWaiting();
-                server = new SimpleTcpServer("127.0.0.1", int.Parse(txt_ServerPort.TextButton));
+                server = new SimpleTcpServer("127.0.0.1", int.Parse(txt_PVP_ServerPort.TextButton));
                 server.Start();
                 server.Events.ClientConnected += Server_Events_ClientConnected;
                 server.Events.ClientDisconnected += Server_Events_ClientDisconnected;
@@ -42,12 +43,11 @@ namespace Caro_Nhom8
 
             });
         }
-
-        private void btn_CancelBattleInfo_Click(object sender, EventArgs e)
+        private void btn_CancelCreateServer_Click(object sender, EventArgs e)
         {
             OpenInfo();
+
         }
-        
         #endregion
     }
 }

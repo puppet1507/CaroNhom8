@@ -17,7 +17,8 @@ namespace Caro_Nhom8
             grb_Info.Visible = false;
             grb_Waiting.Visible = false;
             grb_ClientInfo.Visible = true;
-            grb_BattleInfo.Visible = false;
+            grb_ComputerInfo.Visible = false;
+            grb_ServerInfo.Visible = false;
             grb_ForgetPassword.Visible = false;
             grb_ChangePassword.Visible = false;
             panel_PlayArea.Dock = DockStyle.None;

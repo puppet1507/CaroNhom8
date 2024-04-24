@@ -37,9 +37,14 @@ namespace Caro_Nhom8
         {
             this.Size = new Size(1207, 945);
             grb_Login.Visible = false;
+            grb_SignUp.Visible = false;
             grb_Info.Visible = false;
             grb_Waiting.Visible = false;
             grb_ClientInfo.Visible = false;
+            grb_ComputerInfo.Visible = false;
+            grb_ServerInfo.Visible = false;
+            grb_ForgetPassword.Visible = false;
+            grb_ChangePassword.Visible = false;
             panel_PlayArea.Dock = DockStyle.Fill;
             panel_PlayArea.Visible = true;
         }
@@ -47,16 +52,6 @@ namespace Caro_Nhom8
         #endregion
 
         #region LoginForm_Btn_Click_Methods
-
-
-
-
-
-
-
-
-
-
         private void btn_Undo_Click(object sender, EventArgs e)
         {
             caroChess.Undo(grs);

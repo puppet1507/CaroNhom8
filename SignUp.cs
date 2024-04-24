@@ -11,13 +11,14 @@ namespace Caro_Nhom8
             this.Size = new Size(755, 658);
             grb_SignUp.Size = new Size(726, 601);
             grb_SignUp.Location = new Point(6, 6);
+            lb_SignUp_Notify.Visible = false;
             grb_Login.Visible = false;
             grb_SignUp.Visible = true;
-            lb_SignUp_Notify.Visible = false;
             grb_Info.Visible = false;
             grb_Waiting.Visible = false;
             grb_ClientInfo.Visible = false;
-            grb_BattleInfo.Visible = false;
+            grb_ComputerInfo.Visible = false;
+            grb_ServerInfo.Visible = false;
             grb_ForgetPassword.Visible = false;
             grb_ChangePassword.Visible = false;
             panel_PlayArea.Dock = DockStyle.None;

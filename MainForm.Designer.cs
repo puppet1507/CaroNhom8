@@ -110,15 +110,15 @@
             ID = new Label();
             btn_ConfirmSignUp = new ReaLTaiizor.Controls.HopeRoundButton();
             btn_ExitSignUp = new ReaLTaiizor.Controls.HopeRoundButton();
-            grb_BattleInfo = new GroupBox();
+            grb_ServerInfo = new GroupBox();
             lb_BattleInfo_Notify = new Label();
-            cbx_BoardSize = new ReaLTaiizor.Controls.SkyComboBox();
-            cbx_TurnTime = new ReaLTaiizor.Controls.SkyComboBox();
+            cbx_PVP_BoardSize = new ReaLTaiizor.Controls.SkyComboBox();
+            cbx_PVP_TurnTime = new ReaLTaiizor.Controls.SkyComboBox();
             label8 = new Label();
             label7 = new Label();
             label6 = new Label();
-            txt_ServerPort = new ReaLTaiizor.Controls.CyberTextBox();
-            btn_CancelBattleInfo = new ReaLTaiizor.Controls.HopeRoundButton();
+            txt_PVP_ServerPort = new ReaLTaiizor.Controls.CyberTextBox();
+            btn_CancelCreateServer = new ReaLTaiizor.Controls.HopeRoundButton();
             btn_ContinueCreateServer = new ReaLTaiizor.Controls.HopeRoundButton();
             grb_ForgetPassword = new GroupBox();
             lb_ForgetPassword_Notify = new Label();
@@ -141,6 +141,13 @@
             label18 = new Label();
             txt_ChangePW_NewPW = new ReaLTaiizor.Controls.CyberTextBox();
             label17 = new Label();
+            grb_ComputerInfo = new GroupBox();
+            cbx_PVC_SizeBoard = new ReaLTaiizor.Controls.SkyComboBox();
+            cbx_PVC_TurnTime = new ReaLTaiizor.Controls.SkyComboBox();
+            label15 = new Label();
+            label20 = new Label();
+            btn_PVC_Cancel = new ReaLTaiizor.Controls.HopeRoundButton();
+            btn_PVC_Start = new ReaLTaiizor.Controls.HopeRoundButton();
             grb_Login.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox4).BeginInit();
@@ -161,9 +168,10 @@
             grb_Undo_Redo.SuspendLayout();
             grb_SignUp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picbox_SignUp_Avatar).BeginInit();
-            grb_BattleInfo.SuspendLayout();
+            grb_ServerInfo.SuspendLayout();
             grb_ForgetPassword.SuspendLayout();
             grb_ChangePassword.SuspendLayout();
+            grb_ComputerInfo.SuspendLayout();
             SuspendLayout();
             // 
             // grb_Login
@@ -1460,26 +1468,26 @@
             btn_ExitSignUp.WarningColor = Color.FromArgb(230, 162, 60);
             btn_ExitSignUp.Click += btn_ExitSignUp_Click;
             // 
-            // grb_BattleInfo
+            // grb_ServerInfo
             // 
-            grb_BattleInfo.BackColor = Color.FromArgb(12, 20, 29);
-            grb_BattleInfo.Controls.Add(lb_BattleInfo_Notify);
-            grb_BattleInfo.Controls.Add(cbx_BoardSize);
-            grb_BattleInfo.Controls.Add(cbx_TurnTime);
-            grb_BattleInfo.Controls.Add(label8);
-            grb_BattleInfo.Controls.Add(label7);
-            grb_BattleInfo.Controls.Add(label6);
-            grb_BattleInfo.Controls.Add(txt_ServerPort);
-            grb_BattleInfo.Controls.Add(btn_CancelBattleInfo);
-            grb_BattleInfo.Controls.Add(btn_ContinueCreateServer);
-            grb_BattleInfo.ForeColor = Color.White;
-            grb_BattleInfo.Location = new Point(12, 26);
-            grb_BattleInfo.Name = "grb_BattleInfo";
-            grb_BattleInfo.Size = new Size(64, 70);
-            grb_BattleInfo.TabIndex = 15;
-            grb_BattleInfo.TabStop = false;
-            grb_BattleInfo.Text = "Tạo phòng";
-            grb_BattleInfo.Visible = false;
+            grb_ServerInfo.BackColor = Color.FromArgb(12, 20, 29);
+            grb_ServerInfo.Controls.Add(lb_BattleInfo_Notify);
+            grb_ServerInfo.Controls.Add(cbx_PVP_BoardSize);
+            grb_ServerInfo.Controls.Add(cbx_PVP_TurnTime);
+            grb_ServerInfo.Controls.Add(label8);
+            grb_ServerInfo.Controls.Add(label7);
+            grb_ServerInfo.Controls.Add(label6);
+            grb_ServerInfo.Controls.Add(txt_PVP_ServerPort);
+            grb_ServerInfo.Controls.Add(btn_CancelCreateServer);
+            grb_ServerInfo.Controls.Add(btn_ContinueCreateServer);
+            grb_ServerInfo.ForeColor = Color.White;
+            grb_ServerInfo.Location = new Point(12, 20);
+            grb_ServerInfo.Name = "grb_ServerInfo";
+            grb_ServerInfo.Size = new Size(58, 82);
+            grb_ServerInfo.TabIndex = 15;
+            grb_ServerInfo.TabStop = false;
+            grb_ServerInfo.Text = "Tạo phòng PVP";
+            grb_ServerInfo.Visible = false;
             // 
             // lb_BattleInfo_Notify
             // 
@@ -1491,75 +1499,75 @@
             lb_BattleInfo_Notify.TabIndex = 32;
             lb_BattleInfo_Notify.Text = "Thông báo:";
             // 
-            // cbx_BoardSize
+            // cbx_PVP_BoardSize
             // 
-            cbx_BoardSize.BackColor = Color.Transparent;
-            cbx_BoardSize.BGColorA = Color.FromArgb(245, 245, 245);
-            cbx_BoardSize.BGColorB = Color.FromArgb(230, 230, 230);
-            cbx_BoardSize.BorderColorA = Color.FromArgb(252, 252, 252);
-            cbx_BoardSize.BorderColorB = Color.FromArgb(249, 249, 249);
-            cbx_BoardSize.BorderColorC = Color.FromArgb(189, 189, 189);
-            cbx_BoardSize.BorderColorD = Color.FromArgb(200, 168, 168, 168);
-            cbx_BoardSize.DrawMode = DrawMode.OwnerDrawFixed;
-            cbx_BoardSize.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbx_BoardSize.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            cbx_BoardSize.ForeColor = Color.FromArgb(27, 94, 137);
-            cbx_BoardSize.FormattingEnabled = true;
-            cbx_BoardSize.ItemHeight = 25;
-            cbx_BoardSize.ItemHighlightColor = Color.FromArgb(121, 176, 214);
-            cbx_BoardSize.Items.AddRange(new object[] { "8x8", "9x9", "10x10", "16x16", "20x20" });
-            cbx_BoardSize.LineColorA = Color.White;
-            cbx_BoardSize.LineColorB = Color.FromArgb(189, 189, 189);
-            cbx_BoardSize.LineColorC = Color.White;
-            cbx_BoardSize.ListBackColor = Color.FromArgb(255, 255, 255);
-            cbx_BoardSize.ListBorderColor = Color.FromArgb(50, 0, 0, 0);
-            cbx_BoardSize.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
-            cbx_BoardSize.ListForeColor = Color.Black;
-            cbx_BoardSize.ListSelectedBackColorA = Color.FromArgb(15, 255, 255, 255);
-            cbx_BoardSize.ListSelectedBackColorB = Color.FromArgb(0, 255, 255, 255);
-            cbx_BoardSize.Location = new Point(160, 177);
-            cbx_BoardSize.Name = "cbx_BoardSize";
-            cbx_BoardSize.Size = new Size(390, 31);
-            cbx_BoardSize.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            cbx_BoardSize.StartIndex = 0;
-            cbx_BoardSize.TabIndex = 25;
-            cbx_BoardSize.TriangleColorA = Color.FromArgb(121, 176, 214);
-            cbx_BoardSize.TriangleColorB = Color.FromArgb(27, 94, 137);
+            cbx_PVP_BoardSize.BackColor = Color.Transparent;
+            cbx_PVP_BoardSize.BGColorA = Color.FromArgb(245, 245, 245);
+            cbx_PVP_BoardSize.BGColorB = Color.FromArgb(230, 230, 230);
+            cbx_PVP_BoardSize.BorderColorA = Color.FromArgb(252, 252, 252);
+            cbx_PVP_BoardSize.BorderColorB = Color.FromArgb(249, 249, 249);
+            cbx_PVP_BoardSize.BorderColorC = Color.FromArgb(189, 189, 189);
+            cbx_PVP_BoardSize.BorderColorD = Color.FromArgb(200, 168, 168, 168);
+            cbx_PVP_BoardSize.DrawMode = DrawMode.OwnerDrawFixed;
+            cbx_PVP_BoardSize.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbx_PVP_BoardSize.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            cbx_PVP_BoardSize.ForeColor = Color.FromArgb(27, 94, 137);
+            cbx_PVP_BoardSize.FormattingEnabled = true;
+            cbx_PVP_BoardSize.ItemHeight = 25;
+            cbx_PVP_BoardSize.ItemHighlightColor = Color.FromArgb(121, 176, 214);
+            cbx_PVP_BoardSize.Items.AddRange(new object[] { "8x8", "9x9", "10x10", "16x16", "20x20" });
+            cbx_PVP_BoardSize.LineColorA = Color.White;
+            cbx_PVP_BoardSize.LineColorB = Color.FromArgb(189, 189, 189);
+            cbx_PVP_BoardSize.LineColorC = Color.White;
+            cbx_PVP_BoardSize.ListBackColor = Color.FromArgb(255, 255, 255);
+            cbx_PVP_BoardSize.ListBorderColor = Color.FromArgb(50, 0, 0, 0);
+            cbx_PVP_BoardSize.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
+            cbx_PVP_BoardSize.ListForeColor = Color.Black;
+            cbx_PVP_BoardSize.ListSelectedBackColorA = Color.FromArgb(15, 255, 255, 255);
+            cbx_PVP_BoardSize.ListSelectedBackColorB = Color.FromArgb(0, 255, 255, 255);
+            cbx_PVP_BoardSize.Location = new Point(160, 177);
+            cbx_PVP_BoardSize.Name = "cbx_PVP_BoardSize";
+            cbx_PVP_BoardSize.Size = new Size(390, 31);
+            cbx_PVP_BoardSize.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            cbx_PVP_BoardSize.StartIndex = 0;
+            cbx_PVP_BoardSize.TabIndex = 25;
+            cbx_PVP_BoardSize.TriangleColorA = Color.FromArgb(121, 176, 214);
+            cbx_PVP_BoardSize.TriangleColorB = Color.FromArgb(27, 94, 137);
             // 
-            // cbx_TurnTime
+            // cbx_PVP_TurnTime
             // 
-            cbx_TurnTime.BackColor = Color.Transparent;
-            cbx_TurnTime.BGColorA = Color.FromArgb(245, 245, 245);
-            cbx_TurnTime.BGColorB = Color.FromArgb(230, 230, 230);
-            cbx_TurnTime.BorderColorA = Color.FromArgb(252, 252, 252);
-            cbx_TurnTime.BorderColorB = Color.FromArgb(249, 249, 249);
-            cbx_TurnTime.BorderColorC = Color.FromArgb(189, 189, 189);
-            cbx_TurnTime.BorderColorD = Color.FromArgb(200, 168, 168, 168);
-            cbx_TurnTime.DrawMode = DrawMode.OwnerDrawFixed;
-            cbx_TurnTime.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbx_TurnTime.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            cbx_TurnTime.ForeColor = Color.FromArgb(27, 94, 137);
-            cbx_TurnTime.FormattingEnabled = true;
-            cbx_TurnTime.ItemHeight = 25;
-            cbx_TurnTime.ItemHighlightColor = Color.FromArgb(121, 176, 214);
-            cbx_TurnTime.Items.AddRange(new object[] { "10 giây", "15 giây", "20 giây" });
-            cbx_TurnTime.LineColorA = Color.White;
-            cbx_TurnTime.LineColorB = Color.FromArgb(189, 189, 189);
-            cbx_TurnTime.LineColorC = Color.White;
-            cbx_TurnTime.ListBackColor = Color.FromArgb(255, 255, 255);
-            cbx_TurnTime.ListBorderColor = Color.FromArgb(50, 0, 0, 0);
-            cbx_TurnTime.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
-            cbx_TurnTime.ListForeColor = Color.Black;
-            cbx_TurnTime.ListSelectedBackColorA = Color.FromArgb(15, 255, 255, 255);
-            cbx_TurnTime.ListSelectedBackColorB = Color.FromArgb(0, 255, 255, 255);
-            cbx_TurnTime.Location = new Point(160, 239);
-            cbx_TurnTime.Name = "cbx_TurnTime";
-            cbx_TurnTime.Size = new Size(390, 31);
-            cbx_TurnTime.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            cbx_TurnTime.StartIndex = 0;
-            cbx_TurnTime.TabIndex = 23;
-            cbx_TurnTime.TriangleColorA = Color.FromArgb(121, 176, 214);
-            cbx_TurnTime.TriangleColorB = Color.FromArgb(27, 94, 137);
+            cbx_PVP_TurnTime.BackColor = Color.Transparent;
+            cbx_PVP_TurnTime.BGColorA = Color.FromArgb(245, 245, 245);
+            cbx_PVP_TurnTime.BGColorB = Color.FromArgb(230, 230, 230);
+            cbx_PVP_TurnTime.BorderColorA = Color.FromArgb(252, 252, 252);
+            cbx_PVP_TurnTime.BorderColorB = Color.FromArgb(249, 249, 249);
+            cbx_PVP_TurnTime.BorderColorC = Color.FromArgb(189, 189, 189);
+            cbx_PVP_TurnTime.BorderColorD = Color.FromArgb(200, 168, 168, 168);
+            cbx_PVP_TurnTime.DrawMode = DrawMode.OwnerDrawFixed;
+            cbx_PVP_TurnTime.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbx_PVP_TurnTime.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            cbx_PVP_TurnTime.ForeColor = Color.FromArgb(27, 94, 137);
+            cbx_PVP_TurnTime.FormattingEnabled = true;
+            cbx_PVP_TurnTime.ItemHeight = 25;
+            cbx_PVP_TurnTime.ItemHighlightColor = Color.FromArgb(121, 176, 214);
+            cbx_PVP_TurnTime.Items.AddRange(new object[] { "10 giây", "15 giây", "20 giây" });
+            cbx_PVP_TurnTime.LineColorA = Color.White;
+            cbx_PVP_TurnTime.LineColorB = Color.FromArgb(189, 189, 189);
+            cbx_PVP_TurnTime.LineColorC = Color.White;
+            cbx_PVP_TurnTime.ListBackColor = Color.FromArgb(255, 255, 255);
+            cbx_PVP_TurnTime.ListBorderColor = Color.FromArgb(50, 0, 0, 0);
+            cbx_PVP_TurnTime.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
+            cbx_PVP_TurnTime.ListForeColor = Color.Black;
+            cbx_PVP_TurnTime.ListSelectedBackColorA = Color.FromArgb(15, 255, 255, 255);
+            cbx_PVP_TurnTime.ListSelectedBackColorB = Color.FromArgb(0, 255, 255, 255);
+            cbx_PVP_TurnTime.Location = new Point(160, 239);
+            cbx_PVP_TurnTime.Name = "cbx_PVP_TurnTime";
+            cbx_PVP_TurnTime.Size = new Size(390, 31);
+            cbx_PVP_TurnTime.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            cbx_PVP_TurnTime.StartIndex = 0;
+            cbx_PVP_TurnTime.TabIndex = 23;
+            cbx_PVP_TurnTime.TriangleColorA = Color.FromArgb(121, 176, 214);
+            cbx_PVP_TurnTime.TriangleColorB = Color.FromArgb(27, 94, 137);
             // 
             // label8
             // 
@@ -1591,55 +1599,55 @@
             label6.TabIndex = 18;
             label6.Text = "Kích cỡ bàn cờ:";
             // 
-            // txt_ServerPort
+            // txt_PVP_ServerPort
             // 
-            txt_ServerPort.Alpha = 20;
-            txt_ServerPort.BackColor = Color.Transparent;
-            txt_ServerPort.Background_WidthPen = 3F;
-            txt_ServerPort.BackgroundPen = true;
-            txt_ServerPort.ColorBackground = Color.FromArgb(16, 27, 39);
-            txt_ServerPort.ColorBackground_Pen = Color.FromArgb(59, 198, 171);
-            txt_ServerPort.ColorLighting = Color.FromArgb(59, 198, 171);
-            txt_ServerPort.ColorPen_1 = Color.FromArgb(12, 20, 29);
-            txt_ServerPort.ColorPen_2 = Color.Transparent;
-            txt_ServerPort.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            txt_ServerPort.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_ServerPort.ForeColor = Color.White;
-            txt_ServerPort.Lighting = false;
-            txt_ServerPort.LinearGradientPen = false;
-            txt_ServerPort.Location = new Point(160, 304);
-            txt_ServerPort.Name = "txt_ServerPort";
-            txt_ServerPort.PenWidth = 15;
-            txt_ServerPort.RGB = false;
-            txt_ServerPort.Rounding = true;
-            txt_ServerPort.RoundingInt = 0;
-            txt_ServerPort.Size = new Size(390, 36);
-            txt_ServerPort.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            txt_ServerPort.TabIndex = 17;
-            txt_ServerPort.Tag = "Cyber";
-            txt_ServerPort.TextButton = "";
-            txt_ServerPort.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            txt_ServerPort.Timer_RGB = 300;
+            txt_PVP_ServerPort.Alpha = 20;
+            txt_PVP_ServerPort.BackColor = Color.Transparent;
+            txt_PVP_ServerPort.Background_WidthPen = 3F;
+            txt_PVP_ServerPort.BackgroundPen = true;
+            txt_PVP_ServerPort.ColorBackground = Color.FromArgb(16, 27, 39);
+            txt_PVP_ServerPort.ColorBackground_Pen = Color.FromArgb(59, 198, 171);
+            txt_PVP_ServerPort.ColorLighting = Color.FromArgb(59, 198, 171);
+            txt_PVP_ServerPort.ColorPen_1 = Color.FromArgb(12, 20, 29);
+            txt_PVP_ServerPort.ColorPen_2 = Color.Transparent;
+            txt_PVP_ServerPort.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            txt_PVP_ServerPort.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_PVP_ServerPort.ForeColor = Color.White;
+            txt_PVP_ServerPort.Lighting = false;
+            txt_PVP_ServerPort.LinearGradientPen = false;
+            txt_PVP_ServerPort.Location = new Point(160, 304);
+            txt_PVP_ServerPort.Name = "txt_PVP_ServerPort";
+            txt_PVP_ServerPort.PenWidth = 15;
+            txt_PVP_ServerPort.RGB = false;
+            txt_PVP_ServerPort.Rounding = true;
+            txt_PVP_ServerPort.RoundingInt = 0;
+            txt_PVP_ServerPort.Size = new Size(390, 36);
+            txt_PVP_ServerPort.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            txt_PVP_ServerPort.TabIndex = 17;
+            txt_PVP_ServerPort.Tag = "Cyber";
+            txt_PVP_ServerPort.TextButton = "";
+            txt_PVP_ServerPort.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            txt_PVP_ServerPort.Timer_RGB = 300;
             // 
-            // btn_CancelBattleInfo
+            // btn_CancelCreateServer
             // 
-            btn_CancelBattleInfo.BorderColor = Color.FromArgb(220, 223, 230);
-            btn_CancelBattleInfo.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
-            btn_CancelBattleInfo.DangerColor = Color.FromArgb(245, 108, 108);
-            btn_CancelBattleInfo.DefaultColor = Color.FromArgb(255, 255, 255);
-            btn_CancelBattleInfo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_CancelBattleInfo.HoverTextColor = Color.FromArgb(48, 49, 51);
-            btn_CancelBattleInfo.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_CancelBattleInfo.Location = new Point(160, 392);
-            btn_CancelBattleInfo.Name = "btn_CancelBattleInfo";
-            btn_CancelBattleInfo.PrimaryColor = Color.FromArgb(245, 108, 108);
-            btn_CancelBattleInfo.Size = new Size(393, 31);
-            btn_CancelBattleInfo.SuccessColor = Color.FromArgb(103, 194, 58);
-            btn_CancelBattleInfo.TabIndex = 16;
-            btn_CancelBattleInfo.Text = "Quay lại";
-            btn_CancelBattleInfo.TextColor = Color.White;
-            btn_CancelBattleInfo.WarningColor = Color.FromArgb(230, 162, 60);
-            btn_CancelBattleInfo.Click += btn_CancelBattleInfo_Click;
+            btn_CancelCreateServer.BorderColor = Color.FromArgb(220, 223, 230);
+            btn_CancelCreateServer.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            btn_CancelCreateServer.DangerColor = Color.FromArgb(245, 108, 108);
+            btn_CancelCreateServer.DefaultColor = Color.FromArgb(255, 255, 255);
+            btn_CancelCreateServer.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_CancelCreateServer.HoverTextColor = Color.FromArgb(48, 49, 51);
+            btn_CancelCreateServer.InfoColor = Color.FromArgb(144, 147, 153);
+            btn_CancelCreateServer.Location = new Point(160, 392);
+            btn_CancelCreateServer.Name = "btn_CancelCreateServer";
+            btn_CancelCreateServer.PrimaryColor = Color.FromArgb(245, 108, 108);
+            btn_CancelCreateServer.Size = new Size(393, 31);
+            btn_CancelCreateServer.SuccessColor = Color.FromArgb(103, 194, 58);
+            btn_CancelCreateServer.TabIndex = 16;
+            btn_CancelCreateServer.Text = "Quay lại";
+            btn_CancelCreateServer.TextColor = Color.White;
+            btn_CancelCreateServer.WarningColor = Color.FromArgb(230, 162, 60);
+            btn_CancelCreateServer.Click += btn_CancelCreateServer_Click;
             // 
             // btn_ContinueCreateServer
             // 
@@ -2063,17 +2071,166 @@
             label17.TabIndex = 36;
             label17.Text = "Mật khẩu mới:";
             // 
+            // grb_ComputerInfo
+            // 
+            grb_ComputerInfo.BackColor = Color.FromArgb(12, 20, 29);
+            grb_ComputerInfo.Controls.Add(cbx_PVC_SizeBoard);
+            grb_ComputerInfo.Controls.Add(cbx_PVC_TurnTime);
+            grb_ComputerInfo.Controls.Add(label15);
+            grb_ComputerInfo.Controls.Add(label20);
+            grb_ComputerInfo.Controls.Add(btn_PVC_Cancel);
+            grb_ComputerInfo.Controls.Add(btn_PVC_Start);
+            grb_ComputerInfo.ForeColor = Color.White;
+            grb_ComputerInfo.Location = new Point(120, 260);
+            grb_ComputerInfo.Name = "grb_ComputerInfo";
+            grb_ComputerInfo.Size = new Size(583, 435);
+            grb_ComputerInfo.TabIndex = 18;
+            grb_ComputerInfo.TabStop = false;
+            grb_ComputerInfo.Text = "Tạo phòng PVC";
+            grb_ComputerInfo.Visible = false;
+            // 
+            // cbx_PVC_SizeBoard
+            // 
+            cbx_PVC_SizeBoard.BackColor = Color.Transparent;
+            cbx_PVC_SizeBoard.BGColorA = Color.FromArgb(245, 245, 245);
+            cbx_PVC_SizeBoard.BGColorB = Color.FromArgb(230, 230, 230);
+            cbx_PVC_SizeBoard.BorderColorA = Color.FromArgb(252, 252, 252);
+            cbx_PVC_SizeBoard.BorderColorB = Color.FromArgb(249, 249, 249);
+            cbx_PVC_SizeBoard.BorderColorC = Color.FromArgb(189, 189, 189);
+            cbx_PVC_SizeBoard.BorderColorD = Color.FromArgb(200, 168, 168, 168);
+            cbx_PVC_SizeBoard.DrawMode = DrawMode.OwnerDrawFixed;
+            cbx_PVC_SizeBoard.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbx_PVC_SizeBoard.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            cbx_PVC_SizeBoard.ForeColor = Color.FromArgb(27, 94, 137);
+            cbx_PVC_SizeBoard.FormattingEnabled = true;
+            cbx_PVC_SizeBoard.ItemHeight = 25;
+            cbx_PVC_SizeBoard.ItemHighlightColor = Color.FromArgb(121, 176, 214);
+            cbx_PVC_SizeBoard.Items.AddRange(new object[] { "8x8", "9x9", "10x10", "16x16", "20x20" });
+            cbx_PVC_SizeBoard.LineColorA = Color.White;
+            cbx_PVC_SizeBoard.LineColorB = Color.FromArgb(189, 189, 189);
+            cbx_PVC_SizeBoard.LineColorC = Color.White;
+            cbx_PVC_SizeBoard.ListBackColor = Color.FromArgb(255, 255, 255);
+            cbx_PVC_SizeBoard.ListBorderColor = Color.FromArgb(50, 0, 0, 0);
+            cbx_PVC_SizeBoard.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
+            cbx_PVC_SizeBoard.ListForeColor = Color.Black;
+            cbx_PVC_SizeBoard.ListSelectedBackColorA = Color.FromArgb(15, 255, 255, 255);
+            cbx_PVC_SizeBoard.ListSelectedBackColorB = Color.FromArgb(0, 255, 255, 255);
+            cbx_PVC_SizeBoard.Location = new Point(175, 229);
+            cbx_PVC_SizeBoard.Name = "cbx_PVC_SizeBoard";
+            cbx_PVC_SizeBoard.Size = new Size(390, 31);
+            cbx_PVC_SizeBoard.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            cbx_PVC_SizeBoard.StartIndex = 0;
+            cbx_PVC_SizeBoard.TabIndex = 25;
+            cbx_PVC_SizeBoard.TriangleColorA = Color.FromArgb(121, 176, 214);
+            cbx_PVC_SizeBoard.TriangleColorB = Color.FromArgb(27, 94, 137);
+            // 
+            // cbx_PVC_TurnTime
+            // 
+            cbx_PVC_TurnTime.BackColor = Color.Transparent;
+            cbx_PVC_TurnTime.BGColorA = Color.FromArgb(245, 245, 245);
+            cbx_PVC_TurnTime.BGColorB = Color.FromArgb(230, 230, 230);
+            cbx_PVC_TurnTime.BorderColorA = Color.FromArgb(252, 252, 252);
+            cbx_PVC_TurnTime.BorderColorB = Color.FromArgb(249, 249, 249);
+            cbx_PVC_TurnTime.BorderColorC = Color.FromArgb(189, 189, 189);
+            cbx_PVC_TurnTime.BorderColorD = Color.FromArgb(200, 168, 168, 168);
+            cbx_PVC_TurnTime.DrawMode = DrawMode.OwnerDrawFixed;
+            cbx_PVC_TurnTime.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbx_PVC_TurnTime.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            cbx_PVC_TurnTime.ForeColor = Color.FromArgb(27, 94, 137);
+            cbx_PVC_TurnTime.FormattingEnabled = true;
+            cbx_PVC_TurnTime.ItemHeight = 25;
+            cbx_PVC_TurnTime.ItemHighlightColor = Color.FromArgb(121, 176, 214);
+            cbx_PVC_TurnTime.Items.AddRange(new object[] { "10 giây", "15 giây", "20 giây" });
+            cbx_PVC_TurnTime.LineColorA = Color.White;
+            cbx_PVC_TurnTime.LineColorB = Color.FromArgb(189, 189, 189);
+            cbx_PVC_TurnTime.LineColorC = Color.White;
+            cbx_PVC_TurnTime.ListBackColor = Color.FromArgb(255, 255, 255);
+            cbx_PVC_TurnTime.ListBorderColor = Color.FromArgb(50, 0, 0, 0);
+            cbx_PVC_TurnTime.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
+            cbx_PVC_TurnTime.ListForeColor = Color.Black;
+            cbx_PVC_TurnTime.ListSelectedBackColorA = Color.FromArgb(15, 255, 255, 255);
+            cbx_PVC_TurnTime.ListSelectedBackColorB = Color.FromArgb(0, 255, 255, 255);
+            cbx_PVC_TurnTime.Location = new Point(175, 291);
+            cbx_PVC_TurnTime.Name = "cbx_PVC_TurnTime";
+            cbx_PVC_TurnTime.Size = new Size(390, 31);
+            cbx_PVC_TurnTime.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            cbx_PVC_TurnTime.StartIndex = 0;
+            cbx_PVC_TurnTime.TabIndex = 23;
+            cbx_PVC_TurnTime.TriangleColorA = Color.FromArgb(121, 176, 214);
+            cbx_PVC_TurnTime.TriangleColorB = Color.FromArgb(27, 94, 137);
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label15.Location = new Point(175, 260);
+            label15.Name = "label15";
+            label15.Size = new Size(177, 28);
+            label15.TabIndex = 21;
+            label15.Text = "Thời gian mỗi lượt:";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label20.Location = new Point(175, 193);
+            label20.Name = "label20";
+            label20.Size = new Size(143, 28);
+            label20.TabIndex = 18;
+            label20.Text = "Kích cỡ bàn cờ:";
+            // 
+            // btn_PVC_Cancel
+            // 
+            btn_PVC_Cancel.BorderColor = Color.FromArgb(220, 223, 230);
+            btn_PVC_Cancel.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            btn_PVC_Cancel.DangerColor = Color.FromArgb(245, 108, 108);
+            btn_PVC_Cancel.DefaultColor = Color.FromArgb(255, 255, 255);
+            btn_PVC_Cancel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_PVC_Cancel.HoverTextColor = Color.FromArgb(48, 49, 51);
+            btn_PVC_Cancel.InfoColor = Color.FromArgb(144, 147, 153);
+            btn_PVC_Cancel.Location = new Point(173, 365);
+            btn_PVC_Cancel.Name = "btn_PVC_Cancel";
+            btn_PVC_Cancel.PrimaryColor = Color.FromArgb(245, 108, 108);
+            btn_PVC_Cancel.Size = new Size(393, 31);
+            btn_PVC_Cancel.SuccessColor = Color.FromArgb(103, 194, 58);
+            btn_PVC_Cancel.TabIndex = 16;
+            btn_PVC_Cancel.Text = "Quay lại";
+            btn_PVC_Cancel.TextColor = Color.White;
+            btn_PVC_Cancel.WarningColor = Color.FromArgb(230, 162, 60);
+            btn_PVC_Cancel.Click += btn_PVC_Cancel_Click;
+            // 
+            // btn_PVC_Start
+            // 
+            btn_PVC_Start.BorderColor = Color.FromArgb(220, 223, 230);
+            btn_PVC_Start.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            btn_PVC_Start.DangerColor = Color.FromArgb(245, 108, 108);
+            btn_PVC_Start.DefaultColor = Color.FromArgb(255, 255, 255);
+            btn_PVC_Start.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_PVC_Start.HoverTextColor = Color.FromArgb(48, 49, 51);
+            btn_PVC_Start.InfoColor = Color.FromArgb(144, 147, 153);
+            btn_PVC_Start.Location = new Point(173, 328);
+            btn_PVC_Start.Name = "btn_PVC_Start";
+            btn_PVC_Start.PrimaryColor = Color.FromArgb(59, 198, 171);
+            btn_PVC_Start.Size = new Size(390, 31);
+            btn_PVC_Start.SuccessColor = Color.FromArgb(103, 194, 58);
+            btn_PVC_Start.TabIndex = 8;
+            btn_PVC_Start.Text = "Tiếp tục";
+            btn_PVC_Start.TextColor = Color.White;
+            btn_PVC_Start.WarningColor = Color.FromArgb(230, 162, 60);
+            btn_PVC_Start.Click += btn_PVC_Start_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1924, 1055);
+            Controls.Add(grb_ComputerInfo);
             Controls.Add(grb_Info);
             Controls.Add(grb_Login);
             Controls.Add(grb_SignUp);
             Controls.Add(grb_ForgetPassword);
             Controls.Add(grb_ChangePassword);
-            Controls.Add(grb_BattleInfo);
+            Controls.Add(grb_ServerInfo);
             Controls.Add(panel_PlayArea);
             Controls.Add(grb_Waiting);
             Controls.Add(grb_ClientInfo);
@@ -2107,12 +2264,14 @@
             grb_SignUp.ResumeLayout(false);
             grb_SignUp.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picbox_SignUp_Avatar).EndInit();
-            grb_BattleInfo.ResumeLayout(false);
-            grb_BattleInfo.PerformLayout();
+            grb_ServerInfo.ResumeLayout(false);
+            grb_ServerInfo.PerformLayout();
             grb_ForgetPassword.ResumeLayout(false);
             grb_ForgetPassword.PerformLayout();
             grb_ChangePassword.ResumeLayout(false);
             grb_ChangePassword.PerformLayout();
+            grb_ComputerInfo.ResumeLayout(false);
+            grb_ComputerInfo.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -2160,9 +2319,9 @@
         private ReaLTaiizor.Controls.CyberTextBox txt_Login_ID;
         private ReaLTaiizor.Controls.CyberTextBox txt_SignUp_Name;
         private ReaLTaiizor.Controls.CyberTextBox txt_SignUp_ID;
-        private GroupBox grb_BattleInfo;
-        private ReaLTaiizor.Controls.CyberTextBox txt_ServerPort;
-        private ReaLTaiizor.Controls.HopeRoundButton btn_CancelBattleInfo;
+        private GroupBox grb_ServerInfo;
+        private ReaLTaiizor.Controls.CyberTextBox txt_PVP_ServerPort;
+        private ReaLTaiizor.Controls.HopeRoundButton btn_CancelCreateServer;
         private ReaLTaiizor.Controls.HopeRoundButton btn_ContinueCreateServer;
         private ReaLTaiizor.Controls.CyberTextBox txt_SignUp_VerifyCode;
         private ReaLTaiizor.Controls.CyberTextBox txt_SignUp_PW;
@@ -2176,7 +2335,7 @@
         private Label label6;
         private Label label7;
         private Label label8;
-        private ReaLTaiizor.Controls.SkyComboBox cbx_TurnTime;
+        private ReaLTaiizor.Controls.SkyComboBox cbx_PVP_TurnTime;
         private Label label10;
         private Label label9;
         private ReaLTaiizor.Controls.CyberTextBox txt_ClientInfo_Port;
@@ -2211,7 +2370,7 @@
         private ReaLTaiizor.Controls.PoisonDataGridView dtg_Ranking;
         private Label label19;
         private RJCircularPictureBox rjCircularPictureBox9;
-        private ReaLTaiizor.Controls.SkyComboBox cbx_BoardSize;
+        private ReaLTaiizor.Controls.SkyComboBox cbx_PVP_BoardSize;
         private DataGridViewTextBoxColumn PlayerID;
         private DataGridViewTextBoxColumn Win;
         private DataGridViewTextBoxColumn Lose;
@@ -2221,5 +2380,12 @@
         private Label lb_BattleInfo_Notify;
         private Label lb_ClientInfo_Notify;
         private Label lb_ForgetPassword_Notify;
+        private GroupBox grb_ComputerInfo;
+        private ReaLTaiizor.Controls.SkyComboBox cbx_PVC_SizeBoard;
+        private ReaLTaiizor.Controls.SkyComboBox cbx_PVC_TurnTime;
+        private Label label15;
+        private Label label20;
+        private ReaLTaiizor.Controls.HopeRoundButton btn_PVC_Cancel;
+        private ReaLTaiizor.Controls.HopeRoundButton btn_PVC_Start;
     }
 }
