@@ -39,6 +39,7 @@
             DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
             grb_Login = new GroupBox();
+            lb_Login_Notify = new Label();
             rjCircularPictureBox5 = new RJCircularPictureBox();
             rjCircularPictureBox4 = new RJCircularPictureBox();
             cyberTextBox10 = new ReaLTaiizor.Controls.CyberTextBox();
@@ -58,9 +59,9 @@
             rjCircularPictureBox8 = new RJCircularPictureBox();
             rjCircularPictureBox7 = new RJCircularPictureBox();
             rjCircularPictureBox6 = new RJCircularPictureBox();
-            btn_ChangePassword = new ReaLTaiizor.Controls.HopeRoundButton();
+            btn_Info_ChangePW = new ReaLTaiizor.Controls.HopeRoundButton();
             rjCircularPictureBox3 = new RJCircularPictureBox();
-            btn_LogOut = new ReaLTaiizor.Controls.HopeRoundButton();
+            btn_Info_LogOut = new ReaLTaiizor.Controls.HopeRoundButton();
             btn_PlayWithAI = new ReaLTaiizor.Controls.HopeRoundButton();
             lb_Lose = new Label();
             lb_Win = new Label();
@@ -71,6 +72,7 @@
             btn_CancelWaitingPlayer = new ReaLTaiizor.Controls.HopeRoundButton();
             lb_Waiting = new Label();
             grb_ClientInfo = new GroupBox();
+            lb_ClientInfo_Notify = new Label();
             label10 = new Label();
             label9 = new Label();
             txt_PortClient = new ReaLTaiizor.Controls.CyberTextBox();
@@ -92,6 +94,7 @@
             parrotClock1 = new ReaLTaiizor.Controls.ParrotClock();
             tmCoolDown = new System.Windows.Forms.Timer(components);
             grb_SignUp = new GroupBox();
+            lb_SignUp_Notify = new Label();
             btn_GetVerifyCode_SignUp = new ReaLTaiizor.Controls.HopeRoundButton();
             cyberTextBox6 = new ReaLTaiizor.Controls.CyberTextBox();
             label5 = new Label();
@@ -108,8 +111,9 @@
             btn_ConfirmSignUp = new ReaLTaiizor.Controls.HopeRoundButton();
             btn_ExitSignUp = new ReaLTaiizor.Controls.HopeRoundButton();
             grb_BattleInfo = new GroupBox();
-            skyComboBox1 = new ReaLTaiizor.Controls.SkyComboBox();
-            skyComboBox2 = new ReaLTaiizor.Controls.SkyComboBox();
+            lb_BattleInfo_Notify = new Label();
+            cbx_BoardSize = new ReaLTaiizor.Controls.SkyComboBox();
+            cbx_TurnTime = new ReaLTaiizor.Controls.SkyComboBox();
             label8 = new Label();
             label7 = new Label();
             label6 = new Label();
@@ -117,20 +121,20 @@
             btn_CancelBattleInfo = new ReaLTaiizor.Controls.HopeRoundButton();
             btn_ContinueCreateServer = new ReaLTaiizor.Controls.HopeRoundButton();
             grb_ForgetPassword = new GroupBox();
+            lb_ForgetPassword_Notify = new Label();
             btn_CancelForgetPassword = new ReaLTaiizor.Controls.HopeRoundButton();
             btn_ConfirmForgetPassword = new ReaLTaiizor.Controls.HopeRoundButton();
-            label15 = new Label();
             btn_GetVerifyCode_ForgetPassword = new ReaLTaiizor.Controls.HopeRoundButton();
-            cyberTextBox7 = new ReaLTaiizor.Controls.CyberTextBox();
-            cyberTextBox9 = new ReaLTaiizor.Controls.CyberTextBox();
+            txt_ForgetPassword_VerifyCode = new ReaLTaiizor.Controls.CyberTextBox();
+            txt_ForgetPassword_NewPassword = new ReaLTaiizor.Controls.CyberTextBox();
             label12 = new Label();
             label14 = new Label();
-            cyberTextBox3 = new ReaLTaiizor.Controls.CyberTextBox();
+            txt_ForgetPassword_Email = new ReaLTaiizor.Controls.CyberTextBox();
             label11 = new Label();
-            cyberTextBox8 = new ReaLTaiizor.Controls.CyberTextBox();
+            txt_ForgetPassword_ID = new ReaLTaiizor.Controls.CyberTextBox();
             label13 = new Label();
             grb_ChangePassword = new GroupBox();
-            label16 = new Label();
+            lb_ChangePassword_Notify = new Label();
             btn_CancelChangePassword = new ReaLTaiizor.Controls.HopeRoundButton();
             btn_ConfirmChangePassword = new ReaLTaiizor.Controls.HopeRoundButton();
             cyberTextBox12 = new ReaLTaiizor.Controls.CyberTextBox();
@@ -165,6 +169,7 @@
             // grb_Login
             // 
             grb_Login.BackColor = Color.FromArgb(12, 20, 29);
+            grb_Login.Controls.Add(lb_Login_Notify);
             grb_Login.Controls.Add(rjCircularPictureBox5);
             grb_Login.Controls.Add(rjCircularPictureBox4);
             grb_Login.Controls.Add(cyberTextBox10);
@@ -174,13 +179,23 @@
             grb_Login.Controls.Add(rjCircularPictureBox1);
             grb_Login.Controls.Add(btn_Login);
             grb_Login.ForeColor = Color.White;
-            grb_Login.Location = new Point(96, 133);
+            grb_Login.Location = new Point(173, 14);
             grb_Login.Name = "grb_Login";
-            grb_Login.Size = new Size(602, 503);
+            grb_Login.Size = new Size(93, 35);
             grb_Login.TabIndex = 9;
             grb_Login.TabStop = false;
             grb_Login.Text = "Đăng nhập";
             grb_Login.Visible = false;
+            // 
+            // lb_Login_Notify
+            // 
+            lb_Login_Notify.AutoSize = true;
+            lb_Login_Notify.ForeColor = Color.FromArgb(245, 108, 108);
+            lb_Login_Notify.Location = new Point(203, 454);
+            lb_Login_Notify.Name = "lb_Login_Notify";
+            lb_Login_Notify.Size = new Size(84, 20);
+            lb_Login_Notify.TabIndex = 22;
+            lb_Login_Notify.Text = "Thông báo:";
             // 
             // rjCircularPictureBox5
             // 
@@ -350,9 +365,9 @@
             grb_Info.Controls.Add(rjCircularPictureBox8);
             grb_Info.Controls.Add(rjCircularPictureBox7);
             grb_Info.Controls.Add(rjCircularPictureBox6);
-            grb_Info.Controls.Add(btn_ChangePassword);
+            grb_Info.Controls.Add(btn_Info_ChangePW);
             grb_Info.Controls.Add(rjCircularPictureBox3);
-            grb_Info.Controls.Add(btn_LogOut);
+            grb_Info.Controls.Add(btn_Info_LogOut);
             grb_Info.Controls.Add(btn_PlayWithAI);
             grb_Info.Controls.Add(lb_Lose);
             grb_Info.Controls.Add(lb_Win);
@@ -360,10 +375,10 @@
             grb_Info.Controls.Add(btn_JoinRoom);
             grb_Info.Controls.Add(btn_CreateRoom);
             grb_Info.ForeColor = Color.White;
-            grb_Info.Location = new Point(12, 18);
+            grb_Info.Location = new Point(479, 14);
             grb_Info.MaximumSize = new Size(999999, 999999);
             grb_Info.Name = "grb_Info";
-            grb_Info.Size = new Size(78, 33);
+            grb_Info.Size = new Size(54, 107);
             grb_Info.TabIndex = 10;
             grb_Info.TabStop = false;
             grb_Info.Text = "Thông tin";
@@ -547,25 +562,25 @@
             rjCircularPictureBox6.TabIndex = 21;
             rjCircularPictureBox6.TabStop = false;
             // 
-            // btn_ChangePassword
+            // btn_Info_ChangePW
             // 
-            btn_ChangePassword.BorderColor = Color.FromArgb(220, 223, 230);
-            btn_ChangePassword.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
-            btn_ChangePassword.DangerColor = Color.FromArgb(245, 108, 108);
-            btn_ChangePassword.DefaultColor = Color.FromArgb(255, 255, 255);
-            btn_ChangePassword.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_ChangePassword.HoverTextColor = Color.FromArgb(48, 49, 51);
-            btn_ChangePassword.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_ChangePassword.Location = new Point(14, 332);
-            btn_ChangePassword.Name = "btn_ChangePassword";
-            btn_ChangePassword.PrimaryColor = Color.FromArgb(59, 198, 171);
-            btn_ChangePassword.Size = new Size(163, 31);
-            btn_ChangePassword.SuccessColor = Color.FromArgb(103, 194, 58);
-            btn_ChangePassword.TabIndex = 19;
-            btn_ChangePassword.Text = "Đổi mật khẩu";
-            btn_ChangePassword.TextColor = Color.White;
-            btn_ChangePassword.WarningColor = Color.FromArgb(230, 162, 60);
-            btn_ChangePassword.Click += btn_ChangePassword_Click;
+            btn_Info_ChangePW.BorderColor = Color.FromArgb(220, 223, 230);
+            btn_Info_ChangePW.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            btn_Info_ChangePW.DangerColor = Color.FromArgb(245, 108, 108);
+            btn_Info_ChangePW.DefaultColor = Color.FromArgb(255, 255, 255);
+            btn_Info_ChangePW.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_Info_ChangePW.HoverTextColor = Color.FromArgb(48, 49, 51);
+            btn_Info_ChangePW.InfoColor = Color.FromArgb(144, 147, 153);
+            btn_Info_ChangePW.Location = new Point(14, 332);
+            btn_Info_ChangePW.Name = "btn_Info_ChangePW";
+            btn_Info_ChangePW.PrimaryColor = Color.FromArgb(59, 198, 171);
+            btn_Info_ChangePW.Size = new Size(163, 31);
+            btn_Info_ChangePW.SuccessColor = Color.FromArgb(103, 194, 58);
+            btn_Info_ChangePW.TabIndex = 19;
+            btn_Info_ChangePW.Text = "Đổi mật khẩu";
+            btn_Info_ChangePW.TextColor = Color.White;
+            btn_Info_ChangePW.WarningColor = Color.FromArgb(230, 162, 60);
+            btn_Info_ChangePW.Click += btn_ChangePassword_Click;
             // 
             // rjCircularPictureBox3
             // 
@@ -583,25 +598,25 @@
             rjCircularPictureBox3.TabIndex = 18;
             rjCircularPictureBox3.TabStop = false;
             // 
-            // btn_LogOut
+            // btn_Info_LogOut
             // 
-            btn_LogOut.BorderColor = Color.FromArgb(220, 223, 230);
-            btn_LogOut.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
-            btn_LogOut.DangerColor = Color.FromArgb(245, 108, 108);
-            btn_LogOut.DefaultColor = Color.FromArgb(255, 255, 255);
-            btn_LogOut.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_LogOut.HoverTextColor = Color.FromArgb(48, 49, 51);
-            btn_LogOut.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_LogOut.Location = new Point(14, 367);
-            btn_LogOut.Name = "btn_LogOut";
-            btn_LogOut.PrimaryColor = Color.FromArgb(59, 198, 171);
-            btn_LogOut.Size = new Size(163, 31);
-            btn_LogOut.SuccessColor = Color.FromArgb(103, 194, 58);
-            btn_LogOut.TabIndex = 17;
-            btn_LogOut.Text = "Đăng xuất";
-            btn_LogOut.TextColor = Color.White;
-            btn_LogOut.WarningColor = Color.FromArgb(230, 162, 60);
-            btn_LogOut.Click += btn_LogOut_Click;
+            btn_Info_LogOut.BorderColor = Color.FromArgb(220, 223, 230);
+            btn_Info_LogOut.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            btn_Info_LogOut.DangerColor = Color.FromArgb(245, 108, 108);
+            btn_Info_LogOut.DefaultColor = Color.FromArgb(255, 255, 255);
+            btn_Info_LogOut.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_Info_LogOut.HoverTextColor = Color.FromArgb(48, 49, 51);
+            btn_Info_LogOut.InfoColor = Color.FromArgb(144, 147, 153);
+            btn_Info_LogOut.Location = new Point(14, 367);
+            btn_Info_LogOut.Name = "btn_Info_LogOut";
+            btn_Info_LogOut.PrimaryColor = Color.FromArgb(245, 108, 108);
+            btn_Info_LogOut.Size = new Size(163, 31);
+            btn_Info_LogOut.SuccessColor = Color.FromArgb(103, 194, 58);
+            btn_Info_LogOut.TabIndex = 17;
+            btn_Info_LogOut.Text = "Đăng xuất";
+            btn_Info_LogOut.TextColor = Color.White;
+            btn_Info_LogOut.WarningColor = Color.FromArgb(230, 162, 60);
+            btn_Info_LogOut.Click += btn_Info_LogOut_Click;
             // 
             // btn_PlayWithAI
             // 
@@ -704,7 +719,7 @@
             grb_Waiting.ForeColor = Color.White;
             grb_Waiting.Location = new Point(291, 12);
             grb_Waiting.Name = "grb_Waiting";
-            grb_Waiting.Size = new Size(107, 50);
+            grb_Waiting.Size = new Size(81, 35);
             grb_Waiting.TabIndex = 11;
             grb_Waiting.TabStop = false;
             grb_Waiting.Text = "Tạo phòng";
@@ -743,6 +758,7 @@
             // grb_ClientInfo
             // 
             grb_ClientInfo.BackColor = Color.FromArgb(12, 20, 29);
+            grb_ClientInfo.Controls.Add(lb_ClientInfo_Notify);
             grb_ClientInfo.Controls.Add(label10);
             grb_ClientInfo.Controls.Add(label9);
             grb_ClientInfo.Controls.Add(txt_PortClient);
@@ -750,13 +766,23 @@
             grb_ClientInfo.Controls.Add(btn_CancelJoinRoom);
             grb_ClientInfo.Controls.Add(btn_Connect);
             grb_ClientInfo.ForeColor = Color.White;
-            grb_ClientInfo.Location = new Point(404, 12);
+            grb_ClientInfo.Location = new Point(233, 65);
             grb_ClientInfo.Name = "grb_ClientInfo";
-            grb_ClientInfo.Size = new Size(105, 39);
+            grb_ClientInfo.Size = new Size(57, 77);
             grb_ClientInfo.TabIndex = 12;
             grb_ClientInfo.TabStop = false;
             grb_ClientInfo.Text = "Vào phòng";
             grb_ClientInfo.Visible = false;
+            // 
+            // lb_ClientInfo_Notify
+            // 
+            lb_ClientInfo_Notify.AutoSize = true;
+            lb_ClientInfo_Notify.ForeColor = Color.FromArgb(245, 108, 108);
+            lb_ClientInfo_Notify.Location = new Point(235, 347);
+            lb_ClientInfo_Notify.Name = "lb_ClientInfo_Notify";
+            lb_ClientInfo_Notify.Size = new Size(84, 20);
+            lb_ClientInfo_Notify.TabIndex = 33;
+            lb_ClientInfo_Notify.Text = "Thông báo:";
             // 
             // label10
             // 
@@ -849,7 +875,7 @@
             btn_CancelJoinRoom.InfoColor = Color.FromArgb(144, 147, 153);
             btn_CancelJoinRoom.Location = new Point(382, 301);
             btn_CancelJoinRoom.Name = "btn_CancelJoinRoom";
-            btn_CancelJoinRoom.PrimaryColor = Color.FromArgb(59, 198, 171);
+            btn_CancelJoinRoom.PrimaryColor = Color.FromArgb(245, 108, 108);
             btn_CancelJoinRoom.Size = new Size(143, 31);
             btn_CancelJoinRoom.SuccessColor = Color.FromArgb(103, 194, 58);
             btn_CancelJoinRoom.TabIndex = 14;
@@ -1111,6 +1137,7 @@
             // grb_SignUp
             // 
             grb_SignUp.BackColor = Color.FromArgb(12, 20, 29);
+            grb_SignUp.Controls.Add(lb_SignUp_Notify);
             grb_SignUp.Controls.Add(btn_GetVerifyCode_SignUp);
             grb_SignUp.Controls.Add(cyberTextBox6);
             grb_SignUp.Controls.Add(label5);
@@ -1127,13 +1154,23 @@
             grb_SignUp.Controls.Add(btn_ConfirmSignUp);
             grb_SignUp.Controls.Add(btn_ExitSignUp);
             grb_SignUp.ForeColor = Color.White;
-            grb_SignUp.Location = new Point(96, 4);
+            grb_SignUp.Location = new Point(173, 62);
             grb_SignUp.Name = "grb_SignUp";
-            grb_SignUp.Size = new Size(71, 34);
+            grb_SignUp.Size = new Size(50, 80);
             grb_SignUp.TabIndex = 14;
             grb_SignUp.TabStop = false;
             grb_SignUp.Text = "Đăng kí";
             grb_SignUp.Visible = false;
+            // 
+            // lb_SignUp_Notify
+            // 
+            lb_SignUp_Notify.AutoSize = true;
+            lb_SignUp_Notify.ForeColor = Color.FromArgb(245, 108, 108);
+            lb_SignUp_Notify.Location = new Point(353, 477);
+            lb_SignUp_Notify.Name = "lb_SignUp_Notify";
+            lb_SignUp_Notify.Size = new Size(84, 20);
+            lb_SignUp_Notify.TabIndex = 31;
+            lb_SignUp_Notify.Text = "Thông báo:";
             // 
             // btn_GetVerifyCode_SignUp
             // 
@@ -1412,10 +1449,10 @@
             btn_ExitSignUp.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btn_ExitSignUp.HoverTextColor = Color.FromArgb(48, 49, 51);
             btn_ExitSignUp.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_ExitSignUp.Location = new Point(480, 434);
+            btn_ExitSignUp.Location = new Point(353, 434);
             btn_ExitSignUp.Name = "btn_ExitSignUp";
-            btn_ExitSignUp.PrimaryColor = Color.FromArgb(59, 198, 171);
-            btn_ExitSignUp.Size = new Size(163, 31);
+            btn_ExitSignUp.PrimaryColor = Color.FromArgb(245, 108, 108);
+            btn_ExitSignUp.Size = new Size(290, 31);
             btn_ExitSignUp.SuccessColor = Color.FromArgb(103, 194, 58);
             btn_ExitSignUp.TabIndex = 8;
             btn_ExitSignUp.Text = "Thoát";
@@ -1426,8 +1463,9 @@
             // grb_BattleInfo
             // 
             grb_BattleInfo.BackColor = Color.FromArgb(12, 20, 29);
-            grb_BattleInfo.Controls.Add(skyComboBox1);
-            grb_BattleInfo.Controls.Add(skyComboBox2);
+            grb_BattleInfo.Controls.Add(lb_BattleInfo_Notify);
+            grb_BattleInfo.Controls.Add(cbx_BoardSize);
+            grb_BattleInfo.Controls.Add(cbx_TurnTime);
             grb_BattleInfo.Controls.Add(label8);
             grb_BattleInfo.Controls.Add(label7);
             grb_BattleInfo.Controls.Add(label6);
@@ -1435,83 +1473,93 @@
             grb_BattleInfo.Controls.Add(btn_CancelBattleInfo);
             grb_BattleInfo.Controls.Add(btn_ContinueCreateServer);
             grb_BattleInfo.ForeColor = Color.White;
-            grb_BattleInfo.Location = new Point(12, 58);
+            grb_BattleInfo.Location = new Point(12, 22);
             grb_BattleInfo.Name = "grb_BattleInfo";
-            grb_BattleInfo.Size = new Size(78, 39);
+            grb_BattleInfo.Size = new Size(74, 96);
             grb_BattleInfo.TabIndex = 15;
             grb_BattleInfo.TabStop = false;
             grb_BattleInfo.Text = "Thông tin trận đấu";
             grb_BattleInfo.Visible = false;
             // 
-            // skyComboBox1
+            // lb_BattleInfo_Notify
             // 
-            skyComboBox1.BackColor = Color.Transparent;
-            skyComboBox1.BGColorA = Color.FromArgb(245, 245, 245);
-            skyComboBox1.BGColorB = Color.FromArgb(230, 230, 230);
-            skyComboBox1.BorderColorA = Color.FromArgb(252, 252, 252);
-            skyComboBox1.BorderColorB = Color.FromArgb(249, 249, 249);
-            skyComboBox1.BorderColorC = Color.FromArgb(189, 189, 189);
-            skyComboBox1.BorderColorD = Color.FromArgb(200, 168, 168, 168);
-            skyComboBox1.DrawMode = DrawMode.OwnerDrawFixed;
-            skyComboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            skyComboBox1.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            skyComboBox1.ForeColor = Color.FromArgb(27, 94, 137);
-            skyComboBox1.FormattingEnabled = true;
-            skyComboBox1.ItemHeight = 25;
-            skyComboBox1.ItemHighlightColor = Color.FromArgb(121, 176, 214);
-            skyComboBox1.Items.AddRange(new object[] { "8x8", "9x9", "10x10", "16x16", "20x20" });
-            skyComboBox1.LineColorA = Color.White;
-            skyComboBox1.LineColorB = Color.FromArgb(189, 189, 189);
-            skyComboBox1.LineColorC = Color.White;
-            skyComboBox1.ListBackColor = Color.FromArgb(255, 255, 255);
-            skyComboBox1.ListBorderColor = Color.FromArgb(50, 0, 0, 0);
-            skyComboBox1.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
-            skyComboBox1.ListForeColor = Color.Black;
-            skyComboBox1.ListSelectedBackColorA = Color.FromArgb(15, 255, 255, 255);
-            skyComboBox1.ListSelectedBackColorB = Color.FromArgb(0, 255, 255, 255);
-            skyComboBox1.Location = new Point(160, 177);
-            skyComboBox1.Name = "skyComboBox1";
-            skyComboBox1.Size = new Size(390, 31);
-            skyComboBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            skyComboBox1.StartIndex = 0;
-            skyComboBox1.TabIndex = 25;
-            skyComboBox1.TriangleColorA = Color.FromArgb(121, 176, 214);
-            skyComboBox1.TriangleColorB = Color.FromArgb(27, 94, 137);
+            lb_BattleInfo_Notify.AutoSize = true;
+            lb_BattleInfo_Notify.ForeColor = Color.FromArgb(245, 108, 108);
+            lb_BattleInfo_Notify.Location = new Point(160, 435);
+            lb_BattleInfo_Notify.Name = "lb_BattleInfo_Notify";
+            lb_BattleInfo_Notify.Size = new Size(84, 20);
+            lb_BattleInfo_Notify.TabIndex = 32;
+            lb_BattleInfo_Notify.Text = "Thông báo:";
             // 
-            // skyComboBox2
+            // cbx_BoardSize
             // 
-            skyComboBox2.BackColor = Color.Transparent;
-            skyComboBox2.BGColorA = Color.FromArgb(245, 245, 245);
-            skyComboBox2.BGColorB = Color.FromArgb(230, 230, 230);
-            skyComboBox2.BorderColorA = Color.FromArgb(252, 252, 252);
-            skyComboBox2.BorderColorB = Color.FromArgb(249, 249, 249);
-            skyComboBox2.BorderColorC = Color.FromArgb(189, 189, 189);
-            skyComboBox2.BorderColorD = Color.FromArgb(200, 168, 168, 168);
-            skyComboBox2.DrawMode = DrawMode.OwnerDrawFixed;
-            skyComboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
-            skyComboBox2.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            skyComboBox2.ForeColor = Color.FromArgb(27, 94, 137);
-            skyComboBox2.FormattingEnabled = true;
-            skyComboBox2.ItemHeight = 25;
-            skyComboBox2.ItemHighlightColor = Color.FromArgb(121, 176, 214);
-            skyComboBox2.Items.AddRange(new object[] { "10 giây", "15 giây", "20 giây" });
-            skyComboBox2.LineColorA = Color.White;
-            skyComboBox2.LineColorB = Color.FromArgb(189, 189, 189);
-            skyComboBox2.LineColorC = Color.White;
-            skyComboBox2.ListBackColor = Color.FromArgb(255, 255, 255);
-            skyComboBox2.ListBorderColor = Color.FromArgb(50, 0, 0, 0);
-            skyComboBox2.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
-            skyComboBox2.ListForeColor = Color.Black;
-            skyComboBox2.ListSelectedBackColorA = Color.FromArgb(15, 255, 255, 255);
-            skyComboBox2.ListSelectedBackColorB = Color.FromArgb(0, 255, 255, 255);
-            skyComboBox2.Location = new Point(160, 239);
-            skyComboBox2.Name = "skyComboBox2";
-            skyComboBox2.Size = new Size(390, 31);
-            skyComboBox2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            skyComboBox2.StartIndex = 0;
-            skyComboBox2.TabIndex = 23;
-            skyComboBox2.TriangleColorA = Color.FromArgb(121, 176, 214);
-            skyComboBox2.TriangleColorB = Color.FromArgb(27, 94, 137);
+            cbx_BoardSize.BackColor = Color.Transparent;
+            cbx_BoardSize.BGColorA = Color.FromArgb(245, 245, 245);
+            cbx_BoardSize.BGColorB = Color.FromArgb(230, 230, 230);
+            cbx_BoardSize.BorderColorA = Color.FromArgb(252, 252, 252);
+            cbx_BoardSize.BorderColorB = Color.FromArgb(249, 249, 249);
+            cbx_BoardSize.BorderColorC = Color.FromArgb(189, 189, 189);
+            cbx_BoardSize.BorderColorD = Color.FromArgb(200, 168, 168, 168);
+            cbx_BoardSize.DrawMode = DrawMode.OwnerDrawFixed;
+            cbx_BoardSize.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbx_BoardSize.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            cbx_BoardSize.ForeColor = Color.FromArgb(27, 94, 137);
+            cbx_BoardSize.FormattingEnabled = true;
+            cbx_BoardSize.ItemHeight = 25;
+            cbx_BoardSize.ItemHighlightColor = Color.FromArgb(121, 176, 214);
+            cbx_BoardSize.Items.AddRange(new object[] { "8x8", "9x9", "10x10", "16x16", "20x20" });
+            cbx_BoardSize.LineColorA = Color.White;
+            cbx_BoardSize.LineColorB = Color.FromArgb(189, 189, 189);
+            cbx_BoardSize.LineColorC = Color.White;
+            cbx_BoardSize.ListBackColor = Color.FromArgb(255, 255, 255);
+            cbx_BoardSize.ListBorderColor = Color.FromArgb(50, 0, 0, 0);
+            cbx_BoardSize.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
+            cbx_BoardSize.ListForeColor = Color.Black;
+            cbx_BoardSize.ListSelectedBackColorA = Color.FromArgb(15, 255, 255, 255);
+            cbx_BoardSize.ListSelectedBackColorB = Color.FromArgb(0, 255, 255, 255);
+            cbx_BoardSize.Location = new Point(160, 177);
+            cbx_BoardSize.Name = "cbx_BoardSize";
+            cbx_BoardSize.Size = new Size(390, 31);
+            cbx_BoardSize.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            cbx_BoardSize.StartIndex = 0;
+            cbx_BoardSize.TabIndex = 25;
+            cbx_BoardSize.TriangleColorA = Color.FromArgb(121, 176, 214);
+            cbx_BoardSize.TriangleColorB = Color.FromArgb(27, 94, 137);
+            // 
+            // cbx_TurnTime
+            // 
+            cbx_TurnTime.BackColor = Color.Transparent;
+            cbx_TurnTime.BGColorA = Color.FromArgb(245, 245, 245);
+            cbx_TurnTime.BGColorB = Color.FromArgb(230, 230, 230);
+            cbx_TurnTime.BorderColorA = Color.FromArgb(252, 252, 252);
+            cbx_TurnTime.BorderColorB = Color.FromArgb(249, 249, 249);
+            cbx_TurnTime.BorderColorC = Color.FromArgb(189, 189, 189);
+            cbx_TurnTime.BorderColorD = Color.FromArgb(200, 168, 168, 168);
+            cbx_TurnTime.DrawMode = DrawMode.OwnerDrawFixed;
+            cbx_TurnTime.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbx_TurnTime.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            cbx_TurnTime.ForeColor = Color.FromArgb(27, 94, 137);
+            cbx_TurnTime.FormattingEnabled = true;
+            cbx_TurnTime.ItemHeight = 25;
+            cbx_TurnTime.ItemHighlightColor = Color.FromArgb(121, 176, 214);
+            cbx_TurnTime.Items.AddRange(new object[] { "10 giây", "15 giây", "20 giây" });
+            cbx_TurnTime.LineColorA = Color.White;
+            cbx_TurnTime.LineColorB = Color.FromArgb(189, 189, 189);
+            cbx_TurnTime.LineColorC = Color.White;
+            cbx_TurnTime.ListBackColor = Color.FromArgb(255, 255, 255);
+            cbx_TurnTime.ListBorderColor = Color.FromArgb(50, 0, 0, 0);
+            cbx_TurnTime.ListDashType = System.Drawing.Drawing2D.DashStyle.Dot;
+            cbx_TurnTime.ListForeColor = Color.Black;
+            cbx_TurnTime.ListSelectedBackColorA = Color.FromArgb(15, 255, 255, 255);
+            cbx_TurnTime.ListSelectedBackColorB = Color.FromArgb(0, 255, 255, 255);
+            cbx_TurnTime.Location = new Point(160, 239);
+            cbx_TurnTime.Name = "cbx_TurnTime";
+            cbx_TurnTime.Size = new Size(390, 31);
+            cbx_TurnTime.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            cbx_TurnTime.StartIndex = 0;
+            cbx_TurnTime.TabIndex = 23;
+            cbx_TurnTime.TriangleColorA = Color.FromArgb(121, 176, 214);
+            cbx_TurnTime.TriangleColorB = Color.FromArgb(27, 94, 137);
             // 
             // label8
             // 
@@ -1582,10 +1630,10 @@
             btn_CancelBattleInfo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btn_CancelBattleInfo.HoverTextColor = Color.FromArgb(48, 49, 51);
             btn_CancelBattleInfo.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_CancelBattleInfo.Location = new Point(424, 392);
+            btn_CancelBattleInfo.Location = new Point(160, 392);
             btn_CancelBattleInfo.Name = "btn_CancelBattleInfo";
-            btn_CancelBattleInfo.PrimaryColor = Color.FromArgb(59, 198, 171);
-            btn_CancelBattleInfo.Size = new Size(129, 31);
+            btn_CancelBattleInfo.PrimaryColor = Color.FromArgb(245, 108, 108);
+            btn_CancelBattleInfo.Size = new Size(393, 31);
             btn_CancelBattleInfo.SuccessColor = Color.FromArgb(103, 194, 58);
             btn_CancelBattleInfo.TabIndex = 16;
             btn_CancelBattleInfo.Text = "Quay lại";
@@ -1602,10 +1650,10 @@
             btn_ContinueCreateServer.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btn_ContinueCreateServer.HoverTextColor = Color.FromArgb(48, 49, 51);
             btn_ContinueCreateServer.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_ContinueCreateServer.Location = new Point(423, 355);
+            btn_ContinueCreateServer.Location = new Point(160, 355);
             btn_ContinueCreateServer.Name = "btn_ContinueCreateServer";
             btn_ContinueCreateServer.PrimaryColor = Color.FromArgb(59, 198, 171);
-            btn_ContinueCreateServer.Size = new Size(127, 31);
+            btn_ContinueCreateServer.Size = new Size(390, 31);
             btn_ContinueCreateServer.SuccessColor = Color.FromArgb(103, 194, 58);
             btn_ContinueCreateServer.TabIndex = 8;
             btn_ContinueCreateServer.Text = "Tiếp tục";
@@ -1616,26 +1664,36 @@
             // grb_ForgetPassword
             // 
             grb_ForgetPassword.BackColor = Color.FromArgb(12, 20, 29);
+            grb_ForgetPassword.Controls.Add(lb_ForgetPassword_Notify);
             grb_ForgetPassword.Controls.Add(btn_CancelForgetPassword);
             grb_ForgetPassword.Controls.Add(btn_ConfirmForgetPassword);
-            grb_ForgetPassword.Controls.Add(label15);
             grb_ForgetPassword.Controls.Add(btn_GetVerifyCode_ForgetPassword);
-            grb_ForgetPassword.Controls.Add(cyberTextBox7);
-            grb_ForgetPassword.Controls.Add(cyberTextBox9);
+            grb_ForgetPassword.Controls.Add(txt_ForgetPassword_VerifyCode);
+            grb_ForgetPassword.Controls.Add(txt_ForgetPassword_NewPassword);
             grb_ForgetPassword.Controls.Add(label12);
             grb_ForgetPassword.Controls.Add(label14);
-            grb_ForgetPassword.Controls.Add(cyberTextBox3);
+            grb_ForgetPassword.Controls.Add(txt_ForgetPassword_Email);
             grb_ForgetPassword.Controls.Add(label11);
-            grb_ForgetPassword.Controls.Add(cyberTextBox8);
+            grb_ForgetPassword.Controls.Add(txt_ForgetPassword_ID);
             grb_ForgetPassword.Controls.Add(label13);
             grb_ForgetPassword.ForeColor = Color.White;
-            grb_ForgetPassword.Location = new Point(515, 14);
+            grb_ForgetPassword.Location = new Point(405, 12);
             grb_ForgetPassword.Name = "grb_ForgetPassword";
-            grb_ForgetPassword.Size = new Size(118, 49);
+            grb_ForgetPassword.Size = new Size(55, 106);
             grb_ForgetPassword.TabIndex = 16;
             grb_ForgetPassword.TabStop = false;
             grb_ForgetPassword.Text = "Quên mật khẩu";
             grb_ForgetPassword.Visible = false;
+            // 
+            // lb_ForgetPassword_Notify
+            // 
+            lb_ForgetPassword_Notify.AutoSize = true;
+            lb_ForgetPassword_Notify.ForeColor = Color.FromArgb(245, 108, 108);
+            lb_ForgetPassword_Notify.Location = new Point(264, 452);
+            lb_ForgetPassword_Notify.Name = "lb_ForgetPassword_Notify";
+            lb_ForgetPassword_Notify.Size = new Size(84, 20);
+            lb_ForgetPassword_Notify.TabIndex = 44;
+            lb_ForgetPassword_Notify.Text = "Thông báo:";
             // 
             // btn_CancelForgetPassword
             // 
@@ -1648,7 +1706,7 @@
             btn_CancelForgetPassword.InfoColor = Color.FromArgb(144, 147, 153);
             btn_CancelForgetPassword.Location = new Point(264, 408);
             btn_CancelForgetPassword.Name = "btn_CancelForgetPassword";
-            btn_CancelForgetPassword.PrimaryColor = Color.FromArgb(59, 198, 171);
+            btn_CancelForgetPassword.PrimaryColor = Color.FromArgb(245, 108, 108);
             btn_CancelForgetPassword.Size = new Size(287, 31);
             btn_CancelForgetPassword.SuccessColor = Color.FromArgb(103, 194, 58);
             btn_CancelForgetPassword.TabIndex = 43;
@@ -1677,15 +1735,6 @@
             btn_ConfirmForgetPassword.WarningColor = Color.FromArgb(230, 162, 60);
             btn_ConfirmForgetPassword.Click += btn_ConfirmForgetPassword_Click;
             // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Location = new Point(264, 446);
-            label15.Name = "label15";
-            label15.Size = new Size(90, 20);
-            label15.TabIndex = 41;
-            label15.Text = "*Thông báo:";
-            // 
             // btn_GetVerifyCode_ForgetPassword
             // 
             btn_GetVerifyCode_ForgetPassword.BorderColor = Color.FromArgb(220, 223, 230);
@@ -1706,65 +1755,65 @@
             btn_GetVerifyCode_ForgetPassword.WarningColor = Color.FromArgb(230, 162, 60);
             btn_GetVerifyCode_ForgetPassword.Click += btn_GetVerifyCode_ForgetPassword_Click;
             // 
-            // cyberTextBox7
+            // txt_ForgetPassword_VerifyCode
             // 
-            cyberTextBox7.Alpha = 20;
-            cyberTextBox7.BackColor = Color.Transparent;
-            cyberTextBox7.Background_WidthPen = 3F;
-            cyberTextBox7.BackgroundPen = true;
-            cyberTextBox7.ColorBackground = Color.FromArgb(12, 20, 29);
-            cyberTextBox7.ColorBackground_Pen = Color.FromArgb(59, 198, 171);
-            cyberTextBox7.ColorLighting = Color.FromArgb(59, 198, 171);
-            cyberTextBox7.ColorPen_1 = Color.FromArgb(12, 20, 29);
-            cyberTextBox7.ColorPen_2 = Color.Transparent;
-            cyberTextBox7.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            cyberTextBox7.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            cyberTextBox7.ForeColor = Color.White;
-            cyberTextBox7.Lighting = false;
-            cyberTextBox7.LinearGradientPen = false;
-            cyberTextBox7.Location = new Point(264, 317);
-            cyberTextBox7.Name = "cyberTextBox7";
-            cyberTextBox7.PenWidth = 15;
-            cyberTextBox7.RGB = false;
-            cyberTextBox7.Rounding = true;
-            cyberTextBox7.RoundingInt = 90;
-            cyberTextBox7.Size = new Size(289, 45);
-            cyberTextBox7.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            cyberTextBox7.TabIndex = 39;
-            cyberTextBox7.Tag = "Cyber";
-            cyberTextBox7.TextButton = "";
-            cyberTextBox7.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            cyberTextBox7.Timer_RGB = 300;
+            txt_ForgetPassword_VerifyCode.Alpha = 20;
+            txt_ForgetPassword_VerifyCode.BackColor = Color.Transparent;
+            txt_ForgetPassword_VerifyCode.Background_WidthPen = 3F;
+            txt_ForgetPassword_VerifyCode.BackgroundPen = true;
+            txt_ForgetPassword_VerifyCode.ColorBackground = Color.FromArgb(12, 20, 29);
+            txt_ForgetPassword_VerifyCode.ColorBackground_Pen = Color.FromArgb(59, 198, 171);
+            txt_ForgetPassword_VerifyCode.ColorLighting = Color.FromArgb(59, 198, 171);
+            txt_ForgetPassword_VerifyCode.ColorPen_1 = Color.FromArgb(12, 20, 29);
+            txt_ForgetPassword_VerifyCode.ColorPen_2 = Color.Transparent;
+            txt_ForgetPassword_VerifyCode.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            txt_ForgetPassword_VerifyCode.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_ForgetPassword_VerifyCode.ForeColor = Color.White;
+            txt_ForgetPassword_VerifyCode.Lighting = false;
+            txt_ForgetPassword_VerifyCode.LinearGradientPen = false;
+            txt_ForgetPassword_VerifyCode.Location = new Point(264, 317);
+            txt_ForgetPassword_VerifyCode.Name = "txt_ForgetPassword_VerifyCode";
+            txt_ForgetPassword_VerifyCode.PenWidth = 15;
+            txt_ForgetPassword_VerifyCode.RGB = false;
+            txt_ForgetPassword_VerifyCode.Rounding = true;
+            txt_ForgetPassword_VerifyCode.RoundingInt = 90;
+            txt_ForgetPassword_VerifyCode.Size = new Size(289, 45);
+            txt_ForgetPassword_VerifyCode.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            txt_ForgetPassword_VerifyCode.TabIndex = 39;
+            txt_ForgetPassword_VerifyCode.Tag = "Cyber";
+            txt_ForgetPassword_VerifyCode.TextButton = "";
+            txt_ForgetPassword_VerifyCode.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            txt_ForgetPassword_VerifyCode.Timer_RGB = 300;
             // 
-            // cyberTextBox9
+            // txt_ForgetPassword_NewPassword
             // 
-            cyberTextBox9.Alpha = 20;
-            cyberTextBox9.BackColor = Color.Transparent;
-            cyberTextBox9.Background_WidthPen = 3F;
-            cyberTextBox9.BackgroundPen = true;
-            cyberTextBox9.ColorBackground = Color.FromArgb(12, 20, 29);
-            cyberTextBox9.ColorBackground_Pen = Color.FromArgb(59, 198, 171);
-            cyberTextBox9.ColorLighting = Color.FromArgb(59, 198, 171);
-            cyberTextBox9.ColorPen_1 = Color.FromArgb(12, 20, 29);
-            cyberTextBox9.ColorPen_2 = Color.Transparent;
-            cyberTextBox9.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            cyberTextBox9.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            cyberTextBox9.ForeColor = Color.White;
-            cyberTextBox9.Lighting = false;
-            cyberTextBox9.LinearGradientPen = false;
-            cyberTextBox9.Location = new Point(264, 266);
-            cyberTextBox9.Name = "cyberTextBox9";
-            cyberTextBox9.PenWidth = 15;
-            cyberTextBox9.RGB = false;
-            cyberTextBox9.Rounding = true;
-            cyberTextBox9.RoundingInt = 90;
-            cyberTextBox9.Size = new Size(289, 45);
-            cyberTextBox9.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            cyberTextBox9.TabIndex = 38;
-            cyberTextBox9.Tag = "Cyber";
-            cyberTextBox9.TextButton = "";
-            cyberTextBox9.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            cyberTextBox9.Timer_RGB = 300;
+            txt_ForgetPassword_NewPassword.Alpha = 20;
+            txt_ForgetPassword_NewPassword.BackColor = Color.Transparent;
+            txt_ForgetPassword_NewPassword.Background_WidthPen = 3F;
+            txt_ForgetPassword_NewPassword.BackgroundPen = true;
+            txt_ForgetPassword_NewPassword.ColorBackground = Color.FromArgb(12, 20, 29);
+            txt_ForgetPassword_NewPassword.ColorBackground_Pen = Color.FromArgb(59, 198, 171);
+            txt_ForgetPassword_NewPassword.ColorLighting = Color.FromArgb(59, 198, 171);
+            txt_ForgetPassword_NewPassword.ColorPen_1 = Color.FromArgb(12, 20, 29);
+            txt_ForgetPassword_NewPassword.ColorPen_2 = Color.Transparent;
+            txt_ForgetPassword_NewPassword.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            txt_ForgetPassword_NewPassword.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_ForgetPassword_NewPassword.ForeColor = Color.White;
+            txt_ForgetPassword_NewPassword.Lighting = false;
+            txt_ForgetPassword_NewPassword.LinearGradientPen = false;
+            txt_ForgetPassword_NewPassword.Location = new Point(264, 266);
+            txt_ForgetPassword_NewPassword.Name = "txt_ForgetPassword_NewPassword";
+            txt_ForgetPassword_NewPassword.PenWidth = 15;
+            txt_ForgetPassword_NewPassword.RGB = false;
+            txt_ForgetPassword_NewPassword.Rounding = true;
+            txt_ForgetPassword_NewPassword.RoundingInt = 90;
+            txt_ForgetPassword_NewPassword.Size = new Size(289, 45);
+            txt_ForgetPassword_NewPassword.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            txt_ForgetPassword_NewPassword.TabIndex = 38;
+            txt_ForgetPassword_NewPassword.Tag = "Cyber";
+            txt_ForgetPassword_NewPassword.TextButton = "";
+            txt_ForgetPassword_NewPassword.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            txt_ForgetPassword_NewPassword.Timer_RGB = 300;
             // 
             // label12
             // 
@@ -1786,35 +1835,35 @@
             label14.TabIndex = 36;
             label14.Text = "Mật khẩu mới:";
             // 
-            // cyberTextBox3
+            // txt_ForgetPassword_Email
             // 
-            cyberTextBox3.Alpha = 20;
-            cyberTextBox3.BackColor = Color.Transparent;
-            cyberTextBox3.Background_WidthPen = 3F;
-            cyberTextBox3.BackgroundPen = true;
-            cyberTextBox3.ColorBackground = Color.FromArgb(12, 20, 29);
-            cyberTextBox3.ColorBackground_Pen = Color.FromArgb(59, 198, 171);
-            cyberTextBox3.ColorLighting = Color.FromArgb(59, 198, 171);
-            cyberTextBox3.ColorPen_1 = Color.FromArgb(12, 20, 29);
-            cyberTextBox3.ColorPen_2 = Color.Transparent;
-            cyberTextBox3.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            cyberTextBox3.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            cyberTextBox3.ForeColor = Color.White;
-            cyberTextBox3.Lighting = false;
-            cyberTextBox3.LinearGradientPen = false;
-            cyberTextBox3.Location = new Point(262, 178);
-            cyberTextBox3.Name = "cyberTextBox3";
-            cyberTextBox3.PenWidth = 15;
-            cyberTextBox3.RGB = false;
-            cyberTextBox3.Rounding = true;
-            cyberTextBox3.RoundingInt = 90;
-            cyberTextBox3.Size = new Size(289, 45);
-            cyberTextBox3.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            cyberTextBox3.TabIndex = 35;
-            cyberTextBox3.Tag = "Cyber";
-            cyberTextBox3.TextButton = "";
-            cyberTextBox3.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            cyberTextBox3.Timer_RGB = 300;
+            txt_ForgetPassword_Email.Alpha = 20;
+            txt_ForgetPassword_Email.BackColor = Color.Transparent;
+            txt_ForgetPassword_Email.Background_WidthPen = 3F;
+            txt_ForgetPassword_Email.BackgroundPen = true;
+            txt_ForgetPassword_Email.ColorBackground = Color.FromArgb(12, 20, 29);
+            txt_ForgetPassword_Email.ColorBackground_Pen = Color.FromArgb(59, 198, 171);
+            txt_ForgetPassword_Email.ColorLighting = Color.FromArgb(59, 198, 171);
+            txt_ForgetPassword_Email.ColorPen_1 = Color.FromArgb(12, 20, 29);
+            txt_ForgetPassword_Email.ColorPen_2 = Color.Transparent;
+            txt_ForgetPassword_Email.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            txt_ForgetPassword_Email.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_ForgetPassword_Email.ForeColor = Color.White;
+            txt_ForgetPassword_Email.Lighting = false;
+            txt_ForgetPassword_Email.LinearGradientPen = false;
+            txt_ForgetPassword_Email.Location = new Point(262, 178);
+            txt_ForgetPassword_Email.Name = "txt_ForgetPassword_Email";
+            txt_ForgetPassword_Email.PenWidth = 15;
+            txt_ForgetPassword_Email.RGB = false;
+            txt_ForgetPassword_Email.Rounding = true;
+            txt_ForgetPassword_Email.RoundingInt = 90;
+            txt_ForgetPassword_Email.Size = new Size(289, 45);
+            txt_ForgetPassword_Email.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            txt_ForgetPassword_Email.TabIndex = 35;
+            txt_ForgetPassword_Email.Tag = "Cyber";
+            txt_ForgetPassword_Email.TextButton = "";
+            txt_ForgetPassword_Email.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            txt_ForgetPassword_Email.Timer_RGB = 300;
             // 
             // label11
             // 
@@ -1826,35 +1875,35 @@
             label11.TabIndex = 34;
             label11.Text = "Email:";
             // 
-            // cyberTextBox8
+            // txt_ForgetPassword_ID
             // 
-            cyberTextBox8.Alpha = 20;
-            cyberTextBox8.BackColor = Color.Transparent;
-            cyberTextBox8.Background_WidthPen = 3F;
-            cyberTextBox8.BackgroundPen = true;
-            cyberTextBox8.ColorBackground = Color.FromArgb(12, 20, 29);
-            cyberTextBox8.ColorBackground_Pen = Color.FromArgb(59, 198, 171);
-            cyberTextBox8.ColorLighting = Color.FromArgb(59, 198, 171);
-            cyberTextBox8.ColorPen_1 = Color.FromArgb(12, 20, 29);
-            cyberTextBox8.ColorPen_2 = Color.Transparent;
-            cyberTextBox8.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            cyberTextBox8.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            cyberTextBox8.ForeColor = Color.White;
-            cyberTextBox8.Lighting = false;
-            cyberTextBox8.LinearGradientPen = false;
-            cyberTextBox8.Location = new Point(264, 127);
-            cyberTextBox8.Name = "cyberTextBox8";
-            cyberTextBox8.PenWidth = 15;
-            cyberTextBox8.RGB = false;
-            cyberTextBox8.Rounding = true;
-            cyberTextBox8.RoundingInt = 90;
-            cyberTextBox8.Size = new Size(289, 45);
-            cyberTextBox8.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            cyberTextBox8.TabIndex = 32;
-            cyberTextBox8.Tag = "Cyber";
-            cyberTextBox8.TextButton = "";
-            cyberTextBox8.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            cyberTextBox8.Timer_RGB = 300;
+            txt_ForgetPassword_ID.Alpha = 20;
+            txt_ForgetPassword_ID.BackColor = Color.Transparent;
+            txt_ForgetPassword_ID.Background_WidthPen = 3F;
+            txt_ForgetPassword_ID.BackgroundPen = true;
+            txt_ForgetPassword_ID.ColorBackground = Color.FromArgb(12, 20, 29);
+            txt_ForgetPassword_ID.ColorBackground_Pen = Color.FromArgb(59, 198, 171);
+            txt_ForgetPassword_ID.ColorLighting = Color.FromArgb(59, 198, 171);
+            txt_ForgetPassword_ID.ColorPen_1 = Color.FromArgb(12, 20, 29);
+            txt_ForgetPassword_ID.ColorPen_2 = Color.Transparent;
+            txt_ForgetPassword_ID.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            txt_ForgetPassword_ID.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_ForgetPassword_ID.ForeColor = Color.White;
+            txt_ForgetPassword_ID.Lighting = false;
+            txt_ForgetPassword_ID.LinearGradientPen = false;
+            txt_ForgetPassword_ID.Location = new Point(264, 127);
+            txt_ForgetPassword_ID.Name = "txt_ForgetPassword_ID";
+            txt_ForgetPassword_ID.PenWidth = 15;
+            txt_ForgetPassword_ID.RGB = false;
+            txt_ForgetPassword_ID.Rounding = true;
+            txt_ForgetPassword_ID.RoundingInt = 90;
+            txt_ForgetPassword_ID.Size = new Size(289, 45);
+            txt_ForgetPassword_ID.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            txt_ForgetPassword_ID.TabIndex = 32;
+            txt_ForgetPassword_ID.Tag = "Cyber";
+            txt_ForgetPassword_ID.TextButton = "";
+            txt_ForgetPassword_ID.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            txt_ForgetPassword_ID.Timer_RGB = 300;
             // 
             // label13
             // 
@@ -1869,7 +1918,7 @@
             // grb_ChangePassword
             // 
             grb_ChangePassword.BackColor = Color.FromArgb(12, 20, 29);
-            grb_ChangePassword.Controls.Add(label16);
+            grb_ChangePassword.Controls.Add(lb_ChangePassword_Notify);
             grb_ChangePassword.Controls.Add(btn_CancelChangePassword);
             grb_ChangePassword.Controls.Add(btn_ConfirmChangePassword);
             grb_ChangePassword.Controls.Add(cyberTextBox12);
@@ -1877,21 +1926,22 @@
             grb_ChangePassword.Controls.Add(cyberTextBox11);
             grb_ChangePassword.Controls.Add(label17);
             grb_ChangePassword.ForeColor = Color.White;
-            grb_ChangePassword.Location = new Point(116, 59);
+            grb_ChangePassword.Location = new Point(103, 59);
             grb_ChangePassword.Name = "grb_ChangePassword";
-            grb_ChangePassword.Size = new Size(73, 35);
+            grb_ChangePassword.Size = new Size(64, 83);
             grb_ChangePassword.TabIndex = 17;
             grb_ChangePassword.TabStop = false;
             grb_ChangePassword.Text = "Thay đổi mật khẩu:";
             // 
-            // label16
+            // lb_ChangePassword_Notify
             // 
-            label16.AutoSize = true;
-            label16.Location = new Point(275, 397);
-            label16.Name = "label16";
-            label16.Size = new Size(90, 20);
-            label16.TabIndex = 44;
-            label16.Text = "*Thông báo:";
+            lb_ChangePassword_Notify.AutoSize = true;
+            lb_ChangePassword_Notify.ForeColor = Color.FromArgb(245, 108, 108);
+            lb_ChangePassword_Notify.Location = new Point(275, 397);
+            lb_ChangePassword_Notify.Name = "lb_ChangePassword_Notify";
+            lb_ChangePassword_Notify.Size = new Size(90, 20);
+            lb_ChangePassword_Notify.TabIndex = 44;
+            lb_ChangePassword_Notify.Text = "*Thông báo:";
             // 
             // btn_CancelChangePassword
             // 
@@ -1900,11 +1950,12 @@
             btn_CancelChangePassword.DangerColor = Color.FromArgb(245, 108, 108);
             btn_CancelChangePassword.DefaultColor = Color.FromArgb(255, 255, 255);
             btn_CancelChangePassword.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_CancelChangePassword.ForeColor = Color.White;
             btn_CancelChangePassword.HoverTextColor = Color.FromArgb(48, 49, 51);
             btn_CancelChangePassword.InfoColor = Color.FromArgb(144, 147, 153);
             btn_CancelChangePassword.Location = new Point(275, 360);
             btn_CancelChangePassword.Name = "btn_CancelChangePassword";
-            btn_CancelChangePassword.PrimaryColor = Color.FromArgb(59, 198, 171);
+            btn_CancelChangePassword.PrimaryColor = Color.FromArgb(245, 108, 108);
             btn_CancelChangePassword.Size = new Size(289, 31);
             btn_CancelChangePassword.SuccessColor = Color.FromArgb(103, 194, 58);
             btn_CancelChangePassword.TabIndex = 43;
@@ -2084,7 +2135,7 @@
         private Label label2;
         private ReaLTaiizor.Controls.CyberTextBox txt_IPClient;
         private ReaLTaiizor.Controls.HopeRoundButton btn_PlayWithAI;
-        private ReaLTaiizor.Controls.HopeRoundButton btn_LogOut;
+        private ReaLTaiizor.Controls.HopeRoundButton btn_Info_LogOut;
         private Panel panel_PlayArea;
         private Panel panel2;
         private ReaLTaiizor.Controls.ParrotClock parrotClock1;
@@ -2125,22 +2176,21 @@
         private Label label6;
         private Label label7;
         private Label label8;
-        private ReaLTaiizor.Controls.SkyComboBox skyComboBox2;
+        private ReaLTaiizor.Controls.SkyComboBox cbx_TurnTime;
         private Label label10;
         private Label label9;
         private ReaLTaiizor.Controls.CyberTextBox txt_PortClient;
         private GroupBox grb_ForgetPassword;
         private ReaLTaiizor.Controls.HopeRoundButton btn_CancelForgetPassword;
         private ReaLTaiizor.Controls.HopeRoundButton btn_ConfirmForgetPassword;
-        private Label label15;
         private ReaLTaiizor.Controls.HopeRoundButton btn_GetVerifyCode_ForgetPassword;
-        private ReaLTaiizor.Controls.CyberTextBox cyberTextBox7;
-        private ReaLTaiizor.Controls.CyberTextBox cyberTextBox9;
+        private ReaLTaiizor.Controls.CyberTextBox txt_ForgetPassword_VerifyCode;
+        private ReaLTaiizor.Controls.CyberTextBox txt_ForgetPassword_NewPassword;
         private Label label12;
         private Label label14;
-        private ReaLTaiizor.Controls.CyberTextBox cyberTextBox3;
+        private ReaLTaiizor.Controls.CyberTextBox txt_ForgetPassword_Email;
         private Label label11;
-        private ReaLTaiizor.Controls.CyberTextBox cyberTextBox8;
+        private ReaLTaiizor.Controls.CyberTextBox txt_ForgetPassword_ID;
         private Label label13;
         private GroupBox grb_ChangePassword;
         private ReaLTaiizor.Controls.CyberTextBox cyberTextBox12;
@@ -2149,22 +2199,27 @@
         private Label label17;
         private ReaLTaiizor.Controls.HopeRoundButton btn_CancelChangePassword;
         private ReaLTaiizor.Controls.HopeRoundButton btn_ConfirmChangePassword;
-        private Label label16;
+        private Label lb_ChangePassword_Notify;
         private Label lb_ForgetPassword;
         private RJCircularPictureBox rjCircularPictureBox4;
         private ReaLTaiizor.Controls.CyberTextBox cyberTextBox10;
         private RJCircularPictureBox rjCircularPictureBox5;
-        private ReaLTaiizor.Controls.HopeRoundButton btn_ChangePassword;
+        private ReaLTaiizor.Controls.HopeRoundButton btn_Info_ChangePW;
         private RJCircularPictureBox rjCircularPictureBox6;
         private RJCircularPictureBox rjCircularPictureBox8;
         private RJCircularPictureBox rjCircularPictureBox7;
         private ReaLTaiizor.Controls.PoisonDataGridView dtg_Ranking;
         private Label label19;
         private RJCircularPictureBox rjCircularPictureBox9;
-        private ReaLTaiizor.Controls.SkyComboBox skyComboBox1;
+        private ReaLTaiizor.Controls.SkyComboBox cbx_BoardSize;
         private DataGridViewTextBoxColumn PlayerID;
         private DataGridViewTextBoxColumn Win;
         private DataGridViewTextBoxColumn Lose;
         private DataGridViewTextBoxColumn Winrate;
+        private Label lb_Login_Notify;
+        private Label lb_SignUp_Notify;
+        private Label lb_BattleInfo_Notify;
+        private Label lb_ClientInfo_Notify;
+        private Label lb_ForgetPassword_Notify;
     }
 }

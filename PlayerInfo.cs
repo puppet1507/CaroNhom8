@@ -10,7 +10,7 @@ namespace Caro_Nhom8
     // Info
     public partial class MainForm
     {
-        #region Info
+        #region PlayerInfo
         void OpenInfo()
         {
             this.Size = new Size(755, 658);
@@ -37,7 +37,7 @@ namespace Caro_Nhom8
         }
         private void btn_CreateRoom_Click(object sender, EventArgs e)
         {
-            OpenBattleInfo();
+            OpenServerInfo();
             
 
         }
@@ -45,7 +45,7 @@ namespace Caro_Nhom8
         {
             OpenConnect();
         }
-        private void btn_LogOut_Click(object sender, EventArgs e)
+        private void btn_Info_LogOut_Click(object sender, EventArgs e)
         {
             OpenLogin();
         }

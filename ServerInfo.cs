@@ -9,12 +9,13 @@ namespace Caro_Nhom8
 {
     public partial class MainForm
     {
-        #region BattleInfo
-        void OpenBattleInfo()
+        #region ServerInfo
+        void OpenServerInfo()
         {
             this.Size = new Size(755, 658);
             grb_BattleInfo.Size = new Size(726, 601);
             grb_BattleInfo.Location = new Point(6, 6);
+            lb_BattleInfo_Notify.Visible = false;
             grb_Login.Visible = false;
             grb_SignUp.Visible = false;
             grb_Info.Visible = false;

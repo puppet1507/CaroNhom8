@@ -1,4 +1,6 @@
-﻿namespace Caro_Nhom8
+﻿using System.Text;
+
+namespace Caro_Nhom8
 {
     // Đăng kí
     public partial class MainForm
@@ -11,6 +13,7 @@
             grb_SignUp.Location = new Point(6, 6);
             grb_Login.Visible = false;
             grb_SignUp.Visible = true;
+            lb_SignUp_Notify.Visible = false;
             grb_Info.Visible = false;
             grb_Waiting.Visible = false;
             grb_ClientInfo.Visible = false;

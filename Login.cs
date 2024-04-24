@@ -16,6 +16,7 @@ namespace Caro_Nhom8
             grb_Login.Size = new Size(726, 601);
             grb_Login.Location = new Point(6, 6);
             grb_Login.Visible = true;
+            lb_Login_Notify.Visible = false;
             grb_SignUp.Visible = false;
             grb_Info.Visible = false;
             grb_Waiting.Visible = false;

@@ -15,6 +15,7 @@ namespace Caro_Nhom8
             this.Size = new Size(755, 658);
             grb_ForgetPassword.Size = new Size(726, 601);
             grb_ForgetPassword.Location = new Point(6, 6);
+            lb_ForgetPassword_Notify.Visible = false;
             grb_Login.Visible = false;
             grb_SignUp.Visible = false;
             grb_Info.Visible = false;

@@ -5,12 +5,13 @@ namespace Caro_Nhom8
     //Client kết nối với server
     public partial class MainForm
     {
-        #region clientInfo
+        #region ClientInfo
         void OpenConnect()
         {
             this.Size = new Size(755, 658);
             grb_ClientInfo.Size = new Size(726, 601);
             grb_ClientInfo.Location = new Point(6, 6);
+            lb_ClientInfo_Notify.Visible = false;
             grb_Login.Visible = false;
             grb_SignUp.Visible = false;
             grb_Info.Visible = false;
