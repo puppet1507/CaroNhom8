@@ -30,17 +30,34 @@ namespace Caro_Nhom8
         }
         private void btn_Login_Click_1(object sender, EventArgs e)
         {
+            if (isSFX)
+            {
+                sfx.Play();
+            }
+            
             OpenInfo();
             lb_Welcome.Text = "Welcome " + txt_Login_ID.TextButton;
         }
         private void btn_Open_SignUp_Click(object sender, EventArgs e)
         {
+            if (isSFX)
+            {
+                sfx.Play();
+            }
             OpenSignUp();
+            
+
 
         }
         private void lb_Open_ForgetPW_Click(object sender, EventArgs e)
         {
+            if (isSFX)
+            {
+                sfx.Play();
+            }
+
             OpenForgetPassword();
+
 
         }
         
