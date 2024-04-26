@@ -23,6 +23,10 @@
         }
         private void btn_CancelWaitingPlayer_Click(object sender, EventArgs e)
         {
+            if (isSFX)
+            {
+                sfx.URL = "Resources/Sound/Sfx.wav";
+            }
             this.Invoke((MethodInvoker)delegate
             {
                 try

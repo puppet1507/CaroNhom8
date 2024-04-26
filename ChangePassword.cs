@@ -29,11 +29,18 @@ namespace Caro_Nhom8
         }
         private void btn_CancelChangePassword_Click(object sender, EventArgs e)
         {
+            if (isSFX)
+            {
+                sfx.URL = "Resources/Sound/Sfx.wav";
+            }
             OpenInfo();
         }
         private void btn_ConfirmChangePassword_Click(object sender, EventArgs e)
         {
-
+            if (isSFX)
+            {
+                sfx.URL = "Resources/Sound/Sfx.wav";
+            }
         }
         #endregion
     }

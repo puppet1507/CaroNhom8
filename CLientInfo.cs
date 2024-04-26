@@ -26,6 +26,10 @@ namespace Caro_Nhom8
         }
         private void btn_Connect_Click(object sender, EventArgs e)
         {
+            if (isSFX)
+            {
+                sfx.URL = "Resources/Sound/Sfx.wav";
+            }
             this.Invoke((MethodInvoker)delegate
             {
                 client = new SimpleTcpClient(txt_ClientInfo_IP.TextButton,int.Parse(txt_ClientInfo_Port.TextButton));
@@ -39,6 +43,10 @@ namespace Caro_Nhom8
         }
         private void btn_CancelJoinRoom_Click(object sender, EventArgs e)
         {
+            if (isSFX)
+            {
+                sfx.URL = "Resources/Sound/Sfx.wav";
+            }
             OpenInfo();
         }
         #endregion

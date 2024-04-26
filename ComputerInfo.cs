@@ -28,6 +28,10 @@ namespace Caro_Nhom8
         }
         private void btn_PVC_Start_Click(object sender, EventArgs e)
         {
+            if (isSFX)
+            {
+                sfx.URL = "Resources/Sound/Sfx.wav";
+            }
             grs!.Clear(fpanel_Board.BackColor);
             caroChess!.StartPvC(grs!);
             tmCoolDown.Start();
@@ -37,6 +41,10 @@ namespace Caro_Nhom8
 
         private void btn_PVC_Cancel_Click(object sender, EventArgs e)
         {
+            if (isSFX)
+            {
+                sfx.URL = "Resources/Sound/Sfx.wav";
+            }
             OpenInfo();
         }
     }

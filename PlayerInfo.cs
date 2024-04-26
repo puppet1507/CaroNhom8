@@ -30,45 +30,80 @@ namespace Caro_Nhom8
         }
         private void btn_PlayWithAI_Click(object sender, EventArgs e)
         {
+            if (isSFX)
+            {
+                sfx.URL = "Resources/Sound/Sfx.wav";
+            }
             OpenComputerInfo();
 
         }
         private void btn_CreateRoom_Click(object sender, EventArgs e)
         {
+            if (isSFX)
+            {
+                sfx.URL = "Resources/Sound/Sfx.wav";
+            }
             OpenServerInfo();
 
 
         }
         private void btn_JoinRoom_Click(object sender, EventArgs e)
         {
+            if (isSFX)
+            {
+                sfx.URL = "Resources/Sound/Sfx.wav";
+            }
             OpenConnect();
         }
         private void btn_Info_LogOut_Click(object sender, EventArgs e)
         {
+            if (isSFX)
+            {
+                sfx.URL = "Resources/Sound/Sfx.wav";
+            }
             OpenLogin();
         }
         private void btn_ChangePassword_Click(object sender, EventArgs e)
         {
+            if (isSFX)
+            {
+                sfx.URL = "Resources/Sound/Sfx.wav";
+            }
             OpenChangePassword();
         }
         private void btn_Info_Music_Click(object sender, EventArgs e)
         {
+            if (isSFX)
+            {
+                sfx.URL = "Resources/Sound/Sfx.wav";
+            }
             isMusic = !isMusic;
-            btn_Info_Music.Image = isMusic ? Properties.Resources.Speaker : Properties.Resources.Mute;
             if (isMusic)
             {
-                player.PlayLooping();
-                
+                music.controls.play();
+                btn_Info_Music.Image = Image.FromFile("Resources/UI_Icon/Speaker.png");
             }
-            else {
-                player.Stop();
+            else
+            {
+                music.controls.stop();
+                btn_Info_Music.Image = Image.FromFile("Resources/UI_Icon/Mute.png");
             }
         }
        private void btn_Info_SFX_Click(object sender, EventArgs e)
-        {
+       {
+            if (isSFX)
+            {
+                sfx.URL = "Resources/Sound/Sfx.wav";
+            }
             isSFX = !isSFX;
-            btn_Info_SFX.Image = isSFX ? Properties.Resources.Speaker : Properties.Resources.Mute;
-            
+            if (isSFX)
+            {
+                btn_Info_SFX.Image = Image.FromFile("Resources/UI_Icon/Speaker.png");
+            }
+            else
+            {
+                btn_Info_SFX.Image = Image.FromFile("Resources/UI_Icon/Mute.png");
+            }
 
         }
         #endregion

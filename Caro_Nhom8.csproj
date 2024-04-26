@@ -9,21 +9,32 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <COMReference Include="MediaPlayer">
+      <WrapperTool>tlbimp</WrapperTool>
+      <VersionMinor>0</VersionMinor>
+      <VersionMajor>1</VersionMajor>
+      <Guid>22d6f304-b0f6-11d0-94ab-0080c74c7e95</Guid>
+      <Lcid>0</Lcid>
+      <Isolated>false</Isolated>
+      <EmbedInteropTypes>true</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <WrapperTool>tlbimp</WrapperTool>
+      <VersionMinor>0</VersionMinor>
+      <VersionMajor>1</VersionMajor>
+      <Guid>6bf52a50-394a-11d3-b153-00c04f79faa6</Guid>
+      <Lcid>0</Lcid>
+      <Isolated>false</Isolated>
+      <EmbedInteropTypes>true</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="ReaLTaiizor" Version="3.8.0.5" />
     <PackageReference Include="SuperSimpleTcp" Version="3.0.14" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Properties\Avatar.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Avatar.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Properties\Music.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Music.resx</DependentUpon>
-    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -32,14 +43,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Properties\Avatar.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Avatar.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Properties\Music.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Music.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Update="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

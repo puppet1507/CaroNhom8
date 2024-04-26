@@ -30,16 +30,26 @@ namespace Caro_Nhom8
         }
         private void btn_GetVerifyCode_ForgetPassword_Click(object sender, EventArgs e)
         {
-
+            if (isSFX)
+            {
+                sfx.URL = "Resources/Sound/Sfx.wav";
+            }
         }
 
         private void btn_ConfirmForgetPassword_Click(object sender, EventArgs e)
         {
-
+            if (isSFX)
+            {
+                sfx.URL = "Resources/Sound/Sfx.wav";
+            }
         }
 
         private void btn_CancelForgetPassword_Click(object sender, EventArgs e)
         {
+            if (isSFX)
+            {
+                sfx.URL = "Resources/Sound/Sfx.wav";
+            }
             OpenLogin();
         }
         #endregion

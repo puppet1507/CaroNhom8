@@ -26,21 +26,34 @@ namespace Caro_Nhom8
         }
         private void btn_ConfirmSignUp_Click(object sender, EventArgs e)
         {
-
+            if (isSFX)
+            {
+                sfx.URL = "Resources/Sound/Sfx.wav";
+            }
         }
 
         private void btn_ExitSignUp_Click(object sender, EventArgs e)
         {
+            if (isSFX)
+            {
+                sfx.URL = "Resources/Sound/Sfx.wav";
+            }
             OpenLogin();
         }
 
         private void btn_GetVerifyCode_SignUp_Click(object sender, EventArgs e)
         {
-
+            if (isSFX)
+            {
+                sfx.URL = "Resources/Sound/Sfx.wav";
+            }
         }
         private void lb_ChangeAvatar_SignUp_Click(object sender, EventArgs e)
         {
-
+            if (isSFX)
+            {
+                sfx.URL = "Resources/Sound/Sfx.wav";
+            }
         }
         #endregion
     }

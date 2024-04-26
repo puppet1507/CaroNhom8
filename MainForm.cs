@@ -12,6 +12,7 @@ using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.DataFormats;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Media;
+using WMPLib;
 
 namespace Caro_Nhom8
 {
@@ -32,9 +33,8 @@ namespace Caro_Nhom8
         public string currentClient = "";
         bool isMusic = true;
         bool isSFX = true;
-        SoundPlayer player = new SoundPlayer(Properties.Music.Girl_from_Petaluma);
-        SoundPlayer sfx = new SoundPlayer(Properties.Music.SFX);
-
+        WindowsMediaPlayer music = new WindowsMediaPlayer();
+        WindowsMediaPlayer sfx = new WindowsMediaPlayer();
         #endregion
 
         #region ScreenChange_Methods
@@ -60,6 +60,10 @@ namespace Caro_Nhom8
         #region LoginForm_Btn_Click_Methods
         private void btn_Undo_Click(object sender, EventArgs e)
         {
+            if (isSFX)
+            {
+                sfx.URL = "Resources/Sound/Sfx.wav";
+            }
             caroChess.Undo(grs);
             tmCoolDown.Start();
             prcbCoolDown.Value = 0;
@@ -71,6 +75,10 @@ namespace Caro_Nhom8
 
         private void btn_Redo_Click(object sender, EventArgs e)
         {
+            if (isSFX)
+            {
+                sfx.URL = "Resources/Sound/Sfx.wav";
+            }
             caroChess.Redo(grs);
             tmCoolDown.Start();
             prcbCoolDown.Value = 0;
@@ -205,6 +213,10 @@ namespace Caro_Nhom8
             prcbCoolDown.Maximum = 15000;
             prcbCoolDown.Value = 0;
             tmCoolDown.Interval = cdInterval;
+            music.URL = "Resources/Sound/Music.wav";
+            music.settings.setMode("loop", true);
+            music.controls.stop();
+
 
         }
         private void fpanel_Board_Paint(object sender, PaintEventArgs e)
@@ -216,10 +228,8 @@ namespace Caro_Nhom8
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-
-
             OpenLogin();
-            player.PlayLooping();
+            music.controls.play();
             dtg_Ranking.Rows.Add(
                 new object[]
                 {

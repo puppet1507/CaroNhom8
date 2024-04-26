@@ -30,6 +30,10 @@ namespace Caro_Nhom8
         }
         private void btn_ContinueCreateServer_Click(object sender, EventArgs e)
         {
+            if (isSFX)
+            {
+                sfx.URL = "Resources/Sound/Sfx.wav";
+            }
             this.Invoke((MethodInvoker)delegate
             {
                 OPenWaiting();
@@ -45,6 +49,10 @@ namespace Caro_Nhom8
         }
         private void btn_CancelCreateServer_Click(object sender, EventArgs e)
         {
+            if (isSFX)
+            {
+                sfx.URL = "Resources/Sound/Sfx.wav";
+            }
             OpenInfo();
 
         }

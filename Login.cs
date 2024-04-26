@@ -32,7 +32,7 @@ namespace Caro_Nhom8
         {
             if (isSFX)
             {
-                sfx.Play();
+                sfx.URL = "Resources/Sound/Sfx.wav";
             }
             
             OpenInfo();
@@ -42,7 +42,7 @@ namespace Caro_Nhom8
         {
             if (isSFX)
             {
-                sfx.Play();
+                sfx.URL = "Resources/Sound/Sfx.wav";
             }
             OpenSignUp();
             
@@ -53,7 +53,7 @@ namespace Caro_Nhom8
         {
             if (isSFX)
             {
-                sfx.Play();
+                sfx.URL = "Resources/Sound/Sfx.wav";
             }
 
             OpenForgetPassword();
