@@ -68,6 +68,7 @@ namespace Caro_Nhom8
         {
             isSFX = !isSFX;
             btn_Info_SFX.Image = isSFX ? Properties.Resources.Speaker : Properties.Resources.Mute;
+            
 
         }
         #endregion

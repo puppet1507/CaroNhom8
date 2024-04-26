@@ -33,6 +33,7 @@ namespace Caro_Nhom8
         bool isMusic = true;
         bool isSFX = true;
         SoundPlayer player = new SoundPlayer(Properties.Music.Girl_from_Petaluma);
+        SoundPlayer sfx = new SoundPlayer(Properties.Music.SFX);
 
         #endregion
 
@@ -62,6 +63,10 @@ namespace Caro_Nhom8
             caroChess.Undo(grs);
             tmCoolDown.Start();
             prcbCoolDown.Value = 0;
+            if (isSFX)
+            {
+
+            }
         }
 
         private void btn_Redo_Click(object sender, EventArgs e)
@@ -215,7 +220,6 @@ namespace Caro_Nhom8
 
             OpenLogin();
             player.PlayLooping();
-
             dtg_Ranking.Rows.Add(
                 new object[]
                 {

@@ -68,5 +68,14 @@ namespace Caro_Nhom8.Properties {
                 return ResourceManager.GetStream("Girl_from_Petaluma", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream SFX {
+            get {
+                return ResourceManager.GetStream("SFX", resourceCulture);
+            }
+        }
     }
 }
