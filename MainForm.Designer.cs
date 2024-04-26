@@ -399,10 +399,10 @@
             grb_Info.Controls.Add(btn_JoinRoom);
             grb_Info.Controls.Add(btn_CreateRoom);
             grb_Info.ForeColor = Color.White;
-            grb_Info.Location = new Point(12, 394);
+            grb_Info.Location = new Point(318, 209);
             grb_Info.MaximumSize = new Size(999999, 999999);
             grb_Info.Name = "grb_Info";
-            grb_Info.Size = new Size(726, 601);
+            grb_Info.Size = new Size(82, 49);
             grb_Info.TabIndex = 10;
             grb_Info.TabStop = false;
             grb_Info.Text = "Thông tin";
@@ -2044,9 +2044,9 @@
             grb_ChangePassword.Controls.Add(txt_ChangePW_NewPW);
             grb_ChangePassword.Controls.Add(label17);
             grb_ChangePassword.ForeColor = Color.White;
-            grb_ChangePassword.Location = new Point(185, 119);
+            grb_ChangePassword.Location = new Point(12, 387);
             grb_ChangePassword.Name = "grb_ChangePassword";
-            grb_ChangePassword.Size = new Size(81, 82);
+            grb_ChangePassword.Size = new Size(726, 601);
             grb_ChangePassword.TabIndex = 17;
             grb_ChangePassword.TabStop = false;
             grb_ChangePassword.Text = "Thay đổi mật khẩu:";

@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.DataFormats;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Media;
 
 namespace Caro_Nhom8
 {
@@ -31,6 +32,8 @@ namespace Caro_Nhom8
         public string currentClient = "";
         bool isMusic = true;
         bool isSFX = true;
+        SoundPlayer player = new SoundPlayer(Properties.Music.Girl_from_Petaluma);
+
         #endregion
 
         #region ScreenChange_Methods
@@ -211,6 +214,8 @@ namespace Caro_Nhom8
 
 
             OpenLogin();
+            player.PlayLooping();
+
             dtg_Ranking.Rows.Add(
                 new object[]
                 {
@@ -306,7 +311,7 @@ namespace Caro_Nhom8
                 txt_Msg.ForeColor = Color.White;
             }
         }
-
+        
         private void txt_Msg_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter && !string.IsNullOrWhiteSpace(txt_Msg.Text))
