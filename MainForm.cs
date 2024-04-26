@@ -316,14 +316,18 @@ namespace Caro_Nhom8
         {
             if (e.KeyCode == Keys.Enter && !string.IsNullOrWhiteSpace(txt_Msg.Text))
             {
+               
                 string msg = "/msg " + txt_Msg.Text;
-                if (isServer)
+                if (caroChess.Mode == 3)
                 {
-                    server!.SendAsync(currentClient, msg);
-                }
-                else
-                {
-                    client!.SendAsync(msg);
+                    if (isServer)
+                    {
+                        server!.SendAsync(currentClient, msg);
+                    }
+                    else
+                    {
+                        client!.SendAsync(msg);
+                    }
                 }
                 ChatBubbleRight chatBubbleRight = new ChatBubbleRight();
                 chatBubbleRight.BubbleColor = Color.FromArgb(59, 198, 171);
