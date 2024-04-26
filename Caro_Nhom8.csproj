@@ -19,6 +19,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Avatar.resx</DependentUpon>
     </Compile>
+    <Compile Update="Properties\Music.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Music.resx</DependentUpon>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -30,6 +35,10 @@
     <EmbeddedResource Update="Properties\Avatar.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Avatar.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\Music.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Music.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
