@@ -30,14 +30,14 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             grb_Login = new GroupBox();
             lb_Login_Notify = new Label();
             rjCircularPictureBox5 = new RJCircularPictureBox();
@@ -49,6 +49,10 @@
             rjCircularPictureBox1 = new RJCircularPictureBox();
             btn_Login = new ReaLTaiizor.Controls.HopeRoundButton();
             grb_Info = new GroupBox();
+            btn_Info_SFX = new Button();
+            btn_Info_Music = new Button();
+            label16 = new Label();
+            label1 = new Label();
             rjCircularPictureBox9 = new RJCircularPictureBox();
             label19 = new Label();
             dtg_Ranking = new ReaLTaiizor.Controls.PoisonDataGridView();
@@ -367,6 +371,10 @@
             // grb_Info
             // 
             grb_Info.BackColor = Color.FromArgb(12, 20, 29);
+            grb_Info.Controls.Add(btn_Info_SFX);
+            grb_Info.Controls.Add(btn_Info_Music);
+            grb_Info.Controls.Add(label16);
+            grb_Info.Controls.Add(label1);
             grb_Info.Controls.Add(rjCircularPictureBox9);
             grb_Info.Controls.Add(label19);
             grb_Info.Controls.Add(dtg_Ranking);
@@ -383,14 +391,64 @@
             grb_Info.Controls.Add(btn_JoinRoom);
             grb_Info.Controls.Add(btn_CreateRoom);
             grb_Info.ForeColor = Color.White;
-            grb_Info.Location = new Point(394, 31);
+            grb_Info.Location = new Point(12, 394);
             grb_Info.MaximumSize = new Size(999999, 999999);
             grb_Info.Name = "grb_Info";
-            grb_Info.Size = new Size(58, 55);
+            grb_Info.Size = new Size(726, 601);
             grb_Info.TabIndex = 10;
             grb_Info.TabStop = false;
             grb_Info.Text = "Thông tin";
             grb_Info.Visible = false;
+            // 
+            // btn_Info_SFX
+            // 
+            btn_Info_SFX.BackColor = Color.FromArgb(12, 20, 29);
+            btn_Info_SFX.Cursor = Cursors.Hand;
+            btn_Info_SFX.FlatStyle = FlatStyle.Popup;
+            btn_Info_SFX.ForeColor = Color.FromArgb(12, 20, 29);
+            btn_Info_SFX.Image = (Image)resources.GetObject("btn_Info_SFX.Image");
+            btn_Info_SFX.Location = new Point(102, 525);
+            btn_Info_SFX.Name = "btn_Info_SFX";
+            btn_Info_SFX.Size = new Size(59, 53);
+            btn_Info_SFX.TabIndex = 29;
+            btn_Info_SFX.UseVisualStyleBackColor = false;
+            btn_Info_SFX.Click += btn_Info_SFX_Click;
+            // 
+            // btn_Info_Music
+            // 
+            btn_Info_Music.BackColor = Color.FromArgb(12, 20, 29);
+            btn_Info_Music.Cursor = Cursors.Hand;
+            btn_Info_Music.FlatStyle = FlatStyle.Popup;
+            btn_Info_Music.ForeColor = Color.FromArgb(12, 20, 29);
+            btn_Info_Music.Image = Properties.Resources.Speaker;
+            btn_Info_Music.Location = new Point(102, 466);
+            btn_Info_Music.Name = "btn_Info_Music";
+            btn_Info_Music.Size = new Size(59, 53);
+            btn_Info_Music.TabIndex = 19;
+            btn_Info_Music.UseVisualStyleBackColor = false;
+            btn_Info_Music.Click += btn_Info_Music_Click;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label16.ForeColor = Color.White;
+            label16.Location = new Point(45, 536);
+            label16.Name = "label16";
+            label16.Size = new Size(51, 31);
+            label16.TabIndex = 28;
+            label16.Text = "SFX";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(27, 477);
+            label1.Name = "label1";
+            label1.Size = new Size(75, 31);
+            label1.TabIndex = 27;
+            label1.Text = "Music";
             // 
             // rjCircularPictureBox9
             // 
@@ -425,32 +483,32 @@
             dtg_Ranking.AllowUserToDeleteRows = false;
             dtg_Ranking.AllowUserToOrderColumns = true;
             dtg_Ranking.AllowUserToResizeRows = false;
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dtg_Ranking.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dtg_Ranking.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dtg_Ranking.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtg_Ranking.BackgroundColor = Color.FromArgb(12, 20, 29);
             dtg_Ranking.BorderStyle = BorderStyle.None;
             dtg_Ranking.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dtg_Ranking.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = Color.FromArgb(12, 20, 29);
-            dataGridViewCellStyle10.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle10.ForeColor = Color.FromArgb(107, 120, 133);
-            dataGridViewCellStyle10.SelectionBackColor = Color.FromArgb(12, 20, 29);
-            dataGridViewCellStyle10.SelectionForeColor = Color.FromArgb(107, 120, 133);
-            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
-            dtg_Ranking.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(12, 20, 29);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(107, 120, 133);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(12, 20, 29);
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(107, 120, 133);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dtg_Ranking.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dtg_Ranking.ColumnHeadersHeight = 50;
             dtg_Ranking.Columns.AddRange(new DataGridViewColumn[] { PlayerID, Win, Lose, Winrate });
-            dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.BackColor = Color.FromArgb(12, 20, 29);
-            dataGridViewCellStyle15.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle15.ForeColor = Color.White;
-            dataGridViewCellStyle15.SelectionBackColor = Color.FromArgb(27, 40, 55);
-            dataGridViewCellStyle15.SelectionForeColor = Color.White;
-            dataGridViewCellStyle15.WrapMode = DataGridViewTriState.False;
-            dtg_Ranking.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(12, 20, 29);
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(27, 40, 55);
+            dataGridViewCellStyle7.SelectionForeColor = Color.White;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
+            dtg_Ranking.DefaultCellStyle = dataGridViewCellStyle7;
             dtg_Ranking.EnableHeadersVisualStyles = false;
             dtg_Ranking.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dtg_Ranking.GridColor = Color.FromArgb(12, 20, 29);
@@ -458,14 +516,14 @@
             dtg_Ranking.Name = "dtg_Ranking";
             dtg_Ranking.ReadOnly = true;
             dtg_Ranking.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle16.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = Color.FromArgb(12, 20, 29);
-            dataGridViewCellStyle16.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle16.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle16.SelectionBackColor = Color.FromArgb(12, 20, 29);
-            dataGridViewCellStyle16.SelectionForeColor = Color.FromArgb(12, 20, 29);
-            dataGridViewCellStyle16.WrapMode = DataGridViewTriState.True;
-            dtg_Ranking.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = Color.FromArgb(12, 20, 29);
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle8.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(12, 20, 29);
+            dataGridViewCellStyle8.SelectionForeColor = Color.FromArgb(12, 20, 29);
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.True;
+            dtg_Ranking.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             dtg_Ranking.RowHeadersVisible = false;
             dtg_Ranking.RowHeadersWidth = 51;
             dtg_Ranking.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -479,10 +537,10 @@
             // 
             // PlayerID
             // 
-            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.ForeColor = Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = Color.FromArgb(44, 62, 80);
-            PlayerID.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(44, 62, 80);
+            PlayerID.DefaultCellStyle = dataGridViewCellStyle3;
             PlayerID.HeaderText = "Player ID";
             PlayerID.MinimumWidth = 6;
             PlayerID.Name = "PlayerID";
@@ -491,10 +549,10 @@
             // 
             // Win
             // 
-            dataGridViewCellStyle12.ForeColor = Color.FromArgb(59, 198, 171);
-            dataGridViewCellStyle12.SelectionBackColor = Color.FromArgb(44, 62, 80);
-            dataGridViewCellStyle12.SelectionForeColor = Color.FromArgb(59, 198, 171);
-            Win.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(59, 198, 171);
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(44, 62, 80);
+            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(59, 198, 171);
+            Win.DefaultCellStyle = dataGridViewCellStyle4;
             Win.HeaderText = "Win";
             Win.MinimumWidth = 6;
             Win.Name = "Win";
@@ -503,10 +561,10 @@
             // 
             // Lose
             // 
-            dataGridViewCellStyle13.ForeColor = Color.FromArgb(238, 102, 119);
-            dataGridViewCellStyle13.SelectionBackColor = Color.FromArgb(44, 62, 80);
-            dataGridViewCellStyle13.SelectionForeColor = Color.FromArgb(238, 102, 119);
-            Lose.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle5.ForeColor = Color.FromArgb(238, 102, 119);
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(44, 62, 80);
+            dataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(238, 102, 119);
+            Lose.DefaultCellStyle = dataGridViewCellStyle5;
             Lose.HeaderText = "Lose";
             Lose.MinimumWidth = 6;
             Lose.Name = "Lose";
@@ -515,8 +573,8 @@
             // 
             // Winrate
             // 
-            dataGridViewCellStyle14.SelectionBackColor = Color.FromArgb(44, 62, 80);
-            Winrate.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(44, 62, 80);
+            Winrate.DefaultCellStyle = dataGridViewCellStyle6;
             Winrate.HeaderText = "Win rate";
             Winrate.MinimumWidth = 6;
             Winrate.Name = "Winrate";
@@ -574,6 +632,7 @@
             // 
             btn_Info_ChangePW.BorderColor = Color.FromArgb(220, 223, 230);
             btn_Info_ChangePW.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            btn_Info_ChangePW.Cursor = Cursors.Hand;
             btn_Info_ChangePW.DangerColor = Color.FromArgb(245, 108, 108);
             btn_Info_ChangePW.DefaultColor = Color.FromArgb(255, 255, 255);
             btn_Info_ChangePW.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -610,6 +669,7 @@
             // 
             btn_Info_LogOut.BorderColor = Color.FromArgb(220, 223, 230);
             btn_Info_LogOut.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            btn_Info_LogOut.Cursor = Cursors.Hand;
             btn_Info_LogOut.DangerColor = Color.FromArgb(245, 108, 108);
             btn_Info_LogOut.DefaultColor = Color.FromArgb(255, 255, 255);
             btn_Info_LogOut.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -630,6 +690,7 @@
             // 
             btn_PlayWithAI.BorderColor = Color.FromArgb(220, 223, 230);
             btn_PlayWithAI.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            btn_PlayWithAI.Cursor = Cursors.Hand;
             btn_PlayWithAI.DangerColor = Color.FromArgb(245, 108, 108);
             btn_PlayWithAI.DefaultColor = Color.FromArgb(255, 255, 255);
             btn_PlayWithAI.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -683,6 +744,7 @@
             // 
             btn_JoinRoom.BorderColor = Color.FromArgb(220, 223, 230);
             btn_JoinRoom.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            btn_JoinRoom.Cursor = Cursors.Hand;
             btn_JoinRoom.DangerColor = Color.FromArgb(245, 108, 108);
             btn_JoinRoom.DefaultColor = Color.FromArgb(255, 255, 255);
             btn_JoinRoom.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -703,6 +765,7 @@
             // 
             btn_CreateRoom.BorderColor = Color.FromArgb(220, 223, 230);
             btn_CreateRoom.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            btn_CreateRoom.Cursor = Cursors.Hand;
             btn_CreateRoom.DangerColor = Color.FromArgb(245, 108, 108);
             btn_CreateRoom.DefaultColor = Color.FromArgb(255, 255, 255);
             btn_CreateRoom.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -776,7 +839,7 @@
             grb_ClientInfo.ForeColor = Color.White;
             grb_ClientInfo.Location = new Point(103, 120);
             grb_ClientInfo.Name = "grb_ClientInfo";
-            grb_ClientInfo.Size = new Size(93, 93);
+            grb_ClientInfo.Size = new Size(76, 81);
             grb_ClientInfo.TabIndex = 12;
             grb_ClientInfo.TabStop = false;
             grb_ClientInfo.Text = "Vào phòng";
@@ -940,7 +1003,7 @@
             // 
             // panel3
             // 
-            panel3.BackColor = Color.FromArgb(27, 40, 56);
+            panel3.BackColor = Color.FromArgb(12, 20, 29);
             panel3.BorderStyle = BorderStyle.FixedSingle;
             panel3.Controls.Add(prcbCoolDown);
             panel3.Dock = DockStyle.Top;
@@ -995,7 +1058,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(27, 40, 56);
+            panel1.BackColor = Color.FromArgb(12, 20, 29);
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(txt_Msg);
             panel1.Controls.Add(panel4);
@@ -1008,7 +1071,7 @@
             // txt_Msg
             // 
             txt_Msg.Anchor = AnchorStyles.None;
-            txt_Msg.BackColor = Color.FromArgb(27, 40, 56);
+            txt_Msg.BackColor = Color.FromArgb(12, 20, 29);
             txt_Msg.BorderStyle = BorderStyle.None;
             txt_Msg.Font = new Font("Segoe UI", 13.2F, FontStyle.Regular, GraphicsUnit.Point);
             txt_Msg.ForeColor = Color.Gray;
@@ -1034,7 +1097,7 @@
             // fpanel_Chat
             // 
             fpanel_Chat.AutoScroll = true;
-            fpanel_Chat.BackColor = Color.FromArgb(27, 40, 56);
+            fpanel_Chat.BackColor = Color.FromArgb(12, 20, 29);
             fpanel_Chat.BorderStyle = BorderStyle.FixedSingle;
             fpanel_Chat.Dock = DockStyle.Right;
             fpanel_Chat.Location = new Point(907, 0);
@@ -1045,7 +1108,7 @@
             // 
             // panel2
             // 
-            panel2.BackColor = Color.FromArgb(27, 40, 56);
+            panel2.BackColor = Color.FromArgb(12, 20, 29);
             panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(grb_Undo_Redo);
             panel2.Controls.Add(parrotClock1);
@@ -1934,9 +1997,9 @@
             grb_ChangePassword.Controls.Add(txt_ChangePW_NewPW);
             grb_ChangePassword.Controls.Add(label17);
             grb_ChangePassword.ForeColor = Color.White;
-            grb_ChangePassword.Location = new Point(458, 31);
+            grb_ChangePassword.Location = new Point(185, 119);
             grb_ChangePassword.Name = "grb_ChangePassword";
-            grb_ChangePassword.Size = new Size(64, 93);
+            grb_ChangePassword.Size = new Size(81, 82);
             grb_ChangePassword.TabIndex = 17;
             grb_ChangePassword.TabStop = false;
             grb_ChangePassword.Text = "Thay đổi mật khẩu:";
@@ -1990,6 +2053,7 @@
             btn_ConfirmChangePassword.Text = "Xác nhận";
             btn_ConfirmChangePassword.TextColor = Color.White;
             btn_ConfirmChangePassword.WarningColor = Color.FromArgb(230, 162, 60);
+            btn_ConfirmChangePassword.Click += btn_ConfirmChangePassword_Click;
             // 
             // txt_ChangePW_OldPW
             // 
@@ -2081,9 +2145,9 @@
             grb_ComputerInfo.Controls.Add(btn_PVC_Cancel);
             grb_ComputerInfo.Controls.Add(btn_PVC_Start);
             grb_ComputerInfo.ForeColor = Color.White;
-            grb_ComputerInfo.Location = new Point(120, 260);
+            grb_ComputerInfo.Location = new Point(528, 31);
             grb_ComputerInfo.Name = "grb_ComputerInfo";
-            grb_ComputerInfo.Size = new Size(583, 435);
+            grb_ComputerInfo.Size = new Size(70, 93);
             grb_ComputerInfo.TabIndex = 18;
             grb_ComputerInfo.TabStop = false;
             grb_ComputerInfo.Text = "Tạo phòng PVC";
@@ -2387,5 +2451,9 @@
         private Label label20;
         private ReaLTaiizor.Controls.HopeRoundButton btn_PVC_Cancel;
         private ReaLTaiizor.Controls.HopeRoundButton btn_PVC_Start;
+        private Label label16;
+        private Label label1;
+        private Button btn_Info_Music;
+        private Button btn_Info_SFX;
     }
 }

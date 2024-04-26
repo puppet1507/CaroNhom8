@@ -31,6 +31,10 @@ namespace Caro_Nhom8
         {
             OpenInfo();
         }
+        private void btn_ConfirmChangePassword_Click(object sender, EventArgs e)
+        {
+
+        }
         #endregion
     }
 }

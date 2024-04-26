@@ -29,6 +29,8 @@ namespace Caro_Nhom8
         private CaroGame caroChess;
         public bool isServer;
         public string currentClient = "";
+        bool isMusic = true;
+        bool isSFX = true;
         #endregion
 
         #region ScreenChange_Methods

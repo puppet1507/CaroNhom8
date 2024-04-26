@@ -30,8 +30,8 @@ namespace Caro_Nhom8
         // mode = 1 => PvP 
         // mode = 2 => PvC
 
-        private System.Drawing.Image ImageO = new Bitmap("o.png");
-        private System.Drawing.Image ImageX = new Bitmap("x.png");
+        private System.Drawing.Image ImageO = new Bitmap(Properties.Resources.o);
+        private System.Drawing.Image ImageX = new Bitmap(Properties.Resources.x);
         public bool Ready
         {
             get { return ready; }

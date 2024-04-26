@@ -51,6 +51,17 @@ namespace Caro_Nhom8
         {
             OpenChangePassword();
         }
+        private void btn_Info_Music_Click(object sender, EventArgs e)
+        {
+            isMusic = !isMusic;
+            btn_Info_Music.Image = isMusic ? Properties.Resources.Speaker : Properties.Resources.Mute;
+        }
+        private void btn_Info_SFX_Click(object sender, EventArgs e)
+        {
+            isSFX = !isSFX;
+            btn_Info_SFX.Image = isSFX ? Properties.Resources.Speaker : Properties.Resources.Mute;
+
+        }
         #endregion
     }
 
