@@ -31,12 +31,12 @@ namespace Caro_Nhom8
         private void btn_PlayWithAI_Click(object sender, EventArgs e)
         {
             OpenComputerInfo();
-            
+
         }
         private void btn_CreateRoom_Click(object sender, EventArgs e)
         {
             OpenServerInfo();
-            
+
 
         }
         private void btn_JoinRoom_Click(object sender, EventArgs e)
@@ -55,8 +55,16 @@ namespace Caro_Nhom8
         {
             isMusic = !isMusic;
             btn_Info_Music.Image = isMusic ? Properties.Resources.Speaker : Properties.Resources.Mute;
+            if (isMusic)
+            {
+                player.PlayLooping();
+                
+            }
+            else {
+                player.Stop();
+            }
         }
-        private void btn_Info_SFX_Click(object sender, EventArgs e)
+       private void btn_Info_SFX_Click(object sender, EventArgs e)
         {
             isSFX = !isSFX;
             btn_Info_SFX.Image = isSFX ? Properties.Resources.Speaker : Properties.Resources.Mute;
