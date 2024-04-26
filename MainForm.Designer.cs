@@ -86,6 +86,9 @@
             panel_PlayArea = new Panel();
             fpanel_Board = new FlowLayoutPanel();
             panel3 = new Panel();
+            panel6 = new Panel();
+            panel5 = new Panel();
+            rjCircularPictureBox2 = new RJCircularPictureBox();
             prcbCoolDown = new ReaLTaiizor.Controls.CyberProgressBar();
             panel1 = new Panel();
             txt_Msg = new TextBox();
@@ -152,6 +155,7 @@
             label20 = new Label();
             btn_PVC_Cancel = new ReaLTaiizor.Controls.HopeRoundButton();
             btn_PVC_Start = new ReaLTaiizor.Controls.HopeRoundButton();
+            rjCircularPictureBox10 = new RJCircularPictureBox();
             grb_Login.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox4).BeginInit();
@@ -167,6 +171,9 @@
             grb_ClientInfo.SuspendLayout();
             panel_PlayArea.SuspendLayout();
             panel3.SuspendLayout();
+            panel6.SuspendLayout();
+            panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox2).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             grb_Undo_Redo.SuspendLayout();
@@ -176,6 +183,7 @@
             grb_ForgetPassword.SuspendLayout();
             grb_ChangePassword.SuspendLayout();
             grb_ComputerInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox10).BeginInit();
             SuspendLayout();
             // 
             // grb_Login
@@ -1005,12 +1013,51 @@
             // 
             panel3.BackColor = Color.FromArgb(12, 20, 29);
             panel3.BorderStyle = BorderStyle.FixedSingle;
+            panel3.Controls.Add(panel6);
+            panel3.Controls.Add(panel5);
             panel3.Controls.Add(prcbCoolDown);
             panel3.Dock = DockStyle.Top;
             panel3.Location = new Point(255, 0);
             panel3.Name = "panel3";
             panel3.Size = new Size(652, 128);
             panel3.TabIndex = 8;
+            // 
+            // panel6
+            // 
+            panel6.Anchor = AnchorStyles.None;
+            panel6.BorderStyle = BorderStyle.FixedSingle;
+            panel6.Controls.Add(rjCircularPictureBox10);
+            panel6.Location = new Point(462, 0);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(188, 126);
+            panel6.TabIndex = 2;
+            // 
+            // panel5
+            // 
+            panel5.Anchor = AnchorStyles.None;
+            panel5.BorderStyle = BorderStyle.FixedSingle;
+            panel5.Controls.Add(rjCircularPictureBox2);
+            panel5.Location = new Point(0, 0);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(203, 126);
+            panel5.TabIndex = 1;
+            // 
+            // rjCircularPictureBox2
+            // 
+            rjCircularPictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            rjCircularPictureBox2.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            rjCircularPictureBox2.BorderColor = Color.RoyalBlue;
+            rjCircularPictureBox2.BorderColor2 = Color.HotPink;
+            rjCircularPictureBox2.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            rjCircularPictureBox2.BorderSize = 2;
+            rjCircularPictureBox2.GradientAngle = 50F;
+            rjCircularPictureBox2.Image = Properties.Avatar.Default_Avatar;
+            rjCircularPictureBox2.Location = new Point(61, 5);
+            rjCircularPictureBox2.Name = "rjCircularPictureBox2";
+            rjCircularPictureBox2.Size = new Size(78, 78);
+            rjCircularPictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            rjCircularPictureBox2.TabIndex = 0;
+            rjCircularPictureBox2.TabStop = false;
             // 
             // prcbCoolDown
             // 
@@ -1023,13 +1070,13 @@
             prcbCoolDown.ColorBackground = Color.FromArgb(37, 52, 68);
             prcbCoolDown.ColorBackground_1 = Color.FromArgb(37, 52, 68);
             prcbCoolDown.ColorBackground_2 = Color.FromArgb(41, 63, 86);
-            prcbCoolDown.ColorBackground_Pen = Color.FromArgb(29, 200, 238);
-            prcbCoolDown.ColorBackground_Value_1 = Color.FromArgb(28, 200, 238);
-            prcbCoolDown.ColorBackground_Value_2 = Color.FromArgb(100, 208, 232);
-            prcbCoolDown.ColorLighting = Color.FromArgb(29, 200, 238);
+            prcbCoolDown.ColorBackground_Pen = Color.FromArgb(59, 198, 171);
+            prcbCoolDown.ColorBackground_Value_1 = Color.FromArgb(59, 198, 171);
+            prcbCoolDown.ColorBackground_Value_2 = Color.FromArgb(59, 198, 171);
+            prcbCoolDown.ColorLighting = Color.FromArgb(59, 198, 171);
             prcbCoolDown.ColorPen_1 = Color.FromArgb(37, 52, 68);
             prcbCoolDown.ColorPen_2 = Color.FromArgb(41, 63, 86);
-            prcbCoolDown.ColorProgressBar = Color.FromArgb(29, 200, 238);
+            prcbCoolDown.ColorProgressBar = Color.FromArgb(59, 198, 171);
             prcbCoolDown.ColorValue_Transparency = 200;
             prcbCoolDown.CyberProgressBarStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
             prcbCoolDown.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point);
@@ -1038,7 +1085,7 @@
             prcbCoolDown.LinearGradient_Background = false;
             prcbCoolDown.LinearGradient_Value = false;
             prcbCoolDown.LinearGradientPen = false;
-            prcbCoolDown.Location = new Point(5, 70);
+            prcbCoolDown.Location = new Point(209, 45);
             prcbCoolDown.Maximum = 15000;
             prcbCoolDown.Minimum = 0;
             prcbCoolDown.Name = "prcbCoolDown";
@@ -1047,7 +1094,7 @@
             prcbCoolDown.RGB = false;
             prcbCoolDown.Rounding = true;
             prcbCoolDown.RoundingInt = 70;
-            prcbCoolDown.Size = new Size(640, 33);
+            prcbCoolDown.Size = new Size(247, 33);
             prcbCoolDown.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             prcbCoolDown.StartDrawingValue = 0;
             prcbCoolDown.TabIndex = 0;
@@ -2283,6 +2330,23 @@
             btn_PVC_Start.WarningColor = Color.FromArgb(230, 162, 60);
             btn_PVC_Start.Click += btn_PVC_Start_Click;
             // 
+            // rjCircularPictureBox10
+            // 
+            rjCircularPictureBox10.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            rjCircularPictureBox10.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            rjCircularPictureBox10.BorderColor = Color.RoyalBlue;
+            rjCircularPictureBox10.BorderColor2 = Color.HotPink;
+            rjCircularPictureBox10.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            rjCircularPictureBox10.BorderSize = 2;
+            rjCircularPictureBox10.GradientAngle = 50F;
+            rjCircularPictureBox10.Image = Properties.Avatar.Default_Avatar;
+            rjCircularPictureBox10.Location = new Point(53, 8);
+            rjCircularPictureBox10.Name = "rjCircularPictureBox10";
+            rjCircularPictureBox10.Size = new Size(78, 78);
+            rjCircularPictureBox10.SizeMode = PictureBoxSizeMode.StretchImage;
+            rjCircularPictureBox10.TabIndex = 1;
+            rjCircularPictureBox10.TabStop = false;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -2321,6 +2385,9 @@
             grb_ClientInfo.PerformLayout();
             panel_PlayArea.ResumeLayout(false);
             panel3.ResumeLayout(false);
+            panel6.ResumeLayout(false);
+            panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox2).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
@@ -2336,6 +2403,7 @@
             grb_ChangePassword.PerformLayout();
             grb_ComputerInfo.ResumeLayout(false);
             grb_ComputerInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox10).EndInit();
             ResumeLayout(false);
         }
 
@@ -2455,5 +2523,9 @@
         private Label label1;
         private Button btn_Info_Music;
         private Button btn_Info_SFX;
+        private Panel panel6;
+        private Panel panel5;
+        private RJCircularPictureBox rjCircularPictureBox2;
+        private RJCircularPictureBox rjCircularPictureBox10;
     }
 }
