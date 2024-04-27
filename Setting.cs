@@ -175,6 +175,10 @@ namespace Caro_Nhom8
             Clock.TimeColor = Color.FromArgb(12, 20, 29);
             txt_Msg.BackColor = Color.FromArgb(241, 243, 245);
             prcbCoolDown.ColorBackground = Color.FromArgb(223, 223, 224);
+            lb_PlayArea_Point1.ForeColor = Color.Black;
+            lb_PlayArea_Point2.ForeColor = Color.Black;
+            lb_PlayArea_Name1.ForeColor = Color.Black;
+            lb_PlayArea_Name2.ForeColor = Color.Black;
         }
         void DarkTheme()
         {
@@ -237,7 +241,10 @@ namespace Caro_Nhom8
             Clock.TimeColor = Color.White;
             txt_Msg.BackColor = Color.FromArgb(12, 20, 29);
             prcbCoolDown.ColorBackground = Color.FromArgb(37, 52, 68);
-
+            lb_PlayArea_Point1.ForeColor = Color.White;
+            lb_PlayArea_Point2.ForeColor = Color.White;
+            lb_PlayArea_Name1.ForeColor = Color.White;
+            lb_PlayArea_Name2.ForeColor = Color.White;
         }
         #endregion
     }

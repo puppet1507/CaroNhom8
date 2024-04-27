@@ -83,12 +83,12 @@
             panel_PlayArea_Board = new FlowLayoutPanel();
             panel_PlayArea_PlayerInfo = new Panel();
             panel_PlayArea_Player2 = new Panel();
-            label24 = new Label();
-            label22 = new Label();
+            lb_PlayArea_Name2 = new Label();
+            lb_PlayArea_Point2 = new Label();
             rjCircularPictureBox10 = new RJCircularPictureBox();
             rjCircularPictureBox12 = new RJCircularPictureBox();
             panel_PlayArea_Player1 = new Panel();
-            label23 = new Label();
+            lb_PlayArea_Name1 = new Label();
             rjCircularPictureBox11 = new RJCircularPictureBox();
             lb_PlayArea_Point1 = new Label();
             rjCircularPictureBox2 = new RJCircularPictureBox();
@@ -1017,8 +1017,8 @@
             // 
             panel_PlayArea_Player2.Anchor = AnchorStyles.None;
             panel_PlayArea_Player2.BorderStyle = BorderStyle.FixedSingle;
-            panel_PlayArea_Player2.Controls.Add(label24);
-            panel_PlayArea_Player2.Controls.Add(label22);
+            panel_PlayArea_Player2.Controls.Add(lb_PlayArea_Name2);
+            panel_PlayArea_Player2.Controls.Add(lb_PlayArea_Point2);
             panel_PlayArea_Player2.Controls.Add(rjCircularPictureBox10);
             panel_PlayArea_Player2.Controls.Add(rjCircularPictureBox12);
             panel_PlayArea_Player2.Location = new Point(450, 0);
@@ -1026,29 +1026,29 @@
             panel_PlayArea_Player2.Size = new Size(200, 126);
             panel_PlayArea_Player2.TabIndex = 2;
             // 
-            // label24
+            // lb_PlayArea_Name2
             // 
-            label24.Anchor = AnchorStyles.None;
-            label24.AutoSize = true;
-            label24.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label24.ForeColor = Color.White;
-            label24.Location = new Point(60, 89);
-            label24.Name = "label24";
-            label24.Size = new Size(81, 28);
-            label24.TabIndex = 5;
-            label24.Text = "Player 2";
+            lb_PlayArea_Name2.Anchor = AnchorStyles.None;
+            lb_PlayArea_Name2.AutoSize = true;
+            lb_PlayArea_Name2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lb_PlayArea_Name2.ForeColor = Color.White;
+            lb_PlayArea_Name2.Location = new Point(60, 89);
+            lb_PlayArea_Name2.Name = "lb_PlayArea_Name2";
+            lb_PlayArea_Name2.Size = new Size(81, 28);
+            lb_PlayArea_Name2.TabIndex = 5;
+            lb_PlayArea_Name2.Text = "Player 2";
             // 
-            // label22
+            // lb_PlayArea_Point2
             // 
-            label22.Anchor = AnchorStyles.None;
-            label22.AutoSize = true;
-            label22.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label22.ForeColor = Color.White;
-            label22.Location = new Point(153, 29);
-            label22.Name = "label22";
-            label22.Size = new Size(32, 38);
-            label22.TabIndex = 4;
-            label22.Text = "0";
+            lb_PlayArea_Point2.Anchor = AnchorStyles.None;
+            lb_PlayArea_Point2.AutoSize = true;
+            lb_PlayArea_Point2.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
+            lb_PlayArea_Point2.ForeColor = Color.White;
+            lb_PlayArea_Point2.Location = new Point(153, 29);
+            lb_PlayArea_Point2.Name = "lb_PlayArea_Point2";
+            lb_PlayArea_Point2.Size = new Size(32, 38);
+            lb_PlayArea_Point2.TabIndex = 4;
+            lb_PlayArea_Point2.Text = "0";
             // 
             // rjCircularPictureBox10
             // 
@@ -1086,7 +1086,7 @@
             // 
             panel_PlayArea_Player1.Anchor = AnchorStyles.None;
             panel_PlayArea_Player1.BorderStyle = BorderStyle.FixedSingle;
-            panel_PlayArea_Player1.Controls.Add(label23);
+            panel_PlayArea_Player1.Controls.Add(lb_PlayArea_Name1);
             panel_PlayArea_Player1.Controls.Add(rjCircularPictureBox11);
             panel_PlayArea_Player1.Controls.Add(lb_PlayArea_Point1);
             panel_PlayArea_Player1.Controls.Add(rjCircularPictureBox2);
@@ -1095,17 +1095,17 @@
             panel_PlayArea_Player1.Size = new Size(191, 126);
             panel_PlayArea_Player1.TabIndex = 1;
             // 
-            // label23
+            // lb_PlayArea_Name1
             // 
-            label23.Anchor = AnchorStyles.None;
-            label23.AutoSize = true;
-            label23.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label23.ForeColor = Color.White;
-            label23.Location = new Point(59, 89);
-            label23.Name = "label23";
-            label23.Size = new Size(81, 28);
-            label23.TabIndex = 4;
-            label23.Text = "Player 1";
+            lb_PlayArea_Name1.Anchor = AnchorStyles.None;
+            lb_PlayArea_Name1.AutoSize = true;
+            lb_PlayArea_Name1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lb_PlayArea_Name1.ForeColor = Color.White;
+            lb_PlayArea_Name1.Location = new Point(59, 89);
+            lb_PlayArea_Name1.Name = "lb_PlayArea_Name1";
+            lb_PlayArea_Name1.Size = new Size(81, 28);
+            lb_PlayArea_Name1.TabIndex = 4;
+            lb_PlayArea_Name1.Text = "Player 1";
             // 
             // rjCircularPictureBox11
             // 
@@ -3037,9 +3037,9 @@
         private RJCircularPictureBox rjCircularPictureBox12;
         private RJCircularPictureBox rjCircularPictureBox11;
         private Label lb_PlayArea_Point1;
-        private Label label24;
-        private Label label22;
-        private Label label23;
+        private Label lb_PlayArea_Name2;
+        private Label lb_PlayArea_Point2;
+        private Label lb_PlayArea_Name1;
         private ReaLTaiizor.Controls.SkyComboBox cbx_PVC_Chess;
         private Label label25;
         private ReaLTaiizor.Controls.SkyComboBox cbx_PVC_FirstTurn;
