@@ -14,8 +14,9 @@ namespace Caro_Nhom8
         void OpenInfo()
         {
             this.Size = new Size(755, 658);
-            grb_Info.Size = new Size(726, 601);
-            grb_Info.Location = new Point(6, 6);
+            this.MaximumSize = new Size(755, 658);
+            this.MinimumSize = new Size(755, 658);
+            grb_Info.Dock = DockStyle.Fill;
             grb_Login.Visible = false;
             grb_SignUp.Visible = false;
             grb_Info.Visible = true;
@@ -24,87 +25,43 @@ namespace Caro_Nhom8
             grb_ComputerInfo.Visible = false;
             grb_ServerInfo.Visible = false;
             grb_ForgetPassword.Visible = false;
-            grb_ChangePassword.Visible = false;
+            grb_ChangeInfo.Visible = false;
+            grb_Setting.Visible = false;
             panel_PlayArea.Dock = DockStyle.None;
             panel_PlayArea.Visible = false;
         }
         private void btn_PlayWithAI_Click(object sender, EventArgs e)
         {
-            if (isSFX)
-            {
-                sfx.URL = "Resources/Sound/Sfx.wav";
-            }
+            playSFX();
             OpenComputerInfo();
 
         }
         private void btn_CreateRoom_Click(object sender, EventArgs e)
         {
-            if (isSFX)
-            {
-                sfx.URL = "Resources/Sound/Sfx.wav";
-            }
+            playSFX();
             OpenServerInfo();
 
 
         }
         private void btn_JoinRoom_Click(object sender, EventArgs e)
         {
-            if (isSFX)
-            {
-                sfx.URL = "Resources/Sound/Sfx.wav";
-            }
+            playSFX();
             OpenConnect();
         }
         private void btn_Info_LogOut_Click(object sender, EventArgs e)
         {
-            if (isSFX)
-            {
-                sfx.URL = "Resources/Sound/Sfx.wav";
-            }
+            playSFX();
             OpenLogin();
         }
         private void btn_ChangePassword_Click(object sender, EventArgs e)
         {
-            if (isSFX)
-            {
-                sfx.URL = "Resources/Sound/Sfx.wav";
-            }
+            playSFX();
             OpenChangePassword();
         }
-        private void btn_Info_Music_Click(object sender, EventArgs e)
+        private void btn_Info_OpenSetting_Click(object sender, EventArgs e)
         {
-            if (isSFX)
-            {
-                sfx.URL = "Resources/Sound/Sfx.wav";
-            }
-            isMusic = !isMusic;
-            if (isMusic)
-            {
-                music.controls.play();
-                btn_Info_Music.Image = Image.FromFile("Resources/UI_Icon/Speaker.png");
-            }
-            else
-            {
-                music.controls.stop();
-                btn_Info_Music.Image = Image.FromFile("Resources/UI_Icon/Mute.png");
-            }
-        }
-       private void btn_Info_SFX_Click(object sender, EventArgs e)
-       {
-            if (isSFX)
-            {
-                sfx.URL = "Resources/Sound/Sfx.wav";
-            }
-            isSFX = !isSFX;
-            if (isSFX)
-            {
-                btn_Info_SFX.Image = Image.FromFile("Resources/UI_Icon/Speaker.png");
-            }
-            else
-            {
-                btn_Info_SFX.Image = Image.FromFile("Resources/UI_Icon/Mute.png");
-            }
-
+            playSFX();
+            OpenSetting();
         }
         #endregion
     }

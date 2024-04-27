@@ -13,8 +13,9 @@ namespace Caro_Nhom8
         void OpenForgetPassword()
         {
             this.Size = new Size(755, 658);
-            grb_ForgetPassword.Size = new Size(726, 601);
-            grb_ForgetPassword.Location = new Point(6, 6);
+            this.MaximumSize = new Size(755, 658);
+            this.MinimumSize = new Size(755, 658);
+            grb_ForgetPassword.Dock = DockStyle.Fill;
             lb_ForgetPassword_Notify.Visible = false;
             grb_Login.Visible = false;
             grb_SignUp.Visible = false;
@@ -24,32 +25,24 @@ namespace Caro_Nhom8
             grb_ComputerInfo.Visible = false;
             grb_ServerInfo.Visible = false;
             grb_ForgetPassword.Visible = true;
-            grb_ChangePassword.Visible = false;
+            grb_ChangeInfo.Visible = false;
+            grb_Setting.Visible = false;
             panel_PlayArea.Dock = DockStyle.None;
             panel_PlayArea.Visible = false;
         }
         private void btn_GetVerifyCode_ForgetPassword_Click(object sender, EventArgs e)
         {
-            if (isSFX)
-            {
-                sfx.URL = "Resources/Sound/Sfx.wav";
-            }
+            playSFX();
         }
 
         private void btn_ConfirmForgetPassword_Click(object sender, EventArgs e)
         {
-            if (isSFX)
-            {
-                sfx.URL = "Resources/Sound/Sfx.wav";
-            }
+            playSFX();
         }
 
         private void btn_CancelForgetPassword_Click(object sender, EventArgs e)
         {
-            if (isSFX)
-            {
-                sfx.URL = "Resources/Sound/Sfx.wav";
-            }
+            playSFX();
             OpenLogin();
         }
         #endregion

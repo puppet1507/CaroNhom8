@@ -33,24 +33,25 @@ namespace Caro_Nhom8
         public void DrawChessBoard(Graphics g)
         {
             int cellSize = 640 / NumOfColumns; // Kích thước của mỗi ô
-
-            using (Pen pen = new Pen(Color.FromArgb(44, 62, 80)))
+            if (CaroGame.pen != null && CaroGame.sbPnl !=null)
             {
-                // Vẽ nền
-                g.Clear(Color.FromArgb(12, 20, 29));
-
-                // Vẽ đường kẻ
-                for (int i = 0; i <= NumOfColumns; i++)
+                using (Pen pen = new Pen(CaroGame.pen.Color))
                 {
-                    g.DrawLine(pen, i * cellSize, 0, i * cellSize, 640);
-                }
+                    // Vẽ nền
+                    g.Clear(CaroGame.sbPnl.Color);
 
-                for (int j = 0; j <= NumOfLines; j++)
-                {
-                    g.DrawLine(pen, 0, j * cellSize, 640, j * cellSize);
+                    // Vẽ đường kẻ
+                    for (int i = 0; i <= NumOfColumns; i++)
+                    {
+                        g.DrawLine(pen, i * cellSize, 0, i * cellSize, 640);
+                    }
+
+                    for (int j = 0; j <= NumOfLines; j++)
+                    {
+                        g.DrawLine(pen, 0, j * cellSize, 640, j * cellSize);
+                    }
                 }
-            }
-            
+            } 
         }
 
         // Vẽ quân cờ

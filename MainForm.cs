@@ -13,6 +13,7 @@ using static System.Windows.Forms.DataFormats;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Media;
 using WMPLib;
+using System.Numerics;
 
 namespace Caro_Nhom8
 {
@@ -31,8 +32,10 @@ namespace Caro_Nhom8
         private CaroGame caroChess;
         public bool isServer;
         public string currentClient = "";
+        public int numofClinet;
         bool isMusic = true;
         bool isSFX = true;
+        bool isDark = true;
         WindowsMediaPlayer music = new WindowsMediaPlayer();
         WindowsMediaPlayer sfx = new WindowsMediaPlayer();
         #endregion
@@ -42,6 +45,8 @@ namespace Caro_Nhom8
         void OpenPlayArea()
         {
             this.Size = new Size(1207, 945);
+            this.MinimumSize = new Size(1207, 945);
+            this.MaximumSize = new Size(9999, 9999);
             grb_Login.Visible = false;
             grb_SignUp.Visible = false;
             grb_Info.Visible = false;
@@ -50,7 +55,8 @@ namespace Caro_Nhom8
             grb_ComputerInfo.Visible = false;
             grb_ServerInfo.Visible = false;
             grb_ForgetPassword.Visible = false;
-            grb_ChangePassword.Visible = false;
+            grb_ChangeInfo.Visible = false;
+            grb_Setting.Visible = false;
             panel_PlayArea.Dock = DockStyle.Fill;
             panel_PlayArea.Visible = true;
         }
@@ -60,10 +66,7 @@ namespace Caro_Nhom8
         #region LoginForm_Btn_Click_Methods
         private void btn_Undo_Click(object sender, EventArgs e)
         {
-            if (isSFX)
-            {
-                sfx.URL = "Resources/Sound/Sfx.wav";
-            }
+            playSFX();
             caroChess.Undo(grs);
             tmCoolDown.Start();
             prcbCoolDown.Value = 0;
@@ -75,10 +78,7 @@ namespace Caro_Nhom8
 
         private void btn_Redo_Click(object sender, EventArgs e)
         {
-            if (isSFX)
-            {
-                sfx.URL = "Resources/Sound/Sfx.wav";
-            }
+            playSFX();
             caroChess.Redo(grs);
             tmCoolDown.Start();
             prcbCoolDown.Value = 0;
@@ -103,7 +103,7 @@ namespace Caro_Nhom8
                     chatBubbleLeft.SizeAutoW = false;
                     chatBubbleLeft.Width = 195;
                     chatBubbleLeft.Text = msg;
-                    fpanel_Chat.Controls.Add(chatBubbleLeft);
+                    panel_PlayArea_ChatArea.Controls.Add(chatBubbleLeft);
 
                 }
                 else if (data.StartsWith("/pnt "))
@@ -166,7 +166,7 @@ namespace Caro_Nhom8
                     chatBubbleLeft.SizeAutoW = false;
                     chatBubbleLeft.Width = 195;
                     chatBubbleLeft.Text = msg;
-                    fpanel_Chat.Controls.Add(chatBubbleLeft);
+                    panel_PlayArea_ChatArea.Controls.Add(chatBubbleLeft);
 
                 }
                 else if (data.StartsWith("/pnt "))
@@ -209,7 +209,7 @@ namespace Caro_Nhom8
             Board board = new Board(16, 16);
             caroChess = new CaroGame(board);
             caroChess.CreateChessPieces();
-            grs = fpanel_Board.CreateGraphics();
+            grs = panel_PlayArea_Board.CreateGraphics();
             prcbCoolDown.Maximum = 15000;
             prcbCoolDown.Value = 0;
             tmCoolDown.Interval = cdInterval;
@@ -228,6 +228,7 @@ namespace Caro_Nhom8
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
+            DarkTheme();
             OpenLogin();
             music.controls.play();
             dtg_Ranking.Rows.Add(
@@ -322,15 +323,22 @@ namespace Caro_Nhom8
             if (txt_Msg.Text == "Nhập tin nhắn ...")
             {
                 txt_Msg.Text = "";
-                txt_Msg.ForeColor = Color.White;
+                if (isDark)
+                {
+                    txt_Msg.ForeColor = Color.White;
+                }
+                else
+                {
+                    txt_Msg.ForeColor = Color.Black;
+                }
             }
         }
-        
+
         private void txt_Msg_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter && !string.IsNullOrWhiteSpace(txt_Msg.Text))
             {
-               
+
                 string msg = "/msg " + txt_Msg.Text;
                 if (caroChess.Mode == 3)
                 {
@@ -349,12 +357,19 @@ namespace Caro_Nhom8
                 chatBubbleRight.Text = txt_Msg.Text;
                 chatBubbleRight.SizeAutoW = false;
                 chatBubbleRight.Width = 195;
-                fpanel_Chat.Controls.Add(chatBubbleRight);
+                panel_PlayArea_ChatArea.Controls.Add(chatBubbleRight);
+                txt_Msg.Clear();
             }
         }
         #endregion
 
-
+        public void playSFX()
+        {
+            if (isSFX)
+            {
+                sfx.URL = "Resources/Sound/Sfx.wav";
+            }
+        }
         private void fpanel_Board_MouseClick(object sender, MouseEventArgs e)
         {
             if (!caroChess.Ready)
@@ -391,7 +406,7 @@ namespace Caro_Nhom8
                 }
                 else if (caroChess.Mode == 3)
                 {
-                    fpanel_Board.Enabled = false;
+                    panel_PlayArea_Board.Enabled = false;
 
                     if (isServer)
                     {
@@ -418,7 +433,7 @@ namespace Caro_Nhom8
                 return;
             if (caroChess.PlayChess(point.X, point.Y, grs))
             {
-                fpanel_Board.Enabled = true;
+                panel_PlayArea_Board.Enabled = true;
                 if (caroChess.CheckWin())
                 {
                     tmCoolDown.Stop();

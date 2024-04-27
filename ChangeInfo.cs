@@ -8,12 +8,13 @@ namespace Caro_Nhom8
 {
     public partial class MainForm
     {
-        #region ChangePassword
+        #region ChangeInfo
         void OpenChangePassword()
         {
             this.Size = new Size(755, 658);
-            grb_ChangePassword.Size = new Size(726, 601);
-            grb_ChangePassword.Location = new Point(6, 6);
+            this.MaximumSize = new Size(755, 658);
+            this.MinimumSize = new Size(755, 658);
+            grb_ChangeInfo.Dock = DockStyle.Fill;
             lb_ChangePassword_Notify.Visible = false;
             grb_Login.Visible = false;
             grb_SignUp.Visible = false;
@@ -23,24 +24,23 @@ namespace Caro_Nhom8
             grb_ComputerInfo.Visible = false;
             grb_ServerInfo.Visible = false;
             grb_ForgetPassword.Visible = false;
-            grb_ChangePassword.Visible = true;
+            grb_ChangeInfo.Visible = true;
+            grb_Setting.Visible = false;
             panel_PlayArea.Dock = DockStyle.None;
             panel_PlayArea.Visible = false;
         }
         private void btn_CancelChangePassword_Click(object sender, EventArgs e)
         {
-            if (isSFX)
-            {
-                sfx.URL = "Resources/Sound/Sfx.wav";
-            }
+            playSFX();
             OpenInfo();
         }
         private void btn_ConfirmChangePassword_Click(object sender, EventArgs e)
         {
-            if (isSFX)
-            {
-                sfx.URL = "Resources/Sound/Sfx.wav";
-            }
+            playSFX();
+        }
+        private void lb_ChangeInfo_Avatar_Click(object sender, EventArgs e)
+        {
+            playSFX();
         }
         #endregion
     }

@@ -13,8 +13,9 @@ namespace Caro_Nhom8
         void OpenServerInfo()
         {
             this.Size = new Size(755, 658);
-            grb_ServerInfo.Size = new Size(726, 601);
-            grb_ServerInfo.Location = new Point(6, 6);
+            this.MaximumSize = new Size(755, 658);
+            this.MinimumSize = new Size(755, 658);
+            grb_ServerInfo.Dock = DockStyle.Fill;
             lb_BattleInfo_Notify.Visible = false;
             grb_Login.Visible = false;
             grb_SignUp.Visible = false;
@@ -24,20 +25,18 @@ namespace Caro_Nhom8
             grb_ComputerInfo.Visible = false;
             grb_ServerInfo.Visible = true;
             grb_ForgetPassword.Visible = false;
-            grb_ChangePassword.Visible = false;
+            grb_ChangeInfo.Visible = false;
+            grb_Setting.Visible = false;
             panel_PlayArea.Dock = DockStyle.None;
             panel_PlayArea.Visible = false;
         }
         private void btn_ContinueCreateServer_Click(object sender, EventArgs e)
         {
-            if (isSFX)
-            {
-                sfx.URL = "Resources/Sound/Sfx.wav";
-            }
+            playSFX();
             this.Invoke((MethodInvoker)delegate
             {
                 OPenWaiting();
-                server = new SimpleTcpServer("127.0.0.1", int.Parse(txt_PVP_ServerPort.TextButton));
+                server = new SimpleTcpServer("192.168.10.137", int.Parse(txt_PVP_ServerPort.TextButton));
                 server.Start();
                 server.Events.ClientConnected += Server_Events_ClientConnected;
                 server.Events.ClientDisconnected += Server_Events_ClientDisconnected;
@@ -49,10 +48,7 @@ namespace Caro_Nhom8
         }
         private void btn_CancelCreateServer_Click(object sender, EventArgs e)
         {
-            if (isSFX)
-            {
-                sfx.URL = "Resources/Sound/Sfx.wav";
-            }
+            playSFX();
             OpenInfo();
 
         }
