@@ -1364,9 +1364,9 @@
             grb_SignUp.Controls.Add(btn_ConfirmSignUp);
             grb_SignUp.Controls.Add(btn_ExitSignUp);
             grb_SignUp.ForeColor = Color.White;
-            grb_SignUp.Location = new Point(9, 131);
+            grb_SignUp.Location = new Point(22, 440);
             grb_SignUp.Name = "grb_SignUp";
-            grb_SignUp.Size = new Size(70, 64);
+            grb_SignUp.Size = new Size(701, 524);
             grb_SignUp.TabIndex = 14;
             grb_SignUp.TabStop = false;
             grb_SignUp.Text = "Đăng kí";
@@ -1377,6 +1377,7 @@
             lb_SignUp_Notify.AutoSize = true;
             lb_SignUp_Notify.ForeColor = Color.FromArgb(245, 108, 108);
             lb_SignUp_Notify.Location = new Point(353, 477);
+            lb_SignUp_Notify.MaximumSize = new Size(290, 0);
             lb_SignUp_Notify.Name = "lb_SignUp_Notify";
             lb_SignUp_Notify.Size = new Size(84, 20);
             lb_SignUp_Notify.TabIndex = 31;
@@ -1518,6 +1519,7 @@
             txt_SignUp_PW.LinearGradientPen = false;
             txt_SignUp_PW.Location = new Point(353, 295);
             txt_SignUp_PW.Name = "txt_SignUp_PW";
+            txt_SignUp_PW.Password = true;
             txt_SignUp_PW.PenWidth = 15;
             txt_SignUp_PW.RGB = false;
             txt_SignUp_PW.Rounding = true;
@@ -2189,9 +2191,9 @@
             grb_ChangeInfo.Controls.Add(txt_ChangePW_NewPW);
             grb_ChangeInfo.Controls.Add(label17);
             grb_ChangeInfo.ForeColor = Color.White;
-            grb_ChangeInfo.Location = new Point(12, 436);
+            grb_ChangeInfo.Location = new Point(184, 131);
             grb_ChangeInfo.Name = "grb_ChangeInfo";
-            grb_ChangeInfo.Size = new Size(726, 601);
+            grb_ChangeInfo.Size = new Size(67, 95);
             grb_ChangeInfo.TabIndex = 17;
             grb_ChangeInfo.TabStop = false;
             grb_ChangeInfo.Text = "Thay đổi thông tin";
