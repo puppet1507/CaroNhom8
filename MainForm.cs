@@ -14,7 +14,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Media;
 using WMPLib;
 using System.Numerics;
-
+// Check NgocLong_Github
 namespace Caro_Nhom8
 {
 
