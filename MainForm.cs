@@ -446,19 +446,28 @@ namespace Caro_Nhom8
 
         private void tmCoolDown_Tick(object sender, EventArgs e)
         {
-            prcbCoolDown.Value = prcbCoolDown.Value + 100;
+            if(prcbCoolDown.Value < prcbCoolDown.Maximum/2)
+            {
+                prcbCoolDown.ColorProgressBar = Color.FromArgb(59, 198, 171);
+            }    
 
+            if(prcbCoolDown.Value >= prcbCoolDown.Maximum/2 )
+            {
+                prcbCoolDown.ColorProgressBar = Color.FromArgb(253, 203, 102);
+            }    
+            if (prcbCoolDown.Value >= prcbCoolDown.Maximum*3/4)
+            {
+                prcbCoolDown.ColorProgressBar = Color.FromArgb(245, 108, 108);
+
+            }
+            prcbCoolDown.Value = prcbCoolDown.Value + 100;
             if (prcbCoolDown.Value >= prcbCoolDown.Maximum)
             {
                 tmCoolDown.Stop();
                 caroChess!.EndGame();
 
             }
-
-
-        }
-
-        
+        } 
     }
 
 

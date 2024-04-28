@@ -30,13 +30,13 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             grb_Login = new GroupBox();
             lb_Login_Notify = new Label();
             rjCircularPictureBox5 = new RJCircularPictureBox();
@@ -489,32 +489,32 @@
             dtg_Ranking.AllowUserToOrderColumns = true;
             dtg_Ranking.AllowUserToResizeColumns = false;
             dtg_Ranking.AllowUserToResizeRows = false;
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dtg_Ranking.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dtg_Ranking.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dtg_Ranking.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtg_Ranking.BackgroundColor = Color.FromArgb(12, 20, 29);
             dtg_Ranking.BorderStyle = BorderStyle.None;
             dtg_Ranking.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dtg_Ranking.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = Color.FromArgb(12, 20, 29);
-            dataGridViewCellStyle9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle9.ForeColor = Color.FromArgb(107, 120, 133);
-            dataGridViewCellStyle9.SelectionBackColor = Color.FromArgb(12, 20, 29);
-            dataGridViewCellStyle9.SelectionForeColor = Color.FromArgb(107, 120, 133);
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-            dtg_Ranking.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(12, 20, 29);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(107, 120, 133);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(12, 20, 29);
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(107, 120, 133);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dtg_Ranking.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dtg_Ranking.ColumnHeadersHeight = 50;
             dtg_Ranking.Columns.AddRange(new DataGridViewColumn[] { PlayerID, Win, Lose, Winrate });
-            dataGridViewCellStyle13.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = Color.FromArgb(12, 20, 29);
-            dataGridViewCellStyle13.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle13.ForeColor = Color.White;
-            dataGridViewCellStyle13.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = DataGridViewTriState.False;
-            dtg_Ranking.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(12, 20, 29);
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            dtg_Ranking.DefaultCellStyle = dataGridViewCellStyle6;
             dtg_Ranking.EnableHeadersVisualStyles = false;
             dtg_Ranking.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dtg_Ranking.GridColor = Color.FromArgb(12, 20, 29);
@@ -522,14 +522,14 @@
             dtg_Ranking.Name = "dtg_Ranking";
             dtg_Ranking.ReadOnly = true;
             dtg_Ranking.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = Color.FromArgb(12, 20, 29);
-            dataGridViewCellStyle14.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle14.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle14.SelectionBackColor = Color.FromArgb(12, 20, 29);
-            dataGridViewCellStyle14.SelectionForeColor = Color.FromArgb(12, 20, 29);
-            dataGridViewCellStyle14.WrapMode = DataGridViewTriState.True;
-            dtg_Ranking.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(12, 20, 29);
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle7.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(12, 20, 29);
+            dataGridViewCellStyle7.SelectionForeColor = Color.FromArgb(12, 20, 29);
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dtg_Ranking.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dtg_Ranking.RowHeadersVisible = false;
             dtg_Ranking.RowHeadersWidth = 51;
             dtg_Ranking.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -543,8 +543,8 @@
             // 
             // PlayerID
             // 
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            PlayerID.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            PlayerID.DefaultCellStyle = dataGridViewCellStyle3;
             PlayerID.HeaderText = "Player ID";
             PlayerID.MinimumWidth = 6;
             PlayerID.Name = "PlayerID";
@@ -553,9 +553,9 @@
             // 
             // Win
             // 
-            dataGridViewCellStyle11.ForeColor = Color.FromArgb(59, 198, 171);
-            dataGridViewCellStyle11.SelectionForeColor = Color.FromArgb(59, 198, 171);
-            Win.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(59, 198, 171);
+            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(59, 198, 171);
+            Win.DefaultCellStyle = dataGridViewCellStyle4;
             Win.HeaderText = "Win";
             Win.MinimumWidth = 6;
             Win.Name = "Win";
@@ -564,9 +564,9 @@
             // 
             // Lose
             // 
-            dataGridViewCellStyle12.ForeColor = Color.FromArgb(238, 102, 119);
-            dataGridViewCellStyle12.SelectionForeColor = Color.FromArgb(238, 102, 119);
-            Lose.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle5.ForeColor = Color.FromArgb(238, 102, 119);
+            dataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(238, 102, 119);
+            Lose.DefaultCellStyle = dataGridViewCellStyle5;
             Lose.HeaderText = "Lose";
             Lose.MinimumWidth = 6;
             Lose.Name = "Lose";
