@@ -1,5 +1,9 @@
-﻿using System.Text;
+﻿using Firebase.Database;
+using Firebase.Database.Query;
+using System.Text;
 using System.Text.RegularExpressions;
+using System;
+using System.Net.Mail;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Caro_Nhom8
@@ -29,26 +33,27 @@ namespace Caro_Nhom8
             panel_PlayArea.Dock = DockStyle.None;
             panel_PlayArea.Visible = false;
         }
-        private void btn_ConfirmSignUp_Click(object sender, EventArgs e)
+        private async void btn_ConfirmSignUp_Click(object sender, EventArgs e)
         {
             playSFX();
             lb_SignUp_Notify.Visible = true;
-
             string email = txt_SignUp_Email.TextButton.Trim();
             string id = txt_SignUp_ID.TextButton.Trim();
+            bool isExists = await IsIdExists(id);
             string name = txt_SignUp_Name.TextButton.Trim();
             string password = txt_SignUp_PW.TextButton.Trim();
-            string verifycode = txt_SignUp_VerifyCode.TextButton.Trim();
-            if(!IsValidID(id))
+            string protecode = txt_SignUp_ProtectionCode.TextButton.Trim();
+            
+            if (!IsValidID(id))
             {
                 lb_SignUp_Notify.ForeColor = Color.FromArgb(245, 108, 108);
                 lb_SignUp_Notify.Text = "*Thông báo: ID không hợp lệ!";
             }    
-            /*else if(xử lí khi id đã tồn tại)
+            else if(isExists)
             {
                 lb_SignUp_Notify.ForeColor = Color.FromArgb(245, 108, 108);
                 lb_SignUp_Notify.Text = "*Thông báo: ID đã tồn tại!";
-            }*/
+            }
             else if (!ValidateName(name))
             {
                 lb_SignUp_Notify.ForeColor = Color.FromArgb(245, 108, 108);
@@ -64,24 +69,31 @@ namespace Caro_Nhom8
                 lb_SignUp_Notify.ForeColor = Color.FromArgb(245, 108, 108);
                 lb_SignUp_Notify.Text = "*Thông báo: Mật khẩu không hợp lệ!";
             }
-            else if (string.IsNullOrWhiteSpace(verifycode))
+            else if (!ValidateProtectionCode(protecode))
             {
                 lb_SignUp_Notify.ForeColor = Color.FromArgb(245, 108, 108);
-                lb_SignUp_Notify.Text = "*Thông báo: Mã xác thực không hợp lệ!";
+                lb_SignUp_Notify.Text = "*Thông báo: Mã bảo vệ chỉ được chứa số!";
             }
-            /*else if(xử lí khi mã xác thực không chính xác)
-            {
-                lb_SignUp_Notify.ForeColor = Color.FromArgb(245, 108, 108);
-                lb_SignUp_Notify.Text = "*Thông báo: Mã xác thực không chính xác!";
-            }*/
             else
             {
-                // Xử lí khi các điều kiện phù hợp
+                var newUser = new
+                {
+                    ID = id,
+                    Name = name,
+                    Avatar = currentAvatarSignUp,
+                    Email = email,
+                    Password = password,
+                    ProtectionCode = protecode,
+                    Win = 0,
+                    Lose = 0,
+                    Winrate = 0,
+                };
+                await firebaseClient.Child("Users").Child("User_"+id).PutAsync(newUser);
                 lb_SignUp_Notify.ForeColor = Color.FromArgb(59, 198, 171);
                 lb_SignUp_Notify.Text = "*Thông báo: Đăng kí thành công!";
             }    
         }
-
+        
         private void btn_ExitSignUp_Click(object sender, EventArgs e)
         {
             playSFX();
@@ -89,10 +101,6 @@ namespace Caro_Nhom8
             OpenLogin();
         }
 
-        private void btn_GetVerifyCode_SignUp_Click(object sender, EventArgs e)
-        {
-            playSFX();
-        }
         private void lb_ChangeAvatar_SignUp_Click(object sender, EventArgs e)
         {
             playSFX();
@@ -123,6 +131,18 @@ namespace Caro_Nhom8
             string pattern = @"^[a-zA-Z0-9!@#$%^&*()_+{}\[\]:;<>,.?~\\|]+$";
             bool isMatch = Regex.IsMatch(password, pattern);
             return isMatch;
+        }
+        public static bool ValidateProtectionCode(string password)
+        {
+            string pattern = @"^[0-9]+$";
+            bool isMatch = Regex.IsMatch(password, pattern);
+            return isMatch;
+        }
+        private async Task<bool> IsIdExists(string id)
+        {
+
+            var data = await firebaseClient.Child("Users").Child("User_"+id).OnceAsync<object>();
+            return data.Any();
         }
         #endregion
     }

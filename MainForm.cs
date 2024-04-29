@@ -41,6 +41,7 @@ namespace Caro_Nhom8
         bool isSFX = true;
         bool isDark = true;
         public bool isChooseAvatarSignUp = false;
+        public string currentAvatarSignUp = "Resources/UI_Icon/Default.png";
         WindowsMediaPlayer music = new WindowsMediaPlayer();
         WindowsMediaPlayer sfx = new WindowsMediaPlayer();
         FirebaseClient firebaseClient = new FirebaseClient("https://caronhom8-default-rtdb.firebaseio.com/");

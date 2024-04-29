@@ -35,12 +35,19 @@ namespace Caro_Nhom8
         }
         private void LoadAvatars()
         {
-            string[] avatarFiles = Directory.GetFiles(Path.Combine(Application.StartupPath, "Resources/UI_Icon"), "*.png");
+            string[] allAvatarFiles = Directory.GetFiles(Path.Combine(Application.StartupPath, "Resources/UI_Icon"), "*.png");
 
+            // Lọc danh sách tệp theo định dạng mong muốn
+            List<string> avatarFiles = new List<string>();
+            foreach (string avatarFile in allAvatarFiles)
+            {
+                string fileName = Path.GetFileName(avatarFile);
+                avatarFiles.Add("Resources/UI_Icon/"+fileName);
+            }
             foreach (string avatarFile in avatarFiles)
             {
                 RJCircularPictureBox pictureBox = new RJCircularPictureBox();
-                pictureBox.Image = Image.FromFile(avatarFile);
+                pictureBox.Image = System.Drawing.Image.FromFile(avatarFile);
                 pictureBox.Width = 50;
                 pictureBox.Height = 50;
                 pictureBox.BorderColor = Color.FromArgb(59, 198, 171);
@@ -55,10 +62,13 @@ namespace Caro_Nhom8
         }
         private void PictureBox_Click(object? sender, EventArgs e)
         {
+            playSFX();
             RJCircularPictureBox pictureBox = (RJCircularPictureBox)sender!;
-            if(isChooseAvatarSignUp)
+            pictureBox.Cursor = Cursors.Hand;
+            if (isChooseAvatarSignUp)
             {
                 picbox_SignUp_Avatar.Image = Image.FromFile(pictureBox.Tag.ToString()!);
+                currentAvatarSignUp = pictureBox.Tag.ToString()!;
                 OpenSignUp();
 
             }

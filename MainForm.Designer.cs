@@ -105,12 +105,11 @@
             tmCoolDown = new System.Windows.Forms.Timer(components);
             grb_SignUp = new GroupBox();
             lb_SignUp_Notify = new Label();
-            btn_GetVerifyCode_SignUp = new ReaLTaiizor.Controls.HopeRoundButton();
             txt_SignUp_Email = new ReaLTaiizor.Controls.CyberTextBox();
             label5 = new Label();
             lb_ChangeAvatar_SignUp = new Label();
             picbox_SignUp_Avatar = new RJCircularPictureBox();
-            txt_SignUp_VerifyCode = new ReaLTaiizor.Controls.CyberTextBox();
+            txt_SignUp_ProtectionCode = new ReaLTaiizor.Controls.CyberTextBox();
             txt_SignUp_PW = new ReaLTaiizor.Controls.CyberTextBox();
             label3 = new Label();
             label4 = new Label();
@@ -230,9 +229,9 @@
             grb_Login.Controls.Add(rjCircularPictureBox1);
             grb_Login.Controls.Add(btn_Login);
             grb_Login.ForeColor = Color.White;
-            grb_Login.Location = new Point(125, 41);
+            grb_Login.Location = new Point(106, 36);
             grb_Login.Name = "grb_Login";
-            grb_Login.Size = new Size(71, 61);
+            grb_Login.Size = new Size(101, 69);
             grb_Login.TabIndex = 9;
             grb_Login.TabStop = false;
             grb_Login.Text = "Đăng nhập";
@@ -1351,12 +1350,11 @@
             // 
             grb_SignUp.BackColor = Color.FromArgb(12, 20, 29);
             grb_SignUp.Controls.Add(lb_SignUp_Notify);
-            grb_SignUp.Controls.Add(btn_GetVerifyCode_SignUp);
             grb_SignUp.Controls.Add(txt_SignUp_Email);
             grb_SignUp.Controls.Add(label5);
             grb_SignUp.Controls.Add(lb_ChangeAvatar_SignUp);
             grb_SignUp.Controls.Add(picbox_SignUp_Avatar);
-            grb_SignUp.Controls.Add(txt_SignUp_VerifyCode);
+            grb_SignUp.Controls.Add(txt_SignUp_ProtectionCode);
             grb_SignUp.Controls.Add(txt_SignUp_PW);
             grb_SignUp.Controls.Add(label3);
             grb_SignUp.Controls.Add(label4);
@@ -1367,9 +1365,9 @@
             grb_SignUp.Controls.Add(btn_ConfirmSignUp);
             grb_SignUp.Controls.Add(btn_ExitSignUp);
             grb_SignUp.ForeColor = Color.White;
-            grb_SignUp.Location = new Point(435, 131);
+            grb_SignUp.Location = new Point(435, 137);
             grb_SignUp.Name = "grb_SignUp";
-            grb_SignUp.Size = new Size(100, 52);
+            grb_SignUp.Size = new Size(85, 46);
             grb_SignUp.TabIndex = 14;
             grb_SignUp.TabStop = false;
             grb_SignUp.Text = "Đăng kí";
@@ -1379,32 +1377,12 @@
             // 
             lb_SignUp_Notify.AutoSize = true;
             lb_SignUp_Notify.ForeColor = Color.FromArgb(245, 108, 108);
-            lb_SignUp_Notify.Location = new Point(353, 477);
+            lb_SignUp_Notify.Location = new Point(367, 476);
             lb_SignUp_Notify.MaximumSize = new Size(290, 0);
             lb_SignUp_Notify.Name = "lb_SignUp_Notify";
             lb_SignUp_Notify.Size = new Size(84, 20);
             lb_SignUp_Notify.TabIndex = 31;
             lb_SignUp_Notify.Text = "Thông báo:";
-            // 
-            // btn_GetVerifyCode_SignUp
-            // 
-            btn_GetVerifyCode_SignUp.BorderColor = Color.FromArgb(220, 223, 230);
-            btn_GetVerifyCode_SignUp.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
-            btn_GetVerifyCode_SignUp.DangerColor = Color.FromArgb(245, 108, 108);
-            btn_GetVerifyCode_SignUp.DefaultColor = Color.FromArgb(255, 255, 255);
-            btn_GetVerifyCode_SignUp.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_GetVerifyCode_SignUp.HoverTextColor = Color.FromArgb(48, 49, 51);
-            btn_GetVerifyCode_SignUp.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_GetVerifyCode_SignUp.Location = new Point(353, 258);
-            btn_GetVerifyCode_SignUp.Name = "btn_GetVerifyCode_SignUp";
-            btn_GetVerifyCode_SignUp.PrimaryColor = Color.FromArgb(59, 198, 171);
-            btn_GetVerifyCode_SignUp.Size = new Size(289, 31);
-            btn_GetVerifyCode_SignUp.SuccessColor = Color.FromArgb(103, 194, 58);
-            btn_GetVerifyCode_SignUp.TabIndex = 30;
-            btn_GetVerifyCode_SignUp.Text = "Lấy mã xác thực";
-            btn_GetVerifyCode_SignUp.TextColor = Color.White;
-            btn_GetVerifyCode_SignUp.WarningColor = Color.FromArgb(230, 162, 60);
-            btn_GetVerifyCode_SignUp.Click += btn_GetVerifyCode_SignUp_Click;
             // 
             // txt_SignUp_Email
             // 
@@ -1422,7 +1400,7 @@
             txt_SignUp_Email.ForeColor = Color.White;
             txt_SignUp_Email.Lighting = false;
             txt_SignUp_Email.LinearGradientPen = false;
-            txt_SignUp_Email.Location = new Point(353, 207);
+            txt_SignUp_Email.Location = new Point(368, 241);
             txt_SignUp_Email.Name = "txt_SignUp_Email";
             txt_SignUp_Email.PenWidth = 15;
             txt_SignUp_Email.RGB = false;
@@ -1440,7 +1418,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(272, 221);
+            label5.Location = new Point(287, 255);
             label5.Name = "label5";
             label5.Size = new Size(75, 31);
             label5.TabIndex = 28;
@@ -1451,7 +1429,7 @@
             lb_ChangeAvatar_SignUp.AutoSize = true;
             lb_ChangeAvatar_SignUp.Cursor = Cursors.Hand;
             lb_ChangeAvatar_SignUp.Font = new Font("Segoe UI", 10.2F, FontStyle.Underline, GraphicsUnit.Point);
-            lb_ChangeAvatar_SignUp.Location = new Point(60, 255);
+            lb_ChangeAvatar_SignUp.Location = new Point(75, 289);
             lb_ChangeAvatar_SignUp.Name = "lb_ChangeAvatar_SignUp";
             lb_ChangeAvatar_SignUp.Size = new Size(88, 23);
             lb_ChangeAvatar_SignUp.TabIndex = 27;
@@ -1467,42 +1445,42 @@
             picbox_SignUp_Avatar.BorderSize = 2;
             picbox_SignUp_Avatar.GradientAngle = 50F;
             picbox_SignUp_Avatar.Image = (Image)resources.GetObject("picbox_SignUp_Avatar.Image");
-            picbox_SignUp_Avatar.Location = new Point(24, 92);
+            picbox_SignUp_Avatar.Location = new Point(39, 126);
             picbox_SignUp_Avatar.Name = "picbox_SignUp_Avatar";
             picbox_SignUp_Avatar.Size = new Size(160, 160);
             picbox_SignUp_Avatar.SizeMode = PictureBoxSizeMode.StretchImage;
             picbox_SignUp_Avatar.TabIndex = 26;
             picbox_SignUp_Avatar.TabStop = false;
             // 
-            // txt_SignUp_VerifyCode
+            // txt_SignUp_ProtectionCode
             // 
-            txt_SignUp_VerifyCode.Alpha = 20;
-            txt_SignUp_VerifyCode.BackColor = Color.Transparent;
-            txt_SignUp_VerifyCode.Background_WidthPen = 3F;
-            txt_SignUp_VerifyCode.BackgroundPen = true;
-            txt_SignUp_VerifyCode.ColorBackground = Color.FromArgb(12, 20, 29);
-            txt_SignUp_VerifyCode.ColorBackground_Pen = Color.FromArgb(59, 198, 171);
-            txt_SignUp_VerifyCode.ColorLighting = Color.FromArgb(59, 198, 171);
-            txt_SignUp_VerifyCode.ColorPen_1 = Color.FromArgb(12, 20, 29);
-            txt_SignUp_VerifyCode.ColorPen_2 = Color.Transparent;
-            txt_SignUp_VerifyCode.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            txt_SignUp_VerifyCode.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_SignUp_VerifyCode.ForeColor = Color.White;
-            txt_SignUp_VerifyCode.Lighting = false;
-            txt_SignUp_VerifyCode.LinearGradientPen = false;
-            txt_SignUp_VerifyCode.Location = new Point(353, 346);
-            txt_SignUp_VerifyCode.Name = "txt_SignUp_VerifyCode";
-            txt_SignUp_VerifyCode.PenWidth = 15;
-            txt_SignUp_VerifyCode.RGB = false;
-            txt_SignUp_VerifyCode.Rounding = true;
-            txt_SignUp_VerifyCode.RoundingInt = 90;
-            txt_SignUp_VerifyCode.Size = new Size(289, 45);
-            txt_SignUp_VerifyCode.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            txt_SignUp_VerifyCode.TabIndex = 25;
-            txt_SignUp_VerifyCode.Tag = "Cyber";
-            txt_SignUp_VerifyCode.TextButton = "";
-            txt_SignUp_VerifyCode.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            txt_SignUp_VerifyCode.Timer_RGB = 300;
+            txt_SignUp_ProtectionCode.Alpha = 20;
+            txt_SignUp_ProtectionCode.BackColor = Color.Transparent;
+            txt_SignUp_ProtectionCode.Background_WidthPen = 3F;
+            txt_SignUp_ProtectionCode.BackgroundPen = true;
+            txt_SignUp_ProtectionCode.ColorBackground = Color.FromArgb(12, 20, 29);
+            txt_SignUp_ProtectionCode.ColorBackground_Pen = Color.FromArgb(59, 198, 171);
+            txt_SignUp_ProtectionCode.ColorLighting = Color.FromArgb(59, 198, 171);
+            txt_SignUp_ProtectionCode.ColorPen_1 = Color.FromArgb(12, 20, 29);
+            txt_SignUp_ProtectionCode.ColorPen_2 = Color.Transparent;
+            txt_SignUp_ProtectionCode.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            txt_SignUp_ProtectionCode.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_SignUp_ProtectionCode.ForeColor = Color.White;
+            txt_SignUp_ProtectionCode.Lighting = false;
+            txt_SignUp_ProtectionCode.LinearGradientPen = false;
+            txt_SignUp_ProtectionCode.Location = new Point(367, 345);
+            txt_SignUp_ProtectionCode.Name = "txt_SignUp_ProtectionCode";
+            txt_SignUp_ProtectionCode.PenWidth = 15;
+            txt_SignUp_ProtectionCode.RGB = false;
+            txt_SignUp_ProtectionCode.Rounding = true;
+            txt_SignUp_ProtectionCode.RoundingInt = 90;
+            txt_SignUp_ProtectionCode.Size = new Size(289, 45);
+            txt_SignUp_ProtectionCode.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            txt_SignUp_ProtectionCode.TabIndex = 25;
+            txt_SignUp_ProtectionCode.Tag = "Cyber";
+            txt_SignUp_ProtectionCode.TextButton = "";
+            txt_SignUp_ProtectionCode.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            txt_SignUp_ProtectionCode.Timer_RGB = 300;
             // 
             // txt_SignUp_PW
             // 
@@ -1516,11 +1494,11 @@
             txt_SignUp_PW.ColorPen_1 = Color.FromArgb(12, 20, 29);
             txt_SignUp_PW.ColorPen_2 = Color.Transparent;
             txt_SignUp_PW.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            txt_SignUp_PW.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_SignUp_PW.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point);
             txt_SignUp_PW.ForeColor = Color.White;
             txt_SignUp_PW.Lighting = false;
             txt_SignUp_PW.LinearGradientPen = false;
-            txt_SignUp_PW.Location = new Point(353, 295);
+            txt_SignUp_PW.Location = new Point(367, 294);
             txt_SignUp_PW.Name = "txt_SignUp_PW";
             txt_SignUp_PW.Password = true;
             txt_SignUp_PW.PenWidth = 15;
@@ -1539,17 +1517,17 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(203, 360);
+            label3.Location = new Point(236, 345);
             label3.Name = "label3";
-            label3.Size = new Size(144, 31);
+            label3.Size = new Size(126, 31);
             label3.TabIndex = 23;
-            label3.Text = "Mã xác thực:";
+            label3.Text = "Mã bảo vệ:";
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(232, 303);
+            label4.Location = new Point(247, 302);
             label4.Name = "label4";
             label4.Size = new Size(115, 31);
             label4.TabIndex = 22;
@@ -1571,7 +1549,7 @@
             txt_SignUp_Name.ForeColor = Color.White;
             txt_SignUp_Name.Lighting = false;
             txt_SignUp_Name.LinearGradientPen = false;
-            txt_SignUp_Name.Location = new Point(353, 156);
+            txt_SignUp_Name.Location = new Point(368, 190);
             txt_SignUp_Name.Name = "txt_SignUp_Name";
             txt_SignUp_Name.PenWidth = 15;
             txt_SignUp_Name.RGB = false;
@@ -1601,7 +1579,7 @@
             txt_SignUp_ID.ForeColor = Color.White;
             txt_SignUp_ID.Lighting = false;
             txt_SignUp_ID.LinearGradientPen = false;
-            txt_SignUp_ID.Location = new Point(353, 105);
+            txt_SignUp_ID.Location = new Point(368, 139);
             txt_SignUp_ID.Name = "txt_SignUp_ID";
             txt_SignUp_ID.PenWidth = 15;
             txt_SignUp_ID.RGB = false;
@@ -1619,7 +1597,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(293, 170);
+            label2.Location = new Point(308, 204);
             label2.Name = "label2";
             label2.Size = new Size(54, 31);
             label2.TabIndex = 19;
@@ -1629,7 +1607,7 @@
             // 
             ID.AutoSize = true;
             ID.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            ID.Location = new Point(306, 119);
+            ID.Location = new Point(321, 153);
             ID.Name = "ID";
             ID.Size = new Size(41, 31);
             ID.TabIndex = 18;
@@ -1644,7 +1622,7 @@
             btn_ConfirmSignUp.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btn_ConfirmSignUp.HoverTextColor = Color.FromArgb(48, 49, 51);
             btn_ConfirmSignUp.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_ConfirmSignUp.Location = new Point(353, 397);
+            btn_ConfirmSignUp.Location = new Point(367, 396);
             btn_ConfirmSignUp.Name = "btn_ConfirmSignUp";
             btn_ConfirmSignUp.PrimaryColor = Color.FromArgb(59, 198, 171);
             btn_ConfirmSignUp.Size = new Size(289, 31);
@@ -1664,7 +1642,7 @@
             btn_ExitSignUp.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btn_ExitSignUp.HoverTextColor = Color.FromArgb(48, 49, 51);
             btn_ExitSignUp.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_ExitSignUp.Location = new Point(353, 434);
+            btn_ExitSignUp.Location = new Point(367, 433);
             btn_ExitSignUp.Name = "btn_ExitSignUp";
             btn_ExitSignUp.PrimaryColor = Color.FromArgb(245, 108, 108);
             btn_ExitSignUp.Size = new Size(290, 31);
@@ -2194,9 +2172,9 @@
             grb_ChangeInfo.Controls.Add(txt_ChangePW_NewPW);
             grb_ChangeInfo.Controls.Add(label17);
             grb_ChangeInfo.ForeColor = Color.White;
-            grb_ChangeInfo.Location = new Point(12, 513);
+            grb_ChangeInfo.Location = new Point(186, 134);
             grb_ChangeInfo.Name = "grb_ChangeInfo";
-            grb_ChangeInfo.Size = new Size(745, 530);
+            grb_ChangeInfo.Size = new Size(126, 83);
             grb_ChangeInfo.TabIndex = 17;
             grb_ChangeInfo.TabStop = false;
             grb_ChangeInfo.Text = "Thay đổi thông tin";
@@ -2987,7 +2965,7 @@
         private ReaLTaiizor.Controls.CyberTextBox txt_PVP_ServerPort;
         private ReaLTaiizor.Controls.HopeRoundButton btn_CancelCreateServer;
         private ReaLTaiizor.Controls.HopeRoundButton btn_ContinueCreateServer;
-        private ReaLTaiizor.Controls.CyberTextBox txt_SignUp_VerifyCode;
+        private ReaLTaiizor.Controls.CyberTextBox txt_SignUp_ProtectionCode;
         private ReaLTaiizor.Controls.CyberTextBox txt_SignUp_PW;
         private Label label3;
         private Label label4;
@@ -2995,7 +2973,6 @@
         private ReaLTaiizor.Controls.CyberTextBox txt_SignUp_Email;
         private Label label5;
         private Label lb_ChangeAvatar_SignUp;
-        private ReaLTaiizor.Controls.HopeRoundButton btn_GetVerifyCode_SignUp;
         private Label label6;
         private Label label7;
         private Label label8;
