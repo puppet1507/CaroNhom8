@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Firebase.Database.Query;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,29 +32,44 @@ namespace Caro_Nhom8
             panel_PlayArea.Dock = DockStyle.None;
             panel_PlayArea.Visible = false;
         }
-        private void btn_Login_Click_1(object sender, EventArgs e)
+        private async void btn_Login_Click_1(object sender, EventArgs e)
         {
             playSFX();
-
-            OpenInfo();
-            lb_Welcome.Text = "Welcome " + txt_Login_ID.TextButton;
+            lb_Login_Notify.Visible = true;
+            string id = txt_Login_ID.TextButton.Trim();
+            string pw = txt_Login_PW.TextButton.Trim();
+            bool isExists = await IsIdExists(id);
+            if (!isExists)
+            {
+                lb_Login_Notify.ForeColor = Color.FromArgb(245, 108, 108);
+                lb_Login_Notify.Text = "*Thông báo: ID không tồn tại!";
+            }
+            else
+            {
+                bool isPWtrue = await IsPasswordTrue(id, pw);
+                if (!isPWtrue)
+                {
+                    lb_Login_Notify.ForeColor = Color.FromArgb(245, 108, 108);
+                    lb_Login_Notify.Text = "*Thông báo: Mật khẩu sai!";
+                }
+                else
+                {
+                    OpenInfo();
+                    lb_Welcome.Text = "Welcome " + txt_Login_ID.TextButton;
+                }    
+            }    
         }
         private void btn_Open_SignUp_Click(object sender, EventArgs e)
         {
             playSFX();
             isChooseAvatarSignUp = true;
             OpenSignUp();
-            
-
-
         }
         private void lb_Open_ForgetPW_Click(object sender, EventArgs e)
         {
+            
             playSFX();
-
             OpenForgetPassword();
-
-
         }
         
         #endregion

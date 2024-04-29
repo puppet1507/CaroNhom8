@@ -5,6 +5,9 @@ using System.Text.RegularExpressions;
 using System;
 using System.Net.Mail;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using Microsoft.VisualBasic;
+using System.Numerics;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace Caro_Nhom8
 {
@@ -76,7 +79,7 @@ namespace Caro_Nhom8
             }
             else
             {
-                var newUser = new
+                Player newUser = new Player
                 {
                     ID = id,
                     Name = name,
@@ -140,9 +143,21 @@ namespace Caro_Nhom8
         }
         private async Task<bool> IsIdExists(string id)
         {
-
             var data = await firebaseClient.Child("Users").Child("User_"+id).OnceAsync<object>();
             return data.Any();
+        }
+        private async Task<bool> IsPasswordTrue(string id, string pw)
+        {
+            var dataSnapshot = await firebaseClient.Child("Users").OrderByKey().EqualTo("User_" + id).OnceAsync<Player>();
+            foreach (var item in dataSnapshot)
+            {
+                var user = item.Object;
+                if(user.Password == pw)
+                {
+                    return true;
+                }       
+            }
+            return false;
         }
         #endregion
     }
