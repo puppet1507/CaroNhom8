@@ -15,9 +15,8 @@ namespace Caro_Nhom8
             this.Size = new Size(755, 658);
             this.MaximumSize = new Size(755, 658);
             this.MinimumSize = new Size(755, 658);
-            //grb_Login.Size = new Size(726, 601);
             grb_Login.Dock = DockStyle.Fill;
-            grb_Login.Location = new Point(6, 6);
+            grb_ChooseAvatar.Visible = false;
             lb_Login_Notify.Visible = false;
             grb_Login.Visible = true;
             grb_SignUp.Visible = false;
@@ -42,6 +41,7 @@ namespace Caro_Nhom8
         private void btn_Open_SignUp_Click(object sender, EventArgs e)
         {
             playSFX();
+            isChooseAvatarSignUp = true;
             OpenSignUp();
             
 

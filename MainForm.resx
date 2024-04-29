@@ -578,7 +578,7 @@
         ljpqR40onHPMLbYT11DPSTMzM5LF4geCbnsujG5sYAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="rjCircularPictureBox3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="picbox_PlayerInfo_Avatar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEAAAAAAAD/2wBDAAMCAgICAgMCAgIDAwMDBAYEBAQEBAgGBgUGCQgKCgkICQkK
         DA8MCgsOCwkJDRENDg8QEBEQCgwSExIQEw8QEBD/2wBDAQMDAwQDBAgEBAgQCwkLEBAQEBAQEBAQEBAQ
@@ -1905,7 +1905,7 @@
         84u86ZOcXedMnOLvOmTn1n//2Q==
 </value>
   </data>
-  <data name="rjCircularPictureBox13.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="picbox_ChangeInfo_Avatar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAB4AAAAeACAIAAACgwN2RAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAS
         cQAAEnEB89x6jgAA/7JJREFUeF7s/Qd3JNUZNux+f/Z85zUoh5Y6KE4CEwwGB8A2YGzAGDAZY5JNTibN

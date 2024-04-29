@@ -26,6 +26,7 @@ namespace Caro_Nhom8
             grb_ForgetPassword.Visible = false;
             grb_ChangeInfo.Visible = true;
             grb_Setting.Visible = false;
+            grb_ChooseAvatar.Visible = false;
             panel_PlayArea.Dock = DockStyle.None;
             panel_PlayArea.Visible = false;
         }
@@ -40,6 +41,7 @@ namespace Caro_Nhom8
         }
         private void lb_ChangeInfo_Avatar_Click(object sender, EventArgs e)
         {
+            OpenChooseAvatar();
             playSFX();
         }
         #endregion

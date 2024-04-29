@@ -60,7 +60,7 @@
             rjCircularPictureBox7 = new RJCircularPictureBox();
             rjCircularPictureBox6 = new RJCircularPictureBox();
             btn_Info_ChangePW = new ReaLTaiizor.Controls.HopeRoundButton();
-            rjCircularPictureBox3 = new RJCircularPictureBox();
+            picbox_PlayerInfo_Avatar = new RJCircularPictureBox();
             btn_Info_LogOut = new ReaLTaiizor.Controls.HopeRoundButton();
             btn_PlayWithAI = new ReaLTaiizor.Controls.HopeRoundButton();
             lb_Lose = new Label();
@@ -149,7 +149,7 @@
             txt_ChanInfo_Email = new ReaLTaiizor.Controls.CyberTextBox();
             label29 = new Label();
             lb_ChangeInfo_Avatar = new Label();
-            rjCircularPictureBox13 = new RJCircularPictureBox();
+            picbox_ChangeInfo_Avatar = new RJCircularPictureBox();
             txt_ChangeInfo_Name = new ReaLTaiizor.Controls.CyberTextBox();
             txt_ChanInfo_ID = new ReaLTaiizor.Controls.CyberTextBox();
             label33 = new Label();
@@ -180,6 +180,8 @@
             label16 = new Label();
             label1 = new Label();
             btn_Setting_Exit = new ReaLTaiizor.Controls.HopeRoundButton();
+            grb_ChooseAvatar = new GroupBox();
+            panel_ChooseAvatar = new FlowLayoutPanel();
             grb_Login.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox4).BeginInit();
@@ -190,7 +192,7 @@
             ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox6).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picbox_PlayerInfo_Avatar).BeginInit();
             grb_Waiting.SuspendLayout();
             grb_ClientInfo.SuspendLayout();
             panel_PlayArea.SuspendLayout();
@@ -209,9 +211,10 @@
             grb_ServerInfo.SuspendLayout();
             grb_ForgetPassword.SuspendLayout();
             grb_ChangeInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox13).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picbox_ChangeInfo_Avatar).BeginInit();
             grb_ComputerInfo.SuspendLayout();
             grb_Setting.SuspendLayout();
+            grb_ChooseAvatar.SuspendLayout();
             SuspendLayout();
             // 
             // grb_Login
@@ -416,7 +419,7 @@
             grb_Info.Controls.Add(rjCircularPictureBox7);
             grb_Info.Controls.Add(rjCircularPictureBox6);
             grb_Info.Controls.Add(btn_Info_ChangePW);
-            grb_Info.Controls.Add(rjCircularPictureBox3);
+            grb_Info.Controls.Add(picbox_PlayerInfo_Avatar);
             grb_Info.Controls.Add(btn_Info_LogOut);
             grb_Info.Controls.Add(btn_PlayWithAI);
             grb_Info.Controls.Add(lb_Lose);
@@ -425,10 +428,10 @@
             grb_Info.Controls.Add(btn_JoinRoom);
             grb_Info.Controls.Add(btn_CreateRoom);
             grb_Info.ForeColor = Color.White;
-            grb_Info.Location = new Point(109, 128);
+            grb_Info.Location = new Point(12, 130);
             grb_Info.MaximumSize = new Size(999999, 999999);
             grb_Info.Name = "grb_Info";
-            grb_Info.Size = new Size(51, 73);
+            grb_Info.Size = new Size(137, 72);
             grb_Info.TabIndex = 10;
             grb_Info.TabStop = false;
             grb_Info.Text = "Thông tin người chơi";
@@ -649,21 +652,21 @@
             btn_Info_ChangePW.WarningColor = Color.FromArgb(230, 162, 60);
             btn_Info_ChangePW.Click += btn_ChangePassword_Click;
             // 
-            // rjCircularPictureBox3
+            // picbox_PlayerInfo_Avatar
             // 
-            rjCircularPictureBox3.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
-            rjCircularPictureBox3.BorderColor = Color.FromArgb(59, 198, 171);
-            rjCircularPictureBox3.BorderColor2 = Color.FromArgb(59, 198, 171);
-            rjCircularPictureBox3.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            rjCircularPictureBox3.BorderSize = 2;
-            rjCircularPictureBox3.GradientAngle = 50F;
-            rjCircularPictureBox3.Image = (Image)resources.GetObject("rjCircularPictureBox3.Image");
-            rjCircularPictureBox3.Location = new Point(19, 26);
-            rjCircularPictureBox3.Name = "rjCircularPictureBox3";
-            rjCircularPictureBox3.Size = new Size(185, 185);
-            rjCircularPictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            rjCircularPictureBox3.TabIndex = 18;
-            rjCircularPictureBox3.TabStop = false;
+            picbox_PlayerInfo_Avatar.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            picbox_PlayerInfo_Avatar.BorderColor = Color.FromArgb(59, 198, 171);
+            picbox_PlayerInfo_Avatar.BorderColor2 = Color.FromArgb(59, 198, 171);
+            picbox_PlayerInfo_Avatar.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            picbox_PlayerInfo_Avatar.BorderSize = 2;
+            picbox_PlayerInfo_Avatar.GradientAngle = 50F;
+            picbox_PlayerInfo_Avatar.Image = (Image)resources.GetObject("picbox_PlayerInfo_Avatar.Image");
+            picbox_PlayerInfo_Avatar.Location = new Point(19, 26);
+            picbox_PlayerInfo_Avatar.Name = "picbox_PlayerInfo_Avatar";
+            picbox_PlayerInfo_Avatar.Size = new Size(185, 185);
+            picbox_PlayerInfo_Avatar.SizeMode = PictureBoxSizeMode.StretchImage;
+            picbox_PlayerInfo_Avatar.TabIndex = 18;
+            picbox_PlayerInfo_Avatar.TabStop = false;
             // 
             // btn_Info_LogOut
             // 
@@ -1364,9 +1367,9 @@
             grb_SignUp.Controls.Add(btn_ConfirmSignUp);
             grb_SignUp.Controls.Add(btn_ExitSignUp);
             grb_SignUp.ForeColor = Color.White;
-            grb_SignUp.Location = new Point(22, 440);
+            grb_SignUp.Location = new Point(435, 131);
             grb_SignUp.Name = "grb_SignUp";
-            grb_SignUp.Size = new Size(701, 524);
+            grb_SignUp.Size = new Size(100, 52);
             grb_SignUp.TabIndex = 14;
             grb_SignUp.TabStop = false;
             grb_SignUp.Text = "Đăng kí";
@@ -1513,7 +1516,7 @@
             txt_SignUp_PW.ColorPen_1 = Color.FromArgb(12, 20, 29);
             txt_SignUp_PW.ColorPen_2 = Color.Transparent;
             txt_SignUp_PW.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            txt_SignUp_PW.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_SignUp_PW.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
             txt_SignUp_PW.ForeColor = Color.White;
             txt_SignUp_PW.Lighting = false;
             txt_SignUp_PW.LinearGradientPen = false;
@@ -2180,7 +2183,7 @@
             grb_ChangeInfo.Controls.Add(txt_ChanInfo_Email);
             grb_ChangeInfo.Controls.Add(label29);
             grb_ChangeInfo.Controls.Add(lb_ChangeInfo_Avatar);
-            grb_ChangeInfo.Controls.Add(rjCircularPictureBox13);
+            grb_ChangeInfo.Controls.Add(picbox_ChangeInfo_Avatar);
             grb_ChangeInfo.Controls.Add(txt_ChangeInfo_Name);
             grb_ChangeInfo.Controls.Add(txt_ChanInfo_ID);
             grb_ChangeInfo.Controls.Add(label33);
@@ -2191,9 +2194,9 @@
             grb_ChangeInfo.Controls.Add(txt_ChangePW_NewPW);
             grb_ChangeInfo.Controls.Add(label17);
             grb_ChangeInfo.ForeColor = Color.White;
-            grb_ChangeInfo.Location = new Point(184, 131);
+            grb_ChangeInfo.Location = new Point(12, 513);
             grb_ChangeInfo.Name = "grb_ChangeInfo";
-            grb_ChangeInfo.Size = new Size(67, 95);
+            grb_ChangeInfo.Size = new Size(745, 530);
             grb_ChangeInfo.TabIndex = 17;
             grb_ChangeInfo.TabStop = false;
             grb_ChangeInfo.Text = "Thay đổi thông tin";
@@ -2251,21 +2254,21 @@
             lb_ChangeInfo_Avatar.Text = "Đổi avatar";
             lb_ChangeInfo_Avatar.Click += lb_ChangeInfo_Avatar_Click;
             // 
-            // rjCircularPictureBox13
+            // picbox_ChangeInfo_Avatar
             // 
-            rjCircularPictureBox13.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
-            rjCircularPictureBox13.BorderColor = Color.FromArgb(59, 198, 171);
-            rjCircularPictureBox13.BorderColor2 = Color.FromArgb(59, 198, 171);
-            rjCircularPictureBox13.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            rjCircularPictureBox13.BorderSize = 2;
-            rjCircularPictureBox13.GradientAngle = 50F;
-            rjCircularPictureBox13.Image = (Image)resources.GetObject("rjCircularPictureBox13.Image");
-            rjCircularPictureBox13.Location = new Point(41, 149);
-            rjCircularPictureBox13.Name = "rjCircularPictureBox13";
-            rjCircularPictureBox13.Size = new Size(160, 160);
-            rjCircularPictureBox13.SizeMode = PictureBoxSizeMode.StretchImage;
-            rjCircularPictureBox13.TabIndex = 55;
-            rjCircularPictureBox13.TabStop = false;
+            picbox_ChangeInfo_Avatar.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            picbox_ChangeInfo_Avatar.BorderColor = Color.FromArgb(59, 198, 171);
+            picbox_ChangeInfo_Avatar.BorderColor2 = Color.FromArgb(59, 198, 171);
+            picbox_ChangeInfo_Avatar.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            picbox_ChangeInfo_Avatar.BorderSize = 2;
+            picbox_ChangeInfo_Avatar.GradientAngle = 50F;
+            picbox_ChangeInfo_Avatar.Image = (Image)resources.GetObject("picbox_ChangeInfo_Avatar.Image");
+            picbox_ChangeInfo_Avatar.Location = new Point(41, 149);
+            picbox_ChangeInfo_Avatar.Name = "picbox_ChangeInfo_Avatar";
+            picbox_ChangeInfo_Avatar.Size = new Size(160, 160);
+            picbox_ChangeInfo_Avatar.SizeMode = PictureBoxSizeMode.StretchImage;
+            picbox_ChangeInfo_Avatar.TabIndex = 55;
+            picbox_ChangeInfo_Avatar.TabStop = false;
             // 
             // txt_ChangeInfo_Name
             // 
@@ -2843,11 +2846,35 @@
             btn_Setting_Exit.WarningColor = Color.FromArgb(230, 162, 60);
             btn_Setting_Exit.Click += btn_Setting_Exit_Click;
             // 
+            // grb_ChooseAvatar
+            // 
+            grb_ChooseAvatar.BackColor = Color.FromArgb(12, 20, 29);
+            grb_ChooseAvatar.Controls.Add(panel_ChooseAvatar);
+            grb_ChooseAvatar.ForeColor = Color.White;
+            grb_ChooseAvatar.Location = new Point(551, 130);
+            grb_ChooseAvatar.Name = "grb_ChooseAvatar";
+            grb_ChooseAvatar.Size = new Size(113, 37);
+            grb_ChooseAvatar.TabIndex = 20;
+            grb_ChooseAvatar.TabStop = false;
+            grb_ChooseAvatar.Text = "Chọn Avatar";
+            grb_ChooseAvatar.Visible = false;
+            // 
+            // panel_ChooseAvatar
+            // 
+            panel_ChooseAvatar.AutoScroll = true;
+            panel_ChooseAvatar.BorderStyle = BorderStyle.FixedSingle;
+            panel_ChooseAvatar.Dock = DockStyle.Fill;
+            panel_ChooseAvatar.Location = new Point(3, 23);
+            panel_ChooseAvatar.Name = "panel_ChooseAvatar";
+            panel_ChooseAvatar.Size = new Size(107, 11);
+            panel_ChooseAvatar.TabIndex = 0;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1924, 1055);
+            Controls.Add(grb_ChooseAvatar);
             Controls.Add(grb_ComputerInfo);
             Controls.Add(grb_ServerInfo);
             Controls.Add(grb_Info);
@@ -2875,7 +2902,7 @@
             ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox8).EndInit();
             ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox7).EndInit();
             ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox6).EndInit();
-            ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picbox_PlayerInfo_Avatar).EndInit();
             grb_Waiting.ResumeLayout(false);
             grb_Waiting.PerformLayout();
             grb_ClientInfo.ResumeLayout(false);
@@ -2903,11 +2930,12 @@
             grb_ForgetPassword.PerformLayout();
             grb_ChangeInfo.ResumeLayout(false);
             grb_ChangeInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox13).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picbox_ChangeInfo_Avatar).EndInit();
             grb_ComputerInfo.ResumeLayout(false);
             grb_ComputerInfo.PerformLayout();
             grb_Setting.ResumeLayout(false);
             grb_Setting.PerformLayout();
+            grb_ChooseAvatar.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -2951,7 +2979,7 @@
         private ReaLTaiizor.Controls.HopeRoundButton btn_ConfirmSignUp;
         private ReaLTaiizor.Controls.HopeRoundButton btn_ExitSignUp;
         private Label ID;
-        private RJCircularPictureBox rjCircularPictureBox3;
+        private RJCircularPictureBox picbox_PlayerInfo_Avatar;
         private ReaLTaiizor.Controls.CyberTextBox txt_Login_ID;
         private ReaLTaiizor.Controls.CyberTextBox txt_SignUp_Name;
         private ReaLTaiizor.Controls.CyberTextBox txt_SignUp_ID;
@@ -3051,10 +3079,12 @@
         private ReaLTaiizor.Controls.CyberTextBox txt_ChanInfo_Email;
         private Label label29;
         private Label lb_ChangeInfo_Avatar;
-        private RJCircularPictureBox rjCircularPictureBox13;
+        private RJCircularPictureBox picbox_ChangeInfo_Avatar;
         private ReaLTaiizor.Controls.CyberTextBox txt_ChangeInfo_Name;
         private ReaLTaiizor.Controls.CyberTextBox txt_ChanInfo_ID;
         private Label label33;
         private Label label34;
+        private GroupBox grb_ChooseAvatar;
+        private FlowLayoutPanel panel_ChooseAvatar;
     }
 }

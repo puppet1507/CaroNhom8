@@ -14,6 +14,8 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Media;
 using WMPLib;
 using System.Numerics;
+using Firebase.Database;
+using Firebase.Database.Query;
 // Check NgocLong_Github
 // Check ThoNha_Github
 // Check LeNhu_Github
@@ -38,8 +40,10 @@ namespace Caro_Nhom8
         bool isMusic = true;
         bool isSFX = true;
         bool isDark = true;
+        public bool isChooseAvatarSignUp = false;
         WindowsMediaPlayer music = new WindowsMediaPlayer();
         WindowsMediaPlayer sfx = new WindowsMediaPlayer();
+        FirebaseClient firebaseClient = new FirebaseClient("https://caronhom8-default-rtdb.firebaseio.com/");
         #endregion
 
         #region ScreenChange_Methods
@@ -59,6 +63,7 @@ namespace Caro_Nhom8
             grb_ForgetPassword.Visible = false;
             grb_ChangeInfo.Visible = false;
             grb_Setting.Visible = false;
+            grb_ChooseAvatar.Visible = false;
             panel_PlayArea.Dock = DockStyle.Fill;
             panel_PlayArea.Visible = true;
         }
@@ -232,6 +237,7 @@ namespace Caro_Nhom8
         {
             DarkTheme();
             OpenLogin();
+            LoadAvatars();
             music.controls.play();
             dtg_Ranking.Rows.Add(
                 new object[]
@@ -251,60 +257,7 @@ namespace Caro_Nhom8
                     "100%"
 
                 });
-            dtg_Ranking.Rows.Add(
-                new object[]
-                {
-                    22520922,
-                    100,
-                    0,
-                    "100%"
-
-                });
-            dtg_Ranking.Rows.Add(
-                new object[]
-                {
-                    22520922,
-                    100,
-                    0,
-                    "100%"
-
-                });
-            dtg_Ranking.Rows.Add(
-                new object[]
-                {
-                    22520922,
-                    100,
-                    0,
-                    "99%"
-
-                });
-            dtg_Ranking.Rows.Add(
-                new object[]
-                {
-                    22520922,
-                    100,
-                    0,
-                    "99%"
-
-                });
-            dtg_Ranking.Rows.Add(
-                new object[]
-                {
-                    22520922,
-                    100,
-                    0,
-                    "99%"
-
-                });
-            dtg_Ranking.Rows.Add(
-                new object[]
-                {
-                    22520922,
-                    100,
-                    0,
-                    "99%"
-
-                });
+        
         }
         #endregion
 
