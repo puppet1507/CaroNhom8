@@ -504,6 +504,32 @@
         WJ2h75Wqr3UT3IakoUAoBQH/2Q==
 </value>
   </data>
+  <data name="rjCircularPictureBox3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAUZJREFUaEPt
+        mNFpw0AQRFVCSkgf9odL9bf8ITcR5TMlyB3EHSR3sCCY0zG3jKNTYB/sz3pmNbLEsWgIgiAIguC/cvmc
+        3s/zOJ3mcTnNtx9fjUv2Xr6mNxu3L/nC54/b93a49sozutxEuvgdwwh1t7H78Yp/f61xsbH7gSGs3Yzq
+        l1EDqH4ZNYDql1EDqP5NlHPdRjSj+gvUc93GNKP6C9IQ6Vy3Mc2o/gL1XLcxzaj+Au9Arx5BPy+yO6HB
+        2lW8egT9rVXdnVBo7SpePYJ+Z5W7E4qsXcWrR9Dvq43dCUXWruLVI14/1VMB4NUjXj/VUwHg1SNeP9VT
+        AeDVI14/1VNBZ2g+KugMzUcFnaH5qKAzNF9qPlB04HpY7JXUfOVnkr+uq8VeyQtS+uEJwiPWs7qR2k3k
+        J3HE1ylnulbDB0EQBEGwO8PwCxGvtnZLvHS4AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <metadata name="dataGridViewTextBoxColumn1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn3.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn4.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn5.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="rjCircularPictureBox9.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAkVJREFUaEPt
@@ -519,6 +545,9 @@
         JtoBHSKEnQ4tiSFC2OnQkhgihJ0OLYkhQthEIpH4VywWP+cOxqCz4Fe9AAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="Ranking.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="PlayerID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

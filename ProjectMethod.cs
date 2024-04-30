@@ -132,6 +132,7 @@ namespace Caro_Nhom8
                     currentplayer.Winrate = user.Winrate;
                     currentplayer.ProtectionCode = user.ProtectionCode;
                     currentplayer.Email = user.Email;
+                    currentAvatar = user.Avatar!;
                     return true;
                 }
             }
@@ -149,6 +150,41 @@ namespace Caro_Nhom8
             lb_Lose.Text = "Lose: " + currentplayer.Lose.ToString();
             lb_Welcome.Text = currentplayer.Name;
         }
+        private async void LoadRanking(string id)
+        {
+            dtg_Ranking.Rows.Clear();
+            var dataSnapshot = await firebaseClient.Child("Users").OrderByKey().OnceAsync<Player>();
+            int i = 0;
+            // Sắp xếp theo winrate giảm dần
+            var sortedData = dataSnapshot.OrderByDescending(item => item.Object.Winrate);
+
+            foreach (var item in sortedData)
+            {
+                i++;
+                var user = item.Object;
+                dtg_Ranking.Rows.Add(
+                new object[]
+                {
+                    i,
+                    user.ID!,
+                    user.Win,
+                    user.Lose,
+                    user.Winrate!
+                });
+                if(user.ID == id)
+                {
+                    dtg_YourRanking.Rows.Add(
+                new object[]
+                {
+                    i,
+                    user.ID!,
+                    user.Win,
+                    user.Lose,
+                    user.Winrate!
+                });
+                }    
+            }
+        }
         #endregion
 
         #region ChangeInfoMethod
@@ -162,7 +198,7 @@ namespace Caro_Nhom8
             txt_ChangeInfo_ProtectionCode.TextButton = "";
         }
         #endregion
-
+       
         #region SettingMethod
         void LightTheme()
         {

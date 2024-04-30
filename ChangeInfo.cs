@@ -37,6 +37,7 @@ namespace Caro_Nhom8
         {
             playSFX();
             RenewPlayerInfo();
+            currentAvatar = currentplayer.Avatar!;
             OpenInfo();
         }
         private async void btn_ConfirmChangeInfo_Click(object sender, EventArgs e)

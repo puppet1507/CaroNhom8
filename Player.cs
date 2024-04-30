@@ -12,7 +12,7 @@ namespace Caro_Nhom8
         public string? Password { get; set; }
         public string? ProtectionCode { get; set; }
         public int Win { get; set; }
-        public int Winrate { get; set; }
+        public string? Winrate { get; set; }
 
         public Player()
         {
@@ -20,7 +20,7 @@ namespace Caro_Nhom8
             // Bạn có thể thêm mã logic khởi tạo ở đây (nếu cần)
         }
 
-        public Player(string avatar, string email, string id, int lose, string name, string password, string protectionCode, int win, int winrate)
+        public Player(string avatar, string email, string id, int lose, string name, string password, string protectionCode, int win, string winrate)
         {
             // Phương thức khởi tạo với các tham số
             // Bạn có thể thêm mã logic khởi tạo ở đây (nếu cần)

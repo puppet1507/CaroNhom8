@@ -16,6 +16,7 @@ using WMPLib;
 using System.Numerics;
 using Firebase.Database;
 using Firebase.Database.Query;
+using Microsoft.VisualBasic.ApplicationServices;
 // Check NgocLong_Github
 // Check ThoNha_Github
 // Check LeNhu_Github
@@ -242,25 +243,6 @@ namespace Caro_Nhom8
             RenewLogin();
             LoadAvatars();
             music.controls.play();
-            dtg_Ranking.Rows.Add(
-                new object[]
-                {
-                    22520922,
-                    100,
-                    0,
-                    "100%"
-
-                });
-            dtg_Ranking.Rows.Add(
-                new object[]
-                {
-                    22520922,
-                    100,
-                    0,
-                    "100%"
-
-                });
-
         }
         #endregion
 

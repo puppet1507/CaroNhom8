@@ -91,7 +91,7 @@ namespace Caro_Nhom8
                     ProtectionCode = protecode,
                     Win = 0,
                     Lose = 0,
-                    Winrate = 0,
+                    Winrate = "0%",
                 };
                 await firebaseClient.Child("Users").Child("User_"+id).PutAsync(newUser);
                 lb_SignUp_Notify.ForeColor = Color.FromArgb(59, 198, 171);

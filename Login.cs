@@ -57,8 +57,9 @@ namespace Caro_Nhom8
                 else
                 {
                     RenewPlayerInfo();
+                    LoadRanking(currentplayer.ID!);
                     OpenInfo();
-                }    
+                }
             }    
         }
         private void btn_Open_SignUp_Click(object sender, EventArgs e)

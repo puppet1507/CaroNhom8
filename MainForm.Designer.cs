@@ -32,11 +32,20 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
             grb_Login = new GroupBox();
             lb_Login_Notify = new Label();
             rjCircularPictureBox5 = new RJCircularPictureBox();
@@ -48,11 +57,20 @@
             rjCircularPictureBox1 = new RJCircularPictureBox();
             btn_Login = new ReaLTaiizor.Controls.HopeRoundButton();
             grb_Info = new GroupBox();
+            rjCircularPictureBox3 = new RJCircularPictureBox();
+            label23 = new Label();
+            dtg_YourRanking = new ReaLTaiizor.Controls.PoisonDataGridView();
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
             label22 = new Label();
             btn_Info_OpenSetting = new ReaLTaiizor.Controls.HopeRoundButton();
             rjCircularPictureBox9 = new RJCircularPictureBox();
             label19 = new Label();
             dtg_Ranking = new ReaLTaiizor.Controls.PoisonDataGridView();
+            Ranking = new DataGridViewTextBoxColumn();
             PlayerID = new DataGridViewTextBoxColumn();
             Win = new DataGridViewTextBoxColumn();
             Lose = new DataGridViewTextBoxColumn();
@@ -189,6 +207,8 @@
             ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox1).BeginInit();
             grb_Info.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dtg_YourRanking).BeginInit();
             ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox9).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dtg_Ranking).BeginInit();
             ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox8).BeginInit();
@@ -413,6 +433,9 @@
             // grb_Info
             // 
             grb_Info.BackColor = Color.FromArgb(12, 20, 29);
+            grb_Info.Controls.Add(rjCircularPictureBox3);
+            grb_Info.Controls.Add(label23);
+            grb_Info.Controls.Add(dtg_YourRanking);
             grb_Info.Controls.Add(label22);
             grb_Info.Controls.Add(btn_Info_OpenSetting);
             grb_Info.Controls.Add(rjCircularPictureBox9);
@@ -431,14 +454,160 @@
             grb_Info.Controls.Add(btn_JoinRoom);
             grb_Info.Controls.Add(btn_CreateRoom);
             grb_Info.ForeColor = Color.White;
-            grb_Info.Location = new Point(69, 115);
+            grb_Info.Location = new Point(12, 405);
             grb_Info.MaximumSize = new Size(999999, 999999);
             grb_Info.Name = "grb_Info";
-            grb_Info.Size = new Size(120, 50);
+            grb_Info.Size = new Size(727, 608);
             grb_Info.TabIndex = 10;
             grb_Info.TabStop = false;
             grb_Info.Text = "Thông tin người chơi";
             grb_Info.Visible = false;
+            // 
+            // rjCircularPictureBox3
+            // 
+            rjCircularPictureBox3.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            rjCircularPictureBox3.BorderColor = Color.FromArgb(59, 198, 171);
+            rjCircularPictureBox3.BorderColor2 = Color.FromArgb(59, 198, 171);
+            rjCircularPictureBox3.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            rjCircularPictureBox3.BorderSize = 0;
+            rjCircularPictureBox3.GradientAngle = 50F;
+            rjCircularPictureBox3.Image = (Image)resources.GetObject("rjCircularPictureBox3.Image");
+            rjCircularPictureBox3.Location = new Point(251, 502);
+            rjCircularPictureBox3.Name = "rjCircularPictureBox3";
+            rjCircularPictureBox3.Size = new Size(42, 42);
+            rjCircularPictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            rjCircularPictureBox3.TabIndex = 35;
+            rjCircularPictureBox3.TabStop = false;
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label23.ForeColor = Color.White;
+            label23.Location = new Point(299, 508);
+            label23.Name = "label23";
+            label23.Size = new Size(142, 31);
+            label23.TabIndex = 34;
+            label23.Text = "Your ranking";
+            // 
+            // dtg_YourRanking
+            // 
+            dtg_YourRanking.AllowUserToAddRows = false;
+            dtg_YourRanking.AllowUserToDeleteRows = false;
+            dtg_YourRanking.AllowUserToOrderColumns = true;
+            dtg_YourRanking.AllowUserToResizeColumns = false;
+            dtg_YourRanking.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dtg_YourRanking.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dtg_YourRanking.BackgroundColor = Color.FromArgb(12, 20, 29);
+            dtg_YourRanking.BorderStyle = BorderStyle.None;
+            dtg_YourRanking.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dtg_YourRanking.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(12, 20, 29);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(107, 120, 133);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(12, 20, 29);
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(107, 120, 133);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dtg_YourRanking.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dtg_YourRanking.ColumnHeadersHeight = 50;
+            dtg_YourRanking.ColumnHeadersVisible = false;
+            dtg_YourRanking.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5 });
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(12, 20, 29);
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
+            dtg_YourRanking.DefaultCellStyle = dataGridViewCellStyle7;
+            dtg_YourRanking.EnableHeadersVisualStyles = false;
+            dtg_YourRanking.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dtg_YourRanking.GridColor = Color.FromArgb(12, 20, 29);
+            dtg_YourRanking.Location = new Point(251, 556);
+            dtg_YourRanking.Name = "dtg_YourRanking";
+            dtg_YourRanking.ReadOnly = true;
+            dtg_YourRanking.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = Color.FromArgb(12, 20, 29);
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle8.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(12, 20, 29);
+            dataGridViewCellStyle8.SelectionForeColor = Color.FromArgb(12, 20, 29);
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.True;
+            dtg_YourRanking.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dtg_YourRanking.RowHeadersVisible = false;
+            dtg_YourRanking.RowHeadersWidth = 51;
+            dtg_YourRanking.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dtg_YourRanking.RowTemplate.Height = 29;
+            dtg_YourRanking.ScrollBars = ScrollBars.None;
+            dtg_YourRanking.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dtg_YourRanking.Size = new Size(460, 31);
+            dtg_YourRanking.TabIndex = 33;
+            dtg_YourRanking.UseCustomBackColor = true;
+            dtg_YourRanking.UseCustomForeColor = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewTextBoxColumn1.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewTextBoxColumn1.HeaderText = "No.";
+            dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.ReadOnly = true;
+            dataGridViewTextBoxColumn1.SortMode = DataGridViewColumnSortMode.NotSortable;
+            dataGridViewTextBoxColumn1.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewTextBoxColumn2.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewTextBoxColumn2.FillWeight = 167.26889F;
+            dataGridViewTextBoxColumn2.HeaderText = "ID";
+            dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewTextBoxColumn2.ReadOnly = true;
+            dataGridViewTextBoxColumn2.SortMode = DataGridViewColumnSortMode.NotSortable;
+            dataGridViewTextBoxColumn2.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            dataGridViewCellStyle5.ForeColor = Color.FromArgb(59, 198, 171);
+            dataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(59, 198, 171);
+            dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewTextBoxColumn3.FillWeight = 15.0542F;
+            dataGridViewTextBoxColumn3.HeaderText = "Win";
+            dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            dataGridViewTextBoxColumn3.ReadOnly = true;
+            dataGridViewTextBoxColumn3.SortMode = DataGridViewColumnSortMode.NotSortable;
+            dataGridViewTextBoxColumn3.Width = 92;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            dataGridViewCellStyle6.ForeColor = Color.FromArgb(238, 102, 119);
+            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(238, 102, 119);
+            dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewTextBoxColumn4.FillWeight = 15.0542F;
+            dataGridViewTextBoxColumn4.HeaderText = "Lose";
+            dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            dataGridViewTextBoxColumn4.ReadOnly = true;
+            dataGridViewTextBoxColumn4.SortMode = DataGridViewColumnSortMode.NotSortable;
+            dataGridViewTextBoxColumn4.Width = 91;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            dataGridViewTextBoxColumn5.FillWeight = 15.0542F;
+            dataGridViewTextBoxColumn5.HeaderText = "Win rate";
+            dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            dataGridViewTextBoxColumn5.ReadOnly = true;
+            dataGridViewTextBoxColumn5.Width = 92;
             // 
             // label22
             // 
@@ -461,7 +630,7 @@
             btn_Info_OpenSetting.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btn_Info_OpenSetting.HoverTextColor = Color.FromArgb(48, 49, 51);
             btn_Info_OpenSetting.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_Info_OpenSetting.Location = new Point(14, 506);
+            btn_Info_OpenSetting.Location = new Point(14, 518);
             btn_Info_OpenSetting.Name = "btn_Info_OpenSetting";
             btn_Info_OpenSetting.PrimaryColor = Color.FromArgb(59, 198, 171);
             btn_Info_OpenSetting.Size = new Size(163, 31);
@@ -493,7 +662,7 @@
             label19.AutoSize = true;
             label19.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             label19.ForeColor = Color.White;
-            label19.Location = new Point(299, 220);
+            label19.Location = new Point(299, 225);
             label19.Name = "label19";
             label19.Size = new Size(97, 31);
             label19.TabIndex = 25;
@@ -503,35 +672,34 @@
             // 
             dtg_Ranking.AllowUserToAddRows = false;
             dtg_Ranking.AllowUserToDeleteRows = false;
-            dtg_Ranking.AllowUserToOrderColumns = true;
             dtg_Ranking.AllowUserToResizeColumns = false;
             dtg_Ranking.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dtg_Ranking.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dtg_Ranking.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dtg_Ranking.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             dtg_Ranking.BackgroundColor = Color.FromArgb(12, 20, 29);
             dtg_Ranking.BorderStyle = BorderStyle.None;
             dtg_Ranking.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dtg_Ranking.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(12, 20, 29);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = Color.FromArgb(107, 120, 133);
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(12, 20, 29);
-            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(107, 120, 133);
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dtg_Ranking.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = Color.FromArgb(12, 20, 29);
+            dataGridViewCellStyle10.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle10.ForeColor = Color.FromArgb(107, 120, 133);
+            dataGridViewCellStyle10.SelectionBackColor = Color.FromArgb(12, 20, 29);
+            dataGridViewCellStyle10.SelectionForeColor = Color.FromArgb(107, 120, 133);
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
+            dtg_Ranking.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             dtg_Ranking.ColumnHeadersHeight = 50;
-            dtg_Ranking.Columns.AddRange(new DataGridViewColumn[] { PlayerID, Win, Lose, Winrate });
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(12, 20, 29);
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            dtg_Ranking.DefaultCellStyle = dataGridViewCellStyle6;
+            dtg_Ranking.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dtg_Ranking.Columns.AddRange(new DataGridViewColumn[] { Ranking, PlayerID, Win, Lose, Winrate });
+            dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = Color.FromArgb(12, 20, 29);
+            dataGridViewCellStyle15.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle15.ForeColor = Color.White;
+            dataGridViewCellStyle15.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = DataGridViewTriState.False;
+            dtg_Ranking.DefaultCellStyle = dataGridViewCellStyle15;
             dtg_Ranking.EnableHeadersVisualStyles = false;
             dtg_Ranking.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dtg_Ranking.GridColor = Color.FromArgb(12, 20, 29);
@@ -539,63 +707,84 @@
             dtg_Ranking.Name = "dtg_Ranking";
             dtg_Ranking.ReadOnly = true;
             dtg_Ranking.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = Color.FromArgb(12, 20, 29);
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle7.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(12, 20, 29);
-            dataGridViewCellStyle7.SelectionForeColor = Color.FromArgb(12, 20, 29);
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            dtg_Ranking.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle16.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = Color.FromArgb(12, 20, 29);
+            dataGridViewCellStyle16.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle16.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle16.SelectionBackColor = Color.FromArgb(12, 20, 29);
+            dataGridViewCellStyle16.SelectionForeColor = Color.FromArgb(12, 20, 29);
+            dataGridViewCellStyle16.WrapMode = DataGridViewTriState.True;
+            dtg_Ranking.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
             dtg_Ranking.RowHeadersVisible = false;
             dtg_Ranking.RowHeadersWidth = 51;
             dtg_Ranking.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dtg_Ranking.RowTemplate.Height = 29;
             dtg_Ranking.ScrollBars = ScrollBars.None;
             dtg_Ranking.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtg_Ranking.Size = new Size(435, 240);
+            dtg_Ranking.Size = new Size(460, 185);
             dtg_Ranking.TabIndex = 24;
             dtg_Ranking.UseCustomBackColor = true;
             dtg_Ranking.UseCustomForeColor = true;
             // 
+            // Ranking
+            // 
+            Ranking.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            Ranking.DefaultCellStyle = dataGridViewCellStyle11;
+            Ranking.HeaderText = "No.";
+            Ranking.MinimumWidth = 6;
+            Ranking.Name = "Ranking";
+            Ranking.ReadOnly = true;
+            Ranking.SortMode = DataGridViewColumnSortMode.NotSortable;
+            Ranking.Width = 60;
+            // 
             // PlayerID
             // 
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            PlayerID.DefaultCellStyle = dataGridViewCellStyle3;
-            PlayerID.HeaderText = "Player ID";
+            PlayerID.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            PlayerID.DefaultCellStyle = dataGridViewCellStyle12;
+            PlayerID.FillWeight = 167.26889F;
+            PlayerID.HeaderText = "ID";
             PlayerID.MinimumWidth = 6;
             PlayerID.Name = "PlayerID";
             PlayerID.ReadOnly = true;
             PlayerID.SortMode = DataGridViewColumnSortMode.NotSortable;
+            PlayerID.Width = 125;
             // 
             // Win
             // 
-            dataGridViewCellStyle4.ForeColor = Color.FromArgb(59, 198, 171);
-            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(59, 198, 171);
-            Win.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle13.ForeColor = Color.FromArgb(59, 198, 171);
+            dataGridViewCellStyle13.SelectionForeColor = Color.FromArgb(59, 198, 171);
+            Win.DefaultCellStyle = dataGridViewCellStyle13;
+            Win.FillWeight = 15.0542F;
             Win.HeaderText = "Win";
             Win.MinimumWidth = 6;
             Win.Name = "Win";
             Win.ReadOnly = true;
             Win.SortMode = DataGridViewColumnSortMode.NotSortable;
+            Win.Width = 92;
             // 
             // Lose
             // 
-            dataGridViewCellStyle5.ForeColor = Color.FromArgb(238, 102, 119);
-            dataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(238, 102, 119);
-            Lose.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle14.ForeColor = Color.FromArgb(238, 102, 119);
+            dataGridViewCellStyle14.SelectionForeColor = Color.FromArgb(238, 102, 119);
+            Lose.DefaultCellStyle = dataGridViewCellStyle14;
+            Lose.FillWeight = 15.0542F;
             Lose.HeaderText = "Lose";
             Lose.MinimumWidth = 6;
             Lose.Name = "Lose";
             Lose.ReadOnly = true;
             Lose.SortMode = DataGridViewColumnSortMode.NotSortable;
+            Lose.Width = 91;
             // 
             // Winrate
             // 
+            Winrate.FillWeight = 15.0542F;
             Winrate.HeaderText = "Win rate";
             Winrate.MinimumWidth = 6;
             Winrate.Name = "Winrate";
             Winrate.ReadOnly = true;
+            Winrate.Width = 92;
             // 
             // rjCircularPictureBox8
             // 
@@ -692,7 +881,7 @@
             btn_Info_LogOut.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btn_Info_LogOut.HoverTextColor = Color.FromArgb(48, 49, 51);
             btn_Info_LogOut.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_Info_LogOut.Location = new Point(14, 544);
+            btn_Info_LogOut.Location = new Point(14, 556);
             btn_Info_LogOut.Name = "btn_Info_LogOut";
             btn_Info_LogOut.PrimaryColor = Color.FromArgb(245, 108, 108);
             btn_Info_LogOut.Size = new Size(163, 31);
@@ -716,7 +905,7 @@
             btn_PlayWithAI.Location = new Point(299, 41);
             btn_PlayWithAI.Name = "btn_PlayWithAI";
             btn_PlayWithAI.PrimaryColor = Color.FromArgb(59, 198, 171);
-            btn_PlayWithAI.Size = new Size(384, 44);
+            btn_PlayWithAI.Size = new Size(412, 44);
             btn_PlayWithAI.SuccessColor = Color.FromArgb(103, 194, 58);
             btn_PlayWithAI.TabIndex = 15;
             btn_PlayWithAI.Text = "Chơi với robot";
@@ -770,7 +959,7 @@
             btn_JoinRoom.Location = new Point(299, 141);
             btn_JoinRoom.Name = "btn_JoinRoom";
             btn_JoinRoom.PrimaryColor = Color.FromArgb(59, 198, 171);
-            btn_JoinRoom.Size = new Size(384, 44);
+            btn_JoinRoom.Size = new Size(412, 44);
             btn_JoinRoom.SuccessColor = Color.FromArgb(103, 194, 58);
             btn_JoinRoom.TabIndex = 11;
             btn_JoinRoom.Text = "Vào phòng";
@@ -791,7 +980,7 @@
             btn_CreateRoom.Location = new Point(299, 91);
             btn_CreateRoom.Name = "btn_CreateRoom";
             btn_CreateRoom.PrimaryColor = Color.FromArgb(59, 198, 171);
-            btn_CreateRoom.Size = new Size(384, 44);
+            btn_CreateRoom.Size = new Size(412, 44);
             btn_CreateRoom.SuccessColor = Color.FromArgb(103, 194, 58);
             btn_CreateRoom.TabIndex = 8;
             btn_CreateRoom.Text = "Tạo phòng";
@@ -1054,6 +1243,7 @@
             lb_PlayArea_Name2.Size = new Size(81, 28);
             lb_PlayArea_Name2.TabIndex = 5;
             lb_PlayArea_Name2.Text = "Player 2";
+            lb_PlayArea_Name2.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lb_PlayArea_Point2
             // 
@@ -1123,6 +1313,7 @@
             lb_PlayArea_Name1.Size = new Size(81, 28);
             lb_PlayArea_Name1.TabIndex = 4;
             lb_PlayArea_Name1.Text = "Player 1";
+            lb_PlayArea_Name1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // rjCircularPictureBox11
             // 
@@ -2189,9 +2380,9 @@
             grb_ChangeInfo.Controls.Add(txt_ChangeInfo_NewPW);
             grb_ChangeInfo.Controls.Add(label17);
             grb_ChangeInfo.ForeColor = Color.White;
-            grb_ChangeInfo.Location = new Point(9, 175);
+            grb_ChangeInfo.Location = new Point(12, 195);
             grb_ChangeInfo.Name = "grb_ChangeInfo";
-            grb_ChangeInfo.Size = new Size(110, 62);
+            grb_ChangeInfo.Size = new Size(86, 42);
             grb_ChangeInfo.TabIndex = 17;
             grb_ChangeInfo.TabStop = false;
             grb_ChangeInfo.Text = "Thay đổi thông tin";
@@ -2449,12 +2640,13 @@
             txt_ChangeInfo_NewPW.ColorPen_1 = Color.FromArgb(12, 20, 29);
             txt_ChangeInfo_NewPW.ColorPen_2 = Color.Transparent;
             txt_ChangeInfo_NewPW.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            txt_ChangeInfo_NewPW.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_ChangeInfo_NewPW.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
             txt_ChangeInfo_NewPW.ForeColor = Color.White;
             txt_ChangeInfo_NewPW.Lighting = false;
             txt_ChangeInfo_NewPW.LinearGradientPen = false;
             txt_ChangeInfo_NewPW.Location = new Point(371, 294);
             txt_ChangeInfo_NewPW.Name = "txt_ChangeInfo_NewPW";
+            txt_ChangeInfo_NewPW.Password = true;
             txt_ChangeInfo_NewPW.PenWidth = 15;
             txt_ChangeInfo_NewPW.RGB = false;
             txt_ChangeInfo_NewPW.Rounding = true;
@@ -2932,6 +3124,8 @@
             ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox1).EndInit();
             grb_Info.ResumeLayout(false);
             grb_Info.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dtg_YourRanking).EndInit();
             ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox9).EndInit();
             ((System.ComponentModel.ISupportInitialize)dtg_Ranking).EndInit();
             ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox8).EndInit();
@@ -3090,10 +3284,6 @@
         private Label label1;
         private Label label21;
         private Button btn_Setting_Theme;
-        private DataGridViewTextBoxColumn PlayerID;
-        private DataGridViewTextBoxColumn Win;
-        private DataGridViewTextBoxColumn Lose;
-        private DataGridViewTextBoxColumn Winrate;
         private ReaLTaiizor.Controls.SkyComboBox cbx_PVP_TurnTime;
         private ReaLTaiizor.Controls.SkyComboBox cbx_PVC_TurnTime;
         private ReaLTaiizor.Controls.SkyComboBox cbx_PVC_BoardSize;
@@ -3123,5 +3313,18 @@
         private ReaLTaiizor.Controls.CyberTextBox txt_ChangeInfo_ProtectionCode;
         private Label label18;
         private Label label22;
+        private DataGridViewTextBoxColumn Ranking;
+        private DataGridViewTextBoxColumn PlayerID;
+        private DataGridViewTextBoxColumn Win;
+        private DataGridViewTextBoxColumn Lose;
+        private DataGridViewTextBoxColumn Winrate;
+        private ReaLTaiizor.Controls.PoisonDataGridView dtg_YourRanking;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private RJCircularPictureBox rjCircularPictureBox3;
+        private Label label23;
     }
 }
