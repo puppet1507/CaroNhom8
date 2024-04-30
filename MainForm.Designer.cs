@@ -48,6 +48,7 @@
             rjCircularPictureBox1 = new RJCircularPictureBox();
             btn_Login = new ReaLTaiizor.Controls.HopeRoundButton();
             grb_Info = new GroupBox();
+            label22 = new Label();
             btn_Info_OpenSetting = new ReaLTaiizor.Controls.HopeRoundButton();
             rjCircularPictureBox9 = new RJCircularPictureBox();
             label19 = new Label();
@@ -59,7 +60,7 @@
             rjCircularPictureBox8 = new RJCircularPictureBox();
             rjCircularPictureBox7 = new RJCircularPictureBox();
             rjCircularPictureBox6 = new RJCircularPictureBox();
-            btn_Info_ChangePW = new ReaLTaiizor.Controls.HopeRoundButton();
+            btn_Info_ChangeInfo = new ReaLTaiizor.Controls.HopeRoundButton();
             picbox_PlayerInfo_Avatar = new RJCircularPictureBox();
             btn_Info_LogOut = new ReaLTaiizor.Controls.HopeRoundButton();
             btn_PlayWithAI = new ReaLTaiizor.Controls.HopeRoundButton();
@@ -145,18 +146,20 @@
             txt_ForgetPW_ID = new ReaLTaiizor.Controls.CyberTextBox();
             label13 = new Label();
             grb_ChangeInfo = new GroupBox();
-            txt_ChanInfo_Email = new ReaLTaiizor.Controls.CyberTextBox();
+            txt_ChangeInfo_ProtectionCode = new ReaLTaiizor.Controls.CyberTextBox();
+            label18 = new Label();
+            txt_ChangeInfo_Email = new ReaLTaiizor.Controls.CyberTextBox();
             label29 = new Label();
             lb_ChangeInfo_Avatar = new Label();
             picbox_ChangeInfo_Avatar = new RJCircularPictureBox();
             txt_ChangeInfo_Name = new ReaLTaiizor.Controls.CyberTextBox();
-            txt_ChanInfo_ID = new ReaLTaiizor.Controls.CyberTextBox();
+            txt_ChangeInfo_ID = new ReaLTaiizor.Controls.CyberTextBox();
             label33 = new Label();
             label34 = new Label();
-            lb_ChangePassword_Notify = new Label();
-            btn_CancelChangePassword = new ReaLTaiizor.Controls.HopeRoundButton();
-            btn_ConfirmChangePassword = new ReaLTaiizor.Controls.HopeRoundButton();
-            txt_ChangePW_NewPW = new ReaLTaiizor.Controls.CyberTextBox();
+            lb_ChangeInfo_Notify = new Label();
+            btn_CancelChangeInfo = new ReaLTaiizor.Controls.HopeRoundButton();
+            btn_ConfirmChangeInfo = new ReaLTaiizor.Controls.HopeRoundButton();
+            txt_ChangeInfo_NewPW = new ReaLTaiizor.Controls.CyberTextBox();
             label17 = new Label();
             grb_ComputerInfo = new GroupBox();
             cbx_PVC_FirstTurn = new ReaLTaiizor.Controls.SkyComboBox();
@@ -229,9 +232,9 @@
             grb_Login.Controls.Add(rjCircularPictureBox1);
             grb_Login.Controls.Add(btn_Login);
             grb_Login.ForeColor = Color.White;
-            grb_Login.Location = new Point(106, 36);
+            grb_Login.Location = new Point(97, 45);
             grb_Login.Name = "grb_Login";
-            grb_Login.Size = new Size(101, 69);
+            grb_Login.Size = new Size(81, 49);
             grb_Login.TabIndex = 9;
             grb_Login.TabStop = false;
             grb_Login.Text = "Đăng nhập";
@@ -243,9 +246,9 @@
             lb_Login_Notify.ForeColor = Color.FromArgb(245, 108, 108);
             lb_Login_Notify.Location = new Point(203, 454);
             lb_Login_Notify.Name = "lb_Login_Notify";
-            lb_Login_Notify.Size = new Size(84, 20);
+            lb_Login_Notify.Size = new Size(83, 20);
             lb_Login_Notify.TabIndex = 22;
-            lb_Login_Notify.Text = "Thông báo:";
+            lb_Login_Notify.Text = "*Đang xử lí";
             // 
             // rjCircularPictureBox5
             // 
@@ -410,6 +413,7 @@
             // grb_Info
             // 
             grb_Info.BackColor = Color.FromArgb(12, 20, 29);
+            grb_Info.Controls.Add(label22);
             grb_Info.Controls.Add(btn_Info_OpenSetting);
             grb_Info.Controls.Add(rjCircularPictureBox9);
             grb_Info.Controls.Add(label19);
@@ -417,7 +421,7 @@
             grb_Info.Controls.Add(rjCircularPictureBox8);
             grb_Info.Controls.Add(rjCircularPictureBox7);
             grb_Info.Controls.Add(rjCircularPictureBox6);
-            grb_Info.Controls.Add(btn_Info_ChangePW);
+            grb_Info.Controls.Add(btn_Info_ChangeInfo);
             grb_Info.Controls.Add(picbox_PlayerInfo_Avatar);
             grb_Info.Controls.Add(btn_Info_LogOut);
             grb_Info.Controls.Add(btn_PlayWithAI);
@@ -427,14 +431,25 @@
             grb_Info.Controls.Add(btn_JoinRoom);
             grb_Info.Controls.Add(btn_CreateRoom);
             grb_Info.ForeColor = Color.White;
-            grb_Info.Location = new Point(12, 130);
+            grb_Info.Location = new Point(69, 115);
             grb_Info.MaximumSize = new Size(999999, 999999);
             grb_Info.Name = "grb_Info";
-            grb_Info.Size = new Size(137, 72);
+            grb_Info.Size = new Size(120, 50);
             grb_Info.TabIndex = 10;
             grb_Info.TabStop = false;
             grb_Info.Text = "Thông tin người chơi";
             grb_Info.Visible = false;
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label22.ForeColor = Color.White;
+            label22.Location = new Point(19, 219);
+            label22.Name = "label22";
+            label22.Size = new Size(113, 31);
+            label22.TabIndex = 32;
+            label22.Text = "Welcome,";
             // 
             // btn_Info_OpenSetting
             // 
@@ -630,26 +645,26 @@
             rjCircularPictureBox6.TabIndex = 21;
             rjCircularPictureBox6.TabStop = false;
             // 
-            // btn_Info_ChangePW
+            // btn_Info_ChangeInfo
             // 
-            btn_Info_ChangePW.BorderColor = Color.FromArgb(220, 223, 230);
-            btn_Info_ChangePW.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
-            btn_Info_ChangePW.Cursor = Cursors.Hand;
-            btn_Info_ChangePW.DangerColor = Color.FromArgb(245, 108, 108);
-            btn_Info_ChangePW.DefaultColor = Color.FromArgb(255, 255, 255);
-            btn_Info_ChangePW.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_Info_ChangePW.HoverTextColor = Color.FromArgb(48, 49, 51);
-            btn_Info_ChangePW.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_Info_ChangePW.Location = new Point(14, 332);
-            btn_Info_ChangePW.Name = "btn_Info_ChangePW";
-            btn_Info_ChangePW.PrimaryColor = Color.FromArgb(59, 198, 171);
-            btn_Info_ChangePW.Size = new Size(163, 31);
-            btn_Info_ChangePW.SuccessColor = Color.FromArgb(103, 194, 58);
-            btn_Info_ChangePW.TabIndex = 19;
-            btn_Info_ChangePW.Text = "Đổi mật khẩu";
-            btn_Info_ChangePW.TextColor = Color.White;
-            btn_Info_ChangePW.WarningColor = Color.FromArgb(230, 162, 60);
-            btn_Info_ChangePW.Click += btn_ChangePassword_Click;
+            btn_Info_ChangeInfo.BorderColor = Color.FromArgb(220, 223, 230);
+            btn_Info_ChangeInfo.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            btn_Info_ChangeInfo.Cursor = Cursors.Hand;
+            btn_Info_ChangeInfo.DangerColor = Color.FromArgb(245, 108, 108);
+            btn_Info_ChangeInfo.DefaultColor = Color.FromArgb(255, 255, 255);
+            btn_Info_ChangeInfo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_Info_ChangeInfo.HoverTextColor = Color.FromArgb(48, 49, 51);
+            btn_Info_ChangeInfo.InfoColor = Color.FromArgb(144, 147, 153);
+            btn_Info_ChangeInfo.Location = new Point(14, 358);
+            btn_Info_ChangeInfo.Name = "btn_Info_ChangeInfo";
+            btn_Info_ChangeInfo.PrimaryColor = Color.FromArgb(59, 198, 171);
+            btn_Info_ChangeInfo.Size = new Size(163, 31);
+            btn_Info_ChangeInfo.SuccessColor = Color.FromArgb(103, 194, 58);
+            btn_Info_ChangeInfo.TabIndex = 19;
+            btn_Info_ChangeInfo.Text = "Đổi thông tin";
+            btn_Info_ChangeInfo.TextColor = Color.White;
+            btn_Info_ChangeInfo.WarningColor = Color.FromArgb(230, 162, 60);
+            btn_Info_ChangeInfo.Click += btn_ChangePassword_Click;
             // 
             // picbox_PlayerInfo_Avatar
             // 
@@ -713,8 +728,8 @@
             // 
             lb_Lose.AutoSize = true;
             lb_Lose.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            lb_Lose.ForeColor = Color.White;
-            lb_Lose.Location = new Point(19, 292);
+            lb_Lose.ForeColor = Color.FromArgb(245, 108, 108);
+            lb_Lose.Location = new Point(19, 324);
             lb_Lose.Name = "lb_Lose";
             lb_Lose.Size = new Size(83, 31);
             lb_Lose.TabIndex = 14;
@@ -724,8 +739,8 @@
             // 
             lb_Win.AutoSize = true;
             lb_Win.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            lb_Win.ForeColor = Color.White;
-            lb_Win.Location = new Point(19, 259);
+            lb_Win.ForeColor = Color.FromArgb(59, 198, 171);
+            lb_Win.Location = new Point(19, 289);
             lb_Win.Name = "lb_Win";
             lb_Win.Size = new Size(77, 31);
             lb_Win.TabIndex = 13;
@@ -736,7 +751,7 @@
             lb_Welcome.AutoSize = true;
             lb_Welcome.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             lb_Welcome.ForeColor = Color.White;
-            lb_Welcome.Location = new Point(19, 220);
+            lb_Welcome.Location = new Point(19, 254);
             lb_Welcome.Name = "lb_Welcome";
             lb_Welcome.Size = new Size(176, 31);
             lb_Welcome.TabIndex = 12;
@@ -1365,7 +1380,7 @@
             grb_SignUp.Controls.Add(btn_ConfirmSignUp);
             grb_SignUp.Controls.Add(btn_ExitSignUp);
             grb_SignUp.ForeColor = Color.White;
-            grb_SignUp.Location = new Point(435, 137);
+            grb_SignUp.Location = new Point(446, 141);
             grb_SignUp.Name = "grb_SignUp";
             grb_SignUp.Size = new Size(85, 46);
             grb_SignUp.TabIndex = 14;
@@ -1380,9 +1395,9 @@
             lb_SignUp_Notify.Location = new Point(367, 476);
             lb_SignUp_Notify.MaximumSize = new Size(290, 0);
             lb_SignUp_Notify.Name = "lb_SignUp_Notify";
-            lb_SignUp_Notify.Size = new Size(84, 20);
+            lb_SignUp_Notify.Size = new Size(83, 20);
             lb_SignUp_Notify.TabIndex = 31;
-            lb_SignUp_Notify.Text = "Thông báo:";
+            lb_SignUp_Notify.Text = "*Đang xử lí";
             // 
             // txt_SignUp_Email
             // 
@@ -1494,7 +1509,7 @@
             txt_SignUp_PW.ColorPen_1 = Color.FromArgb(12, 20, 29);
             txt_SignUp_PW.ColorPen_2 = Color.Transparent;
             txt_SignUp_PW.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            txt_SignUp_PW.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_SignUp_PW.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
             txt_SignUp_PW.ForeColor = Color.White;
             txt_SignUp_PW.Lighting = false;
             txt_SignUp_PW.LinearGradientPen = false;
@@ -2158,63 +2173,105 @@
             // grb_ChangeInfo
             // 
             grb_ChangeInfo.BackColor = Color.FromArgb(12, 20, 29);
-            grb_ChangeInfo.Controls.Add(txt_ChanInfo_Email);
+            grb_ChangeInfo.Controls.Add(txt_ChangeInfo_ProtectionCode);
+            grb_ChangeInfo.Controls.Add(label18);
+            grb_ChangeInfo.Controls.Add(txt_ChangeInfo_Email);
             grb_ChangeInfo.Controls.Add(label29);
             grb_ChangeInfo.Controls.Add(lb_ChangeInfo_Avatar);
             grb_ChangeInfo.Controls.Add(picbox_ChangeInfo_Avatar);
             grb_ChangeInfo.Controls.Add(txt_ChangeInfo_Name);
-            grb_ChangeInfo.Controls.Add(txt_ChanInfo_ID);
+            grb_ChangeInfo.Controls.Add(txt_ChangeInfo_ID);
             grb_ChangeInfo.Controls.Add(label33);
             grb_ChangeInfo.Controls.Add(label34);
-            grb_ChangeInfo.Controls.Add(lb_ChangePassword_Notify);
-            grb_ChangeInfo.Controls.Add(btn_CancelChangePassword);
-            grb_ChangeInfo.Controls.Add(btn_ConfirmChangePassword);
-            grb_ChangeInfo.Controls.Add(txt_ChangePW_NewPW);
+            grb_ChangeInfo.Controls.Add(lb_ChangeInfo_Notify);
+            grb_ChangeInfo.Controls.Add(btn_CancelChangeInfo);
+            grb_ChangeInfo.Controls.Add(btn_ConfirmChangeInfo);
+            grb_ChangeInfo.Controls.Add(txt_ChangeInfo_NewPW);
             grb_ChangeInfo.Controls.Add(label17);
             grb_ChangeInfo.ForeColor = Color.White;
-            grb_ChangeInfo.Location = new Point(186, 134);
+            grb_ChangeInfo.Location = new Point(9, 175);
             grb_ChangeInfo.Name = "grb_ChangeInfo";
-            grb_ChangeInfo.Size = new Size(126, 83);
+            grb_ChangeInfo.Size = new Size(110, 62);
             grb_ChangeInfo.TabIndex = 17;
             grb_ChangeInfo.TabStop = false;
             grb_ChangeInfo.Text = "Thay đổi thông tin";
             // 
-            // txt_ChanInfo_Email
+            // txt_ChangeInfo_ProtectionCode
             // 
-            txt_ChanInfo_Email.Alpha = 20;
-            txt_ChanInfo_Email.BackColor = Color.Transparent;
-            txt_ChanInfo_Email.Background_WidthPen = 3F;
-            txt_ChanInfo_Email.BackgroundPen = true;
-            txt_ChanInfo_Email.ColorBackground = Color.FromArgb(12, 20, 29);
-            txt_ChanInfo_Email.ColorBackground_Pen = Color.FromArgb(59, 198, 171);
-            txt_ChanInfo_Email.ColorLighting = Color.FromArgb(59, 198, 171);
-            txt_ChanInfo_Email.ColorPen_1 = Color.FromArgb(12, 20, 29);
-            txt_ChanInfo_Email.ColorPen_2 = Color.Transparent;
-            txt_ChanInfo_Email.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            txt_ChanInfo_Email.Enabled = false;
-            txt_ChanInfo_Email.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_ChanInfo_Email.ForeColor = Color.White;
-            txt_ChanInfo_Email.Lighting = false;
-            txt_ChanInfo_Email.LinearGradientPen = false;
-            txt_ChanInfo_Email.Location = new Point(370, 264);
-            txt_ChanInfo_Email.Name = "txt_ChanInfo_Email";
-            txt_ChanInfo_Email.PenWidth = 15;
-            txt_ChanInfo_Email.RGB = false;
-            txt_ChanInfo_Email.Rounding = true;
-            txt_ChanInfo_Email.RoundingInt = 90;
-            txt_ChanInfo_Email.Size = new Size(289, 45);
-            txt_ChanInfo_Email.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            txt_ChanInfo_Email.TabIndex = 58;
-            txt_ChanInfo_Email.Tag = "Cyber";
-            txt_ChanInfo_Email.TextButton = "";
-            txt_ChanInfo_Email.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            txt_ChanInfo_Email.Timer_RGB = 300;
+            txt_ChangeInfo_ProtectionCode.Alpha = 20;
+            txt_ChangeInfo_ProtectionCode.BackColor = Color.Transparent;
+            txt_ChangeInfo_ProtectionCode.Background_WidthPen = 3F;
+            txt_ChangeInfo_ProtectionCode.BackgroundPen = true;
+            txt_ChangeInfo_ProtectionCode.ColorBackground = Color.FromArgb(12, 20, 29);
+            txt_ChangeInfo_ProtectionCode.ColorBackground_Pen = Color.FromArgb(59, 198, 171);
+            txt_ChangeInfo_ProtectionCode.ColorLighting = Color.FromArgb(59, 198, 171);
+            txt_ChangeInfo_ProtectionCode.ColorPen_1 = Color.FromArgb(12, 20, 29);
+            txt_ChangeInfo_ProtectionCode.ColorPen_2 = Color.Transparent;
+            txt_ChangeInfo_ProtectionCode.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            txt_ChangeInfo_ProtectionCode.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_ChangeInfo_ProtectionCode.ForeColor = Color.White;
+            txt_ChangeInfo_ProtectionCode.Lighting = false;
+            txt_ChangeInfo_ProtectionCode.LinearGradientPen = false;
+            txt_ChangeInfo_ProtectionCode.Location = new Point(371, 345);
+            txt_ChangeInfo_ProtectionCode.Name = "txt_ChangeInfo_ProtectionCode";
+            txt_ChangeInfo_ProtectionCode.PenWidth = 15;
+            txt_ChangeInfo_ProtectionCode.RGB = false;
+            txt_ChangeInfo_ProtectionCode.Rounding = true;
+            txt_ChangeInfo_ProtectionCode.RoundingInt = 90;
+            txt_ChangeInfo_ProtectionCode.Size = new Size(289, 45);
+            txt_ChangeInfo_ProtectionCode.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            txt_ChangeInfo_ProtectionCode.TabIndex = 60;
+            txt_ChangeInfo_ProtectionCode.Tag = "Cyber";
+            txt_ChangeInfo_ProtectionCode.TextButton = "";
+            txt_ChangeInfo_ProtectionCode.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            txt_ChangeInfo_ProtectionCode.Timer_RGB = 300;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label18.Location = new Point(238, 359);
+            label18.Name = "label18";
+            label18.Size = new Size(126, 31);
+            label18.TabIndex = 59;
+            label18.Text = "Mã bảo vệ:";
+            // 
+            // txt_ChangeInfo_Email
+            // 
+            txt_ChangeInfo_Email.Alpha = 20;
+            txt_ChangeInfo_Email.BackColor = Color.Transparent;
+            txt_ChangeInfo_Email.Background_WidthPen = 3F;
+            txt_ChangeInfo_Email.BackgroundPen = true;
+            txt_ChangeInfo_Email.ColorBackground = Color.FromArgb(12, 20, 29);
+            txt_ChangeInfo_Email.ColorBackground_Pen = Color.FromArgb(59, 198, 171);
+            txt_ChangeInfo_Email.ColorLighting = Color.FromArgb(59, 198, 171);
+            txt_ChangeInfo_Email.ColorPen_1 = Color.FromArgb(12, 20, 29);
+            txt_ChangeInfo_Email.ColorPen_2 = Color.Transparent;
+            txt_ChangeInfo_Email.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            txt_ChangeInfo_Email.Enabled = false;
+            txt_ChangeInfo_Email.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_ChangeInfo_Email.ForeColor = Color.White;
+            txt_ChangeInfo_Email.Lighting = false;
+            txt_ChangeInfo_Email.LinearGradientPen = false;
+            txt_ChangeInfo_Email.Location = new Point(371, 243);
+            txt_ChangeInfo_Email.Name = "txt_ChangeInfo_Email";
+            txt_ChangeInfo_Email.PenWidth = 15;
+            txt_ChangeInfo_Email.RGB = false;
+            txt_ChangeInfo_Email.Rounding = true;
+            txt_ChangeInfo_Email.RoundingInt = 90;
+            txt_ChangeInfo_Email.Size = new Size(289, 45);
+            txt_ChangeInfo_Email.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            txt_ChangeInfo_Email.TabIndex = 58;
+            txt_ChangeInfo_Email.Tag = "Cyber";
+            txt_ChangeInfo_Email.TextButton = "";
+            txt_ChangeInfo_Email.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            txt_ChangeInfo_Email.Timer_RGB = 300;
             // 
             // label29
             // 
             label29.AutoSize = true;
             label29.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label29.Location = new Point(289, 278);
+            label29.Location = new Point(290, 257);
             label29.Name = "label29";
             label29.Size = new Size(75, 31);
             label29.TabIndex = 57;
@@ -2225,7 +2282,7 @@
             lb_ChangeInfo_Avatar.AutoSize = true;
             lb_ChangeInfo_Avatar.Cursor = Cursors.Hand;
             lb_ChangeInfo_Avatar.Font = new Font("Segoe UI", 10.2F, FontStyle.Underline, GraphicsUnit.Point);
-            lb_ChangeInfo_Avatar.Location = new Point(77, 312);
+            lb_ChangeInfo_Avatar.Location = new Point(78, 340);
             lb_ChangeInfo_Avatar.Name = "lb_ChangeInfo_Avatar";
             lb_ChangeInfo_Avatar.Size = new Size(88, 23);
             lb_ChangeInfo_Avatar.TabIndex = 56;
@@ -2241,7 +2298,7 @@
             picbox_ChangeInfo_Avatar.BorderSize = 2;
             picbox_ChangeInfo_Avatar.GradientAngle = 50F;
             picbox_ChangeInfo_Avatar.Image = (Image)resources.GetObject("picbox_ChangeInfo_Avatar.Image");
-            picbox_ChangeInfo_Avatar.Location = new Point(41, 149);
+            picbox_ChangeInfo_Avatar.Location = new Point(42, 177);
             picbox_ChangeInfo_Avatar.Name = "picbox_ChangeInfo_Avatar";
             picbox_ChangeInfo_Avatar.Size = new Size(160, 160);
             picbox_ChangeInfo_Avatar.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -2264,7 +2321,7 @@
             txt_ChangeInfo_Name.ForeColor = Color.White;
             txt_ChangeInfo_Name.Lighting = false;
             txt_ChangeInfo_Name.LinearGradientPen = false;
-            txt_ChangeInfo_Name.Location = new Point(370, 213);
+            txt_ChangeInfo_Name.Location = new Point(371, 192);
             txt_ChangeInfo_Name.Name = "txt_ChangeInfo_Name";
             txt_ChangeInfo_Name.PenWidth = 15;
             txt_ChangeInfo_Name.RGB = false;
@@ -2278,42 +2335,42 @@
             txt_ChangeInfo_Name.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             txt_ChangeInfo_Name.Timer_RGB = 300;
             // 
-            // txt_ChanInfo_ID
+            // txt_ChangeInfo_ID
             // 
-            txt_ChanInfo_ID.Alpha = 20;
-            txt_ChanInfo_ID.BackColor = Color.Transparent;
-            txt_ChanInfo_ID.Background_WidthPen = 3F;
-            txt_ChanInfo_ID.BackgroundPen = true;
-            txt_ChanInfo_ID.ColorBackground = Color.FromArgb(12, 20, 29);
-            txt_ChanInfo_ID.ColorBackground_Pen = Color.FromArgb(59, 198, 171);
-            txt_ChanInfo_ID.ColorLighting = Color.FromArgb(59, 198, 171);
-            txt_ChanInfo_ID.ColorPen_1 = Color.FromArgb(12, 20, 29);
-            txt_ChanInfo_ID.ColorPen_2 = Color.Transparent;
-            txt_ChanInfo_ID.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            txt_ChanInfo_ID.Enabled = false;
-            txt_ChanInfo_ID.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_ChanInfo_ID.ForeColor = Color.White;
-            txt_ChanInfo_ID.Lighting = false;
-            txt_ChanInfo_ID.LinearGradientPen = false;
-            txt_ChanInfo_ID.Location = new Point(370, 162);
-            txt_ChanInfo_ID.Name = "txt_ChanInfo_ID";
-            txt_ChanInfo_ID.PenWidth = 15;
-            txt_ChanInfo_ID.RGB = false;
-            txt_ChanInfo_ID.Rounding = true;
-            txt_ChanInfo_ID.RoundingInt = 90;
-            txt_ChanInfo_ID.Size = new Size(289, 45);
-            txt_ChanInfo_ID.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            txt_ChanInfo_ID.TabIndex = 49;
-            txt_ChanInfo_ID.Tag = "Cyber";
-            txt_ChanInfo_ID.TextButton = "";
-            txt_ChanInfo_ID.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            txt_ChanInfo_ID.Timer_RGB = 300;
+            txt_ChangeInfo_ID.Alpha = 20;
+            txt_ChangeInfo_ID.BackColor = Color.Transparent;
+            txt_ChangeInfo_ID.Background_WidthPen = 3F;
+            txt_ChangeInfo_ID.BackgroundPen = true;
+            txt_ChangeInfo_ID.ColorBackground = Color.FromArgb(12, 20, 29);
+            txt_ChangeInfo_ID.ColorBackground_Pen = Color.FromArgb(59, 198, 171);
+            txt_ChangeInfo_ID.ColorLighting = Color.FromArgb(59, 198, 171);
+            txt_ChangeInfo_ID.ColorPen_1 = Color.FromArgb(12, 20, 29);
+            txt_ChangeInfo_ID.ColorPen_2 = Color.Transparent;
+            txt_ChangeInfo_ID.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            txt_ChangeInfo_ID.Enabled = false;
+            txt_ChangeInfo_ID.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_ChangeInfo_ID.ForeColor = Color.White;
+            txt_ChangeInfo_ID.Lighting = false;
+            txt_ChangeInfo_ID.LinearGradientPen = false;
+            txt_ChangeInfo_ID.Location = new Point(371, 141);
+            txt_ChangeInfo_ID.Name = "txt_ChangeInfo_ID";
+            txt_ChangeInfo_ID.PenWidth = 15;
+            txt_ChangeInfo_ID.RGB = false;
+            txt_ChangeInfo_ID.Rounding = true;
+            txt_ChangeInfo_ID.RoundingInt = 90;
+            txt_ChangeInfo_ID.Size = new Size(289, 45);
+            txt_ChangeInfo_ID.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            txt_ChangeInfo_ID.TabIndex = 49;
+            txt_ChangeInfo_ID.Tag = "Cyber";
+            txt_ChangeInfo_ID.TextButton = "";
+            txt_ChangeInfo_ID.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            txt_ChangeInfo_ID.Timer_RGB = 300;
             // 
             // label33
             // 
             label33.AutoSize = true;
             label33.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label33.Location = new Point(263, 223);
+            label33.Location = new Point(264, 202);
             label33.Name = "label33";
             label33.Size = new Size(100, 31);
             label33.TabIndex = 48;
@@ -2323,98 +2380,98 @@
             // 
             label34.AutoSize = true;
             label34.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label34.Location = new Point(323, 176);
+            label34.Location = new Point(324, 155);
             label34.Name = "label34";
             label34.Size = new Size(41, 31);
             label34.TabIndex = 47;
             label34.Text = "ID:";
             // 
-            // lb_ChangePassword_Notify
+            // lb_ChangeInfo_Notify
             // 
-            lb_ChangePassword_Notify.AutoSize = true;
-            lb_ChangePassword_Notify.ForeColor = Color.FromArgb(245, 108, 108);
-            lb_ChangePassword_Notify.Location = new Point(370, 440);
-            lb_ChangePassword_Notify.Name = "lb_ChangePassword_Notify";
-            lb_ChangePassword_Notify.Size = new Size(90, 20);
-            lb_ChangePassword_Notify.TabIndex = 44;
-            lb_ChangePassword_Notify.Text = "*Thông báo:";
+            lb_ChangeInfo_Notify.AutoSize = true;
+            lb_ChangeInfo_Notify.ForeColor = Color.FromArgb(245, 108, 108);
+            lb_ChangeInfo_Notify.Location = new Point(371, 468);
+            lb_ChangeInfo_Notify.Name = "lb_ChangeInfo_Notify";
+            lb_ChangeInfo_Notify.Size = new Size(90, 20);
+            lb_ChangeInfo_Notify.TabIndex = 44;
+            lb_ChangeInfo_Notify.Text = "*Thông báo:";
             // 
-            // btn_CancelChangePassword
+            // btn_CancelChangeInfo
             // 
-            btn_CancelChangePassword.BorderColor = Color.FromArgb(220, 223, 230);
-            btn_CancelChangePassword.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
-            btn_CancelChangePassword.DangerColor = Color.FromArgb(245, 108, 108);
-            btn_CancelChangePassword.DefaultColor = Color.FromArgb(255, 255, 255);
-            btn_CancelChangePassword.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_CancelChangePassword.ForeColor = Color.White;
-            btn_CancelChangePassword.HoverTextColor = Color.FromArgb(48, 49, 51);
-            btn_CancelChangePassword.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_CancelChangePassword.Location = new Point(370, 403);
-            btn_CancelChangePassword.Name = "btn_CancelChangePassword";
-            btn_CancelChangePassword.PrimaryColor = Color.FromArgb(245, 108, 108);
-            btn_CancelChangePassword.Size = new Size(289, 31);
-            btn_CancelChangePassword.SuccessColor = Color.FromArgb(103, 194, 58);
-            btn_CancelChangePassword.TabIndex = 43;
-            btn_CancelChangePassword.Text = "Hủy";
-            btn_CancelChangePassword.TextColor = Color.White;
-            btn_CancelChangePassword.WarningColor = Color.FromArgb(230, 162, 60);
-            btn_CancelChangePassword.Click += btn_CancelChangePassword_Click;
+            btn_CancelChangeInfo.BorderColor = Color.FromArgb(220, 223, 230);
+            btn_CancelChangeInfo.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            btn_CancelChangeInfo.DangerColor = Color.FromArgb(245, 108, 108);
+            btn_CancelChangeInfo.DefaultColor = Color.FromArgb(255, 255, 255);
+            btn_CancelChangeInfo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_CancelChangeInfo.ForeColor = Color.White;
+            btn_CancelChangeInfo.HoverTextColor = Color.FromArgb(48, 49, 51);
+            btn_CancelChangeInfo.InfoColor = Color.FromArgb(144, 147, 153);
+            btn_CancelChangeInfo.Location = new Point(371, 431);
+            btn_CancelChangeInfo.Name = "btn_CancelChangeInfo";
+            btn_CancelChangeInfo.PrimaryColor = Color.FromArgb(245, 108, 108);
+            btn_CancelChangeInfo.Size = new Size(289, 31);
+            btn_CancelChangeInfo.SuccessColor = Color.FromArgb(103, 194, 58);
+            btn_CancelChangeInfo.TabIndex = 43;
+            btn_CancelChangeInfo.Text = "Thoát";
+            btn_CancelChangeInfo.TextColor = Color.White;
+            btn_CancelChangeInfo.WarningColor = Color.FromArgb(230, 162, 60);
+            btn_CancelChangeInfo.Click += btn_CancelChangeInfo_Click;
             // 
-            // btn_ConfirmChangePassword
+            // btn_ConfirmChangeInfo
             // 
-            btn_ConfirmChangePassword.BorderColor = Color.FromArgb(220, 223, 230);
-            btn_ConfirmChangePassword.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
-            btn_ConfirmChangePassword.DangerColor = Color.FromArgb(245, 108, 108);
-            btn_ConfirmChangePassword.DefaultColor = Color.FromArgb(255, 255, 255);
-            btn_ConfirmChangePassword.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_ConfirmChangePassword.HoverTextColor = Color.FromArgb(48, 49, 51);
-            btn_ConfirmChangePassword.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_ConfirmChangePassword.Location = new Point(370, 366);
-            btn_ConfirmChangePassword.Name = "btn_ConfirmChangePassword";
-            btn_ConfirmChangePassword.PrimaryColor = Color.FromArgb(59, 198, 171);
-            btn_ConfirmChangePassword.Size = new Size(289, 31);
-            btn_ConfirmChangePassword.SuccessColor = Color.FromArgb(103, 194, 58);
-            btn_ConfirmChangePassword.TabIndex = 42;
-            btn_ConfirmChangePassword.Text = "Xác nhận";
-            btn_ConfirmChangePassword.TextColor = Color.White;
-            btn_ConfirmChangePassword.WarningColor = Color.FromArgb(230, 162, 60);
-            btn_ConfirmChangePassword.Click += btn_ConfirmChangePassword_Click;
+            btn_ConfirmChangeInfo.BorderColor = Color.FromArgb(220, 223, 230);
+            btn_ConfirmChangeInfo.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            btn_ConfirmChangeInfo.DangerColor = Color.FromArgb(245, 108, 108);
+            btn_ConfirmChangeInfo.DefaultColor = Color.FromArgb(255, 255, 255);
+            btn_ConfirmChangeInfo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_ConfirmChangeInfo.HoverTextColor = Color.FromArgb(48, 49, 51);
+            btn_ConfirmChangeInfo.InfoColor = Color.FromArgb(144, 147, 153);
+            btn_ConfirmChangeInfo.Location = new Point(371, 394);
+            btn_ConfirmChangeInfo.Name = "btn_ConfirmChangeInfo";
+            btn_ConfirmChangeInfo.PrimaryColor = Color.FromArgb(59, 198, 171);
+            btn_ConfirmChangeInfo.Size = new Size(289, 31);
+            btn_ConfirmChangeInfo.SuccessColor = Color.FromArgb(103, 194, 58);
+            btn_ConfirmChangeInfo.TabIndex = 42;
+            btn_ConfirmChangeInfo.Text = "Xác nhận";
+            btn_ConfirmChangeInfo.TextColor = Color.White;
+            btn_ConfirmChangeInfo.WarningColor = Color.FromArgb(230, 162, 60);
+            btn_ConfirmChangeInfo.Click += btn_ConfirmChangeInfo_Click;
             // 
-            // txt_ChangePW_NewPW
+            // txt_ChangeInfo_NewPW
             // 
-            txt_ChangePW_NewPW.Alpha = 20;
-            txt_ChangePW_NewPW.BackColor = Color.Transparent;
-            txt_ChangePW_NewPW.Background_WidthPen = 3F;
-            txt_ChangePW_NewPW.BackgroundPen = true;
-            txt_ChangePW_NewPW.ColorBackground = Color.FromArgb(12, 20, 29);
-            txt_ChangePW_NewPW.ColorBackground_Pen = Color.FromArgb(59, 198, 171);
-            txt_ChangePW_NewPW.ColorLighting = Color.FromArgb(59, 198, 171);
-            txt_ChangePW_NewPW.ColorPen_1 = Color.FromArgb(12, 20, 29);
-            txt_ChangePW_NewPW.ColorPen_2 = Color.Transparent;
-            txt_ChangePW_NewPW.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            txt_ChangePW_NewPW.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_ChangePW_NewPW.ForeColor = Color.White;
-            txt_ChangePW_NewPW.Lighting = false;
-            txt_ChangePW_NewPW.LinearGradientPen = false;
-            txt_ChangePW_NewPW.Location = new Point(370, 315);
-            txt_ChangePW_NewPW.Name = "txt_ChangePW_NewPW";
-            txt_ChangePW_NewPW.PenWidth = 15;
-            txt_ChangePW_NewPW.RGB = false;
-            txt_ChangePW_NewPW.Rounding = true;
-            txt_ChangePW_NewPW.RoundingInt = 90;
-            txt_ChangePW_NewPW.Size = new Size(289, 45);
-            txt_ChangePW_NewPW.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            txt_ChangePW_NewPW.TabIndex = 37;
-            txt_ChangePW_NewPW.Tag = "Cyber";
-            txt_ChangePW_NewPW.TextButton = "";
-            txt_ChangePW_NewPW.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            txt_ChangePW_NewPW.Timer_RGB = 300;
+            txt_ChangeInfo_NewPW.Alpha = 20;
+            txt_ChangeInfo_NewPW.BackColor = Color.Transparent;
+            txt_ChangeInfo_NewPW.Background_WidthPen = 3F;
+            txt_ChangeInfo_NewPW.BackgroundPen = true;
+            txt_ChangeInfo_NewPW.ColorBackground = Color.FromArgb(12, 20, 29);
+            txt_ChangeInfo_NewPW.ColorBackground_Pen = Color.FromArgb(59, 198, 171);
+            txt_ChangeInfo_NewPW.ColorLighting = Color.FromArgb(59, 198, 171);
+            txt_ChangeInfo_NewPW.ColorPen_1 = Color.FromArgb(12, 20, 29);
+            txt_ChangeInfo_NewPW.ColorPen_2 = Color.Transparent;
+            txt_ChangeInfo_NewPW.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            txt_ChangeInfo_NewPW.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_ChangeInfo_NewPW.ForeColor = Color.White;
+            txt_ChangeInfo_NewPW.Lighting = false;
+            txt_ChangeInfo_NewPW.LinearGradientPen = false;
+            txt_ChangeInfo_NewPW.Location = new Point(371, 294);
+            txt_ChangeInfo_NewPW.Name = "txt_ChangeInfo_NewPW";
+            txt_ChangeInfo_NewPW.PenWidth = 15;
+            txt_ChangeInfo_NewPW.RGB = false;
+            txt_ChangeInfo_NewPW.Rounding = true;
+            txt_ChangeInfo_NewPW.RoundingInt = 90;
+            txt_ChangeInfo_NewPW.Size = new Size(289, 45);
+            txt_ChangeInfo_NewPW.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            txt_ChangeInfo_NewPW.TabIndex = 37;
+            txt_ChangeInfo_NewPW.Tag = "Cyber";
+            txt_ChangeInfo_NewPW.TextButton = "";
+            txt_ChangeInfo_NewPW.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            txt_ChangeInfo_NewPW.Timer_RGB = 300;
             // 
             // label17
             // 
             label17.AutoSize = true;
             label17.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label17.Location = new Point(203, 329);
+            label17.Location = new Point(204, 308);
             label17.Name = "label17";
             label17.Size = new Size(161, 31);
             label17.TabIndex = 36;
@@ -2992,16 +3049,16 @@
         private ReaLTaiizor.Controls.CyberTextBox txt_ForgetPW_ID;
         private Label label13;
         private GroupBox grb_ChangeInfo;
-        private ReaLTaiizor.Controls.CyberTextBox txt_ChangePW_NewPW;
+        private ReaLTaiizor.Controls.CyberTextBox txt_ChangeInfo_NewPW;
         private Label label17;
-        private ReaLTaiizor.Controls.HopeRoundButton btn_CancelChangePassword;
-        private ReaLTaiizor.Controls.HopeRoundButton btn_ConfirmChangePassword;
-        private Label lb_ChangePassword_Notify;
+        private ReaLTaiizor.Controls.HopeRoundButton btn_CancelChangeInfo;
+        private ReaLTaiizor.Controls.HopeRoundButton btn_ConfirmChangeInfo;
+        private Label lb_ChangeInfo_Notify;
         private Label lb_Open_ForgetPW;
         private RJCircularPictureBox rjCircularPictureBox4;
         private ReaLTaiizor.Controls.CyberTextBox txt_Login_PW;
         private RJCircularPictureBox rjCircularPictureBox5;
-        private ReaLTaiizor.Controls.HopeRoundButton btn_Info_ChangePW;
+        private ReaLTaiizor.Controls.HopeRoundButton btn_Info_ChangeInfo;
         private RJCircularPictureBox rjCircularPictureBox6;
         private RJCircularPictureBox rjCircularPictureBox8;
         private RJCircularPictureBox rjCircularPictureBox7;
@@ -3053,15 +3110,18 @@
         private Label label26;
         private ReaLTaiizor.Controls.SkyComboBox cbx_PVP_Chess;
         private Label label27;
-        private ReaLTaiizor.Controls.CyberTextBox txt_ChanInfo_Email;
+        private ReaLTaiizor.Controls.CyberTextBox txt_ChangeInfo_Email;
         private Label label29;
         private Label lb_ChangeInfo_Avatar;
         private RJCircularPictureBox picbox_ChangeInfo_Avatar;
         private ReaLTaiizor.Controls.CyberTextBox txt_ChangeInfo_Name;
-        private ReaLTaiizor.Controls.CyberTextBox txt_ChanInfo_ID;
+        private ReaLTaiizor.Controls.CyberTextBox txt_ChangeInfo_ID;
         private Label label33;
         private Label label34;
         private GroupBox grb_ChooseAvatar;
         private FlowLayoutPanel panel_ChooseAvatar;
+        private ReaLTaiizor.Controls.CyberTextBox txt_ChangeInfo_ProtectionCode;
+        private Label label18;
+        private Label label22;
     }
 }

@@ -41,8 +41,8 @@ namespace Caro_Nhom8
         bool isSFX = true;
         bool isDark = true;
         public bool isChooseAvatarSignUp = false;
-        public string currentAvatarSignUp = "Resources/UI_Icon/Default.png";
-        public Player? curretnplayer;
+        public string currentAvatar = "Resources/UI_Icon/Default.png";
+        public Player currentplayer = new Player();
         WindowsMediaPlayer music = new WindowsMediaPlayer();
         WindowsMediaPlayer sfx = new WindowsMediaPlayer();
         FirebaseClient firebaseClient = new FirebaseClient("https://caronhom8-default-rtdb.firebaseio.com/");
@@ -239,6 +239,7 @@ namespace Caro_Nhom8
         {
             DarkTheme();
             OpenLogin();
+            RenewLogin();
             LoadAvatars();
             music.controls.play();
             dtg_Ranking.Rows.Add(
@@ -259,7 +260,7 @@ namespace Caro_Nhom8
                     "100%"
 
                 });
-        
+
         }
         #endregion
 
@@ -401,16 +402,16 @@ namespace Caro_Nhom8
 
         private void tmCoolDown_Tick(object sender, EventArgs e)
         {
-            if(prcbCoolDown.Value < prcbCoolDown.Maximum/2)
+            if (prcbCoolDown.Value < prcbCoolDown.Maximum / 2)
             {
                 prcbCoolDown.ColorProgressBar = Color.FromArgb(59, 198, 171);
-            }    
+            }
 
-            if(prcbCoolDown.Value >= prcbCoolDown.Maximum/2 )
+            if (prcbCoolDown.Value >= prcbCoolDown.Maximum / 2)
             {
                 prcbCoolDown.ColorProgressBar = Color.FromArgb(253, 203, 102);
-            }    
-            if (prcbCoolDown.Value >= prcbCoolDown.Maximum*3/4)
+            }
+            if (prcbCoolDown.Value >= prcbCoolDown.Maximum * 3 / 4)
             {
                 prcbCoolDown.ColorProgressBar = Color.FromArgb(245, 108, 108);
 
@@ -422,7 +423,9 @@ namespace Caro_Nhom8
                 caroChess!.EndGame();
 
             }
-        } 
+        }
+
+       
     }
 
 

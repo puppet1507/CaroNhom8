@@ -40,6 +40,8 @@ namespace Caro_Nhom8
         {
             playSFX();
             lb_SignUp_Notify.Visible = true;
+            lb_SignUp_Notify.ForeColor = Color.White;
+            lb_SignUp_Notify.Text = "*Đang xử lí";
             string email = txt_SignUp_Email.TextButton.Trim();
             string id = txt_SignUp_ID.TextButton.Trim();
             bool isExists = await IsIdExists(id);
@@ -83,7 +85,7 @@ namespace Caro_Nhom8
                 {
                     ID = id,
                     Name = name,
-                    Avatar = currentAvatarSignUp,
+                    Avatar = currentAvatar,
                     Email = email,
                     Password = password,
                     ProtectionCode = protecode,
@@ -108,56 +110,6 @@ namespace Caro_Nhom8
         {
             playSFX();
             OpenChooseAvatar();
-        }
-        public static bool ValidateEmail(string email)
-        {
-            string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
-            bool isMatch = Regex.IsMatch(email, pattern);
-
-            return isMatch;
-        }
-        public static bool IsValidID(string id)
-        {
-            string pattern = @"^[a-zA-Z0-9!@#$%^&*()_+{}\[\]:;<>,.?~\\|]+$";
-            bool isMatch = Regex.IsMatch(id, pattern);
-
-            return isMatch;
-        }
-        public static bool ValidateName(string name)
-        {
-            string pattern = @"^[\p{L}\s]+$";
-            bool isMatch = Regex.IsMatch(name, pattern) && !Regex.IsMatch(name, @"[!@#$%^&*()_+{}\[\]:;<>,.?~\\|0-9]");
-            return isMatch;
-        }
-        public static bool ValidatePassword(string password)
-        {
-            string pattern = @"^[a-zA-Z0-9!@#$%^&*()_+{}\[\]:;<>,.?~\\|]+$";
-            bool isMatch = Regex.IsMatch(password, pattern);
-            return isMatch;
-        }
-        public static bool ValidateProtectionCode(string password)
-        {
-            string pattern = @"^[0-9]+$";
-            bool isMatch = Regex.IsMatch(password, pattern);
-            return isMatch;
-        }
-        private async Task<bool> IsIdExists(string id)
-        {
-            var data = await firebaseClient.Child("Users").Child("User_"+id).OnceAsync<object>();
-            return data.Any();
-        }
-        private async Task<bool> IsPasswordTrue(string id, string pw)
-        {
-            var dataSnapshot = await firebaseClient.Child("Users").OrderByKey().EqualTo("User_" + id).OnceAsync<Player>();
-            foreach (var item in dataSnapshot)
-            {
-                var user = item.Object;
-                if(user.Password == pw)
-                {
-                    return true;
-                }       
-            }
-            return false;
         }
         #endregion
     }

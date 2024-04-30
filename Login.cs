@@ -35,6 +35,8 @@ namespace Caro_Nhom8
         private async void btn_Login_Click_1(object sender, EventArgs e)
         {
             playSFX();
+            lb_Login_Notify.ForeColor = Color.White;
+            lb_Login_Notify.Text = "*Đang xử lí";
             lb_Login_Notify.Visible = true;
             string id = txt_Login_ID.TextButton.Trim();
             string pw = txt_Login_PW.TextButton.Trim();
@@ -54,8 +56,8 @@ namespace Caro_Nhom8
                 }
                 else
                 {
+                    RenewPlayerInfo();
                     OpenInfo();
-                    lb_Welcome.Text = "Welcome " + txt_Login_ID.TextButton;
                 }    
             }    
         }
@@ -63,14 +65,15 @@ namespace Caro_Nhom8
         {
             playSFX();
             isChooseAvatarSignUp = true;
+            RenewSignUp();
             OpenSignUp();
         }
         private void lb_Open_ForgetPW_Click(object sender, EventArgs e)
         {
-            
             playSFX();
             OpenForgetPassword();
         }
+        
         
         #endregion
     }

@@ -52,11 +52,13 @@ namespace Caro_Nhom8
         private void btn_Info_LogOut_Click(object sender, EventArgs e)
         {
             playSFX();
+            RenewLogin();
             OpenLogin();
         }
         private void btn_ChangePassword_Click(object sender, EventArgs e)
         {
             playSFX();
+            RenewChangeInfo();
             OpenChangePassword();
         }
         private void btn_Info_OpenSetting_Click(object sender, EventArgs e)
