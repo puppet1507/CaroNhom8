@@ -71,7 +71,7 @@
             label19 = new Label();
             dtg_Ranking = new ReaLTaiizor.Controls.PoisonDataGridView();
             Ranking = new DataGridViewTextBoxColumn();
-            PlayerID = new DataGridViewTextBoxColumn();
+            PlayerName = new DataGridViewTextBoxColumn();
             Win = new DataGridViewTextBoxColumn();
             Lose = new DataGridViewTextBoxColumn();
             Winrate = new DataGridViewTextBoxColumn();
@@ -154,13 +154,10 @@
             lb_ForgetPassword_Notify = new Label();
             btn_CancelForgetPassword = new ReaLTaiizor.Controls.HopeRoundButton();
             btn_ConfirmForgetPassword = new ReaLTaiizor.Controls.HopeRoundButton();
-            btn_GetVerifyCode_ForgetPassword = new ReaLTaiizor.Controls.HopeRoundButton();
-            txt_ForgetPW_VerifyCode = new ReaLTaiizor.Controls.CyberTextBox();
+            txt_ForgetPW_ProtectionCode = new ReaLTaiizor.Controls.CyberTextBox();
             txt_ForgetPW_NewPW = new ReaLTaiizor.Controls.CyberTextBox();
             label12 = new Label();
             label14 = new Label();
-            txt_ForgetPW_Email = new ReaLTaiizor.Controls.CyberTextBox();
-            label11 = new Label();
             txt_ForgetPW_ID = new ReaLTaiizor.Controls.CyberTextBox();
             label13 = new Label();
             grb_ChangeInfo = new GroupBox();
@@ -454,10 +451,10 @@
             grb_Info.Controls.Add(btn_JoinRoom);
             grb_Info.Controls.Add(btn_CreateRoom);
             grb_Info.ForeColor = Color.White;
-            grb_Info.Location = new Point(12, 405);
+            grb_Info.Location = new Point(104, 201);
             grb_Info.MaximumSize = new Size(999999, 999999);
             grb_Info.Name = "grb_Info";
-            grb_Info.Size = new Size(727, 608);
+            grb_Info.Size = new Size(86, 36);
             grb_Info.TabIndex = 10;
             grb_Info.TabStop = false;
             grb_Info.Text = "Thông tin người chơi";
@@ -691,7 +688,7 @@
             dtg_Ranking.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             dtg_Ranking.ColumnHeadersHeight = 50;
             dtg_Ranking.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dtg_Ranking.Columns.AddRange(new DataGridViewColumn[] { Ranking, PlayerID, Win, Lose, Winrate });
+            dtg_Ranking.Columns.AddRange(new DataGridViewColumn[] { Ranking, PlayerName, Win, Lose, Winrate });
             dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle15.BackColor = Color.FromArgb(12, 20, 29);
             dataGridViewCellStyle15.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -738,18 +735,18 @@
             Ranking.SortMode = DataGridViewColumnSortMode.NotSortable;
             Ranking.Width = 60;
             // 
-            // PlayerID
+            // PlayerName
             // 
-            PlayerID.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            PlayerName.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            PlayerID.DefaultCellStyle = dataGridViewCellStyle12;
-            PlayerID.FillWeight = 167.26889F;
-            PlayerID.HeaderText = "ID";
-            PlayerID.MinimumWidth = 6;
-            PlayerID.Name = "PlayerID";
-            PlayerID.ReadOnly = true;
-            PlayerID.SortMode = DataGridViewColumnSortMode.NotSortable;
-            PlayerID.Width = 125;
+            PlayerName.DefaultCellStyle = dataGridViewCellStyle12;
+            PlayerName.FillWeight = 167.26889F;
+            PlayerName.HeaderText = "Name";
+            PlayerName.MinimumWidth = 6;
+            PlayerName.Name = "PlayerName";
+            PlayerName.ReadOnly = true;
+            PlayerName.SortMode = DataGridViewColumnSortMode.NotSortable;
+            PlayerName.Width = 125;
             // 
             // Win
             // 
@@ -2113,19 +2110,16 @@
             grb_ForgetPassword.Controls.Add(lb_ForgetPassword_Notify);
             grb_ForgetPassword.Controls.Add(btn_CancelForgetPassword);
             grb_ForgetPassword.Controls.Add(btn_ConfirmForgetPassword);
-            grb_ForgetPassword.Controls.Add(btn_GetVerifyCode_ForgetPassword);
-            grb_ForgetPassword.Controls.Add(txt_ForgetPW_VerifyCode);
+            grb_ForgetPassword.Controls.Add(txt_ForgetPW_ProtectionCode);
             grb_ForgetPassword.Controls.Add(txt_ForgetPW_NewPW);
             grb_ForgetPassword.Controls.Add(label12);
             grb_ForgetPassword.Controls.Add(label14);
-            grb_ForgetPassword.Controls.Add(txt_ForgetPW_Email);
-            grb_ForgetPassword.Controls.Add(label11);
             grb_ForgetPassword.Controls.Add(txt_ForgetPW_ID);
             grb_ForgetPassword.Controls.Add(label13);
             grb_ForgetPassword.ForeColor = Color.White;
-            grb_ForgetPassword.Location = new Point(321, 31);
+            grb_ForgetPassword.Location = new Point(12, 533);
             grb_ForgetPassword.Name = "grb_ForgetPassword";
-            grb_ForgetPassword.Size = new Size(67, 87);
+            grb_ForgetPassword.Size = new Size(652, 494);
             grb_ForgetPassword.TabIndex = 16;
             grb_ForgetPassword.TabStop = false;
             grb_ForgetPassword.Text = "Quên mật khẩu";
@@ -2135,7 +2129,7 @@
             // 
             lb_ForgetPassword_Notify.AutoSize = true;
             lb_ForgetPassword_Notify.ForeColor = Color.FromArgb(245, 108, 108);
-            lb_ForgetPassword_Notify.Location = new Point(264, 452);
+            lb_ForgetPassword_Notify.Location = new Point(264, 437);
             lb_ForgetPassword_Notify.Name = "lb_ForgetPassword_Notify";
             lb_ForgetPassword_Notify.Size = new Size(84, 20);
             lb_ForgetPassword_Notify.TabIndex = 44;
@@ -2150,7 +2144,7 @@
             btn_CancelForgetPassword.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btn_CancelForgetPassword.HoverTextColor = Color.FromArgb(48, 49, 51);
             btn_CancelForgetPassword.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_CancelForgetPassword.Location = new Point(264, 408);
+            btn_CancelForgetPassword.Location = new Point(264, 393);
             btn_CancelForgetPassword.Name = "btn_CancelForgetPassword";
             btn_CancelForgetPassword.PrimaryColor = Color.FromArgb(245, 108, 108);
             btn_CancelForgetPassword.Size = new Size(287, 31);
@@ -2170,7 +2164,7 @@
             btn_ConfirmForgetPassword.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btn_ConfirmForgetPassword.HoverTextColor = Color.FromArgb(48, 49, 51);
             btn_ConfirmForgetPassword.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_ConfirmForgetPassword.Location = new Point(264, 368);
+            btn_ConfirmForgetPassword.Location = new Point(264, 353);
             btn_ConfirmForgetPassword.Name = "btn_ConfirmForgetPassword";
             btn_ConfirmForgetPassword.PrimaryColor = Color.FromArgb(59, 198, 171);
             btn_ConfirmForgetPassword.Size = new Size(287, 31);
@@ -2181,55 +2175,35 @@
             btn_ConfirmForgetPassword.WarningColor = Color.FromArgb(230, 162, 60);
             btn_ConfirmForgetPassword.Click += btn_ConfirmForgetPassword_Click;
             // 
-            // btn_GetVerifyCode_ForgetPassword
+            // txt_ForgetPW_ProtectionCode
             // 
-            btn_GetVerifyCode_ForgetPassword.BorderColor = Color.FromArgb(220, 223, 230);
-            btn_GetVerifyCode_ForgetPassword.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
-            btn_GetVerifyCode_ForgetPassword.DangerColor = Color.FromArgb(245, 108, 108);
-            btn_GetVerifyCode_ForgetPassword.DefaultColor = Color.FromArgb(255, 255, 255);
-            btn_GetVerifyCode_ForgetPassword.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_GetVerifyCode_ForgetPassword.HoverTextColor = Color.FromArgb(48, 49, 51);
-            btn_GetVerifyCode_ForgetPassword.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_GetVerifyCode_ForgetPassword.Location = new Point(264, 229);
-            btn_GetVerifyCode_ForgetPassword.Name = "btn_GetVerifyCode_ForgetPassword";
-            btn_GetVerifyCode_ForgetPassword.PrimaryColor = Color.FromArgb(59, 198, 171);
-            btn_GetVerifyCode_ForgetPassword.Size = new Size(289, 31);
-            btn_GetVerifyCode_ForgetPassword.SuccessColor = Color.FromArgb(103, 194, 58);
-            btn_GetVerifyCode_ForgetPassword.TabIndex = 40;
-            btn_GetVerifyCode_ForgetPassword.Text = "Lấy mã xác thực";
-            btn_GetVerifyCode_ForgetPassword.TextColor = Color.White;
-            btn_GetVerifyCode_ForgetPassword.WarningColor = Color.FromArgb(230, 162, 60);
-            btn_GetVerifyCode_ForgetPassword.Click += btn_GetVerifyCode_ForgetPassword_Click;
-            // 
-            // txt_ForgetPW_VerifyCode
-            // 
-            txt_ForgetPW_VerifyCode.Alpha = 20;
-            txt_ForgetPW_VerifyCode.BackColor = Color.Transparent;
-            txt_ForgetPW_VerifyCode.Background_WidthPen = 3F;
-            txt_ForgetPW_VerifyCode.BackgroundPen = true;
-            txt_ForgetPW_VerifyCode.ColorBackground = Color.FromArgb(12, 20, 29);
-            txt_ForgetPW_VerifyCode.ColorBackground_Pen = Color.FromArgb(59, 198, 171);
-            txt_ForgetPW_VerifyCode.ColorLighting = Color.FromArgb(59, 198, 171);
-            txt_ForgetPW_VerifyCode.ColorPen_1 = Color.FromArgb(12, 20, 29);
-            txt_ForgetPW_VerifyCode.ColorPen_2 = Color.Transparent;
-            txt_ForgetPW_VerifyCode.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            txt_ForgetPW_VerifyCode.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_ForgetPW_VerifyCode.ForeColor = Color.White;
-            txt_ForgetPW_VerifyCode.Lighting = false;
-            txt_ForgetPW_VerifyCode.LinearGradientPen = false;
-            txt_ForgetPW_VerifyCode.Location = new Point(264, 317);
-            txt_ForgetPW_VerifyCode.Name = "txt_ForgetPW_VerifyCode";
-            txt_ForgetPW_VerifyCode.PenWidth = 15;
-            txt_ForgetPW_VerifyCode.RGB = false;
-            txt_ForgetPW_VerifyCode.Rounding = true;
-            txt_ForgetPW_VerifyCode.RoundingInt = 90;
-            txt_ForgetPW_VerifyCode.Size = new Size(289, 45);
-            txt_ForgetPW_VerifyCode.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            txt_ForgetPW_VerifyCode.TabIndex = 39;
-            txt_ForgetPW_VerifyCode.Tag = "Cyber";
-            txt_ForgetPW_VerifyCode.TextButton = "";
-            txt_ForgetPW_VerifyCode.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            txt_ForgetPW_VerifyCode.Timer_RGB = 300;
+            txt_ForgetPW_ProtectionCode.Alpha = 20;
+            txt_ForgetPW_ProtectionCode.BackColor = Color.Transparent;
+            txt_ForgetPW_ProtectionCode.Background_WidthPen = 3F;
+            txt_ForgetPW_ProtectionCode.BackgroundPen = true;
+            txt_ForgetPW_ProtectionCode.ColorBackground = Color.FromArgb(12, 20, 29);
+            txt_ForgetPW_ProtectionCode.ColorBackground_Pen = Color.FromArgb(59, 198, 171);
+            txt_ForgetPW_ProtectionCode.ColorLighting = Color.FromArgb(59, 198, 171);
+            txt_ForgetPW_ProtectionCode.ColorPen_1 = Color.FromArgb(12, 20, 29);
+            txt_ForgetPW_ProtectionCode.ColorPen_2 = Color.Transparent;
+            txt_ForgetPW_ProtectionCode.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            txt_ForgetPW_ProtectionCode.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_ForgetPW_ProtectionCode.ForeColor = Color.White;
+            txt_ForgetPW_ProtectionCode.Lighting = false;
+            txt_ForgetPW_ProtectionCode.LinearGradientPen = false;
+            txt_ForgetPW_ProtectionCode.Location = new Point(263, 303);
+            txt_ForgetPW_ProtectionCode.Name = "txt_ForgetPW_ProtectionCode";
+            txt_ForgetPW_ProtectionCode.PenWidth = 15;
+            txt_ForgetPW_ProtectionCode.RGB = false;
+            txt_ForgetPW_ProtectionCode.Rounding = true;
+            txt_ForgetPW_ProtectionCode.RoundingInt = 90;
+            txt_ForgetPW_ProtectionCode.Size = new Size(289, 45);
+            txt_ForgetPW_ProtectionCode.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            txt_ForgetPW_ProtectionCode.TabIndex = 39;
+            txt_ForgetPW_ProtectionCode.Tag = "Cyber";
+            txt_ForgetPW_ProtectionCode.TextButton = "";
+            txt_ForgetPW_ProtectionCode.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            txt_ForgetPW_ProtectionCode.Timer_RGB = 300;
             // 
             // txt_ForgetPW_NewPW
             // 
@@ -2247,8 +2221,9 @@
             txt_ForgetPW_NewPW.ForeColor = Color.White;
             txt_ForgetPW_NewPW.Lighting = false;
             txt_ForgetPW_NewPW.LinearGradientPen = false;
-            txt_ForgetPW_NewPW.Location = new Point(264, 266);
+            txt_ForgetPW_NewPW.Location = new Point(264, 251);
             txt_ForgetPW_NewPW.Name = "txt_ForgetPW_NewPW";
+            txt_ForgetPW_NewPW.Password = true;
             txt_ForgetPW_NewPW.PenWidth = 15;
             txt_ForgetPW_NewPW.RGB = false;
             txt_ForgetPW_NewPW.Rounding = true;
@@ -2265,61 +2240,21 @@
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label12.Location = new Point(114, 331);
+            label12.Location = new Point(132, 310);
             label12.Name = "label12";
-            label12.Size = new Size(144, 31);
+            label12.Size = new Size(126, 31);
             label12.TabIndex = 37;
-            label12.Text = "Mã xác thực:";
+            label12.Text = "Mã bảo vệ:";
             // 
             // label14
             // 
             label14.AutoSize = true;
             label14.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label14.Location = new Point(97, 280);
+            label14.Location = new Point(97, 258);
             label14.Name = "label14";
             label14.Size = new Size(161, 31);
             label14.TabIndex = 36;
             label14.Text = "Mật khẩu mới:";
-            // 
-            // txt_ForgetPW_Email
-            // 
-            txt_ForgetPW_Email.Alpha = 20;
-            txt_ForgetPW_Email.BackColor = Color.Transparent;
-            txt_ForgetPW_Email.Background_WidthPen = 3F;
-            txt_ForgetPW_Email.BackgroundPen = true;
-            txt_ForgetPW_Email.ColorBackground = Color.FromArgb(12, 20, 29);
-            txt_ForgetPW_Email.ColorBackground_Pen = Color.FromArgb(59, 198, 171);
-            txt_ForgetPW_Email.ColorLighting = Color.FromArgb(59, 198, 171);
-            txt_ForgetPW_Email.ColorPen_1 = Color.FromArgb(12, 20, 29);
-            txt_ForgetPW_Email.ColorPen_2 = Color.Transparent;
-            txt_ForgetPW_Email.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            txt_ForgetPW_Email.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_ForgetPW_Email.ForeColor = Color.White;
-            txt_ForgetPW_Email.Lighting = false;
-            txt_ForgetPW_Email.LinearGradientPen = false;
-            txt_ForgetPW_Email.Location = new Point(262, 178);
-            txt_ForgetPW_Email.Name = "txt_ForgetPW_Email";
-            txt_ForgetPW_Email.PenWidth = 15;
-            txt_ForgetPW_Email.RGB = false;
-            txt_ForgetPW_Email.Rounding = true;
-            txt_ForgetPW_Email.RoundingInt = 90;
-            txt_ForgetPW_Email.Size = new Size(289, 45);
-            txt_ForgetPW_Email.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            txt_ForgetPW_Email.TabIndex = 35;
-            txt_ForgetPW_Email.Tag = "Cyber";
-            txt_ForgetPW_Email.TextButton = "";
-            txt_ForgetPW_Email.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            txt_ForgetPW_Email.Timer_RGB = 300;
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label11.Location = new Point(181, 192);
-            label11.Name = "label11";
-            label11.Size = new Size(75, 31);
-            label11.TabIndex = 34;
-            label11.Text = "Email:";
             // 
             // txt_ForgetPW_ID
             // 
@@ -2337,7 +2272,7 @@
             txt_ForgetPW_ID.ForeColor = Color.White;
             txt_ForgetPW_ID.Lighting = false;
             txt_ForgetPW_ID.LinearGradientPen = false;
-            txt_ForgetPW_ID.Location = new Point(264, 127);
+            txt_ForgetPW_ID.Location = new Point(265, 200);
             txt_ForgetPW_ID.Name = "txt_ForgetPW_ID";
             txt_ForgetPW_ID.PenWidth = 15;
             txt_ForgetPW_ID.RGB = false;
@@ -2355,7 +2290,7 @@
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label13.Location = new Point(217, 141);
+            label13.Location = new Point(218, 207);
             label13.Name = "label13";
             label13.Size = new Size(41, 31);
             label13.TabIndex = 30;
@@ -3234,7 +3169,7 @@
         private ReaLTaiizor.Controls.HopeRoundButton btn_CancelForgetPassword;
         private ReaLTaiizor.Controls.HopeRoundButton btn_ConfirmForgetPassword;
         private ReaLTaiizor.Controls.HopeRoundButton btn_GetVerifyCode_ForgetPassword;
-        private ReaLTaiizor.Controls.CyberTextBox txt_ForgetPW_VerifyCode;
+        private ReaLTaiizor.Controls.CyberTextBox txt_ForgetPW_ProtectionCode;
         private ReaLTaiizor.Controls.CyberTextBox txt_ForgetPW_NewPW;
         private Label label12;
         private Label label14;
@@ -3313,11 +3248,6 @@
         private ReaLTaiizor.Controls.CyberTextBox txt_ChangeInfo_ProtectionCode;
         private Label label18;
         private Label label22;
-        private DataGridViewTextBoxColumn Ranking;
-        private DataGridViewTextBoxColumn PlayerID;
-        private DataGridViewTextBoxColumn Win;
-        private DataGridViewTextBoxColumn Lose;
-        private DataGridViewTextBoxColumn Winrate;
         private ReaLTaiizor.Controls.PoisonDataGridView dtg_YourRanking;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -3326,5 +3256,10 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private RJCircularPictureBox rjCircularPictureBox3;
         private Label label23;
+        private DataGridViewTextBoxColumn Ranking;
+        private DataGridViewTextBoxColumn PlayerName;
+        private DataGridViewTextBoxColumn Win;
+        private DataGridViewTextBoxColumn Lose;
+        private DataGridViewTextBoxColumn Winrate;
     }
 }

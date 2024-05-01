@@ -56,9 +56,9 @@ namespace Caro_Nhom8
                 }
                 else
                 {
-                    RenewPlayerInfo();
-                    LoadRanking(currentplayer.ID!);
                     OpenInfo();
+                    LoadRanking(currentplayer.ID!);
+                    RenewPlayerInfo();
                 }
             }    
         }
@@ -66,8 +66,8 @@ namespace Caro_Nhom8
         {
             playSFX();
             isChooseAvatarSignUp = true;
-            RenewSignUp();
             OpenSignUp();
+            RenewSignUp();
         }
         private void lb_Open_ForgetPW_Click(object sender, EventArgs e)
         {

@@ -16,8 +16,15 @@ namespace Caro_Nhom8
 
         public Player()
         {
-            // Phương thức khởi tạo mặc định không nhận tham số
-            // Bạn có thể thêm mã logic khởi tạo ở đây (nếu cần)
+            Avatar = "";
+            Email = "";
+            ID = "";
+            Lose = 0;
+            Name = "";
+            Password = "";
+            ProtectionCode = "";
+            Win = 0;
+            Winrate = "";
         }
 
         public Player(string avatar, string email, string id, int lose, string name, string password, string protectionCode, int win, string winrate)

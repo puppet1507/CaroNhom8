@@ -39,6 +39,7 @@ namespace Caro_Nhom8
             RenewPlayerInfo();
             currentAvatar = currentplayer.Avatar!;
             OpenInfo();
+            LoadRanking(currentplayer.ID!);
         }
         private async void btn_ConfirmChangeInfo_Click(object sender, EventArgs e)
         {

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Caro_Nhom8
 {
@@ -141,6 +142,10 @@ namespace Caro_Nhom8
         #endregion
 
         #region PlayerInfoMethod
+        void RenewCurrentPlayer()
+        {
+            currentplayer = new Player();
+        }
         void RenewPlayerInfo()
         {
             picbox_PlayerInfo_Avatar.Image = Image.FromFile(currentplayer.Avatar!);
@@ -149,9 +154,11 @@ namespace Caro_Nhom8
             lb_Lose.ForeColor = Color.FromArgb(245, 108, 108);
             lb_Lose.Text = "Lose: " + currentplayer.Lose.ToString();
             lb_Welcome.Text = currentplayer.Name;
+            
         }
         private async void LoadRanking(string id)
         {
+            dtg_YourRanking.Rows.Clear();
             dtg_Ranking.Rows.Clear();
             var dataSnapshot = await firebaseClient.Child("Users").OrderByKey().OnceAsync<Player>();
             int i = 0;
@@ -166,7 +173,7 @@ namespace Caro_Nhom8
                 new object[]
                 {
                     i,
-                    user.ID!,
+                    user.Name!,
                     user.Win,
                     user.Lose,
                     user.Winrate!
@@ -177,7 +184,7 @@ namespace Caro_Nhom8
                 new object[]
                 {
                     i,
-                    user.ID!,
+                    user.Name!,
                     user.Win,
                     user.Lose,
                     user.Winrate!

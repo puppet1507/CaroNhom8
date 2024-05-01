@@ -52,8 +52,9 @@ namespace Caro_Nhom8
         private void btn_Info_LogOut_Click(object sender, EventArgs e)
         {
             playSFX();
-            RenewLogin();
             OpenLogin();
+            RenewLogin();
+            RenewCurrentPlayer();
         }
         private void btn_ChangePassword_Click(object sender, EventArgs e)
         {

@@ -216,7 +216,7 @@ namespace Caro_Nhom8
         public MainForm()
         {
             InitializeComponent();
-            Board board = new Board(16, 16);
+            Board board = new Board(20,20);
             caroChess = new CaroGame(board);
             caroChess.CreateChessPieces();
             grs = panel_PlayArea_Board.CreateGraphics();
