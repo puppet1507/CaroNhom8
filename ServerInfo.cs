@@ -37,7 +37,7 @@ namespace Caro_Nhom8
             this.Invoke((MethodInvoker)delegate
             {
                 OPenWaiting();
-                server = new SimpleTcpServer("192.168.10.137", int.Parse(txt_PVP_ServerPort.TextButton));
+                server = new SimpleTcpServer("127.0.0.1", int.Parse(txt_PVP_ServerPort.TextButton));
                 server.Start();
                 server.Events.ClientConnected += Server_Events_ClientConnected;
                 server.Events.ClientDisconnected += Server_Events_ClientDisconnected;

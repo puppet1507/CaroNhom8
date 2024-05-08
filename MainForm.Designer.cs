@@ -104,13 +104,13 @@
             panel_PlayArea_Player2 = new Panel();
             lb_PlayArea_Name2 = new Label();
             lb_PlayArea_Point2 = new Label();
-            rjCircularPictureBox10 = new RJCircularPictureBox();
-            rjCircularPictureBox12 = new RJCircularPictureBox();
+            picbox_PlayArea_Avatar2 = new RJCircularPictureBox();
+            picbox_PlayArea_Chess2 = new RJCircularPictureBox();
             panel_PlayArea_Player1 = new Panel();
             lb_PlayArea_Name1 = new Label();
-            rjCircularPictureBox11 = new RJCircularPictureBox();
+            picbox_PlayArea_Chess1 = new RJCircularPictureBox();
             lb_PlayArea_Point1 = new Label();
-            rjCircularPictureBox2 = new RJCircularPictureBox();
+            picbox_PlayArea_Avatar1 = new RJCircularPictureBox();
             prcbCoolDown = new ReaLTaiizor.Controls.CyberProgressBar();
             panel_PlayArea_MsgArea = new Panel();
             panel = new Panel();
@@ -118,6 +118,8 @@
             panel_PlayArea_ChatArea = new FlowLayoutPanel();
             panel_PLayArea_Tool = new Panel();
             grb_Undo_Redo = new GroupBox();
+            btn_PVC_Exit = new ReaLTaiizor.Controls.HopeRoundButton();
+            btn_PVC_NewGame = new ReaLTaiizor.Controls.HopeRoundButton();
             btn_Redo = new ReaLTaiizor.Controls.HopeRoundButton();
             btn_Undo = new ReaLTaiizor.Controls.HopeRoundButton();
             Clock = new ReaLTaiizor.Controls.ParrotClock();
@@ -199,6 +201,7 @@
             btn_Setting_Exit = new ReaLTaiizor.Controls.HopeRoundButton();
             grb_ChooseAvatar = new GroupBox();
             panel_ChooseAvatar = new FlowLayoutPanel();
+            tmComputer = new System.Windows.Forms.Timer(components);
             grb_Login.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox4).BeginInit();
@@ -217,11 +220,11 @@
             panel_PlayArea.SuspendLayout();
             panel_PlayArea_PlayerInfo.SuspendLayout();
             panel_PlayArea_Player2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox10).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox12).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picbox_PlayArea_Avatar2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picbox_PlayArea_Chess2).BeginInit();
             panel_PlayArea_Player1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox11).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picbox_PlayArea_Chess1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picbox_PlayArea_Avatar1).BeginInit();
             panel_PlayArea_MsgArea.SuspendLayout();
             panel_PLayArea_Tool.SuspendLayout();
             grb_Undo_Redo.SuspendLayout();
@@ -1219,11 +1222,10 @@
             // panel_PlayArea_Player2
             // 
             panel_PlayArea_Player2.Anchor = AnchorStyles.None;
-            panel_PlayArea_Player2.BorderStyle = BorderStyle.FixedSingle;
             panel_PlayArea_Player2.Controls.Add(lb_PlayArea_Name2);
             panel_PlayArea_Player2.Controls.Add(lb_PlayArea_Point2);
-            panel_PlayArea_Player2.Controls.Add(rjCircularPictureBox10);
-            panel_PlayArea_Player2.Controls.Add(rjCircularPictureBox12);
+            panel_PlayArea_Player2.Controls.Add(picbox_PlayArea_Avatar2);
+            panel_PlayArea_Player2.Controls.Add(picbox_PlayArea_Chess2);
             panel_PlayArea_Player2.Location = new Point(450, 0);
             panel_PlayArea_Player2.Name = "panel_PlayArea_Player2";
             panel_PlayArea_Player2.Size = new Size(200, 126);
@@ -1232,14 +1234,13 @@
             // lb_PlayArea_Name2
             // 
             lb_PlayArea_Name2.Anchor = AnchorStyles.None;
-            lb_PlayArea_Name2.AutoSize = true;
             lb_PlayArea_Name2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             lb_PlayArea_Name2.ForeColor = Color.White;
-            lb_PlayArea_Name2.Location = new Point(60, 89);
+            lb_PlayArea_Name2.Location = new Point(4, 90);
             lb_PlayArea_Name2.Name = "lb_PlayArea_Name2";
-            lb_PlayArea_Name2.Size = new Size(81, 28);
+            lb_PlayArea_Name2.Size = new Size(193, 28);
             lb_PlayArea_Name2.TabIndex = 5;
-            lb_PlayArea_Name2.Text = "Player 2";
+            lb_PlayArea_Name2.Text = "Player2";
             lb_PlayArea_Name2.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lb_PlayArea_Point2
@@ -1248,52 +1249,51 @@
             lb_PlayArea_Point2.AutoSize = true;
             lb_PlayArea_Point2.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
             lb_PlayArea_Point2.ForeColor = Color.White;
-            lb_PlayArea_Point2.Location = new Point(153, 29);
+            lb_PlayArea_Point2.Location = new Point(154, 30);
             lb_PlayArea_Point2.Name = "lb_PlayArea_Point2";
             lb_PlayArea_Point2.Size = new Size(32, 38);
             lb_PlayArea_Point2.TabIndex = 4;
             lb_PlayArea_Point2.Text = "0";
             // 
-            // rjCircularPictureBox10
+            // picbox_PlayArea_Avatar2
             // 
-            rjCircularPictureBox10.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            rjCircularPictureBox10.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
-            rjCircularPictureBox10.BorderColor = Color.RoyalBlue;
-            rjCircularPictureBox10.BorderColor2 = Color.HotPink;
-            rjCircularPictureBox10.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            rjCircularPictureBox10.BorderSize = 2;
-            rjCircularPictureBox10.GradientAngle = 50F;
-            rjCircularPictureBox10.Location = new Point(60, 11);
-            rjCircularPictureBox10.Name = "rjCircularPictureBox10";
-            rjCircularPictureBox10.Size = new Size(75, 75);
-            rjCircularPictureBox10.SizeMode = PictureBoxSizeMode.StretchImage;
-            rjCircularPictureBox10.TabIndex = 3;
-            rjCircularPictureBox10.TabStop = false;
+            picbox_PlayArea_Avatar2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            picbox_PlayArea_Avatar2.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            picbox_PlayArea_Avatar2.BorderColor = Color.FromArgb(59, 198, 171);
+            picbox_PlayArea_Avatar2.BorderColor2 = Color.FromArgb(59, 198, 171);
+            picbox_PlayArea_Avatar2.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            picbox_PlayArea_Avatar2.BorderSize = 5;
+            picbox_PlayArea_Avatar2.GradientAngle = 50F;
+            picbox_PlayArea_Avatar2.Location = new Point(59, 15);
+            picbox_PlayArea_Avatar2.Name = "picbox_PlayArea_Avatar2";
+            picbox_PlayArea_Avatar2.Size = new Size(77, 77);
+            picbox_PlayArea_Avatar2.SizeMode = PictureBoxSizeMode.StretchImage;
+            picbox_PlayArea_Avatar2.TabIndex = 3;
+            picbox_PlayArea_Avatar2.TabStop = false;
             // 
-            // rjCircularPictureBox12
+            // picbox_PlayArea_Chess2
             // 
-            rjCircularPictureBox12.Anchor = AnchorStyles.None;
-            rjCircularPictureBox12.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
-            rjCircularPictureBox12.BorderColor = Color.RoyalBlue;
-            rjCircularPictureBox12.BorderColor2 = Color.HotPink;
-            rjCircularPictureBox12.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            rjCircularPictureBox12.BorderSize = 2;
-            rjCircularPictureBox12.GradientAngle = 50F;
-            rjCircularPictureBox12.Location = new Point(-1, 81);
-            rjCircularPictureBox12.Name = "rjCircularPictureBox12";
-            rjCircularPictureBox12.Size = new Size(40, 40);
-            rjCircularPictureBox12.SizeMode = PictureBoxSizeMode.StretchImage;
-            rjCircularPictureBox12.TabIndex = 2;
-            rjCircularPictureBox12.TabStop = false;
+            picbox_PlayArea_Chess2.Anchor = AnchorStyles.None;
+            picbox_PlayArea_Chess2.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            picbox_PlayArea_Chess2.BorderColor = Color.FromArgb(59, 198, 171);
+            picbox_PlayArea_Chess2.BorderColor2 = Color.FromArgb(245, 108, 108);
+            picbox_PlayArea_Chess2.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            picbox_PlayArea_Chess2.BorderSize = 1;
+            picbox_PlayArea_Chess2.GradientAngle = 50F;
+            picbox_PlayArea_Chess2.Location = new Point(4, 4);
+            picbox_PlayArea_Chess2.Name = "picbox_PlayArea_Chess2";
+            picbox_PlayArea_Chess2.Size = new Size(40, 40);
+            picbox_PlayArea_Chess2.SizeMode = PictureBoxSizeMode.StretchImage;
+            picbox_PlayArea_Chess2.TabIndex = 2;
+            picbox_PlayArea_Chess2.TabStop = false;
             // 
             // panel_PlayArea_Player1
             // 
             panel_PlayArea_Player1.Anchor = AnchorStyles.None;
-            panel_PlayArea_Player1.BorderStyle = BorderStyle.FixedSingle;
             panel_PlayArea_Player1.Controls.Add(lb_PlayArea_Name1);
-            panel_PlayArea_Player1.Controls.Add(rjCircularPictureBox11);
+            panel_PlayArea_Player1.Controls.Add(picbox_PlayArea_Chess1);
             panel_PlayArea_Player1.Controls.Add(lb_PlayArea_Point1);
-            panel_PlayArea_Player1.Controls.Add(rjCircularPictureBox2);
+            panel_PlayArea_Player1.Controls.Add(picbox_PlayArea_Avatar1);
             panel_PlayArea_Player1.Location = new Point(0, 0);
             panel_PlayArea_Player1.Name = "panel_PlayArea_Player1";
             panel_PlayArea_Player1.Size = new Size(191, 126);
@@ -1302,31 +1302,30 @@
             // lb_PlayArea_Name1
             // 
             lb_PlayArea_Name1.Anchor = AnchorStyles.None;
-            lb_PlayArea_Name1.AutoSize = true;
             lb_PlayArea_Name1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             lb_PlayArea_Name1.ForeColor = Color.White;
-            lb_PlayArea_Name1.Location = new Point(59, 89);
+            lb_PlayArea_Name1.Location = new Point(5, 90);
             lb_PlayArea_Name1.Name = "lb_PlayArea_Name1";
-            lb_PlayArea_Name1.Size = new Size(81, 28);
+            lb_PlayArea_Name1.Size = new Size(182, 28);
             lb_PlayArea_Name1.TabIndex = 4;
             lb_PlayArea_Name1.Text = "Player 1";
             lb_PlayArea_Name1.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // rjCircularPictureBox11
+            // picbox_PlayArea_Chess1
             // 
-            rjCircularPictureBox11.Anchor = AnchorStyles.None;
-            rjCircularPictureBox11.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
-            rjCircularPictureBox11.BorderColor = Color.RoyalBlue;
-            rjCircularPictureBox11.BorderColor2 = Color.HotPink;
-            rjCircularPictureBox11.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            rjCircularPictureBox11.BorderSize = 2;
-            rjCircularPictureBox11.GradientAngle = 50F;
-            rjCircularPictureBox11.Location = new Point(146, 81);
-            rjCircularPictureBox11.Name = "rjCircularPictureBox11";
-            rjCircularPictureBox11.Size = new Size(40, 40);
-            rjCircularPictureBox11.SizeMode = PictureBoxSizeMode.StretchImage;
-            rjCircularPictureBox11.TabIndex = 3;
-            rjCircularPictureBox11.TabStop = false;
+            picbox_PlayArea_Chess1.Anchor = AnchorStyles.None;
+            picbox_PlayArea_Chess1.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            picbox_PlayArea_Chess1.BorderColor = Color.FromArgb(59, 198, 171);
+            picbox_PlayArea_Chess1.BorderColor2 = Color.FromArgb(245, 108, 108);
+            picbox_PlayArea_Chess1.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            picbox_PlayArea_Chess1.BorderSize = 1;
+            picbox_PlayArea_Chess1.GradientAngle = 50F;
+            picbox_PlayArea_Chess1.Location = new Point(147, 4);
+            picbox_PlayArea_Chess1.Name = "picbox_PlayArea_Chess1";
+            picbox_PlayArea_Chess1.Size = new Size(40, 40);
+            picbox_PlayArea_Chess1.SizeMode = PictureBoxSizeMode.StretchImage;
+            picbox_PlayArea_Chess1.TabIndex = 3;
+            picbox_PlayArea_Chess1.TabStop = false;
             // 
             // lb_PlayArea_Point1
             // 
@@ -1334,27 +1333,27 @@
             lb_PlayArea_Point1.AutoSize = true;
             lb_PlayArea_Point1.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
             lb_PlayArea_Point1.ForeColor = Color.White;
-            lb_PlayArea_Point1.Location = new Point(22, 29);
+            lb_PlayArea_Point1.Location = new Point(5, 30);
             lb_PlayArea_Point1.Name = "lb_PlayArea_Point1";
             lb_PlayArea_Point1.Size = new Size(32, 38);
             lb_PlayArea_Point1.TabIndex = 2;
             lb_PlayArea_Point1.Text = "0";
             // 
-            // rjCircularPictureBox2
+            // picbox_PlayArea_Avatar1
             // 
-            rjCircularPictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            rjCircularPictureBox2.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
-            rjCircularPictureBox2.BorderColor = Color.RoyalBlue;
-            rjCircularPictureBox2.BorderColor2 = Color.HotPink;
-            rjCircularPictureBox2.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            rjCircularPictureBox2.BorderSize = 2;
-            rjCircularPictureBox2.GradientAngle = 50F;
-            rjCircularPictureBox2.Location = new Point(59, 11);
-            rjCircularPictureBox2.Name = "rjCircularPictureBox2";
-            rjCircularPictureBox2.Size = new Size(75, 75);
-            rjCircularPictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            rjCircularPictureBox2.TabIndex = 0;
-            rjCircularPictureBox2.TabStop = false;
+            picbox_PlayArea_Avatar1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            picbox_PlayArea_Avatar1.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            picbox_PlayArea_Avatar1.BorderColor = Color.FromArgb(59, 198, 171);
+            picbox_PlayArea_Avatar1.BorderColor2 = Color.FromArgb(59, 198, 171);
+            picbox_PlayArea_Avatar1.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            picbox_PlayArea_Avatar1.BorderSize = 5;
+            picbox_PlayArea_Avatar1.GradientAngle = 50F;
+            picbox_PlayArea_Avatar1.Location = new Point(51, 15);
+            picbox_PlayArea_Avatar1.Name = "picbox_PlayArea_Avatar1";
+            picbox_PlayArea_Avatar1.Size = new Size(77, 77);
+            picbox_PlayArea_Avatar1.SizeMode = PictureBoxSizeMode.StretchImage;
+            picbox_PlayArea_Avatar1.TabIndex = 0;
+            picbox_PlayArea_Avatar1.TabStop = false;
             // 
             // prcbCoolDown
             // 
@@ -1464,29 +1463,74 @@
             // 
             // grb_Undo_Redo
             // 
+            grb_Undo_Redo.Controls.Add(btn_PVC_Exit);
+            grb_Undo_Redo.Controls.Add(btn_PVC_NewGame);
             grb_Undo_Redo.Controls.Add(btn_Redo);
             grb_Undo_Redo.Controls.Add(btn_Undo);
             grb_Undo_Redo.ForeColor = SystemColors.ActiveCaption;
-            grb_Undo_Redo.Location = new Point(18, 328);
+            grb_Undo_Redo.Location = new Point(9, 328);
             grb_Undo_Redo.Name = "grb_Undo_Redo";
-            grb_Undo_Redo.Size = new Size(232, 157);
+            grb_Undo_Redo.Size = new Size(229, 294);
             grb_Undo_Redo.TabIndex = 2;
             grb_Undo_Redo.TabStop = false;
             grb_Undo_Redo.Text = "Công cụ";
+            // 
+            // btn_PVC_Exit
+            // 
+            btn_PVC_Exit.BorderColor = Color.FromArgb(220, 223, 230);
+            btn_PVC_Exit.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            btn_PVC_Exit.Cursor = Cursors.Hand;
+            btn_PVC_Exit.DangerColor = Color.FromArgb(245, 108, 108);
+            btn_PVC_Exit.DefaultColor = Color.FromArgb(255, 255, 255);
+            btn_PVC_Exit.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_PVC_Exit.HoverTextColor = Color.FromArgb(48, 49, 51);
+            btn_PVC_Exit.InfoColor = Color.FromArgb(144, 147, 153);
+            btn_PVC_Exit.Location = new Point(29, 217);
+            btn_PVC_Exit.Name = "btn_PVC_Exit";
+            btn_PVC_Exit.PrimaryColor = Color.FromArgb(59, 198, 171);
+            btn_PVC_Exit.Size = new Size(176, 54);
+            btn_PVC_Exit.SuccessColor = Color.FromArgb(103, 194, 58);
+            btn_PVC_Exit.TabIndex = 6;
+            btn_PVC_Exit.Text = "Exit";
+            btn_PVC_Exit.TextColor = Color.White;
+            btn_PVC_Exit.WarningColor = Color.FromArgb(230, 162, 60);
+            btn_PVC_Exit.Click += btn_PVC_Exit_Click;
+            // 
+            // btn_PVC_NewGame
+            // 
+            btn_PVC_NewGame.BorderColor = Color.FromArgb(220, 223, 230);
+            btn_PVC_NewGame.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            btn_PVC_NewGame.Cursor = Cursors.Hand;
+            btn_PVC_NewGame.DangerColor = Color.FromArgb(245, 108, 108);
+            btn_PVC_NewGame.DefaultColor = Color.FromArgb(255, 255, 255);
+            btn_PVC_NewGame.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_PVC_NewGame.HoverTextColor = Color.FromArgb(48, 49, 51);
+            btn_PVC_NewGame.InfoColor = Color.FromArgb(144, 147, 153);
+            btn_PVC_NewGame.Location = new Point(29, 157);
+            btn_PVC_NewGame.Name = "btn_PVC_NewGame";
+            btn_PVC_NewGame.PrimaryColor = Color.FromArgb(59, 198, 171);
+            btn_PVC_NewGame.Size = new Size(176, 54);
+            btn_PVC_NewGame.SuccessColor = Color.FromArgb(103, 194, 58);
+            btn_PVC_NewGame.TabIndex = 5;
+            btn_PVC_NewGame.Text = "New Game";
+            btn_PVC_NewGame.TextColor = Color.White;
+            btn_PVC_NewGame.WarningColor = Color.FromArgb(230, 162, 60);
+            btn_PVC_NewGame.Click += btn_PVC_NewGame_Click;
             // 
             // btn_Redo
             // 
             btn_Redo.BorderColor = Color.FromArgb(220, 223, 230);
             btn_Redo.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            btn_Redo.Cursor = Cursors.Hand;
             btn_Redo.DangerColor = Color.FromArgb(245, 108, 108);
             btn_Redo.DefaultColor = Color.FromArgb(255, 255, 255);
             btn_Redo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btn_Redo.HoverTextColor = Color.FromArgb(48, 49, 51);
             btn_Redo.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_Redo.Location = new Point(38, 86);
+            btn_Redo.Location = new Point(29, 97);
             btn_Redo.Name = "btn_Redo";
             btn_Redo.PrimaryColor = Color.FromArgb(59, 198, 171);
-            btn_Redo.Size = new Size(156, 54);
+            btn_Redo.Size = new Size(176, 54);
             btn_Redo.SuccessColor = Color.FromArgb(103, 194, 58);
             btn_Redo.TabIndex = 4;
             btn_Redo.Text = "Redo";
@@ -1498,15 +1542,16 @@
             // 
             btn_Undo.BorderColor = Color.FromArgb(220, 223, 230);
             btn_Undo.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            btn_Undo.Cursor = Cursors.Hand;
             btn_Undo.DangerColor = Color.FromArgb(245, 108, 108);
             btn_Undo.DefaultColor = Color.FromArgb(255, 255, 255);
             btn_Undo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btn_Undo.HoverTextColor = Color.FromArgb(48, 49, 51);
             btn_Undo.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_Undo.Location = new Point(38, 26);
+            btn_Undo.Location = new Point(29, 37);
             btn_Undo.Name = "btn_Undo";
             btn_Undo.PrimaryColor = Color.FromArgb(59, 198, 171);
-            btn_Undo.Size = new Size(156, 54);
+            btn_Undo.Size = new Size(176, 54);
             btn_Undo.SuccessColor = Color.FromArgb(103, 194, 58);
             btn_Undo.TabIndex = 3;
             btn_Undo.Text = "Undo";
@@ -1871,9 +1916,9 @@
             grb_ServerInfo.Controls.Add(btn_CancelCreateServer);
             grb_ServerInfo.Controls.Add(btn_ContinueCreateServer);
             grb_ServerInfo.ForeColor = Color.White;
-            grb_ServerInfo.Location = new Point(408, 31);
+            grb_ServerInfo.Location = new Point(168, 112);
             grb_ServerInfo.Name = "grb_ServerInfo";
-            grb_ServerInfo.Size = new Size(73, 77);
+            grb_ServerInfo.Size = new Size(68, 75);
             grb_ServerInfo.TabIndex = 15;
             grb_ServerInfo.TabStop = false;
             grb_ServerInfo.Text = "Tạo phòng PVP";
@@ -1905,7 +1950,7 @@
             cbx_PVP_Chess.ListForeColor = Color.White;
             cbx_PVP_Chess.ListSelectedBackColorA = Color.FromArgb(27, 40, 55);
             cbx_PVP_Chess.ListSelectedBackColorB = Color.FromArgb(27, 40, 55);
-            cbx_PVP_Chess.Location = new Point(172, 277);
+            cbx_PVP_Chess.Location = new Point(177, 299);
             cbx_PVP_Chess.Name = "cbx_PVP_Chess";
             cbx_PVP_Chess.Size = new Size(390, 31);
             cbx_PVP_Chess.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
@@ -1918,7 +1963,7 @@
             // 
             label27.AutoSize = true;
             label27.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label27.Location = new Point(172, 245);
+            label27.Location = new Point(177, 267);
             label27.Name = "label27";
             label27.Size = new Size(68, 28);
             label27.TabIndex = 38;
@@ -1950,7 +1995,7 @@
             cbx_PVP_TurnTime.ListForeColor = Color.White;
             cbx_PVP_TurnTime.ListSelectedBackColorA = Color.FromArgb(27, 40, 55);
             cbx_PVP_TurnTime.ListSelectedBackColorB = Color.FromArgb(27, 40, 55);
-            cbx_PVP_TurnTime.Location = new Point(172, 210);
+            cbx_PVP_TurnTime.Location = new Point(177, 232);
             cbx_PVP_TurnTime.Name = "cbx_PVP_TurnTime";
             cbx_PVP_TurnTime.Size = new Size(390, 31);
             cbx_PVP_TurnTime.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
@@ -1963,7 +2008,7 @@
             // 
             lb_BattleInfo_Notify.AutoSize = true;
             lb_BattleInfo_Notify.ForeColor = Color.FromArgb(245, 108, 108);
-            lb_BattleInfo_Notify.Location = new Point(172, 454);
+            lb_BattleInfo_Notify.Location = new Point(177, 476);
             lb_BattleInfo_Notify.Name = "lb_BattleInfo_Notify";
             lb_BattleInfo_Notify.Size = new Size(84, 20);
             lb_BattleInfo_Notify.TabIndex = 32;
@@ -1995,7 +2040,7 @@
             cbx_PVP_BoardSize.ListForeColor = Color.White;
             cbx_PVP_BoardSize.ListSelectedBackColorA = Color.FromArgb(27, 40, 55);
             cbx_PVP_BoardSize.ListSelectedBackColorB = Color.FromArgb(27, 40, 55);
-            cbx_PVP_BoardSize.Location = new Point(172, 143);
+            cbx_PVP_BoardSize.Location = new Point(177, 165);
             cbx_PVP_BoardSize.Name = "cbx_PVP_BoardSize";
             cbx_PVP_BoardSize.Size = new Size(390, 31);
             cbx_PVP_BoardSize.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
@@ -2008,7 +2053,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(172, 178);
+            label8.Location = new Point(177, 200);
             label8.Name = "label8";
             label8.Size = new Size(177, 28);
             label8.TabIndex = 21;
@@ -2018,7 +2063,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(172, 312);
+            label7.Location = new Point(177, 334);
             label7.Name = "label7";
             label7.Size = new Size(63, 28);
             label7.TabIndex = 20;
@@ -2028,7 +2073,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(172, 111);
+            label6.Location = new Point(177, 128);
             label6.Name = "label6";
             label6.Size = new Size(143, 28);
             label6.TabIndex = 18;
@@ -2050,7 +2095,7 @@
             txt_PVP_ServerPort.ForeColor = Color.White;
             txt_PVP_ServerPort.Lighting = false;
             txt_PVP_ServerPort.LinearGradientPen = false;
-            txt_PVP_ServerPort.Location = new Point(172, 344);
+            txt_PVP_ServerPort.Location = new Point(177, 366);
             txt_PVP_ServerPort.Name = "txt_PVP_ServerPort";
             txt_PVP_ServerPort.PenWidth = 15;
             txt_PVP_ServerPort.RGB = false;
@@ -2073,7 +2118,7 @@
             btn_CancelCreateServer.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btn_CancelCreateServer.HoverTextColor = Color.FromArgb(48, 49, 51);
             btn_CancelCreateServer.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_CancelCreateServer.Location = new Point(172, 419);
+            btn_CancelCreateServer.Location = new Point(177, 441);
             btn_CancelCreateServer.Name = "btn_CancelCreateServer";
             btn_CancelCreateServer.PrimaryColor = Color.FromArgb(245, 108, 108);
             btn_CancelCreateServer.Size = new Size(393, 31);
@@ -2093,7 +2138,7 @@
             btn_ContinueCreateServer.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btn_ContinueCreateServer.HoverTextColor = Color.FromArgb(48, 49, 51);
             btn_ContinueCreateServer.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_ContinueCreateServer.Location = new Point(172, 384);
+            btn_ContinueCreateServer.Location = new Point(177, 406);
             btn_ContinueCreateServer.Name = "btn_ContinueCreateServer";
             btn_ContinueCreateServer.PrimaryColor = Color.FromArgb(59, 198, 171);
             btn_ContinueCreateServer.Size = new Size(390, 31);
@@ -2117,9 +2162,9 @@
             grb_ForgetPassword.Controls.Add(txt_ForgetPW_ID);
             grb_ForgetPassword.Controls.Add(label13);
             grb_ForgetPassword.ForeColor = Color.White;
-            grb_ForgetPassword.Location = new Point(12, 533);
+            grb_ForgetPassword.Location = new Point(195, 202);
             grb_ForgetPassword.Name = "grb_ForgetPassword";
-            grb_ForgetPassword.Size = new Size(652, 494);
+            grb_ForgetPassword.Size = new Size(154, 35);
             grb_ForgetPassword.TabIndex = 16;
             grb_ForgetPassword.TabStop = false;
             grb_ForgetPassword.Text = "Quên mật khẩu";
@@ -2217,7 +2262,7 @@
             txt_ForgetPW_NewPW.ColorPen_1 = Color.FromArgb(12, 20, 29);
             txt_ForgetPW_NewPW.ColorPen_2 = Color.Transparent;
             txt_ForgetPW_NewPW.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            txt_ForgetPW_NewPW.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_ForgetPW_NewPW.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
             txt_ForgetPW_NewPW.ForeColor = Color.White;
             txt_ForgetPW_NewPW.Lighting = false;
             txt_ForgetPW_NewPW.LinearGradientPen = false;
@@ -2618,9 +2663,9 @@
             grb_ComputerInfo.Controls.Add(btn_PVC_Cancel);
             grb_ComputerInfo.Controls.Add(btn_PVC_Start);
             grb_ComputerInfo.ForeColor = Color.White;
-            grb_ComputerInfo.Location = new Point(9, 27);
+            grb_ComputerInfo.Location = new Point(5, 45);
             grb_ComputerInfo.Name = "grb_ComputerInfo";
-            grb_ComputerInfo.Size = new Size(67, 82);
+            grb_ComputerInfo.Size = new Size(86, 66);
             grb_ComputerInfo.TabIndex = 18;
             grb_ComputerInfo.TabStop = false;
             grb_ComputerInfo.Text = "Tạo phòng PVC";
@@ -3031,6 +3076,11 @@
             panel_ChooseAvatar.Size = new Size(107, 11);
             panel_ChooseAvatar.TabIndex = 0;
             // 
+            // tmComputer
+            // 
+            tmComputer.Interval = 1000;
+            tmComputer.Tick += tmComputer_Tick;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -3075,12 +3125,12 @@
             panel_PlayArea_PlayerInfo.ResumeLayout(false);
             panel_PlayArea_Player2.ResumeLayout(false);
             panel_PlayArea_Player2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox10).EndInit();
-            ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox12).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picbox_PlayArea_Avatar2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picbox_PlayArea_Chess2).EndInit();
             panel_PlayArea_Player1.ResumeLayout(false);
             panel_PlayArea_Player1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox11).EndInit();
-            ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picbox_PlayArea_Chess1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picbox_PlayArea_Avatar1).EndInit();
             panel_PlayArea_MsgArea.ResumeLayout(false);
             panel_PlayArea_MsgArea.PerformLayout();
             panel_PLayArea_Tool.ResumeLayout(false);
@@ -3207,7 +3257,7 @@
         private ReaLTaiizor.Controls.HopeRoundButton btn_PVC_Start;
         private Panel panel_PlayArea_Player2;
         private Panel panel_PlayArea_Player1;
-        private RJCircularPictureBox rjCircularPictureBox2;
+        private RJCircularPictureBox picbox_PlayArea_Avatar1;
         private ReaLTaiizor.Controls.HopeRoundButton btn_Info_OpenSetting;
         private GroupBox grb_Setting;
         private ReaLTaiizor.Controls.HopeRoundButton btn_Setting_Exit;
@@ -3222,9 +3272,9 @@
         private ReaLTaiizor.Controls.SkyComboBox cbx_PVP_TurnTime;
         private ReaLTaiizor.Controls.SkyComboBox cbx_PVC_TurnTime;
         private ReaLTaiizor.Controls.SkyComboBox cbx_PVC_BoardSize;
-        private RJCircularPictureBox rjCircularPictureBox10;
-        private RJCircularPictureBox rjCircularPictureBox12;
-        private RJCircularPictureBox rjCircularPictureBox11;
+        private RJCircularPictureBox picbox_PlayArea_Avatar2;
+        private RJCircularPictureBox picbox_PlayArea_Chess2;
+        private RJCircularPictureBox picbox_PlayArea_Chess1;
         private Label lb_PlayArea_Point1;
         private Label lb_PlayArea_Name2;
         private Label lb_PlayArea_Point2;
@@ -3261,5 +3311,8 @@
         private DataGridViewTextBoxColumn Win;
         private DataGridViewTextBoxColumn Lose;
         private DataGridViewTextBoxColumn Winrate;
+        private ReaLTaiizor.Controls.HopeRoundButton btn_PVC_Exit;
+        private ReaLTaiizor.Controls.HopeRoundButton btn_PVC_NewGame;
+        private System.Windows.Forms.Timer tmComputer;
     }
 }

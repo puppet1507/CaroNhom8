@@ -71,6 +71,7 @@ namespace Caro_Nhom8
                             await firebaseClient.Child("Users").Child("User_" + id).PutAsync(user);
                             lb_ForgetPassword_Notify.ForeColor = Color.FromArgb(59, 198, 171);
                             lb_ForgetPassword_Notify.Text = "*Thông báo: Đổi mật khẩu mới thành công!";
+                            RenewForgetPassword();
                         }    
                     }    
                 }

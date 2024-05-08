@@ -60,11 +60,21 @@ namespace Caro_Nhom8
             }
         }
         #endregion
+
         #region LoginMethod
         void RenewLogin()
         {
             txt_Login_ID.TextButton = currentplayer.ID;
             txt_Login_PW.TextButton = "";
+        }
+        #endregion
+
+        #region ForgetPassowrdMethod
+        void RenewForgetPassword()
+        {
+            txt_ForgetPW_ID.TextButton = "";
+            txt_ForgetPW_NewPW.TextButton = "";
+            txt_ForgetPW_ProtectionCode.TextButton = "";
         }
         #endregion
 
@@ -337,6 +347,91 @@ namespace Caro_Nhom8
             lb_PlayArea_Point2.ForeColor = Color.White;
             lb_PlayArea_Name1.ForeColor = Color.White;
             lb_PlayArea_Name2.ForeColor = Color.White;
+        }
+        #endregion
+
+        #region GameMethod
+        public bool GameCheckWin()
+        {
+            if(caroChess.CheckWin() == 0)
+            {
+                return false;
+            }    
+            else if(caroChess.CheckWin() == 1)
+            {
+                DoEndGame(1);
+                isGameEnd = true;
+                return true;
+            }
+            else if(caroChess.CheckWin() == 2)
+            {
+                DoEndGame(2);
+                isGameEnd = true;
+                return true;
+            }
+            else if(caroChess.CheckWin() == 22)
+            {
+                DoEndGame(22);
+                isGameEnd = true;
+                return true;
+            }    
+            return false;
+        }
+        public void DoEndGame(int x)
+        {
+            if(caroChess.Mode == 2)
+            {
+                switch (x)
+                {
+                    case 22:
+                        MessageBox.Show("Hòa");
+                        break;
+                    case 1:
+                        if (!isComputerFirst)
+                        {
+                            int point = int.Parse(lb_PlayArea_Point1.Text);
+                            point++;
+                            lb_PlayArea_Point1.Text = point.ToString();
+                            tmCoolDown.Stop();
+                            MessageBox.Show("Bạn đã thắng!");
+                            
+                        }
+                        else
+                        {
+                            int point = int.Parse(lb_PlayArea_Point2.Text);
+                            point++;
+                            lb_PlayArea_Point2.Text = point.ToString();
+                            tmCoolDown.Stop();
+                            MessageBox.Show("Bạn đã thua!");
+                            
+                        }    
+                        break;
+                    case 2:
+                        if(!isComputerFirst)
+                        {
+                            int point = int.Parse(lb_PlayArea_Point2.Text);
+                            point++;
+                            lb_PlayArea_Point2.Text = point.ToString();
+                            tmCoolDown.Stop();
+                            MessageBox.Show("Bạn đã thua!");
+                           
+                        }
+                        else
+                        {
+                            int point = int.Parse(lb_PlayArea_Point1.Text);
+                            point++;
+                            lb_PlayArea_Point1.Text = point.ToString();
+                            tmCoolDown.Stop();
+                            MessageBox.Show("Bạn đã thắng!");
+                            
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+            caroChess.Ready = false;
+            
         }
         #endregion
     }

@@ -8,7 +8,6 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.DataFormats;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Media;
@@ -31,16 +30,16 @@ namespace Caro_Nhom8
         //private string name = "";
         //private string IP = "127.0.0.1";
         private Graphics grs;
-        public static int cdStep = 100;
-        public static int cdTime = 15000;
-        public static int cdInterval = 100;
         private CaroGame caroChess;
+        Board board = new Board();
         public bool isServer;
         public string currentClient = "";
         public int numofClinet;
         bool isMusic = true;
         bool isSFX = true;
         bool isDark = true;
+        bool isGameEnd = false;
+        bool isComputerFirst = false;
         public bool isChooseAvatarSignUp = false;
         public string currentAvatar = "Resources/UI_Icon/Default.png";
         public Player currentplayer = new Player();
@@ -78,20 +77,22 @@ namespace Caro_Nhom8
         {
             playSFX();
             caroChess.Undo(grs);
-            tmCoolDown.Start();
-            prcbCoolDown.Value = 0;
-            if (isSFX)
+            if(isGameEnd == false)
             {
-
-            }
+                tmCoolDown.Start();
+                prcbCoolDown.Value = 0;
+            }    
         }
 
         private void btn_Redo_Click(object sender, EventArgs e)
         {
             playSFX();
-            caroChess.Redo(grs);
-            tmCoolDown.Start();
-            prcbCoolDown.Value = 0;
+            caroChess.Redo(grs, firstchess,secondchess);
+            if(isGameEnd == false)
+            {
+                tmCoolDown.Start();
+                prcbCoolDown.Value = 0;
+            }    
         }
         #endregion
 
@@ -216,13 +217,11 @@ namespace Caro_Nhom8
         public MainForm()
         {
             InitializeComponent();
-            Board board = new Board(20,20);
+            board = new Board(16, 16);
             caroChess = new CaroGame(board);
-            caroChess.CreateChessPieces();
             grs = panel_PlayArea_Board.CreateGraphics();
-            prcbCoolDown.Maximum = 15000;
-            prcbCoolDown.Value = 0;
-            tmCoolDown.Interval = cdInterval;
+            firstchess = ImageXred;
+            secondchess = ImageOgreen;
             music.URL = "Resources/Sound/Music.wav";
             music.settings.setMode("loop", true);
             music.controls.stop();
@@ -232,7 +231,7 @@ namespace Caro_Nhom8
         private void fpanel_Board_Paint(object sender, PaintEventArgs e)
         {
             caroChess!.DrawChessBoard(grs!);
-            caroChess.RepaintChess(grs!);
+            caroChess.RepaintChess(grs!, firstchess, secondchess);
         }
 
 
@@ -314,34 +313,24 @@ namespace Caro_Nhom8
         {
             if (!caroChess.Ready)
                 return;
-            if (caroChess.PlayChess(e.X, e.Y, grs))
+            if (caroChess.PlayChess(e.X, e.Y, grs, firstchess, secondchess))
             {
-                if (caroChess.Mode == 1)
+                playSFX();
+                if (caroChess.Mode == 2)
                 {
-                    if (caroChess.CheckWin())
+                    if (GameCheckWin())
                     {
-                        tmCoolDown.Stop();
-                        caroChess.EndGame();
-                        return;
-                    }
-                }
-                else if (caroChess.Mode == 2)
-                {
-                    if (caroChess.CheckWin())
-                    {
-                        tmCoolDown.Stop();
-                        caroChess.EndGame();
                         return;
                     }
                     else
                     {
-                        caroChess.LaunchComputer(grs);
-                        if (caroChess.CheckWin())
-                        {
-                            tmCoolDown.Stop();
-                            caroChess.EndGame();
-                            return;
-                        }
+                        picbox_PlayArea_Avatar1.BorderSize = 0;
+                        picbox_PlayArea_Avatar2.BorderSize = 5;
+                        panel_PlayArea_Board.Enabled = false;
+                        Random random = new Random();
+                        tmComputer.Interval = random.Next(1000, 1500);
+                        tmComputer.Start();
+                        
                     }
                 }
                 else if (caroChess.Mode == 3)
@@ -356,10 +345,8 @@ namespace Caro_Nhom8
                     {
                         client!.SendAsync("/pnt " + e.Location.X.ToString() + "," + e.Location.Y.ToString());
                     }
-                    if (caroChess.CheckWin())
+                    if (GameCheckWin())
                     {
-                        tmCoolDown.Stop();
-                        caroChess.EndGame();
                         return;
                     }
                 }
@@ -371,13 +358,13 @@ namespace Caro_Nhom8
         {
             if (!caroChess.Ready)
                 return;
-            if (caroChess.PlayChess(point.X, point.Y, grs))
+            if (caroChess.PlayChess(point.X, point.Y, grs, firstchess, secondchess))
             {
+                playSFX();
                 panel_PlayArea_Board.Enabled = true;
-                if (caroChess.CheckWin())
+                if (GameCheckWin())
                 {
                     tmCoolDown.Stop();
-                    caroChess.EndGame();
                 }
             }
         }
@@ -388,7 +375,6 @@ namespace Caro_Nhom8
             {
                 prcbCoolDown.ColorProgressBar = Color.FromArgb(59, 198, 171);
             }
-
             if (prcbCoolDown.Value >= prcbCoolDown.Maximum / 2)
             {
                 prcbCoolDown.ColorProgressBar = Color.FromArgb(253, 203, 102);
@@ -402,12 +388,119 @@ namespace Caro_Nhom8
             if (prcbCoolDown.Value >= prcbCoolDown.Maximum)
             {
                 tmCoolDown.Stop();
-                caroChess!.EndGame();
+                MessageBox.Show("Hết giờ");
+                panel_PlayArea_Board.Enabled = false;
 
             }
         }
 
-       
+        private void btn_PVC_NewGame_Click(object sender, EventArgs e)
+        {
+            playSFX();
+            if(isGameEnd == false)
+            {
+                DialogResult result = MessageBox.Show("Nếu tạo trận mới ngay lúc này, bạn sẽ bị xử thua! Vẫn tiếp tục chứ?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    int point2 = int.Parse(lb_PlayArea_Point2.Text);
+                    point2++;
+                    lb_PlayArea_Point2.Text = point2.ToString();
+                    grs.Clear(panel_PlayArea.BackColor);
+                    caroChess.StartPvC(grs);
+                    Image temp = firstchess;
+                    firstchess = secondchess;
+                    secondchess = temp;
+                    isComputerFirst = !isComputerFirst;
+                    if(isComputerFirst)
+                    {
+                        panel_PlayArea_Board.Enabled = false;
+                        picbox_PlayArea_Avatar1.BorderSize = 0;
+                        picbox_PlayArea_Avatar2.BorderSize = 5;
+                        tmCoolDown.Start();
+                        prcbCoolDown.Value = 0;
+                        Random random = new Random();
+                        tmComputer.Interval = random.Next(1000, 1500);
+                        tmComputer.Start();
+                    }   
+                    else
+                    {
+                        panel_PlayArea_Board.Enabled = true;
+                        picbox_PlayArea_Avatar1.BorderSize = 5;
+                        picbox_PlayArea_Avatar2.BorderSize = 0;
+                        prcbCoolDown.Value = 0;
+                        tmCoolDown.Start();
+                       
+                    }    
+                }
+                else
+                {
+                    return;
+                }
+                isGameEnd = false;
+
+            }
+            else
+            {
+                grs.Clear(panel_PlayArea.BackColor);
+                caroChess.StartPvC(grs);
+                Image temp = firstchess;
+                firstchess = secondchess;
+                secondchess = temp;
+                isComputerFirst = !isComputerFirst;
+                if (isComputerFirst)
+                {
+                    panel_PlayArea_Board.Enabled = false;
+                    picbox_PlayArea_Avatar1.BorderSize = 0;
+                    picbox_PlayArea_Avatar2.BorderSize = 5;
+                    tmCoolDown.Start();
+                    prcbCoolDown.Value = 0;
+                    Random random = new Random();
+                    tmComputer.Interval = random.Next(1000, 1500);
+                    tmComputer.Start();
+                }
+                else
+                {
+                    panel_PlayArea_Board.Enabled = true;
+                    picbox_PlayArea_Avatar1.BorderSize = 5;
+                    picbox_PlayArea_Avatar2.BorderSize = 0;
+                    prcbCoolDown.Value = 0;
+                    tmCoolDown.Start();
+                }
+                isGameEnd = false;
+            }
+            
+        }
+
+        private void btn_PVC_Exit_Click(object sender, EventArgs e)
+        {
+            playSFX();
+            tmCoolDown.Stop();
+            tmComputer.Stop();
+            panel_PlayArea_ChatArea.Controls.Clear();
+            lb_PlayArea_Point1.Text = "0";
+            lb_PlayArea_Point2.Text = "0";
+            OpenInfo();
+        }
+
+        private void tmComputer_Tick(object sender, EventArgs e)
+        {
+            tmComputer.Stop();
+            playSFX();
+            caroChess.LaunchComputer(grs,firstchess,secondchess);
+            picbox_PlayArea_Avatar1.BorderSize = 5;
+            picbox_PlayArea_Avatar2.BorderSize = 0;
+            if (GameCheckWin())
+            {
+                tmCoolDown.Stop();
+                return;
+            }
+            else
+            {
+                tmCoolDown.Start();
+                prcbCoolDown.Value = 0;
+                panel_PlayArea_Board.Enabled = true;
+            }
+        }
     }
 
 

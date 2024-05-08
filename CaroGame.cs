@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
-using static System.Net.Mime.MediaTypeNames;
+using WMPLib;
 namespace Caro_Nhom8
 {
     class CaroGame
@@ -22,7 +22,6 @@ namespace Caro_Nhom8
         private Board chessBoard;
         private Stack<Chess> stkChessUsed;
         private Stack<Chess> stkChessUndo;
-
         private int turn;
         private bool ready;
 
@@ -30,8 +29,9 @@ namespace Caro_Nhom8
         // mode = 1 => PvP 
         // mode = 2 => PvC
 
-        private System.Drawing.Image ImageO = new Bitmap("Resources/UI_Icon/x.png");
-        private System.Drawing.Image ImageX = new Bitmap("Resources/UI_Icon/o.png");
+        //public System.Drawing.Image ImageO = new Bitmap("Resources/UI_Icon/o.png");
+        //public System.Drawing.Image ImageX = new Bitmap("Resources/UI_Icon/x.png");
+
         public bool Ready
         {
             get { return ready; }
@@ -45,7 +45,7 @@ namespace Caro_Nhom8
         public CaroGame(Board board)
         {
             pen = new Pen(Color.FromArgb(44, 62, 80));
-            sbPnl = new SolidBrush(Color.FromArgb(12, 20, 29));
+            //sbPnl = new SolidBrush(Color.FromArgb(12, 20, 29));
             chessBoard = board;
             arrChessPiece = new Chess[chessBoard.NumOfLines, chessBoard.NumOfColumns];
             stkChessUsed = new Stack<Chess>();
@@ -56,6 +56,7 @@ namespace Caro_Nhom8
         public void DrawChessBoard(Graphics g)
         {
             chessBoard.DrawChessBoard(g);
+            
         }
 
         // Tạo bàn cờ bằng mảng 2 chiều
@@ -70,8 +71,9 @@ namespace Caro_Nhom8
                 }
             }
         }
+
         // Phương thức đánh cờ
-        public bool PlayChess(int mouseX, int mouseY, Graphics g)
+        public bool PlayChess(int mouseX, int mouseY, Graphics g, Image firstchess, Image secondchess)
         {
             int cellSize = 640 / chessBoard.NumOfColumns;
             if (mouseX % cellSize == 0 || mouseY % cellSize == 0)
@@ -85,12 +87,12 @@ namespace Caro_Nhom8
             {
                 case 1:
                     arrChessPiece[row, column].Owner = 1;
-                    chessBoard.DrawChess(g, arrChessPiece[row, column].Position, ImageX);
+                    chessBoard.DrawChess(g, arrChessPiece[row, column].Position, firstchess);
                     turn = 2;
                     break;
                 case 2:
                     arrChessPiece[row, column].Owner = 2;
-                    chessBoard.DrawChess(g, arrChessPiece[row, column].Position, ImageO);
+                    chessBoard.DrawChess(g, arrChessPiece[row, column].Position, secondchess);
                     turn = 1;
                     break;
                 default:
@@ -105,14 +107,14 @@ namespace Caro_Nhom8
             return true;
         }
 
-        public void RepaintChess(Graphics g)
+        public void RepaintChess(Graphics g, Image firstchess, Image secondchess)
         {
             foreach (Chess cp in stkChessUsed)
             {
                 if (cp.Owner == 1)
-                    chessBoard.DrawChess(g, cp.Position, ImageX);
+                    chessBoard.DrawChess(g, cp.Position, firstchess);
                 else if (cp.Owner == 2)
-                    chessBoard.DrawChess(g, cp.Position, ImageO);
+                    chessBoard.DrawChess(g, cp.Position, secondchess);
 
             }
         }
@@ -125,7 +127,6 @@ namespace Caro_Nhom8
             mode = 2;
             CreateChessPieces();
             DrawChessBoard(g);
-            LaunchComputer(g);
         }
 
         public void StartLAN(Graphics g)
@@ -141,56 +142,35 @@ namespace Caro_Nhom8
         #region Undo, Redo
         public void Undo(Graphics g)
         {
-            if (mode == 1)
+            if (mode == 2)
             {
                 if (stkChessUsed.Count != 0)
                 {
-                    if (turn == 1)
-                        turn = 2;
-                    else if (turn == 2)
-                        turn = 1;
-                    Chess cp = stkChessUsed.Pop();
-                    stkChessUndo.Push(new Chess(cp.Row, cp.Column, cp.Position, cp.Owner));
-                    arrChessPiece[cp.Row, cp.Column].Owner = 0;
-                    chessBoard.RemoveChess(g, cp.Position, sbPnl!);
-                }
-                else
-                    MessageBox.Show("Bạn chưa đánh nước cờ nào!!");
-            }
-            else if (mode == 2)
-            {
-                if (stkChessUsed.Count != 0)
-                {
-                    Chess cpC = stkChessUsed.Pop();
-                    Chess cpP = stkChessUsed.Pop();
-                    stkChessUndo.Push(new Chess(cpP.Row, cpP.Column, cpP.Position, cpP.Owner));
-                    stkChessUndo.Push(new Chess(cpC.Row, cpC.Column, cpC.Position, cpC.Owner));
-                    arrChessPiece[cpP.Row, cpP.Column].Owner = 0;
-                    arrChessPiece[cpC.Row, cpC.Column].Owner = 0;
-                    chessBoard.RemoveChess(g, cpP.Position, sbPnl!);
-                    chessBoard.RemoveChess(g, cpC.Position, sbPnl!);
+                    if(stkChessUsed.Count == 1)
+                    {
+                        return;
+
+                    }
+                    else
+                    {
+                        Chess cpC = stkChessUsed.Pop();
+                        Chess cpP = stkChessUsed.Pop();
+                        stkChessUndo.Push(new Chess(cpP.Row, cpP.Column, cpP.Position, cpP.Owner));
+                        stkChessUndo.Push(new Chess(cpC.Row, cpC.Column, cpC.Position, cpC.Owner));
+                        arrChessPiece[cpP.Row, cpP.Column].Owner = 0;
+                        arrChessPiece[cpC.Row, cpC.Column].Owner = 0;
+                        chessBoard.RemoveChess(g, cpP.Position, sbPnl!);
+                        chessBoard.RemoveChess(g, cpC.Position, sbPnl!);
+                    }    
+                    
                 }
                 else
                     MessageBox.Show("Bạn chưa đánh nước cờ nào!!");
             }
         }
-        public void Redo(Graphics g)
+        public void Redo(Graphics g, Image firstchess, Image secondchess)
         {
-            if (mode == 1)
-            {
-                if (stkChessUndo.Count != 0)
-                {
-                    if (turn == 1)
-                        turn = 2;
-                    else if (turn == 2)
-                        turn = 1;
-                    Chess cp = stkChessUndo.Pop();
-                    stkChessUsed.Push(new Chess(cp.Row, cp.Column, cp.Position, cp.Owner));
-                    arrChessPiece[cp.Row, cp.Column].Owner = cp.Owner;
-                    chessBoard.DrawChess(g, cp.Position, cp.Owner == 1 ? ImageX : ImageO);
-                }
-            }
-            else if (mode == 2)
+            if (mode == 2)
             {
                 if (stkChessUndo.Count != 0)
                 {
@@ -200,91 +180,32 @@ namespace Caro_Nhom8
                     stkChessUsed.Push(new Chess(cpC.Row, cpC.Column, cpC.Position, cpC.Owner));
                     arrChessPiece[cpC.Row, cpC.Column].Owner = cpC.Owner;
                     arrChessPiece[cpP.Row, cpP.Column].Owner = cpP.Owner;
-                    chessBoard.DrawChess(g, cpP.Position, cpP.Owner == 1 ? ImageX : ImageO);
-                    chessBoard.DrawChess(g, cpC.Position, cpC.Owner == 1 ? ImageX : ImageO);
+                    chessBoard.DrawChess(g, cpP.Position, cpP.Owner == 1 ? firstchess : secondchess);
+                    chessBoard.DrawChess(g, cpC.Position, cpC.Owner == 1 ? firstchess : secondchess);
                 }
             }
-        }
-        #endregion
-
-        #region EndGame
-        public void EndGame()
-        {
-            switch (mode)
-            {
-                case 1:
-                    switch (_end)
-                    {
-                        case END.Draw:
-                            MessageBox.Show("Time out");
-                            break;
-                        case END.Player1:
-                            MessageBox.Show("Player 1 win!!");
-                            break;
-                        case END.Player2:
-                            MessageBox.Show("Player 2 win!!");
-                            break;
-
-
-                    }
-                    break;
-                case 2:
-                    switch (_end)
-                    {
-                        case END.Draw:
-                            MessageBox.Show("Time out");
-                            break;
-                        case END.Player1:
-                            MessageBox.Show("Computer win!!");
-                            break;
-                        case END.Player2:
-                            MessageBox.Show("You win!!");
-                            break;
-
-                    }
-                    break;
-                case 3:
-                    switch (_end)
-                    {
-                        case END.Draw:
-                            MessageBox.Show("Time out");
-                            break;
-                        case END.Player1:
-                            MessageBox.Show("Player 1 win!!");
-                            break;
-                        case END.Player2:
-                            MessageBox.Show("Player 2 win!!");
-                            break;
-                        default:
-                            MessageBox.Show("End Game");
-                            break;
-
-                    }
-                    break;
-            }
-
-            ready = false;
         }
         #endregion
 
         #region Check Winer
 
-        public bool CheckWin()
+        public int CheckWin()
         {
             if (stkChessUsed.Count == chessBoard.NumOfColumns * chessBoard.NumOfLines)
             {
-                _end = END.Draw;
-                return true;
+                return 22;
             }
             foreach (Chess cp in stkChessUsed)
             {
                 if (CheckVertical(cp.Row, cp.Column, cp.Owner) || CheckHorizontal(cp.Row, cp.Column, cp.Owner) || CheckCross(cp.Row, cp.Column, cp.Owner) || CheckCrossBackwards(cp.Row, cp.Column, cp.Owner))
                 {
-                    _end = cp.Owner == 1 ? END.Player1 : END.Player2;
-                    return true;
+                    if (cp.Owner == 1)
+                        return 1;
+                    else if (cp.Owner == 2)
+                        return 2;
                 }
             }
-            return false;
+            return 0;
         }
 
         private bool CheckVertical(int currRow, int currColumn, int currOwner)
@@ -430,18 +351,18 @@ namespace Caro_Nhom8
         #region AI Computer
         private long[] AttackPoint = new long[7] { 0, 9, 54, 162, 1458, 13112, 118008 };
         private long[] DefensePoint = new long[7] { 0, 3, 27, 99, 729, 6561, 59049 };
-        public void LaunchComputer(Graphics g)
+        public void LaunchComputer(Graphics g, Image firstchess, Image secondchess)
         {
             int cellSize = 640 / chessBoard.NumOfColumns;
             if (stkChessUsed.Count == 0)
             {
-                PlayChess(chessBoard.NumOfColumns / 2 * cellSize + 1, chessBoard.NumOfLines / 2 * cellSize + 1, g);
+                PlayChess(chessBoard.NumOfColumns / 2 * cellSize + 1, chessBoard.NumOfLines / 2 * cellSize + 1, g, firstchess, secondchess);
             }
             else
             {
 
                 Chess cp = FindMove();
-                PlayChess(cp.Position.X + 1, cp.Position.Y + 1, g);
+                PlayChess(cp.Position.X + 1, cp.Position.Y + 1, g,firstchess,secondchess);
 
             }
         }

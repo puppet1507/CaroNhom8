@@ -73,6 +73,7 @@ namespace Caro_Nhom8
         {
             playSFX();
             OpenForgetPassword();
+            RenewForgetPassword();
         }
         
         
