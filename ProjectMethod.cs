@@ -3,10 +3,15 @@ using ReaLTaiizor.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.CompilerServices;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
 
 namespace Caro_Nhom8
 {
@@ -74,7 +79,8 @@ namespace Caro_Nhom8
         {
             txt_ForgetPW_ID.TextButton = "";
             txt_ForgetPW_NewPW.TextButton = "";
-            txt_ForgetPW_ProtectionCode.TextButton = "";
+            txt_ForgetPW_UserEmail.TextButton = "";
+            txt_FortgetPW_Code.TextButton = "";
         }
         #endregion
 
@@ -86,6 +92,8 @@ namespace Caro_Nhom8
             txt_SignUp_Email.TextButton = "";
             txt_SignUp_PW.TextButton = "";
             txt_SignUp_ProtectionCode.TextButton = "";
+            txt_Signup_Verifycode.TextButton = "";
+            verifycode = "none";
             picbox_SignUp_Avatar.Image = Image.FromFile("Resources/UI_Icon/Default.png");
             currentAvatar = "Resources/UI_Icon/Default.png";
         }
@@ -121,33 +129,71 @@ namespace Caro_Nhom8
             bool isMatch = Regex.IsMatch(password, pattern);
             return isMatch;
         }
-        private async Task<bool> IsIdExists(string id)
+        
+        private async Task<bool> GetVerifyCodeAsync(string email, string verificationCode, string option)
         {
-            var data = await firebaseClient.Child("Users").Child("User_" + id).OnceAsync<object>();
-            return data.Any();
-        }
-        private async Task<bool> IsPasswordTrue(string id, string pw)
-        {
-            var dataSnapshot = await firebaseClient.Child("Users").OrderByKey().EqualTo("User_" + id).OnceAsync<Player>();
-            foreach (var item in dataSnapshot)
+
+            string code = verificationCode;
+            string htmlTemplate = "";
+            if (option == "register")
             {
-                var user = item.Object;
-                if (pw == user.Password)
+                htmlTemplate = File.ReadAllText("Templates/Register.html");
+            }
+            else if(option == "forgetpw")
+            {
+                htmlTemplate = File.ReadAllText("Templates/ForgetPW.html");
+            }    
+            string emailBody = htmlTemplate.Replace("[[CODE]]", code);
+            string to = email;
+            string from = "carogroup8@gmail.com";
+            string password = "gmet uyro ltev vqhe";
+
+            using (MailMessage message = new MailMessage())
+            {
+                message.To.Add(to);
+                message.From = new MailAddress(from);
+                message.Subject = "Verification code - Caro Group8";
+                message.Body = emailBody;
+                message.IsBodyHtml = true;
+
+                using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
                 {
-                    currentplayer!.ID = user.ID;
-                    currentplayer.Password = user.Password;
-                    currentplayer.Name = user.Name;
-                    currentplayer.Win = user.Win;
-                    currentplayer.Lose = user.Lose;
-                    currentplayer.Avatar = user.Avatar;
-                    currentplayer.Winrate = user.Winrate;
-                    currentplayer.ProtectionCode = user.ProtectionCode;
-                    currentplayer.Email = user.Email;
-                    currentAvatar = user.Avatar!;
-                    return true;
+                    smtp.EnableSsl = true;
+                    smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    smtp.Credentials = new NetworkCredential(from, password);
+
+                    try
+                    {
+                        await smtp.SendMailAsync(message);
+                        return true;
+                    }
+                    catch (SmtpException smtpEx)
+                    {
+                        lb_SignUp_Notify.ForeColor = Color.FromArgb(245, 108, 108);
+                        lb_SignUp_Notify.Text = "*Thông báo: " + smtpEx.Message;
+                        return false;
+                    }
+                    catch (Exception ex)
+                    {
+                        lb_SignUp_Notify.ForeColor = Color.FromArgb(245, 108, 108);
+                        lb_SignUp_Notify.Text = "*Thông báo: " + ex.Message;
+                        return false;
+                    }
                 }
             }
-            return false;
+        }
+        public string GenerateVerificationCode(int length)
+        {
+            Random random = new Random();
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            StringBuilder result = new StringBuilder(length);
+
+            for (int i = 0; i < length; i++)
+            {
+                result.Append(chars[random.Next(chars.Length)]);
+            }
+
+            return result.ToString();
         }
         #endregion
 
@@ -348,6 +394,13 @@ namespace Caro_Nhom8
             lb_PlayArea_Name1.ForeColor = Color.White;
             lb_PlayArea_Name2.ForeColor = Color.White;
         }
+        public void playSFX()
+        {
+            if (isSFX)
+            {
+                sfx.URL = "Resources/Sound/Sfx.wav";
+            }
+        }
         #endregion
 
         #region GameMethod
@@ -360,78 +413,408 @@ namespace Caro_Nhom8
             else if(caroChess.CheckWin() == 1)
             {
                 DoEndGame(1);
-                isGameEnd = true;
                 return true;
             }
             else if(caroChess.CheckWin() == 2)
             {
                 DoEndGame(2);
-                isGameEnd = true;
                 return true;
             }
             else if(caroChess.CheckWin() == 22)
             {
                 DoEndGame(22);
-                isGameEnd = true;
                 return true;
             }    
             return false;
         }
+
         public void DoEndGame(int x)
         {
-            if(caroChess.Mode == 2)
+            NotifyForm nfw = new NotifyForm("Thắng");
+            NotifyForm nfl = new NotifyForm("Thua");
+            NotifyForm nfd = new NotifyForm("Hòa");
+            DialogResult dnf = new DialogResult();
+            switch (x)
             {
-                switch (x)
+                case 22:
+                    
+                    tmCoolDown.Stop();
+                    dnf = nfd.ShowDialog();
+                    break;
+                case 1:
+                    if (isYouFirst)
+                    {
+                        int point = int.Parse(lb_PlayArea_Point1.Text);
+                        point++;
+                        lb_PlayArea_Point1.Text = point.ToString();
+                        tmCoolDown.Stop();
+                        dnf = nfw.ShowDialog();
+
+                    }
+                    else
+                    {
+                        int point = int.Parse(lb_PlayArea_Point2.Text);
+                        point++;
+                        lb_PlayArea_Point2.Text = point.ToString();
+                        tmCoolDown.Stop();
+                        dnf = nfl.ShowDialog();
+
+                    }
+                    break;
+                case 2:
+                    if (isYouFirst)
+                    {
+                        int point = int.Parse(lb_PlayArea_Point2.Text);
+                        point++;
+                        lb_PlayArea_Point2.Text = point.ToString();
+                        tmCoolDown.Stop();
+                        dnf = nfl.ShowDialog();
+
+                    }
+                    else
+                    {
+                        int point = int.Parse(lb_PlayArea_Point1.Text);
+                        point++;
+                        lb_PlayArea_Point1.Text = point.ToString();
+                        tmCoolDown.Stop();
+                        dnf = nfw.ShowDialog();
+                    }
+                    break;
+                default:
+                    break;
+            }
+            isGameEnd = true;
+            caroChess.Ready = false;
+        }
+        private void DoNewGame_PVP()
+        {
+            grs.Clear(panel_PlayArea.BackColor);
+            caroChess.StartLAN(grs);
+            Image temp = firstchess;
+            firstchess = secondchess;
+            secondchess = temp;
+            isYouFirst = !isYouFirst;
+            if (isYouFirst)
+            {
+                panel_PlayArea_Board.Enabled = true;
+                picbox_PlayArea_Avatar1.BorderSize = 5;
+                picbox_PlayArea_Avatar2.BorderSize = 0;
+                prcbCoolDown.Value = 0;
+                tmCoolDown.Start();
+            }
+            else
+            {
+                panel_PlayArea_Board.Enabled = false;
+                picbox_PlayArea_Avatar1.BorderSize = 0;
+                picbox_PlayArea_Avatar2.BorderSize = 5;
+                prcbCoolDown.Value = 0;
+                tmCoolDown.Start();
+            }
+            isGameEnd = false;
+        }
+        private void tmCoolDown_Tick(object sender, EventArgs e)
+        {
+            if (prcbCoolDown.Value < prcbCoolDown.Maximum / 2)
+            {
+                prcbCoolDown.ColorProgressBar = Color.FromArgb(59, 198, 171);
+            }
+            if (prcbCoolDown.Value >= prcbCoolDown.Maximum / 2)
+            {
+                prcbCoolDown.ColorProgressBar = Color.FromArgb(253, 203, 102);
+            }
+            if (prcbCoolDown.Value >= prcbCoolDown.Maximum * 3 / 4)
+            {
+                prcbCoolDown.ColorProgressBar = Color.FromArgb(245, 108, 108);
+
+            }
+            prcbCoolDown.Value = prcbCoolDown.Value + 100;
+            if (prcbCoolDown.Value >= prcbCoolDown.Maximum)
+            {
+                tmCoolDown.Stop();
+                MessageBox.Show("Hết giờ");
+                panel_PlayArea_Board.Enabled = false;
+
+            }
+        }
+
+        private void tmComputer_Tick(object sender, EventArgs e)
+        {
+            tmComputer.Stop();
+            playSFX();
+            caroChess.LaunchComputer(grs, firstchess, secondchess);
+            picbox_PlayArea_Avatar1.BorderSize = 5;
+            picbox_PlayArea_Avatar2.BorderSize = 0;
+            if (GameCheckWin())
+            {
+                tmCoolDown.Stop();
+                return;
+            }
+            else
+            {
+                tmCoolDown.Start();
+                prcbCoolDown.Value = 0;
+                panel_PlayArea_Board.Enabled = true;
+            }
+        }
+        public void OtherPlayerMark(Point point)
+        {
+            if (!caroChess.Ready)
+                return;
+            if (caroChess.PlayChess(point.X, point.Y, grs, firstchess, secondchess))
+            {
+                playSFX();
+                picbox_PlayArea_Avatar1.BorderSize = 5;
+                picbox_PlayArea_Avatar2.BorderSize = 0;
+                panel_PlayArea_Board.Enabled = true;
+                if (GameCheckWin())
                 {
-                    case 22:
-                        MessageBox.Show("Hòa");
-                        break;
-                    case 1:
-                        if (!isComputerFirst)
-                        {
-                            int point = int.Parse(lb_PlayArea_Point1.Text);
-                            point++;
-                            lb_PlayArea_Point1.Text = point.ToString();
-                            tmCoolDown.Stop();
-                            MessageBox.Show("Bạn đã thắng!");
-                            
-                        }
-                        else
-                        {
-                            int point = int.Parse(lb_PlayArea_Point2.Text);
-                            point++;
-                            lb_PlayArea_Point2.Text = point.ToString();
-                            tmCoolDown.Stop();
-                            MessageBox.Show("Bạn đã thua!");
-                            
-                        }    
-                        break;
-                    case 2:
-                        if(!isComputerFirst)
-                        {
-                            int point = int.Parse(lb_PlayArea_Point2.Text);
-                            point++;
-                            lb_PlayArea_Point2.Text = point.ToString();
-                            tmCoolDown.Stop();
-                            MessageBox.Show("Bạn đã thua!");
-                           
-                        }
-                        else
-                        {
-                            int point = int.Parse(lb_PlayArea_Point1.Text);
-                            point++;
-                            lb_PlayArea_Point1.Text = point.ToString();
-                            tmCoolDown.Stop();
-                            MessageBox.Show("Bạn đã thắng!");
-                            
-                        }
-                        break;
-                    default:
-                        break;
+                    tmCoolDown.Stop();
                 }
             }
-            caroChess.Ready = false;
-            
+        }
+        #endregion
+
+        #region SocketMethod
+        public string GetLocalIPv4(NetworkInterfaceType _type)
+        {
+            string output = "";
+            foreach (NetworkInterface item in NetworkInterface.GetAllNetworkInterfaces())
+            {
+                if (item.NetworkInterfaceType == _type && item.OperationalStatus == OperationalStatus.Up)
+                {
+                    foreach (UnicastIPAddressInformation ip in item.GetIPProperties().UnicastAddresses)
+                    {
+                        if (ip.Address.AddressFamily == AddressFamily.InterNetwork)
+                        {
+                            output = ip.Address.ToString();
+                        }
+                    }
+                }
+            }
+            return output;
+        }
+        private void Send(string mess)
+        {
+            if (isServer)
+            {
+                server!.SendAsync(currentClient, mess);
+            }
+            else
+            {
+                client!.SendAsync(mess);
+            }
+        }
+        #endregion
+
+        #region FireBaseMethod
+        public async Task DoExit()
+        {
+
+            if (isConnected && isPlayAreaOpen)
+            {
+                if (isGameEnd)
+                {
+                    Send("/exit ");
+                    if (isServer)
+                    {
+                        server!.DisconnectClient(currentClient);
+                        server.Stop();
+                    }
+                    else
+                    {
+                        await client!.DisconnectAsync();
+                    }
+                    isConnected = false;
+#pragma warning disable CS4014
+                    NotifyForm nf = new NotifyForm("UpdateFireBase");
+                    Task.Run(() =>
+                    {
+                        nf.ShowDialog();
+                    });
+                    await UpChatToFireBase(latestgameid, latestchatid, chats);
+                    await UpGameToFireBase(latestgameid, game);
+                    await UpPlayerToFireBase(currentplayer);
+                    if (nf.InvokeRequired)
+                    {
+                        nf.Invoke((MethodInvoker)delegate { nf.Close(); });
+                    }
+                    else
+                    {
+                        nf.Close();
+                    }
+                    OpenPlayerInfo();
+                    isPlayAreaOpen = false;
+                }
+                else
+                {
+                    NotifyForm nf = new NotifyForm("Thoát_1");
+                    DialogResult dnf = nf.ShowDialog();
+                    if (dnf == DialogResult.Yes)
+                    {
+                        Send("/exit ");
+                        if (isServer)
+                        {
+                            server!.DisconnectClient(currentClient);
+                            server.Stop();
+                        }
+                        else
+                        {
+                            await client!.DisconnectAsync();
+                        }
+                        isConnected = false;
+                        if (isYouFirst)
+                        {
+                            DoEndGame(2);
+                        }
+                        else
+                        {
+                            DoEndGame(1);
+                        }
+#pragma warning disable CS4014
+                        NotifyForm nf2 = new NotifyForm("UpdateFireBase");
+                        Task.Run(() =>
+                        {
+                            nf2.ShowDialog();
+                        });
+                        await UpChatToFireBase(latestgameid, latestchatid, chats);
+                        await UpGameToFireBase(latestgameid, game);
+                        await UpPlayerToFireBase(currentplayer);
+                        if (nf2.InvokeRequired)
+                        {
+                            nf2.Invoke((MethodInvoker)delegate { nf2.Close(); });
+                        }
+                        else
+                        {
+                            nf2.Close();
+                        }
+                        OpenPlayerInfo();
+                        isPlayAreaOpen = false;
+                    }
+                }
+
+            }
+            else if (!isConnected && isPlayAreaOpen)
+            {
+#pragma warning disable CS4014
+                NotifyForm nf2 = new NotifyForm("UpdateFireBase");
+                Task.Run(() =>
+                {
+                    nf2.ShowDialog();
+                });
+                await UpChatToFireBase(latestgameid, latestchatid, chats);
+                await UpGameToFireBase(latestgameid, game);
+                await UpPlayerToFireBase(currentplayer);
+                if (nf2.InvokeRequired)
+                {
+                    nf2.Invoke((MethodInvoker)delegate { nf2.Close(); });
+                }
+                else
+                {
+                    nf2.Close();
+                }
+                OpenPlayerInfo();
+                isPlayAreaOpen = false;
+            }
+            else if (!isConnected && !isPlayAreaOpen)
+            {
+                return;
+            }
+        }
+        public async Task UpPlayerToFireBase(Player player)
+        {
+            int numswin = int.Parse(lb_PlayArea_Point1.Text);
+            int numslose = int.Parse(lb_PlayArea_Point2.Text);
+            player.Win = player.Win + numswin;
+            player.Lose = player.Lose + numslose;
+            player.Winrate = ((double)player.Win / (player.Win + player.Lose) * 100).ToString("0.00") + "%";
+            await firebaseClient.Child("Users").Child("User_" + player.ID).PutAsync(player);
+        }
+        public async Task UpChatToFireBase(string latestgameid, string latestchatid, List<Chat> chatss)
+        {
+            int start = int.Parse(latestchatid);
+            string gameid = latestgameid;
+            start++;
+            if (chatss.Count == 0)
+            {
+                return;
+            }
+            foreach (var chat in chatss)
+            {
+                chat.Chat_ID = start.ToString();
+                chat.Game_ID = gameid;
+                start++;
+                await firebaseClient.Child("Chats").Child("Chat_" + chat.Chat_ID).PutAsync(chat);
+            }
+        }
+        public async Task UpGameToFireBase(string latestgameid, Game game)
+        {
+            int gameid = int.Parse(latestgameid) + 1;
+            game.Game_ID = gameid.ToString();
+            if (isServer)
+            {
+                game.Player1 = currentplayer.ID;
+                game.Player1_Wins = int.Parse(lb_PlayArea_Point1.Text);
+                game.Player2 = currenopponentID;
+                game.Player2_Wins = int.Parse(lb_PlayArea_Point2.Text);
+            }
+            else
+            {
+                game.Player1 = currenopponentID;
+                game.Player1_Wins = int.Parse(lb_PlayArea_Point2.Text);
+                game.Player2 = currentplayer.ID;
+                game.Player2_Wins = int.Parse(lb_PlayArea_Point1.Text);
+            }
+            await firebaseClient.Child("Games").Child("Game_" + game.Game_ID).PutAsync(game);
+        }
+
+        private async Task<string> GetLatestGameID()
+        {
+            var games = await firebaseClient.Child("Games").OrderByKey().OnceAsync<Game>();
+            var latestGame = games.OrderByDescending(g => int.Parse(g.Object.Game_ID!)).FirstOrDefault();
+            return latestGame?.Object.Game_ID!;
+        }
+        private async Task<string> GetLatestChatID()
+        {
+            var chats = await firebaseClient.Child("Chats").OrderByKey().OnceAsync<Chat>();
+            var latestChat = chats.OrderByDescending(g => int.Parse(g.Object.Chat_ID!)).FirstOrDefault();
+            return latestChat?.Object.Chat_ID!;
+        }
+
+        private async void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            await DoExit();
+            e.Cancel = false;
+            Application.Exit();
+
+        }
+        private async Task<bool> IsIdExists(string id)
+        {
+            var data = await firebaseClient.Child("Users").Child("User_" + id).OnceAsync<object>();
+            return data.Any();
+        }
+        private async Task<bool> IsPasswordTrue(string id, string pw)
+        {
+            var dataSnapshot = await firebaseClient.Child("Users").OrderByKey().EqualTo("User_" + id).OnceAsync<Player>();
+            foreach (var item in dataSnapshot)
+            {
+                var user = item.Object;
+                if (pw == user.Password)
+                {
+                    currentplayer!.ID = user.ID;
+                    currentplayer.Password = user.Password;
+                    currentplayer.Name = user.Name;
+                    currentplayer.Win = user.Win;
+                    currentplayer.Lose = user.Lose;
+                    currentplayer.Avatar = user.Avatar;
+                    currentplayer.Winrate = user.Winrate;
+                    currentplayer.ProtectionCode = user.ProtectionCode;
+                    currentplayer.Email = user.Email;
+                    currentAvatar = user.Avatar!;
+                    return true;
+                }
+            }
+            return false;
         }
         #endregion
     }

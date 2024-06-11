@@ -15,6 +15,7 @@ namespace Caro_Nhom8
     public partial class MainForm
     {
         #region SignUp
+        public string verifycode = "";
         void OpenSignUp()
         {
             this.Size = new Size(755, 658);
@@ -69,6 +70,16 @@ namespace Caro_Nhom8
                 lb_SignUp_Notify.ForeColor = Color.FromArgb(245, 108, 108);
                 lb_SignUp_Notify.Text = "*Thông báo: Email không hợp lệ!";
             }
+            else if(verifycode == "none")
+            {
+                lb_SignUp_Notify.ForeColor = Color.FromArgb(245, 108, 108);
+                lb_SignUp_Notify.Text = "*Thông báo: Hãy tạo mã xác thực!";
+            }
+            else if(txt_Signup_Verifycode.TextButton != verifycode)
+            {
+                lb_SignUp_Notify.ForeColor = Color.FromArgb(245, 108, 108);
+                lb_SignUp_Notify.Text = "*Thông báo: Mã xác thực không đúng!";
+            }    
             else if (!ValidatePassword(password))
             {
                 lb_SignUp_Notify.ForeColor = Color.FromArgb(245, 108, 108);
@@ -96,6 +107,7 @@ namespace Caro_Nhom8
                 await firebaseClient.Child("Users").Child("User_"+id).PutAsync(newUser);
                 lb_SignUp_Notify.ForeColor = Color.FromArgb(59, 198, 171);
                 lb_SignUp_Notify.Text = "*Thông báo: Đăng kí thành công!";
+                verifycode = "";
             }    
         }
         
@@ -104,12 +116,36 @@ namespace Caro_Nhom8
             playSFX();
             isChooseAvatarSignUp = false;
             OpenLogin();
+            RenewLogin();
         }
 
         private void lb_ChangeAvatar_SignUp_Click(object sender, EventArgs e)
         {
             playSFX();
             OpenChooseAvatar();
+        }
+        private async void btn_Getverifycode_Click(object sender, EventArgs e)
+        {
+            playSFX();
+            lb_SignUp_Notify.Visible = true;
+            lb_SignUp_Notify.ForeColor = Color.White;
+            lb_SignUp_Notify.Text = "*Đang xử lí";
+            if (!ValidateEmail(txt_SignUp_Email.TextButton))
+            {
+                lb_SignUp_Notify.ForeColor = Color.FromArgb(245, 108, 108);
+                lb_SignUp_Notify.Text = "*Thông báo: Email không hợp lệ!";
+                
+            }
+            else
+            {
+                verifycode = GenerateVerificationCode(6);
+                bool get = await GetVerifyCodeAsync(txt_SignUp_Email.TextButton, verifycode, "register");
+                if (get)
+                {
+                    lb_SignUp_Notify.ForeColor = Color.FromArgb(59, 198, 171);
+                    lb_SignUp_Notify.Text = "*Thông báo: Gửi mã xác thực thành công";
+                }
+            }    
         }
         #endregion
     }

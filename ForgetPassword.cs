@@ -31,6 +31,7 @@ namespace Caro_Nhom8
             grb_ChooseAvatar.Visible = false;
             panel_PlayArea.Dock = DockStyle.None;
             panel_PlayArea.Visible = false;
+            
         }
 
         private async void btn_ConfirmForgetPassword_Click(object sender, EventArgs e)
@@ -53,14 +54,19 @@ namespace Caro_Nhom8
                 foreach (var item in dataSnapshot)
                 {
                     var user = item.Object;
-                    if (txt_ForgetPW_ProtectionCode.TextButton != user.ProtectionCode)
+                    if (txt_ForgetPW_UserEmail.TextButton != user.Email)
                     {
                         lb_ForgetPassword_Notify.ForeColor = Color.FromArgb(245, 108, 108);
-                        lb_ForgetPassword_Notify.Text = "*Thông báo: Mã bảo vệ không chính xác!";
+                        lb_ForgetPassword_Notify.Text = "*Thông báo: Email không chính xác!";
                     }
                     else
                     {
-                        if(!ValidatePassword(pw))
+                        if(txt_FortgetPW_Code.TextButton != verifycode)
+                        {
+                            lb_ForgetPassword_Notify.ForeColor = Color.FromArgb(245, 108, 108);
+                            lb_ForgetPassword_Notify.Text = "*Thông báo: Mã xác thực không chính xác!";
+                        }    
+                        else if(!ValidatePassword(pw))
                         {
                             lb_ForgetPassword_Notify.ForeColor = Color.FromArgb(245, 108, 108);
                             lb_ForgetPassword_Notify.Text = "*Thông báo: Mật khẩu không hợp lệ!";
@@ -71,6 +77,7 @@ namespace Caro_Nhom8
                             await firebaseClient.Child("Users").Child("User_" + id).PutAsync(user);
                             lb_ForgetPassword_Notify.ForeColor = Color.FromArgb(59, 198, 171);
                             lb_ForgetPassword_Notify.Text = "*Thông báo: Đổi mật khẩu mới thành công!";
+                            verifycode = "";
                             RenewForgetPassword();
                         }    
                     }    
@@ -82,6 +89,44 @@ namespace Caro_Nhom8
         {
             playSFX();
             OpenLogin();
+        }
+        private async void btn_ForgetPW_GetCode_Click(object sender, EventArgs e)
+        {
+            playSFX();
+            lb_ForgetPassword_Notify.ForeColor = Color.White;
+            lb_ForgetPassword_Notify.Text = "*Đang xử lí";
+            lb_ForgetPassword_Notify.Visible = true;
+            string id = txt_ForgetPW_ID.TextButton.Trim();
+            bool isExists = await IsIdExists(id);
+            if (!isExists)
+            {
+                lb_ForgetPassword_Notify.ForeColor = Color.FromArgb(245, 108, 108);
+                lb_ForgetPassword_Notify.Text = "*Thông báo: ID không tồn tại!";
+            }
+            else
+            {
+                var dataSnapshot = await firebaseClient.Child("Users").OrderByKey().EqualTo("User_" + id).OnceAsync<Player>();
+                foreach (var item in dataSnapshot)
+                {
+                    var user = item.Object;
+                    if (txt_ForgetPW_UserEmail.TextButton != user.Email)
+                    {
+                        lb_ForgetPassword_Notify.ForeColor = Color.FromArgb(245, 108, 108);
+                        lb_ForgetPassword_Notify.Text = "*Thông báo: Email không chính xác!";
+                    }
+                    else
+                    {
+                        verifycode = GenerateVerificationCode(6);
+                        bool get = await GetVerifyCodeAsync(txt_ForgetPW_UserEmail.TextButton, verifycode, "forgetpw");
+                        if (get)
+                        {
+                            lb_ForgetPassword_Notify.ForeColor = Color.FromArgb(59, 198, 171);
+                            lb_ForgetPassword_Notify.Text = "*Thông báo: Gửi mã xác thực thành công";
+                        }
+
+                    }    
+                }
+            }
         }
         #endregion
     }

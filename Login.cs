@@ -56,8 +56,8 @@ namespace Caro_Nhom8
                 }
                 else
                 {
-                    OpenInfo();
-                    LoadRanking(currentplayer.ID!);
+                    OpenPlayerInfo();
+                    
                     RenewPlayerInfo();
                 }
             }    
@@ -75,8 +75,6 @@ namespace Caro_Nhom8
             OpenForgetPassword();
             RenewForgetPassword();
         }
-        
-        
         #endregion
     }
 }

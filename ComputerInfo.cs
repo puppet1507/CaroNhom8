@@ -10,13 +10,7 @@ namespace Caro_Nhom8
     #region ComputerInfo
     public partial class MainForm
     {
-        public Image ImageOgreen = new Bitmap("Resources/UI_Icon/ogreen.png");
-        public Image ImageXred = new Bitmap("Resources/UI_Icon/xred.png");
-        public Image ImageXgreen = new Bitmap("Resources/UI_Icon/xgreen.png");
-        public Image ImageOred = new Bitmap("Resources/UI_Icon/ored.png");
-
-        public Image firstchess;
-        public Image secondchess;
+       
         void OpenComputerInfo()
         {
             this.Size = new Size(755, 658);
@@ -82,6 +76,10 @@ namespace Caro_Nhom8
             grs!.Clear(panel_PlayArea_Board.BackColor);
             caroChess!.StartPvC(grs!);
             OpenPlayArea();
+            grb_PVC_Tools.Location = new Point(14, 310);
+            grb_PVC_Tools.Visible = true;
+            grb_PVP_Tools.Visible = false;
+
             switch (first)
             {
                 case "Bạn đánh trước":
@@ -102,7 +100,7 @@ namespace Caro_Nhom8
                         default:
                             break;
                     }
-                    isComputerFirst = false;
+                    isYouFirst = true;
                     picbox_PlayArea_Avatar1.BorderSize = 5;
                     picbox_PlayArea_Avatar2.BorderSize = 0;
                     break;
@@ -124,7 +122,7 @@ namespace Caro_Nhom8
                         default:
                             break;
                     }
-                    isComputerFirst = true;
+                    isYouFirst = false;
                     panel_PlayArea_Board.Enabled = false;
                     picbox_PlayArea_Avatar1.BorderSize = 0;
                     picbox_PlayArea_Avatar2.BorderSize = 5;
@@ -142,8 +140,9 @@ namespace Caro_Nhom8
         private void btn_PVC_Cancel_Click(object sender, EventArgs e)
         {
             playSFX();
-            OpenInfo();
+            OpenPlayerInfo();
         }
+        
     }
     #endregion
 }

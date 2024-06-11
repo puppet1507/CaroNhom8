@@ -23,6 +23,7 @@
             grb_ChooseAvatar.Visible = false;
             panel_PlayArea.Dock = DockStyle.None;
             panel_PlayArea.Visible = false;
+            
         }
         private void btn_CancelWaitingPlayer_Click(object sender, EventArgs e)
         {

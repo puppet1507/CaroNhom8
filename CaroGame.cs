@@ -37,7 +37,12 @@ namespace Caro_Nhom8
             get { return ready; }
             set { ready = value; }
         }
-
+        public int Turn
+        {
+            get { return turn; }
+            
+        }
+    
         public int Mode
         {
             get{return mode;}

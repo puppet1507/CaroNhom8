@@ -38,8 +38,7 @@ namespace Caro_Nhom8
             playSFX();
             RenewPlayerInfo();
             currentAvatar = currentplayer.Avatar!;
-            OpenInfo();
-            LoadRanking(currentplayer.ID!);
+            OpenPlayerInfo();
         }
         private async void btn_ConfirmChangeInfo_Click(object sender, EventArgs e)
         {
@@ -98,7 +97,23 @@ namespace Caro_Nhom8
             OpenChooseAvatar();
             playSFX();
         }
-
+        private async void btn_DeleteAccount_Click(object sender, EventArgs e)
+        {
+            playSFX();
+            DeleteAccountConfirm formdelete = new DeleteAccountConfirm(txt_ChangeInfo_Email.TextButton, verifycode);
+            DialogResult r = formdelete.ShowDialog();
+            if (r == DialogResult.Yes)
+            {
+                await firebaseClient.Child("Users").Child("User_" + currentplayer.ID).DeleteAsync();
+                MessageBox.Show("Xóa tài khoản thành công!");
+                OpenLogin();
+                RenewLogin();
+            }
+            else if (r == DialogResult.No)
+            {
+                return;
+            }
+        }
         #endregion
     }
 }

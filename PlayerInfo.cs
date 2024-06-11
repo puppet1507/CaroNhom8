@@ -11,7 +11,7 @@ namespace Caro_Nhom8
     public partial class MainForm
     {
         #region PlayerInfo
-        void OpenInfo()
+        void OpenPlayerInfo()
         {
             this.Size = new Size(755, 658);
             this.MaximumSize = new Size(755, 658);
@@ -30,6 +30,7 @@ namespace Caro_Nhom8
             grb_ChooseAvatar.Visible = false;
             panel_PlayArea.Dock = DockStyle.None;
             panel_PlayArea.Visible = false;
+            LoadRanking(currentplayer.ID!);
         }
         private void btn_PlayWithAI_Click(object sender, EventArgs e)
         {
@@ -66,6 +67,11 @@ namespace Caro_Nhom8
         {
             playSFX();
             OpenSetting();
+        }
+        private void btn_PlayerInfo_ReloadRanking_Click(object sender, EventArgs e)
+        {
+            playSFX();
+            LoadRanking(currentplayer.ID!);
         }
         #endregion
     }

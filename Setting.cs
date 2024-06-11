@@ -38,11 +38,13 @@ namespace Caro_Nhom8
             if (isMusic)
             {
                 btn_Setting_Music.Image = Image.FromFile("Resources/UI_Icon/Speaker.png");
+                btn_PlayArea_Music.Image = Image.FromFile("Resources/UI_Icon/Speaker.png");
                 trackbar_Setting_Music.Value = 10;
             }
             else
             {
                 btn_Setting_Music.Image = Image.FromFile("Resources/UI_Icon/Mute.png");
+                btn_PlayArea_Music.Image = Image.FromFile("Resources/UI_Icon/Mute.png");
                 trackbar_Setting_Music.Value = 0;
             }
         }
@@ -55,50 +57,60 @@ namespace Caro_Nhom8
             if (isSFX)
             {
                 btn_Setting_SFX.Image = Image.FromFile("Resources/UI_Icon/Speaker.png");
+                btn_PlayArea_SFX.Image = Image.FromFile("Resources/UI_Icon/Speaker.png");
                 trackbar_Setting_SFX.Value = 10;
             }
             else
             {
                 btn_Setting_SFX.Image = Image.FromFile("Resources/UI_Icon/Mute.png");
+                btn_PlayArea_SFX.Image = Image.FromFile("Resources/UI_Icon/Mute.png");
                 trackbar_Setting_SFX.Value = 0;
             }
         }
         private void btn_Setting_Exit_Click(object sender, EventArgs e)
         {
             playSFX();
-            OpenInfo();
+            OpenPlayerInfo();
         }
         private void trackbar_Setting_Music_ValueChanged()
         {
             int volume = trackbar_Setting_Music.Value;
-            if(volume == 0)
+            
+            if (volume == 0)
             {
                 isMusic = false;
                 btn_Setting_Music.Image = Image.FromFile("Resources/UI_Icon/Mute.png");
+                btn_PlayArea_Music.Image = Image.FromFile("Resources/UI_Icon/Mute.png");
             }
             else
             {
                 isMusic = true;
                 btn_Setting_Music.Image = Image.FromFile("Resources/UI_Icon/Speaker.png");
+                btn_PlayArea_Music.Image = Image.FromFile("Resources/UI_Icon/Speaker.png");
             }
             music.settings.volume = volume;
+            
 
         }
 
         private void trackbar_Setting_SFX_ValueChanged()
         {
             int volume = trackbar_Setting_SFX.Value;
+            
             if (volume == 0)
             {
                 isSFX = false;
                 btn_Setting_SFX.Image = Image.FromFile("Resources/UI_Icon/Mute.png");
+                btn_PlayArea_SFX.Image = Image.FromFile("Resources/UI_Icon/Mute.png");
             }
             else
             {
                 isSFX = true;
                 btn_Setting_SFX.Image = Image.FromFile("Resources/UI_Icon/Speaker.png");
+                btn_PlayArea_SFX.Image = Image.FromFile("Resources/UI_Icon/Speaker.png");
             }
             sfx.settings.volume = volume;
+            
 
         }
         private void btn_Setting_Theme_Click(object sender, EventArgs e)

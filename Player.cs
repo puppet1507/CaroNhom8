@@ -29,8 +29,6 @@ namespace Caro_Nhom8
 
         public Player(string avatar, string email, string id, int lose, string name, string password, string protectionCode, int win, string winrate)
         {
-            // Phương thức khởi tạo với các tham số
-            // Bạn có thể thêm mã logic khởi tạo ở đây (nếu cần)
             Avatar = avatar;
             Email = email;
             ID = id;

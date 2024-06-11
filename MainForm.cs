@@ -16,6 +16,7 @@ using System.Numerics;
 using Firebase.Database;
 using Firebase.Database.Query;
 using Microsoft.VisualBasic.ApplicationServices;
+using System.Diagnostics.Eventing.Reader;
 // Check NgocLong_Github
 // Check ThoNha_Github
 // Check LeNhu_Github
@@ -34,18 +35,31 @@ namespace Caro_Nhom8
         Board board = new Board();
         public bool isServer;
         public string currentClient = "";
-        public int numofClinet;
+        public int numofClinet = 0;
         bool isMusic = true;
         bool isSFX = true;
         bool isDark = true;
         bool isGameEnd = false;
-        bool isComputerFirst = false;
+        bool isYouFirst = false;
+        bool isConnected = false;
+        bool isPlayAreaOpen = false;
         public bool isChooseAvatarSignUp = false;
         public string currentAvatar = "Resources/UI_Icon/Default.png";
+        public Image ImageOgreen = new Bitmap("Resources/UI_Icon/ogreen.png");
+        public Image ImageXred = new Bitmap("Resources/UI_Icon/xred.png");
+        public Image ImageXgreen = new Bitmap("Resources/UI_Icon/xgreen.png");
+        public Image ImageOred = new Bitmap("Resources/UI_Icon/ored.png");
+        public Image firstchess;
+        public Image secondchess;
         public Player currentplayer = new Player();
+        public string currenopponentID = "";
+        public string latestgameid = "";
+        public string latestchatid = "";
         WindowsMediaPlayer music = new WindowsMediaPlayer();
         WindowsMediaPlayer sfx = new WindowsMediaPlayer();
         FirebaseClient firebaseClient = new FirebaseClient("https://caronhom8-default-rtdb.firebaseio.com/");
+        public List<Chat> chats;
+        public Game game;
         #endregion
 
         #region ScreenChange_Methods
@@ -68,149 +82,12 @@ namespace Caro_Nhom8
             grb_ChooseAvatar.Visible = false;
             panel_PlayArea.Dock = DockStyle.Fill;
             panel_PlayArea.Visible = true;
+            chats.Clear();
+            panel_PlayArea_ChatArea.Controls.Clear();
+            lb_PlayArea_Point1.Text = "0";
+            lb_PlayArea_Point2.Text = "0";
         }
 
-        #endregion
-
-        #region LoginForm_Btn_Click_Methods
-        private void btn_Undo_Click(object sender, EventArgs e)
-        {
-            playSFX();
-            caroChess.Undo(grs);
-            if(isGameEnd == false)
-            {
-                tmCoolDown.Start();
-                prcbCoolDown.Value = 0;
-            }    
-        }
-
-        private void btn_Redo_Click(object sender, EventArgs e)
-        {
-            playSFX();
-            caroChess.Redo(grs, firstchess,secondchess);
-            if(isGameEnd == false)
-            {
-                tmCoolDown.Start();
-                prcbCoolDown.Value = 0;
-            }    
-        }
-        #endregion
-
-        #region Server
-
-        private void Server_Events_DataReceived(object? sender, DataReceivedEventArgs e)
-        {
-            this.Invoke((MethodInvoker)delegate
-            {
-                string data = Encoding.UTF8.GetString(e.Data);
-
-                // Kiểm tra nếu đó là yêu cầu gửi tên của client
-                if (data.StartsWith("/msg "))
-                {
-                    string msg = data.Substring(5);
-                    ChatBubbleLeft chatBubbleLeft = new ChatBubbleLeft();
-                    chatBubbleLeft.BubbleColor = Color.FromArgb(238, 102, 119);
-                    chatBubbleLeft.ForeColor = Color.White;
-                    chatBubbleLeft.SizeAutoW = false;
-                    chatBubbleLeft.Width = 195;
-                    chatBubbleLeft.Text = msg;
-                    panel_PlayArea_ChatArea.Controls.Add(chatBubbleLeft);
-
-                }
-                else if (data.StartsWith("/pnt "))
-                {
-                    string point = data.Substring(5);
-                    string[] coordinates = point.Split(',');
-                    int x = int.Parse(coordinates[0]); // Lấy giá trị tọa độ x từ mảng
-                    int y = int.Parse(coordinates[1]); // Lấy giá trị tọa độ y từ mảng
-                    Point point2 = new Point(x, y);
-                    prcbCoolDown.Value = 0;
-                    tmCoolDown.Start();
-                    OtherPlayerMark(point2);
-                }
-
-            });
-        }
-
-        private void Server_Events_DataSent(object? sender, DataSentEventArgs e)
-        {
-            this.Invoke((MethodInvoker)delegate
-            {
-
-            });
-        }
-
-        private void Server_Events_ClientDisconnected(object? sender, ConnectionEventArgs e)
-        {
-
-        }
-
-        private void Server_Events_ClientConnected(object? sender, ConnectionEventArgs e)
-        {
-            this.Invoke((MethodInvoker)delegate
-            {
-                OpenPlayArea();
-                currentClient = e.IpPort;
-                caroChess.StartLAN(grs);
-
-            });
-        }
-
-
-
-        #endregion
-
-        #region Client
-        private void Client_Events_DataReceived(object? sender, DataReceivedEventArgs e)
-        {
-            this.Invoke((MethodInvoker)delegate
-            {
-                string data = Encoding.UTF8.GetString(e.Data);
-
-                // Kiểm tra nếu đó là yêu cầu gửi tên của client
-                if (data.StartsWith("/msg "))
-                {
-                    string msg = data.Substring(5); // Lấy phần tên sau chuỗi "NAME: "
-                    ChatBubbleLeft chatBubbleLeft = new ChatBubbleLeft();
-                    chatBubbleLeft.BubbleColor = Color.FromArgb(238, 102, 119);
-                    chatBubbleLeft.ForeColor = Color.White;
-                    chatBubbleLeft.SizeAutoW = false;
-                    chatBubbleLeft.Width = 195;
-                    chatBubbleLeft.Text = msg;
-                    panel_PlayArea_ChatArea.Controls.Add(chatBubbleLeft);
-
-                }
-                else if (data.StartsWith("/pnt "))
-                {
-                    string point = data.Substring(5);
-                    string[] coordinates = point.Split(',');
-                    int x = int.Parse(coordinates[0]); // Lấy giá trị tọa độ x từ mảng
-                    int y = int.Parse(coordinates[1]); // Lấy giá trị tọa độ y từ mảng
-                    Point point2 = new Point(x, y);
-                    prcbCoolDown.Value = 0;
-                    tmCoolDown.Start();
-                    OtherPlayerMark(point2);
-                }
-
-            });
-        }
-
-        private void Client_Events_DataSent(object? sender, DataSentEventArgs e)
-        {
-        }
-
-        private void Client_Events_Disconnected(object? sender, ConnectionEventArgs e)
-        {
-        }
-
-        private void Client_Events_Connected(object? sender, ConnectionEventArgs e)
-        {
-            this.Invoke((MethodInvoker)delegate
-            {
-                OpenPlayArea();
-                caroChess.StartLAN(grs);
-            });
-        }
         #endregion
 
         #region FormMethod
@@ -222,6 +99,8 @@ namespace Caro_Nhom8
             grs = panel_PlayArea_Board.CreateGraphics();
             firstchess = ImageXred;
             secondchess = ImageOgreen;
+            chats = new List<Chat>();
+            game = new Game();
             music.URL = "Resources/Sound/Music.wav";
             music.settings.setMode("loop", true);
             music.controls.stop();
@@ -244,7 +123,6 @@ namespace Caro_Nhom8
             music.controls.play();
         }
         #endregion
-
 
         #region Chat
 
@@ -296,19 +174,14 @@ namespace Caro_Nhom8
                 chatBubbleRight.Text = txt_Msg.Text;
                 chatBubbleRight.SizeAutoW = false;
                 chatBubbleRight.Width = 195;
+                chats.Add(new Chat("", "", txt_Msg.Text, currentplayer.ID!, currenopponentID));
                 panel_PlayArea_ChatArea.Controls.Add(chatBubbleRight);
                 txt_Msg.Clear();
             }
         }
         #endregion
 
-        public void playSFX()
-        {
-            if (isSFX)
-            {
-                sfx.URL = "Resources/Sound/Sfx.wav";
-            }
-        }
+        #region PlayChess
         private void fpanel_Board_MouseClick(object sender, MouseEventArgs e)
         {
             if (!caroChess.Ready)
@@ -330,21 +203,15 @@ namespace Caro_Nhom8
                         Random random = new Random();
                         tmComputer.Interval = random.Next(1000, 1500);
                         tmComputer.Start();
-                        
+
                     }
                 }
                 else if (caroChess.Mode == 3)
                 {
                     panel_PlayArea_Board.Enabled = false;
-
-                    if (isServer)
-                    {
-                        server!.SendAsync(currentClient, "/pnt " + e.Location.X.ToString() + "," + e.Location.Y.ToString());
-                    }
-                    else
-                    {
-                        client!.SendAsync("/pnt " + e.Location.X.ToString() + "," + e.Location.Y.ToString());
-                    }
+                    picbox_PlayArea_Avatar1.BorderSize = 0;
+                    picbox_PlayArea_Avatar2.BorderSize = 5;
+                    Send("/pnt " + e.Location.X.ToString() + "," + e.Location.Y.ToString());
                     if (GameCheckWin())
                     {
                         return;
@@ -354,50 +221,14 @@ namespace Caro_Nhom8
                 prcbCoolDown.Value = 0;
             }
         }
-        public void OtherPlayerMark(Point point)
-        {
-            if (!caroChess.Ready)
-                return;
-            if (caroChess.PlayChess(point.X, point.Y, grs, firstchess, secondchess))
-            {
-                playSFX();
-                panel_PlayArea_Board.Enabled = true;
-                if (GameCheckWin())
-                {
-                    tmCoolDown.Stop();
-                }
-            }
-        }
 
-        private void tmCoolDown_Tick(object sender, EventArgs e)
-        {
-            if (prcbCoolDown.Value < prcbCoolDown.Maximum / 2)
-            {
-                prcbCoolDown.ColorProgressBar = Color.FromArgb(59, 198, 171);
-            }
-            if (prcbCoolDown.Value >= prcbCoolDown.Maximum / 2)
-            {
-                prcbCoolDown.ColorProgressBar = Color.FromArgb(253, 203, 102);
-            }
-            if (prcbCoolDown.Value >= prcbCoolDown.Maximum * 3 / 4)
-            {
-                prcbCoolDown.ColorProgressBar = Color.FromArgb(245, 108, 108);
+        #endregion
 
-            }
-            prcbCoolDown.Value = prcbCoolDown.Value + 100;
-            if (prcbCoolDown.Value >= prcbCoolDown.Maximum)
-            {
-                tmCoolDown.Stop();
-                MessageBox.Show("Hết giờ");
-                panel_PlayArea_Board.Enabled = false;
-
-            }
-        }
-
+        #region PVC_TOOLS_BUTTON
         private void btn_PVC_NewGame_Click(object sender, EventArgs e)
         {
             playSFX();
-            if(isGameEnd == false)
+            if (isGameEnd == false)
             {
                 DialogResult result = MessageBox.Show("Nếu tạo trận mới ngay lúc này, bạn sẽ bị xử thua! Vẫn tiếp tục chứ?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
@@ -410,8 +241,8 @@ namespace Caro_Nhom8
                     Image temp = firstchess;
                     firstchess = secondchess;
                     secondchess = temp;
-                    isComputerFirst = !isComputerFirst;
-                    if(isComputerFirst)
+                    isYouFirst = !isYouFirst;
+                    if (isYouFirst)
                     {
                         panel_PlayArea_Board.Enabled = false;
                         picbox_PlayArea_Avatar1.BorderSize = 0;
@@ -421,7 +252,7 @@ namespace Caro_Nhom8
                         Random random = new Random();
                         tmComputer.Interval = random.Next(1000, 1500);
                         tmComputer.Start();
-                    }   
+                    }
                     else
                     {
                         panel_PlayArea_Board.Enabled = true;
@@ -429,8 +260,7 @@ namespace Caro_Nhom8
                         picbox_PlayArea_Avatar2.BorderSize = 0;
                         prcbCoolDown.Value = 0;
                         tmCoolDown.Start();
-                       
-                    }    
+                    }
                 }
                 else
                 {
@@ -446,8 +276,16 @@ namespace Caro_Nhom8
                 Image temp = firstchess;
                 firstchess = secondchess;
                 secondchess = temp;
-                isComputerFirst = !isComputerFirst;
-                if (isComputerFirst)
+                isYouFirst = !isYouFirst;
+                if (isYouFirst)
+                {
+                    panel_PlayArea_Board.Enabled = true;
+                    picbox_PlayArea_Avatar1.BorderSize = 5;
+                    picbox_PlayArea_Avatar2.BorderSize = 0;
+                    prcbCoolDown.Value = 0;
+                    tmCoolDown.Start();
+                }
+                else
                 {
                     panel_PlayArea_Board.Enabled = false;
                     picbox_PlayArea_Avatar1.BorderSize = 0;
@@ -457,20 +295,33 @@ namespace Caro_Nhom8
                     Random random = new Random();
                     tmComputer.Interval = random.Next(1000, 1500);
                     tmComputer.Start();
-                }
-                else
-                {
-                    panel_PlayArea_Board.Enabled = true;
-                    picbox_PlayArea_Avatar1.BorderSize = 5;
-                    picbox_PlayArea_Avatar2.BorderSize = 0;
-                    prcbCoolDown.Value = 0;
-                    tmCoolDown.Start();
+
                 }
                 isGameEnd = false;
             }
-            
+
+        }
+        private void btn_Undo_Click(object sender, EventArgs e)
+        {
+            playSFX();
+            caroChess.Undo(grs);
+            if (isGameEnd == false)
+            {
+                tmCoolDown.Start();
+                prcbCoolDown.Value = 0;
+            }
         }
 
+        private void btn_Redo_Click(object sender, EventArgs e)
+        {
+            playSFX();
+            caroChess.Redo(grs, firstchess, secondchess);
+            if (isGameEnd == false)
+            {
+                tmCoolDown.Start();
+                prcbCoolDown.Value = 0;
+            }
+        }
         private void btn_PVC_Exit_Click(object sender, EventArgs e)
         {
             playSFX();
@@ -479,29 +330,108 @@ namespace Caro_Nhom8
             panel_PlayArea_ChatArea.Controls.Clear();
             lb_PlayArea_Point1.Text = "0";
             lb_PlayArea_Point2.Text = "0";
-            OpenInfo();
+            OpenPlayerInfo();
+        }
+        #endregion
+
+        #region PVP_TOOLS_BUTTON
+        private void btn_PVP_DauHang_Click(object sender, EventArgs e)
+        {
+            playSFX();
+            if (!isGameEnd)
+            {
+                NotifyForm nf = new NotifyForm("Đầu hàng_1");
+                DialogResult dnf = nf.ShowDialog();
+                if (dnf == DialogResult.Yes)
+                {
+                    Send("/ff ");
+                    if (isYouFirst)
+                    {
+                        DoEndGame(2);
+                    }
+                    else
+                    {
+                        DoEndGame(1);
+                    }
+                }
+            }
+        }
+        private void btn_PVP_HoaGiai_Click(object sender, EventArgs e)
+        {
+            playSFX();
+            if (!isGameEnd)
+            {
+                NotifyForm nf = new NotifyForm("Hòa giải_1");
+                DialogResult dnf = nf.ShowDialog();
+                if (dnf == DialogResult.Yes)
+                {
+                    Send("/reconcile_request ");
+                }
+            }
         }
 
-        private void tmComputer_Tick(object sender, EventArgs e)
+        private void btn_PVP_NewGame_Click(object sender, EventArgs e)
         {
-            tmComputer.Stop();
             playSFX();
-            caroChess.LaunchComputer(grs,firstchess,secondchess);
-            picbox_PlayArea_Avatar1.BorderSize = 5;
-            picbox_PlayArea_Avatar2.BorderSize = 0;
-            if (GameCheckWin())
+            if (!isConnected)
             {
-                tmCoolDown.Stop();
                 return;
+            }
+            if (isGameEnd)
+            {
+                NotifyForm nf = new NotifyForm("Đấu lại_1");
+                DialogResult dnf = nf.ShowDialog();
+                if (dnf == DialogResult.Yes)
+                {
+                    Send("/newgame_request ");
+                }
+            }
+        }
+
+        private async void btn_PVP_Exit_Click(object sender, EventArgs e)
+        {
+            playSFX();
+            await DoExit();
+        }
+
+        #endregion
+
+        #region Setting_Button
+        private void btn_PlayArea_Music_Click(object sender, EventArgs e)
+        {
+            playSFX();
+            isMusic = !isMusic;
+            if (isMusic)
+            {
+                btn_Setting_Music.Image = Image.FromFile("Resources/UI_Icon/Speaker.png");
+                btn_PlayArea_Music.Image = Image.FromFile("Resources/UI_Icon/Speaker.png");
+                trackbar_Setting_Music.Value = 75;
             }
             else
             {
-                tmCoolDown.Start();
-                prcbCoolDown.Value = 0;
-                panel_PlayArea_Board.Enabled = true;
+                btn_Setting_Music.Image = Image.FromFile("Resources/UI_Icon/Mute.png");
+                btn_PlayArea_Music.Image = Image.FromFile("Resources/UI_Icon/Mute.png");
+                trackbar_Setting_Music.Value = 0;
             }
         }
+
+        private void btn_PlayArea_SFX_Click(object sender, EventArgs e)
+        {
+            playSFX();
+            isSFX = !isSFX;
+            if (isSFX)
+            {
+                btn_Setting_SFX.Image = Image.FromFile("Resources/UI_Icon/Speaker.png");
+                btn_PlayArea_SFX.Image = Image.FromFile("Resources/UI_Icon/Speaker.png");
+                trackbar_Setting_SFX.Value = 75;
+            }
+            else
+            {
+                btn_Setting_SFX.Image = Image.FromFile("Resources/UI_Icon/Mute.png");
+                btn_PlayArea_SFX.Image = Image.FromFile("Resources/UI_Icon/Mute.png");
+                trackbar_Setting_SFX.Value = 0;
+            }
+        }
+        #endregion
     }
-
-
 }
