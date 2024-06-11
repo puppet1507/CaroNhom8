@@ -530,9 +530,16 @@ namespace Caro_Nhom8
             prcbCoolDown.Value = prcbCoolDown.Value + 100;
             if (prcbCoolDown.Value >= prcbCoolDown.Maximum)
             {
-                tmCoolDown.Stop();
-                MessageBox.Show("Hết giờ");
-                panel_PlayArea_Board.Enabled = false;
+                if (caroChess.Turn == 1)
+                {
+                    DoEndGame(2);
+                }
+                else if (caroChess.Turn == 2)
+                {
+                    DoEndGame(1);
+                }
+
+
 
             }
         }
