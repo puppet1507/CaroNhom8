@@ -64,6 +64,10 @@ namespace Caro_Nhom8
                     lb_Notify.Text = "Đối phương muốn đấu lại với bạn! Đồng ý đấu lại?";
                     Two_Button();
                     break;
+                case "Đấu lại_0":
+                    lb_Notify.Text = "Nếu tạo trận mới ngay lúc này, bạn sẽ bị xử thua! Vẫn tiếp tục chứ?";
+                    Two_Button();
+                    break;
                 case "Thoát_1":
                     lb_Notify.Text = "Bạn đang trong trận, nếu thoát thì sẽ bị xử thua! Tiếp tục thoát?";
                     Two_Button();

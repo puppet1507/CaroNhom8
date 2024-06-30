@@ -538,9 +538,6 @@ namespace Caro_Nhom8
                 {
                     DoEndGame(1);
                 }
-
-
-
             }
         }
 

@@ -101,6 +101,7 @@ namespace Caro_Nhom8
                             break;
                     }
                     isYouFirst = true;
+                    panel_PlayArea_Board.Enabled = true;
                     picbox_PlayArea_Avatar1.BorderSize = 5;
                     picbox_PlayArea_Avatar2.BorderSize = 0;
                     break;

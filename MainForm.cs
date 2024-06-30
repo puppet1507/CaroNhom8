@@ -230,7 +230,8 @@ namespace Caro_Nhom8
             playSFX();
             if (isGameEnd == false)
             {
-                DialogResult result = MessageBox.Show("Nếu tạo trận mới ngay lúc này, bạn sẽ bị xử thua! Vẫn tiếp tục chứ?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                NotifyForm nf = new NotifyForm("Đấu lại_0");
+                DialogResult result = nf.ShowDialog();
                 if (result == DialogResult.Yes)
                 {
                     int point2 = int.Parse(lb_PlayArea_Point2.Text);
@@ -244,6 +245,14 @@ namespace Caro_Nhom8
                     isYouFirst = !isYouFirst;
                     if (isYouFirst)
                     {
+                        panel_PlayArea_Board.Enabled = true;
+                        picbox_PlayArea_Avatar1.BorderSize = 5;
+                        picbox_PlayArea_Avatar2.BorderSize = 0;
+                        prcbCoolDown.Value = 0;
+                        tmCoolDown.Start();
+                    }
+                    else
+                    {
                         panel_PlayArea_Board.Enabled = false;
                         picbox_PlayArea_Avatar1.BorderSize = 0;
                         picbox_PlayArea_Avatar2.BorderSize = 5;
@@ -252,14 +261,6 @@ namespace Caro_Nhom8
                         Random random = new Random();
                         tmComputer.Interval = random.Next(1000, 1500);
                         tmComputer.Start();
-                    }
-                    else
-                    {
-                        panel_PlayArea_Board.Enabled = true;
-                        picbox_PlayArea_Avatar1.BorderSize = 5;
-                        picbox_PlayArea_Avatar2.BorderSize = 0;
-                        prcbCoolDown.Value = 0;
-                        tmCoolDown.Start();
                     }
                 }
                 else
