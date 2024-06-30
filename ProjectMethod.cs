@@ -635,8 +635,8 @@ namespace Caro_Nhom8
                     {
                         nf.ShowDialog();
                     });
-                    await UpChatToFireBase(latestgameid, latestchatid, chats);
                     await UpGameToFireBase(latestgameid, game);
+                    await UpChatToFireBase(latestgameid, latestchatid, chats);
                     await UpPlayerToFireBase(currentplayer);
                     if (nf.InvokeRequired)
                     {
@@ -680,8 +680,8 @@ namespace Caro_Nhom8
                         {
                             nf2.ShowDialog();
                         });
-                        await UpChatToFireBase(latestgameid, latestchatid, chats);
                         await UpGameToFireBase(latestgameid, game);
+                        await UpChatToFireBase(latestgameid, latestchatid, chats);
                         await UpPlayerToFireBase(currentplayer);
                         if (nf2.InvokeRequired)
                         {
@@ -705,8 +705,8 @@ namespace Caro_Nhom8
                 {
                     nf2.ShowDialog();
                 });
-                await UpChatToFireBase(latestgameid, latestchatid, chats);
                 await UpGameToFireBase(latestgameid, game);
+                await UpChatToFireBase(latestgameid, latestchatid, chats);
                 await UpPlayerToFireBase(currentplayer);
                 if (nf2.InvokeRequired)
                 {
@@ -736,7 +736,8 @@ namespace Caro_Nhom8
         public async Task UpChatToFireBase(string latestgameid, string latestchatid, List<Chat> chatss)
         {
             int start = int.Parse(latestchatid);
-            string gameid = latestgameid;
+            int gameid = int.Parse(latestgameid) + 1;
+            string chat_gameid = gameid.ToString();
             start++;
             if (chatss.Count == 0)
             {
@@ -745,7 +746,7 @@ namespace Caro_Nhom8
             foreach (var chat in chatss)
             {
                 chat.Chat_ID = start.ToString();
-                chat.Game_ID = gameid;
+                chat.Game_ID = chat_gameid;
                 start++;
                 await firebaseClient.Child("Chats").Child("Chat_" + chat.Chat_ID).PutAsync(chat);
             }
