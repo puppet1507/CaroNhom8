@@ -105,7 +105,8 @@ namespace Caro_Nhom8
             if (r == DialogResult.Yes)
             {
                 await firebaseClient.Child("Users").Child("User_" + currentplayer.ID).DeleteAsync();
-                MessageBox.Show("Xóa tài khoản thành công!");
+                NotifyForm nf = new NotifyForm("Delete");
+                nf.ShowDialog();
                 OpenLogin();
                 RenewLogin();
             }

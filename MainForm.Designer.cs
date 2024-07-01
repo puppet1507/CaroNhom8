@@ -91,9 +91,10 @@
             btn_JoinRoom = new ReaLTaiizor.Controls.HopeRoundButton();
             btn_CreateRoom = new ReaLTaiizor.Controls.HopeRoundButton();
             grb_Waiting = new GroupBox();
+            label44 = new Label();
+            label45 = new Label();
             txt_ServerWaiting_Code = new ReaLTaiizor.Controls.CyberTextBox();
             btn_CancelWaitingPlayer = new ReaLTaiizor.Controls.HopeRoundButton();
-            lb_Waiting = new Label();
             grb_ClientInfo = new GroupBox();
             label41 = new Label();
             label42 = new Label();
@@ -284,9 +285,9 @@
             grb_Login.Controls.Add(rjCircularPictureBox1);
             grb_Login.Controls.Add(btn_Login);
             grb_Login.ForeColor = Color.White;
-            grb_Login.Location = new Point(26, 26);
+            grb_Login.Location = new Point(12, 15);
             grb_Login.Name = "grb_Login";
-            grb_Login.Size = new Size(84, 44);
+            grb_Login.Size = new Size(108, 47);
             grb_Login.TabIndex = 9;
             grb_Login.TabStop = false;
             grb_Login.Text = "Đăng nhập";
@@ -296,7 +297,7 @@
             // 
             label32.AutoSize = true;
             label32.Cursor = Cursors.Hand;
-            label32.Location = new Point(427, 175);
+            label32.Location = new Point(417, 178);
             label32.Name = "label32";
             label32.Size = new Size(234, 20);
             label32.TabIndex = 24;
@@ -307,7 +308,7 @@
             label31.AutoSize = true;
             label31.Cursor = Cursors.Hand;
             label31.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label31.Location = new Point(475, 135);
+            label31.Location = new Point(465, 138);
             label31.Name = "label31";
             label31.Size = new Size(139, 38);
             label31.TabIndex = 23;
@@ -317,7 +318,7 @@
             // 
             lb_Login_Notify.AutoSize = true;
             lb_Login_Notify.ForeColor = Color.FromArgb(245, 108, 108);
-            lb_Login_Notify.Location = new Point(346, 413);
+            lb_Login_Notify.Location = new Point(336, 416);
             lb_Login_Notify.Name = "lb_Login_Notify";
             lb_Login_Notify.Size = new Size(83, 20);
             lb_Login_Notify.TabIndex = 22;
@@ -332,7 +333,7 @@
             rjCircularPictureBox5.BorderSize = 0;
             rjCircularPictureBox5.GradientAngle = 50F;
             rjCircularPictureBox5.Image = (Image)resources.GetObject("rjCircularPictureBox5.Image");
-            rjCircularPictureBox5.Location = new Point(346, 253);
+            rjCircularPictureBox5.Location = new Point(336, 256);
             rjCircularPictureBox5.Name = "rjCircularPictureBox5";
             rjCircularPictureBox5.Size = new Size(42, 42);
             rjCircularPictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -348,7 +349,7 @@
             rjCircularPictureBox4.BorderSize = 0;
             rjCircularPictureBox4.GradientAngle = 50F;
             rjCircularPictureBox4.Image = (Image)resources.GetObject("rjCircularPictureBox4.Image");
-            rjCircularPictureBox4.Location = new Point(346, 200);
+            rjCircularPictureBox4.Location = new Point(336, 203);
             rjCircularPictureBox4.Name = "rjCircularPictureBox4";
             rjCircularPictureBox4.Size = new Size(42, 42);
             rjCircularPictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -371,7 +372,7 @@
             txt_Login_PW.ForeColor = Color.White;
             txt_Login_PW.Lighting = false;
             txt_Login_PW.LinearGradientPen = false;
-            txt_Login_PW.Location = new Point(394, 250);
+            txt_Login_PW.Location = new Point(384, 253);
             txt_Login_PW.Name = "txt_Login_PW";
             txt_Login_PW.Password = true;
             txt_Login_PW.PenWidth = 15;
@@ -390,7 +391,7 @@
             // 
             lb_Open_ForgetPW.AutoSize = true;
             lb_Open_ForgetPW.Cursor = Cursors.Hand;
-            lb_Open_ForgetPW.Location = new Point(574, 335);
+            lb_Open_ForgetPW.Location = new Point(564, 338);
             lb_Open_ForgetPW.Name = "lb_Open_ForgetPW";
             lb_Open_ForgetPW.Size = new Size(120, 20);
             lb_Open_ForgetPW.TabIndex = 18;
@@ -413,7 +414,7 @@
             txt_Login_ID.ForeColor = Color.White;
             txt_Login_ID.Lighting = false;
             txt_Login_ID.LinearGradientPen = false;
-            txt_Login_ID.Location = new Point(394, 200);
+            txt_Login_ID.Location = new Point(384, 203);
             txt_Login_ID.Name = "txt_Login_ID";
             txt_Login_ID.PenWidth = 15;
             txt_Login_ID.RGB = false;
@@ -436,7 +437,7 @@
             btn_Open_SignUp.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btn_Open_SignUp.HoverTextColor = Color.FromArgb(48, 49, 51);
             btn_Open_SignUp.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_Open_SignUp.Location = new Point(346, 370);
+            btn_Open_SignUp.Location = new Point(336, 373);
             btn_Open_SignUp.Name = "btn_Open_SignUp";
             btn_Open_SignUp.PrimaryColor = Color.FromArgb(255, 128, 128);
             btn_Open_SignUp.Size = new Size(348, 31);
@@ -456,7 +457,7 @@
             rjCircularPictureBox1.BorderSize = 2;
             rjCircularPictureBox1.GradientAngle = 50F;
             rjCircularPictureBox1.Image = (Image)resources.GetObject("rjCircularPictureBox1.Image");
-            rjCircularPictureBox1.Location = new Point(27, 131);
+            rjCircularPictureBox1.Location = new Point(26, 144);
             rjCircularPictureBox1.Name = "rjCircularPictureBox1";
             rjCircularPictureBox1.Size = new Size(259, 259);
             rjCircularPictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -472,7 +473,7 @@
             btn_Login.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btn_Login.HoverTextColor = Color.FromArgb(48, 49, 51);
             btn_Login.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_Login.Location = new Point(346, 301);
+            btn_Login.Location = new Point(336, 304);
             btn_Login.Name = "btn_Login";
             btn_Login.PrimaryColor = Color.FromArgb(59, 198, 171);
             btn_Login.Size = new Size(348, 31);
@@ -508,10 +509,10 @@
             grb_Info.Controls.Add(btn_JoinRoom);
             grb_Info.Controls.Add(btn_CreateRoom);
             grb_Info.ForeColor = Color.White;
-            grb_Info.Location = new Point(38, 81);
+            grb_Info.Location = new Point(15, 68);
             grb_Info.MaximumSize = new Size(999999, 999999);
             grb_Info.Name = "grb_Info";
-            grb_Info.Size = new Size(121, 52);
+            grb_Info.Size = new Size(95, 43);
             grb_Info.TabIndex = 10;
             grb_Info.TabStop = false;
             grb_Info.Text = "Thông tin người chơi";
@@ -1060,17 +1061,39 @@
             // grb_Waiting
             // 
             grb_Waiting.BackColor = Color.FromArgb(12, 20, 29);
+            grb_Waiting.Controls.Add(label44);
+            grb_Waiting.Controls.Add(label45);
             grb_Waiting.Controls.Add(txt_ServerWaiting_Code);
             grb_Waiting.Controls.Add(btn_CancelWaitingPlayer);
-            grb_Waiting.Controls.Add(lb_Waiting);
             grb_Waiting.ForeColor = Color.White;
-            grb_Waiting.Location = new Point(125, 155);
+            grb_Waiting.Location = new Point(177, 140);
             grb_Waiting.Name = "grb_Waiting";
-            grb_Waiting.Size = new Size(116, 48);
+            grb_Waiting.Size = new Size(118, 50);
             grb_Waiting.TabIndex = 11;
             grb_Waiting.TabStop = false;
             grb_Waiting.Text = "Chờ người chơi";
             grb_Waiting.Visible = false;
+            // 
+            // label44
+            // 
+            label44.AutoSize = true;
+            label44.Cursor = Cursors.Hand;
+            label44.Location = new Point(257, 243);
+            label44.Name = "label44";
+            label44.Size = new Size(230, 20);
+            label44.TabIndex = 53;
+            label44.Text = "Đang chờ người chơi kết nối đến!";
+            // 
+            // label45
+            // 
+            label45.AutoSize = true;
+            label45.Cursor = Cursors.Hand;
+            label45.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label45.Location = new Point(293, 205);
+            label45.Name = "label45";
+            label45.Size = new Size(158, 38);
+            label45.TabIndex = 52;
+            label45.Text = "Phòng chờ";
             // 
             // txt_ServerWaiting_Code
             // 
@@ -1121,16 +1144,6 @@
             btn_CancelWaitingPlayer.TextColor = Color.White;
             btn_CancelWaitingPlayer.WarningColor = Color.FromArgb(230, 162, 60);
             btn_CancelWaitingPlayer.Click += btn_CancelWaitingPlayer_Click;
-            // 
-            // lb_Waiting
-            // 
-            lb_Waiting.AutoSize = true;
-            lb_Waiting.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            lb_Waiting.Location = new Point(163, 230);
-            lb_Waiting.Name = "lb_Waiting";
-            lb_Waiting.Size = new Size(418, 31);
-            lb_Waiting.TabIndex = 12;
-            lb_Waiting.Text = "Đang chờ người chơi khác kết nối đến...";
             // 
             // grb_ClientInfo
             // 
@@ -1849,9 +1862,9 @@
             grb_SignUp.Controls.Add(btn_ConfirmSignUp);
             grb_SignUp.Controls.Add(btn_ExitSignUp);
             grb_SignUp.ForeColor = Color.White;
-            grb_SignUp.Location = new Point(163, 12);
+            grb_SignUp.Location = new Point(129, 16);
             grb_SignUp.Name = "grb_SignUp";
-            grb_SignUp.Size = new Size(78, 42);
+            grb_SignUp.Size = new Size(113, 43);
             grb_SignUp.TabIndex = 14;
             grb_SignUp.TabStop = false;
             grb_SignUp.Text = "Đăng kí";
@@ -1861,7 +1874,7 @@
             // 
             label35.AutoSize = true;
             label35.Cursor = Cursors.Hand;
-            label35.Location = new Point(249, 71);
+            label35.Location = new Point(251, 71);
             label35.Name = "label35";
             label35.Size = new Size(227, 20);
             label35.TabIndex = 36;
@@ -1872,7 +1885,7 @@
             label36.AutoSize = true;
             label36.Cursor = Cursors.Hand;
             label36.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label36.Location = new Point(237, 33);
+            label36.Location = new Point(239, 33);
             label36.Name = "label36";
             label36.Size = new Size(251, 38);
             label36.TabIndex = 35;
@@ -2059,7 +2072,7 @@
             txt_SignUp_PW.ColorPen_1 = Color.FromArgb(12, 20, 29);
             txt_SignUp_PW.ColorPen_2 = Color.Transparent;
             txt_SignUp_PW.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            txt_SignUp_PW.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_SignUp_PW.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point);
             txt_SignUp_PW.ForeColor = Color.White;
             txt_SignUp_PW.Lighting = false;
             txt_SignUp_PW.LinearGradientPen = false;
@@ -2237,9 +2250,9 @@
             grb_ServerInfo.Controls.Add(btn_CancelCreateServer);
             grb_ServerInfo.Controls.Add(btn_ContinueCreateServer);
             grb_ServerInfo.ForeColor = Color.White;
-            grb_ServerInfo.Location = new Point(299, 145);
+            grb_ServerInfo.Location = new Point(329, 160);
             grb_ServerInfo.Name = "grb_ServerInfo";
-            grb_ServerInfo.Size = new Size(135, 42);
+            grb_ServerInfo.Size = new Size(144, 34);
             grb_ServerInfo.TabIndex = 15;
             grb_ServerInfo.TabStop = false;
             grb_ServerInfo.Text = "Tạo phòng PVP";
@@ -2736,7 +2749,7 @@
             txt_ForgetPW_NewPW.ColorPen_1 = Color.FromArgb(12, 20, 29);
             txt_ForgetPW_NewPW.ColorPen_2 = Color.Transparent;
             txt_ForgetPW_NewPW.CyberTextBoxStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
-            txt_ForgetPW_NewPW.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_ForgetPW_NewPW.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
             txt_ForgetPW_NewPW.ForeColor = Color.White;
             txt_ForgetPW_NewPW.Lighting = false;
             txt_ForgetPW_NewPW.LinearGradientPen = false;
@@ -3688,7 +3701,6 @@
         private Label lb_Win;
         private GroupBox grb_Waiting;
         private ReaLTaiizor.Controls.HopeRoundButton btn_CancelWaitingPlayer;
-        private Label lb_Waiting;
         private GroupBox grb_ClientInfo;
         private ReaLTaiizor.Controls.HopeRoundButton btn_CancelJoinRoom;
         private ReaLTaiizor.Controls.HopeRoundButton btn_Connect;
@@ -3863,5 +3875,7 @@
         private Label label42;
         private Label label10;
         private Label label43;
+        private Label label44;
+        private Label label45;
     }
 }

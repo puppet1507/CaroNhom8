@@ -73,11 +73,15 @@ namespace Caro_Nhom8
                     Two_Button();
                     break;
                 case "Thoát_2":
-                    lb_Notify.Text = "Đối phương đã thoát";
+                    lb_Notify.Text = "Đối phương đã thoát!";
                     One_Button();
                     break;
                 case "UpdateFireBase":
-                    lb_Notify.Text = "Đang tải thông tin lên cơ sở dữ liệu";
+                    lb_Notify.Text = "Đang tải thông tin lên cơ sở dữ liệu...";
+                    One_Button();
+                    break;
+                case "Delete":
+                    lb_Notify.Text = "Xóa tài khoản thành công!";
                     One_Button();
                     break;
                 default:

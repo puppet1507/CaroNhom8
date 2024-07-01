@@ -646,6 +646,7 @@ namespace Caro_Nhom8
                     {
                         nf.Close();
                     }
+                    RenewPlayerInfo();
                     OpenPlayerInfo();
                     isPlayAreaOpen = false;
                 }
@@ -691,6 +692,7 @@ namespace Caro_Nhom8
                         {
                             nf2.Close();
                         }
+                        RenewPlayerInfo();
                         OpenPlayerInfo();
                         isPlayAreaOpen = false;
                     }
@@ -716,6 +718,7 @@ namespace Caro_Nhom8
                 {
                     nf2.Close();
                 }
+                RenewPlayerInfo();
                 OpenPlayerInfo();
                 isPlayAreaOpen = false;
             }
